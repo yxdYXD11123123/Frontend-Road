@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1.下列代码控制台打印出的值分别是多少？
+        function f1() {
+            var user = '二狗子';
+            alert(this.user);  //  undefined  , 单纯的函数中 this指向 Window对象
+            alert(this);   //  window
+        }
+
+        f1();
+
+
+    </script>
+</body>
+
+</html>

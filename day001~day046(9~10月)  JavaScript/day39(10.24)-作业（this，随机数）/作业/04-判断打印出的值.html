@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 4.下列代码控制台打印出的值分别是多少？
+        var a = {
+            user: '二狗子',
+            b: {
+                f1: function () {
+                    alert(this.user);  // undefined  此时this指向的对象是对象b，所以b.user 的值为undefined.
+                }
+            }
+        }
+        a.b.f1();
+
+    </script>
+</body>
+
+</html>

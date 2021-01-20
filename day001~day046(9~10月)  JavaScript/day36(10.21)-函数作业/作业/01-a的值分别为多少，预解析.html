@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1. 输出下列代码a的值分别是多少？并且把预解析的过程写出来
+        var a = 25;  // 作用于全局作用域
+        function abc() {
+            // var  = a 
+            console.log(a);   // undefined, 在函数作用域内，最上层有var =a ,但是没有赋值，所以a为undefined
+            var a = 10;  // 只作用于函数局部作用域。所以将var a=10 分为 var = a 和 a = 10,  将var = a 提升到函数内部最上层 
+        }
+        abc();
+        console.log(a)  // 25 在这步之前，全局作用域中最上层已经定义了var a = 25,所以输出为25
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // 19.有一个从大到小排好序的数组[99，85，82，63，60]，现从页面输入一个数，要求按原来的规律将它插入数组中
+    // 要求，假设你输入的80，则应该插入到82和63之间
+    var arr = [99,85,82,63,60]
+    var a = prompt('请您输入一个数，排入数组中')
+    var time = 0
+    var arrnew = []
+    for (var i=0; i<arr.length; i++)
+    {
+        
+        if (a>arr[i])
+        {
+            if (time>=1)
+            {
+                arrnew.push(arr[i])
+                continue
+            }
+            arrnew[i] = a 
+            i = i - 1
+            time++
+            continue
+        }
+        arrnew[i] = arr[i]
+    }
+    if (a<arr[arr.length-1])
+    {
+        arrnew.push(a)
+    }
+    console.log(arrnew);
+
+
+    </script>
+</body>
+</html>

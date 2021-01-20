@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 8.我们正在玩一个猜数字游戏。 游戏规则如下：
+        // 我从 1 到 100选择一个数字，你需要猜我选择了哪个数字，根据用户输入的数字进行比较，用户有三个输入的机会
+        // 每次你猜错了，我会告诉你这个数字是大了还是小了,如果你猜大了，输出”猜大了”；并且需要用户再次重新输入，如果猜小了，输出”猜小了”；并且需要用户再次重新输入，如果猜对了，则输出“恭喜你，猜对了
+        var rightnumber = prompt('从1-100选择一个数')
+        rightnumber=Number(rightnumber)
+        var time = 3
+        while(true)
+        {
+            if (time <1)
+            {
+                alert('没有机会了')
+                break
+            }
+            var guess = prompt('请输入您所猜的数字')
+            guess = Number(guess)
+            
+             if (rightnumber==guess)
+            {
+                alert('恭喜您，猜对啦')
+                break
+            }
+            else if (rightnumber>guess)
+            {
+                alert('猜小了')
+            }
+            else if (rightnumber<guess)
+            {
+                alert('猜大了')
+            }
+            time--
+        }
+        
+        </script>
+</body>
+</html>

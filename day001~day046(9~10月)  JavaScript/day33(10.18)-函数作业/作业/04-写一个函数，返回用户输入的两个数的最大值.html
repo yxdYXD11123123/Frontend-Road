@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 4. 写一个函数，用户输入任意两个不同数字,返回最后的最大值
+
+        // 分析：先定义一个函数，添加两个形式参数，接受用户输入的不同数字，在函数内使用三元运算符，判断选择最大值，返回最大值
+        
+        //步骤：
+        // 先定义一个函数，添加两个形式参数，接受数字
+        function getMax(num1,num2){
+            // 声明一个变量存储最大值
+            var max ;
+            // 用三元运算符判断，哪个数较大，将较大的数赋值给max
+            num1>num2? max=num1: max=num2;
+            // 返回 最大值
+            return max
+        }
+        // 让用户输入两个数字
+        var num1 = prompt('请您输入第一个数字')
+        var num2 = prompt('请您输入第二个数字')
+        // 显示用户两个数字中的最大值
+        alert(getMax(num1,num2));
+    </script>
+</body>
+</html>

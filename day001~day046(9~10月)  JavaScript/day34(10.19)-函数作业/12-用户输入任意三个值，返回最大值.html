@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 12.写一个函数, 用户输入任意3个数的大小，返回最大值
+
+        // 分析：先定义一个函数，在函数中，for循环参数数组，找出最大值，return最大值
+
+        // 步骤：
+        function getMax(num1,num2,num3)
+        {
+            var max = arguments[0]
+            for (var i=0; i<arguments.length; i++)
+            {
+                if (max<arguments[i])
+                {
+                    max = arguments[i]
+                }
+            }
+            return max
+        }
+        var one = prompt('请您输入第一个数')
+        var two = prompt('请您输入第二个数')
+        var three = prompt('请您输入第三个数')
+        alert(getMax(one,two,three))
+    
+    </script>
+</body>
+</html>

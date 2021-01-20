@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        // 2.输出下列代码a的值分别是多少？并且把预解析的过程写出来
+        var a = 25; // 全局变量
+        function abc() {
+            alert(a);   // 25  因为在函数内部没有定义变量a，所以要从全局作用域中寻找，全局作用域中最上层有var =a ,并且已经被赋值25，所以输出25
+            a = 10;  // 全局变量，因为在全局作用域中，已经var a = 25, 所以这一步是将a重新赋值为10
+        }
+        abc();
+        alert(a)  // 10 因为上一步已经调用了函数adc(), 所以在全局作用域中，a已经重新赋值为10，所以输出为10
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 3.下列代码控制台打印出的值分别是多少？
+        var a = {
+            user: '二狗子',
+            b: {
+                user: '大傻子',
+                f1: function () {
+                    alert(this.user);  // 大傻子 ，this 存在于对象b的方法中，所以指向对象b， 所以b.user = '大傻子'
+                }
+            }
+        }
+        a.b.f1();
+
+
+    </script>
+</body>
+
+</html>

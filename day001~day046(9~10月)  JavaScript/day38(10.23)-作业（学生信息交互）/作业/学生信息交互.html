@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1. 录入6个学生成绩信息， 用数组对象存储学生信息，每个学生拥有的属性是学号，姓名，年龄，成绩，例子如下:
+        // var studentArr = [
+        //     { sId: 1, name: '张三', age: 18, score: 80 }
+        // ]
+        // 根据现有的存储数据, 和用户进行交互, 完成对数据的, 增, 删, 改, 查, 的功能.
+
+        //     交互设计: 提示用户功能选择
+        // 数据处理:
+        // 增删改查局部功能的实现:
+        // 增: 提示用户输入用户名, 程序校验是否有重复的姓名, 如果有就告知已经存在，需要再次重新输入名字，如果没有就添加进数组, 并告知用户添加成功, 弹出输出数组进行校验.
+        //     删: 提示用户输入要删除的用户名, 程序校验是否有该用户名, 如果有就删除, 并返回用户删除成功提醒, 弹出数组校验，如果没有就告知用户该用户不存在，需要重新输入要删除的用户名
+        // 改: 提示用户输入要修改的用户名 程序校验改用户名是否存在 如果有就修改相应索引对应的项, 并告知用户修改成功, 打印校验 如果没有就告知改用户不存在，需要重新输入要删除的用户名
+        // 查: 提示用户输入要查找的用户名 ，所以有就弹出有, 没有就弹出没有.
+        //     全栈12班学员名单操作指南：1：增加用户； 2：删除用户；3：修改用户； 4：查找用户
+        // 请输入操作模块编号：
+        // 请输入要增加学员名称
+        let studentArr = [
+            { sId: 1, name: '张三', age: 18, score: 80 },
+            { sId: 2, name: '李四', age: 19, score: 81 },
+            { sId: 3, name: '王五', age: 20, score: 82 },
+            { sId: 4, name: '赵四', age: 21, score: 83 },
+            { sId: 5, name: '周可', age: 22, score: 84 },
+            { sId: 6, name: '郭六', age: 23, score: 85 }
+        ]
+        let index = prompt('1：增加用户； 2：删除用户； 3：修改用户； 4：查找用户')
+        if (index == 1) {
+            let name = prompt('请您输入用户名')
+            let isHave = false
+            function addStudent(id, name, age, score) {
+                let student1 = new Object();
+                student1.sId = id;
+                student1.name = name;
+                student1.age = age;
+                student1.score = score;
+                studentArr.push(student1)
+            }
+            for (let i = 0; i < studentArr.length; i++) {
+                if (studentArr[i]['name'] == name) {
+                    isHave = true
+                }
+            }
+            if (isHave == false) {
+                let getId = prompt('请继续输入用户学生号');
+                let getage = prompt('请继续输入用户年龄');
+                let getscore = prompt('请继续输入用户成绩');
+                addStudent(getId, name, getage, getscore);
+            }
+            while (isHave === true) {
+                alert('该用户已经存在，需要再次重新输入名字')
+                let name = prompt('请您输入用户名')
+                let isHave = false;
+                for (let i = 0; i < studentArr.length; i++) {
+                    if (studentArr[i]['name'] == name) {
+                        isHave = true
+                    }
+                }
+                if (isHave == false) {
+                    let getId = prompt('请继续输入用户学生号');
+                    let getage = prompt('请继续输入用户年龄'); let getscore = prompt('请继续输入用户成绩');
+                    addStudent(getId, name, getage, getscore);
+                    break;
+                }
+            }
+            alert('用户添加成功')
+            let str = ''
+            for (let j = 0; j < studentArr.length; j++) {
+                str += studentArr[j].name + ' ' + studentArr[j].sId + ' ' + studentArr[j].age + ' ' + studentArr[j].score + '\n'
+            }
+            alert(`${str}`)
+        }
+        else if (index == 2) {
+            let name = prompt('请您输入要删除的用户名')
+            let isHave = false;
+            for (let i = 0; i < studentArr.length; i++) {
+                if (studentArr[i]['name'] == name) {
+                    isHave = true;
+                }
+            }
+            if (isHave == true) {
+                for (let i = 0; i < studentArr.length; i++) {
+                    if (studentArr[i].name == name) {
+                        studentArr.splice(i, 1)
+                    }
+                }
+            }
+            while (isHave == false) {
+                alert('您输入的用户不存在')
+                let name = prompt('请您重新输入用户名')
+                let isHave = false;
+                for (let i = 0; i < studentArr.length; i++) {
+                    if (studentArr[i]['name'] == name) {
+                        isHave = true;
+                    }
+                }
+                if (isHave == true) {
+                    for (let i = 0; i < studentArr.length; i++) {
+                        if (studentArr[i].name == name) {
+                            studentArr.splice(i, 1)
+
+                        }
+                    }
+                    break;
+                }
+            }
+            alert('用户删除成功')
+            let str = ''
+            for (let j = 0; j < studentArr.length; j++) {
+                str += studentArr[j].name + ' ' + studentArr[j].sId + ' ' + studentArr[j].age + ' ' + studentArr[j].score + '\n'
+            }
+            alert(`${str}`)
+        }
+
+        else if (index == 3) {
+            let name = prompt('请您输入要修改的用户名')
+            let isHave = false;
+            for (let i = 0; i < studentArr.length; i++) {
+                if (studentArr[i]['name'] == name) {
+                    isHave = true;
+                }
+            }
+            if (isHave == true) {
+                for (let i = 0; i < studentArr.length; i++) {
+                    if (studentArr[i].name == name) {
+                        let remove = prompt('请选择您要修改的属性编号：1.学生号 2.名字 3.年龄 4.成绩')
+                        if (remove == 1) {
+                            let removeId = prompt('请输入您要修改为的值');
+                            studentArr[i].sId = removeId;
+                        }
+                        else if (remove == 2) {
+                            let removename = prompt('请输入您要修改为的值');
+                            studentArr[i].name = removename;
+                        }
+                        else if (remove == 3) {
+                            let removeage = prompt('请输入您要修改为的值');
+                            studentArr[i].age = removeage;
+                        }
+                        else if (remove == 4) {
+                            let removescore = prompt('请输入您要修改为的值');
+                            studentArr[i].score = removescore;
+                        }
+                    }
+                }
+            }
+            while (isHave == false) {
+                alert('您输入的用户不存在')
+                let name = prompt('请您重新输入用户名')
+                let isHave = false;
+                for (let i = 0; i < studentArr.length; i++) {
+                    if (studentArr[i]['name'] == name) {
+                        isHave = true;
+                    }
+                }
+                if (isHave == true) {
+                    for (let i = 0; i < studentArr.length; i++) {
+                        if (studentArr[i].name == name) {
+                            let remove = prompt('请选择您要修改的属性编号：1.学生号 2.名字 3.年龄 4.成绩')
+                            if (remove == 1) {
+                                let removeId = prompt('请输入您要修改为的值');
+                                studentArr[i].sId = removeId;
+                            }
+                            else if (remove == 2) {
+                                let removename = prompt('请输入您要修改为的值');
+                                studentArr[i].name = removename;
+                            }
+                            else if (remove == 3) {
+                                let removeage = prompt('请输入您要修改为的值');
+                                studentArr[i].age = removeage;
+                            }
+                            else if (remove == 4) {
+                                let removescore = prompt('请输入您要修改为的值');
+                                studentArr[i].score = removescore;
+                            }
+                        }
+                    }
+                    break;
+                }
+            }
+            alert('用户信息修改成功')
+            let str = ''
+            for (let j = 0; j < studentArr.length; j++) {
+                str += studentArr[j].name + ' ' + studentArr[j].sId + ' ' + studentArr[j].age + ' ' + studentArr[j].score + '\n'
+            }
+            alert(`${str}`)
+
+        }
+        else if (index == 4) {
+            let name = prompt('请输入您要查看的用户名');
+            let isHave = false;
+            for (let i = 0; i < studentArr.length; i++) {
+                if (name == studentArr[i].name) {
+                    isHave = true;
+                }
+            }
+            if (isHave == true) {
+                alert('有')
+            }
+            else {
+                alert('没有')
+            }
+        }
+
+    </script>
+</body>
+
+</html>

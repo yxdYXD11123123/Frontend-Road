@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 5. 写一个函数，用户输入任意两个不同数字,返回两个整数的和
+
+        // 分析：先定义一个函数，声明两个形式参数，准备接收实际参数的两个数字，在函数中定义一个变量作为和，将两数相加，然后return和，然后声明两个变量，接收用户输入的数字。最后调用函数，将用户输入的变量填入调用时的实际参数，输出
+
+        // 步骤：
+        // 先定义一个函数，声明两个形式参数，准备接收实际参数的两个数字
+        function getSum(num1,num2)
+        {
+            // 声明一个变量作为总和
+            var sum = num1 + num2;
+            // 返回总和
+            return sum;
+        }
+        // 接收用户输入的数字，并转为数字类型
+        var num1 = Number(prompt('请您输入第一个数字'))
+        var num2 = Number(prompt('请您输入第二个数字'))
+        // 调用函数，填入用户输入的实际参数
+        alert(getSum(num1,num2))
+
+
+    </script>
+</body>
+</html>

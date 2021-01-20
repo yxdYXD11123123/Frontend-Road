@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 5.下列代码控制台打印出的值分别是多少？
+        function f1() {
+            this.user = "二狗子";
+        }
+        var a = new f1();
+        alert(a.user);  // 二狗子   函数 f1 相当于构造函数，a相当于构造函数f1创建出来（new出来）的新对象，所以this指向的是新对象a
+    </script>
+</body>
+
+</html>
