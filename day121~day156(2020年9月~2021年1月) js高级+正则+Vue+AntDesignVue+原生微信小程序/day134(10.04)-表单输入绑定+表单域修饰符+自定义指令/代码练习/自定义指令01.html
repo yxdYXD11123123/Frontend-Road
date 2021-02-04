@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-autofocus>
+
+        <h3 v-haveparams="color">hello vue-3</h3>
+    </div>
+
+    <script src="./lib/vue-3.0.js"></script>
+    <script>
+        let vm = Vue.createApp({
+            data(){
+                return {
+                    color: 'red'
+                }
+            },
+            directives: {
+                autofocus: {
+                    mounted(el) {
+                        console.log(el);
+                        el.focus();
+                    }
+                },
+                // 注意 指令必须小写
+                haveparams: {
+                    mounted(el,binding){
+                        console.log(binding);
+                        el.style.color = binding.value;
+                    }
+                }
+            }
+        }).mount('#app');
+    </script>
+</body>
+</html>

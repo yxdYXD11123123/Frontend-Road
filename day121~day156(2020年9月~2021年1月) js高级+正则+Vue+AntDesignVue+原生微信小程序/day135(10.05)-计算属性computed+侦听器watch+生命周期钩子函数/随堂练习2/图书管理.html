@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        id：<input type="text" :value="bid" disabled>
+        <br>
+        书名：<input type="text" v-model="bname" @keyup.enter="addBook">
+        <button @click="addBook">添加</button>
+        <button @click="saveModify">修改</button>
+        <div class="grid">
+            <table>
+                <thead>
+                    <tr>
+                        <th>编号</th>
+                        <th>名称</th>
+                        <th>时间</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="(item,index) in books" :key="item.id">
+                        <td>{{item.id}}</td>
+                        <td>{{item.name}}</td>
+                        <td>{{item.time}}</td>
+                        <td>
+                            <a href="" @click.prevent="clickModify(item.id)">修改</a>
+                            <span> | </span>
+                            <a href="" @click.prevent="clickRemove(item.id)">删除</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="./lib/vue-3.0.js"></script>
+    <script>
+        let vm = Vue.createApp({
+            data() {
+                return {
+                    books: [],
+                    bname: '',
+                    bid: ''
+                }
+            },
+            created() {
+                this.books = JSON.parse(localStorage.getItem('books') || "[]");
+            },
+            methods: {
+                addBook() {
+                    this.books.push({
+                        name: this.bname,
+                        id: +new Date(),
+                        time: new Date().toLocaleString()
+                    });
+                    // localStorage.setItem('books', JSON.stringify(this.books));
+                    this.bname = '';
+                    this.bid = '';
+                },
+                clickModify(id) {
+                    let book = this.books.filter((value) => {
+                        return value.id == id
+                    })[0];
+                    this.bid = book.id;
+                    this.bname = book.name;
+                },
+                saveModify(id) {
+                    let index = this.books.findIndex((value) => {
+                        return value.id == this.bid
+                    });
+                    this.books.splice(index, 1, { name: this.bname, id: this.bid, time: new Date().toLocaleString() })
+                    this.bname = '';
+                    this.bid = '';
+                },
+                clickRemove(id) {
+                    this.books = this.books.filter((value) => {
+                        return value.id != id;
+                    })
+                }
+            },
+            updated() {
+                localStorage.setItem('books', JSON.stringify(this.books));
+            }
+        }).mount('#app')
+    </script>
+</body>
+
+</html>

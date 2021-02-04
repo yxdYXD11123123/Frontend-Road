@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <p v-cloak>{{name}}</p>
+        <!-- 参数可以获取 事件对象 -->
+        <div @click='handle($event)'>点击</div>
+        <input type="text" v-model='content'>
+    </div>
+
+    <script src="./lib/vue-3.0.js"></script>
+    <script>
+        let vm = Vue.createApp({
+            data() {
+                return {
+                    name: 'dong',
+                    content: ''
+                }
+            },
+            methods: {
+                handle(event) {
+                    console.log(event.target); // div
+                    setInterval(() => {
+                        console.log(this.content);
+                    }, 1000)
+                }
+            }
+        }).mount('#app');
+    </script>
+</body>
+
+</html>

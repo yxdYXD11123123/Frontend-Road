@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .red {
+            color: red;
+        }
+
+        .bolder {
+            font-weight: bolder;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 使用三元运算符控制数组元素添加类名 -->
+        <span :class="[font_red,font_bolder]">ssssss</span>
+    </div>
+    <!-- 引入Vue -->
+    <script src="./lib/vue-3.0.js"></script>
+    <script>
+        let vm = Vue.createApp({
+            data() {
+                return {
+                    font_red: 'red',
+                    font_bolder: 'bolder'
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+
+</html>

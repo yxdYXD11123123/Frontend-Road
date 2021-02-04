@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1 v-show='false'>这是v-show为false</h1>
+        <!-- 结果：<h1 style="display: none;">这是v-show为false</h1> -->
+        <h1 v-show=flag>这里的v-show为flag数据，flag数据为true</h1>
+        <!-- 结果：正常显示 -->
+    </div>
+
+    <script src="./lib/vue-3.0.js"></script>
+    <script>
+        let vm = Vue.createApp({
+            data() {
+                return {
+                    flag: false
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+
+</html>

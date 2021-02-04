@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,
+        body,
+        #app,
+        div {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .light {
+            background-color: pink;
+            color: peru;
+        }
+
+        .dark {
+            background-color: peru;
+            color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div :class="flag?'light':'dark'">
+            <button @click='toggle'>Toggle</button>
+            <h2>iewModel的简写。它本质上就是MVC 的改进版。MVVM 就是将其中的View 的状态和行为抽象化，让我们将视图 UI 和业务逻辑分开。当然这些事 ViewModel 已经帮我们做了，它可以取出
+                Model
+            </h2>
+        </div>
+    </div>
+
+    <script src="./lib/vue-3.0.js"></script>
+    <script>
+        let vm = Vue.createApp({
+            data() {
+                return {
+                    flag: true
+                }
+            },
+            methods: {
+                toggle() {
+                    this.flag = !this.flag
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+
+</html>

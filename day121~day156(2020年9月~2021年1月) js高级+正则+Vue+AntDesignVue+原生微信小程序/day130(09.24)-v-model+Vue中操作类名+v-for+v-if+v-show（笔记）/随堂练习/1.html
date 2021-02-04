@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        {{msg}}
+    </div>
+
+    <script src='../../09-22/随堂练习/lib/vue-3.0.js'></script>
+    <script>
+        let vm = Vue.createApp({
+            data() {
+                return {
+                    msg: '试试'
+                }
+            }
+        }).mount('#app');
+        console.log(vm);  // proxy 代理
+        console.log(vm.$data.msg);
+        console.log(vm.msg);
+        // proxy 中有
+        // [target] 数据存在target中的$data
+        // [handle]
+
+        // 更新数据
+        // 响应式的实现 defineProperty
+        // vue 3.0 响应式的实现 Proxy
+        vm.$data.msg = '不试'
+    </script>
+</body>
+
+</html>

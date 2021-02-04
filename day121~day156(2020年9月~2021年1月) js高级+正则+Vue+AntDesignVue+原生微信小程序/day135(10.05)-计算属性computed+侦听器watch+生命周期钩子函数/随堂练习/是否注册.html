@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <span>用户名：</span>
+        <input type="text" v-model.lazy="uname">
+        <span>{{tip}}</span>
+    </div>
+
+    <script src="./lib/vue-3.0.js"></script>
+    <script>
+        let vm = Vue.createApp({
+            data() {
+                return {
+                    uname: '',
+                    tip: ''
+                }
+            },
+            watch: {
+                uname(newValue, oldValue) {
+
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

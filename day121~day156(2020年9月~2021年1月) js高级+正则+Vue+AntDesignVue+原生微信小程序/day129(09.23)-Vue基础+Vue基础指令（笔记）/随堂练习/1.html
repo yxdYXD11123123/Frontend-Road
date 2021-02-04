@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- M（数据） V（模板） VM（控制器 调度者） -->
+    <!-- 1.写模板 -->
+    <!-- vue是一个渐进式框架：一个页面中，不需要vue的地方可以不用，需要vue才用 -->
+    <!-- 在id为app的div中任何代码都是由vue控制的 -->
+    <div id="app">
+        <!-- {{}} 名称为插值表达式 -->
+        {{msg}}
+    </div>
+
+    <!-- 引入vue库文件 -->
+    <!-- 当页面中引入vue库文件，那么全局对象window中就有了一个Vue的实例对象 -->
+    <script src="./lib/vue-3.0.js"></script>
+
+    <script>
+        // <!-- 2.写数据 -->
+        // 创建一个Vue实例，参数是一个对象，对象中包含一个data方法，用于返回数据，还可以有一个methods对象，用于存储方法
+        let vm = Vue.createApp({
+            data() {
+                return {
+                    msg: 'Hello Vue'
+                }
+            },
+            methods: {}
+        })
+
+        // <!-- 3.写控制器 -->
+        // mount() 作用是把模板和数据渲染成一个有数据的html插入到哪个元素中
+        vm.mount('#app')
+    </script>
+</body>
+
+</html>

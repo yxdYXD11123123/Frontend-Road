@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .red {
+            color: red;
+        }
+
+        .bolder {
+            font-weight: bolder;
+        }
+
+        .bigger {
+            font-size: 60px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 'red'值为true 表示 添加 red，加上引号，就会与数据的red无关
+            bolder（没有加引号，表示数据中来源可以，自己赋值也可以）即使数据值为false，这里的值为true 依然 表示 添加bolder
+            或者像 bigger 这里，用数据中的一个flag布尔值来控制类名是否起作用 -->
+        <span :class="{'red':true, bolder:true, bigger: isBigger}">我是span标签</span>
+        <!-- 渲染结果： <span class="red bolder bigger">我是span标签</span> -->
+    </div>
+
+    <script src="./lib/vue-3.0.js"></script>
+    <script>
+        let vm = Vue.createApp({
+            data() {
+                return {
+                    red: false,
+                    bolder: false,
+                    isBigger: true
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+
+</html>

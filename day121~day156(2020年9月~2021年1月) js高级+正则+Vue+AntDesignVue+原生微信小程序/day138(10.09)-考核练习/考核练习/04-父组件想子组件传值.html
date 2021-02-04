@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <father></father>
+    </div>
+
+    <script src="./lib/vue3.0.global.js"></script>
+    <script>
+        let vm = Vue.createApp({
+            data() {
+                return {
+
+                }
+            }
+        });
+        vm.component('father', {
+            data() {
+                return {
+                    obj: {
+                        name: 'dong',
+                        age: 1
+                    }
+                }
+            },
+            template: `<div class="father"><son :data-from-father="obj"></son></div>`
+        });
+        vm.component('son', {
+            data() {
+                return {}
+            },
+            props: ['dataFromFather'],
+            template: `
+            <div class="son">
+            <h2>{{dataFromFather.name}}</h2>
+            </div>
+            `
+        })
+        vm.mount('#app');
+    </script>
+</body>
+
+</html>

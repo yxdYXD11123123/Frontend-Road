@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+
+        .red {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <h1>{{msg}}</h1>
+        <!-- v-text 相当于innerText，不能解析标签，但是v-text比innerText更安全一些 -->
+        <h1 v-text='msg' v-cloak></h1>
+        <!-- v-html 相当于innerHTML，可以解析标签，可以规避xss攻击 -->
+        <!-- v-cloak 就是来解决闪烁问题的 -->
+        <h1 v-html='msg' v-cloak></h1>
+        <!-- v-bind:标签名='变量'/ :标签名='变量'  就是用来写标签的，因为插值表达式不能写在标签中 -->
+        <a v-bind:title='title' :class='red1'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis
+            mollitia explicabo a
+            odit aliquam ullam
+            dolorum rem consequuntur consectetur temporibus! Quibusdam rerum laboriosam id eaque, ratione beatae
+            possimus fugiat pariatur.</a>
+        <!-- v-on 绑定事件 -->
+        <button v-on:click='clickBtn'>点我看看</button>
+        <!-- 简写 并 传参 -->
+        <button @dblclick='dblclickBtn("袁旭东")'>双击我看看</button>
+    </div>
+
+    <script src="./lib/vue-3.0.js"></script>
+
+    <script>
+        let vm = Vue.createApp({
+            data() {
+                return {
+                    msg: '<p>这是p标签</p>',
+                    title: '文字',
+                    red1: 'red'
+                }
+            },
+            methods: {
+                clickBtn() {
+                    alert('您点击了button')
+                },
+                dblclickBtn(name) {
+                    // this指向元素
+                    alert(name + '双击了button，' + this.red1)
+                }
+            }
+        })
+        vm.mount('#app');
+    </script>
+</body>
+
+</html>

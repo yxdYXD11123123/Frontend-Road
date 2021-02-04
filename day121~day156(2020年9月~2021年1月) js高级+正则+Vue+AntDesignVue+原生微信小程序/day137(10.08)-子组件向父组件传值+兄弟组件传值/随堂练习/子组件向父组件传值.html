@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <father></father>
+    </div>
+
+    <script src="./lib/vue-3.0.js"> </script>
+    <script>
+        let vm = Vue.createApp({
+            data() {
+                return {}
+            },
+            methods: {}
+        });
+        vm.component('father', {
+            data() {
+                return {
+                    dataFromSon: ''
+                }
+            },
+            methods: {
+                fatherF(val) {
+                    console.log('这是父组件的方法');
+                    this.dataFromSon = val;
+                    console.log("拿到来自子组件的数据：-----" + this.dataFromSon);
+                }
+            },
+            template: `
+            <div class="father">
+            <h3>我是父组件</h3>
+            <son @father='fatherF'>
+            </son>
+            </div>
+            `
+        });
+        vm.component('son', {
+            data() {
+                return {
+                    dataToFather: 'yes'
+                }
+            },
+            // $emit触发自定义事件  
+            // 第一个参数是  事件名
+            // 后面的参数是  传递的数据
+            template: `<div class="son" @click="$emit('father',dataToFather)">我是子组件</div>`
+        });
+        vm.mount('#app');
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-model.lazy='name'>
+        <br>
+        <span>{{tips}}</span>
+    </div>
+
+    <script src="./lib/vue-3.0.js"></script>
+    <script>
+        let vm = Vue.createApp({
+            data() {
+                return {
+                    name: '',
+                    tips: ''
+                }
+            },
+            methods: {
+
+            },
+            watch: {
+                name() {
+                    this.tips = '正在检测....'
+                    setTimeout(() => {
+                        if (this.name == 'admin') {
+                            this.tips = '用户名已存在，请更换'
+                        }
+                        else {
+                            this.tips = '用户名可以使用'
+                        }
+                    }, 2000)
+                }
+            }
+        }).mount("#app");
+    </script>
+</body>
+
+</html>

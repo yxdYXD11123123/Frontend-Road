@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="getTarget">
+        <input type="text" @click='clickWho($event), clickWhich("dong",$event)'>
+        <input type="text" @keyup.page-down='onEnter($event)'>
+    </div>
+
+    <script src="./lib/vue-3.0.js"></script>
+    <script>
+        let vm = Vue.createApp({
+            methods: {
+                clickWho(event) {
+                    console.log(event); // 鼠标事件
+                    console.log(event.target); // 事件源
+                },
+                clickWhich(which, $event) {
+                    console.log(which); // dong
+                    console.log(event.target); // 事件源
+                },
+                onEnter($event) {
+                    console.log($event); // KeyboardEvent 键盘事件
+                    console.log(event.target); // 事件源
+                    console.log(event.code); // 键码
+                }
+            }
+        }).mount('#getTarget');
+    </script>
+</body>
+
+</html>

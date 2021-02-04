@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <div class="container">
+            <Cart></Cart>
+        </div>
+    </div>
+    <script src="./lib/vue-3.0.js"></script>
+    <script>
+        let vm = Vue.createApp({});
+        let CartTitle = {
+            props: ['uname'],
+            template: `<div class="title">{{uname}}的商品</div>`
+        };
+        let CartList = {
+            props: ['list'],
+            template: `
+        <div>
+        <div class="item" v-for="(item,index) in list" :key='item.id'>
+            <img :src="item.img" alt="">
+            <div class="name">{{item.name}}  单价：{{item.price}}</div>
+            <div class="change">
+                <button @click='item.num>0?item.num--:null'>-</button>
+                <input type="text" class="num" v-model='item.num'>
+                <button @click='item.num++'>+</button>
+            </div>
+            <div class="del" @click='$emit("removeOne",item.id)'>删除</div>
+        </div>
+        </div>
+            `
+        };
+        let CartTotal = {
+            props: ['list'],
+            template: `
+            <div class="total">
+        <span>总价：{{amount}}</span>
+        <button>结算</button>
+        </div>
+            `,
+            computed: {
+                amount(){
+                    let sum = 0;
+                    this.list.forEach(element => {
+                        sum += element.num * element.price;
+                    });
+                    return sum;
+                }
+            }
+        };
+
+        vm.component("Cart", {
+            data(){
+                return {
+                    uname: 'dong',
+                    list: [
+                        {
+                            id: 1,
+                            name: '彩电',
+                            price: 1200,
+                            img: 'img/a.jpg',
+                            num: 1
+                        },
+                        {
+                            id: 2,
+                            name: '飞碟',
+                            price: 1000,
+                            img: './img/b.jpg',
+                            num: 1
+                        },
+                        {
+                            id: 3,
+                            name: '洗衣机',
+                            price: 800,
+                            img: './img/c.jpg',
+                            num: 1
+                        }
+                    ]
+                }
+            },
+            template: `
+            <div class="cart">
+                <cart-title :uname='uname'></cart-title>
+                <cart-list :list='list' @removeOne='removeProduct'></cart-list>
+                <cart-total :list='list'></cart-total>
+            </div>
+            `,
+            components: {
+                'cart-title': CartTitle,
+                'cart-list': CartList,
+                'cart-total': CartTotal
+            },
+            methods: {
+                removeProduct(id) {
+                    this.list = this.list.filter((element)=>element.id!=id);
+                }
+            }
+        })
+        vm.mount('#app');
+    </script>
+</body>
+</html>

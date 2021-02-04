@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="i in arr">{{i}}</li>
+            <li v-for="j in stars">{{j.name}}</li>
+        </ul>
+    </div>
+
+    <script src="./lib/vue-3.0.js"></script>
+    <script>
+        let vm = Vue.createApp({
+            data() {
+                return {
+                    arr: [1, 2, 3, 4, 5],
+                    stars: [
+                        {
+                            name: '岳云鹏',
+                            age: 32
+                        },
+                        {
+                            name: '郭德纲',
+                            age: 50
+                        },
+                        {
+                            name: '刘谦',
+                            age: 40
+                        }
+                    ]
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+
+</html>

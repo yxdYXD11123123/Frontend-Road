@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <input type="text" v-color="msg">
+    <input type="text">
+  </div>
+
+  <script src="./lib/vue-3.0.js"></script>
+  <script>
+    // 当页面加载时，该元素将获得焦点
+    // (注意: autofocus在移动版Safari上不工作)。
+    // 事实上，只要你在打开这个页面后还没有点击过任何内容
+    // 这个输入框就应该处于聚焦状态
+    let app = Vue.createApp({
+      data() {
+        return {
+          msg: {
+            color: "blue"
+          }
+        }
+      }
+    })
+    // 注册一个全局自定义指令 `v-focus`
+    app.directive('color', {
+      // 当被绑定的元素插入到 DOM 中时……
+      mounted(el, binding) {
+        el.focus();
+        console.log(binding);
+        el.style.backgroundColor = binding.value.color;
+      }
+    })
+
+    app.mount("#app");
+  </script>
+</body>
+
+</html>

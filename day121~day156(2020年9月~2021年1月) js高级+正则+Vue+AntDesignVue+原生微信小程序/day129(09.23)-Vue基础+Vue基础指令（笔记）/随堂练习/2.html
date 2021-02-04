@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <p v-text="name"></p>
+    </div>
+
+    <script src="./lib/vue-3.0.js"></script>
+
+    <script>
+        let vmApp = Vue.createApp({
+            data() {
+                return {
+                    name: 'dong'
+                }
+            },
+            methods: {
+                clickBtn() {
+
+                }
+            }
+        });
+
+        vmApp.mount('#app');
+    </script>
+</body>
+
+</html>

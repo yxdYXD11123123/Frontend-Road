@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <hello></hello>
+        <br>
+        <hello2></hello2>
+    </div>
+
+    <script src="./lib/vue-3.0.js"></script>
+    <script>
+        let hello2 = {
+            data() {
+                return {
+                    info: '我是局部组件2'
+                }
+            },
+            template: `<span>{{info}}</span>`
+        }
+        let vm = Vue.createApp({
+            data() {
+                return {}
+            },
+            methods: {},
+            // 局部组件
+            // 局部组件只能用在注册这个局部组件的组件中使用
+            components: {
+                // 组件名称：{配置项}
+                "hello": {
+                    data() {
+                        return {
+                            info: '我是局部组件'
+                        }
+                    },
+                    template: `<span>{{info}}</span>`
+                },
+                "hello2": hello2
+            }
+        }).mount('#app');
+
+    </script>
+</body>
+
+</html>

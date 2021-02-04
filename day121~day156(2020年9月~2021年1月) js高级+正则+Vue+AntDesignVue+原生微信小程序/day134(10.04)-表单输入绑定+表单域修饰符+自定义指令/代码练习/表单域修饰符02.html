@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-model.number="num">+1= {{num+1}}
+        <br>
+        <!-- 阻止默认行为 -->
+        <a href="http://www.baidu.com" @click.prevent="printTrim">a链接</a>
+        <br>
+        <!-- lazy 让input在change事件之后进行数据同步 -->
+        <input type="text" v-model.lazy='useLazy'> {{useLazy}}
+        <br>
+        <input type="text" v-model.trim='useTrim'>
+    </div>
+
+    <script src="./lib/vue-3.0.js"></script>
+    <script>
+        let vm = Vue.createApp({
+            data() {
+                return {
+                    num: '',
+                    useLazy: '',
+                    useTrim: ''
+                }
+            },
+            methods: {
+                printTrim() {
+                    console.log(this.useTrim);
+                }
+            }
+        }).mount('#app');
+    </script>
+</body>
+
+</html>

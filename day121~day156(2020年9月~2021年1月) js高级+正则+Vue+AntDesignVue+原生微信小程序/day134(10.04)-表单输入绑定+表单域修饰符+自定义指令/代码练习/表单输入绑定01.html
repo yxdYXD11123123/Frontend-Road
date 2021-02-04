@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <div>
+            <p>性别</p>
+            <label for="man">男</label><input type="radio" id="man" value="man" v-model="gender">
+            <label for="woman">女</label> <input type="radio" id="woman" value="woman" v-model='gender'>
+        </div>
+        <div>
+            <p>爱好</p>
+            <label for="lanqiu">篮球</label><input type="checkbox" id="lanqiu" value="篮球" v-model="hobbies">
+            <label for="chouyan">抽烟</label><input type="checkbox" id="chouyan" value="抽烟" v-model="hobbies">
+            <label for="hejiu">喝酒</label><input type="checkbox" id="hejiu" value="喝酒" v-model="hobbies">
+            <label for="tangtou">烫头</label><input type="checkbox" id="tangtou" value="烫头" v-model="hobbies">
+        </div>
+        <div>
+            <p>职业</p>
+            <!-- multiple 多选 -->
+            <select v-model="careers" multiple>
+                <option value="教师">教师</option>
+                <option value="学生">学生</option>
+                <option value="清洁工">清洁工</option>
+            </select>
+        </div>
+        <div>
+            <p>个人简介</p>
+            <textarea cols="30" rows="10" v-model="dio"></textarea>
+        </div>
+        <input type="submit" @click='outPut'>
+    </div>
+
+    <script src="./lib/vue-3.0.js"></script>
+    <script>
+        let vm = Vue.createApp({
+            data() {
+                return {
+                    gender: '',
+                    hobbies: [],
+                    careers: [],
+                    dio: ''
+                }
+            },
+            methods: {
+                outPut() {
+                    console.log(this.gender);
+                    console.log(this.hobbies);
+                    console.log(this.careers);
+                    console.log(this.dio);
+                }
+            }
+        }).mount('#app');
+    </script>
+</body>
+
+</html>

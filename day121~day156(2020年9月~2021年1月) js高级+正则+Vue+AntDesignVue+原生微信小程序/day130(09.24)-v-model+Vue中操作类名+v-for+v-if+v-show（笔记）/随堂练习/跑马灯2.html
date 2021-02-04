@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="pao">
+        <button @click='run'>走起</button>
+        <button>立住</button>
+        <h2>{{msg}}</h2>
+    </div>
+
+    <script src="./lib/vue-3.0.js"></script>
+    <script>
+        let vm = Vue.createApp({
+            data() {
+                return {
+                    msg: '稳住！别浪！我们可以赢！'
+                }
+            },
+            methods: {
+                run() {
+                    setInterval(() => {
+                        let start = this.msg.slice(0, 1);
+                        let end = this.msg.slice(1);
+                        this.msg = end + start
+                        console.log(this.msg);
+                    }, 500)
+                }
+            }
+        }).mount('#pao')
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,113 @@
+table {
+  width: 800px;
+  margin: 0 auto;
+  border-collapse: collapse;
+  margin-bottom: 50px;
+}
+th {
+  font:normal 14px/50px '宋体';
+  color:#666;
+}
+th,td {
+  border:none;
+  text-align: center;
+  border-bottom: 1px dashed #ccc;
+}
+input[type=checkbox] {
+  width: 13px;
+  height: 13px;
+}
+tbody p {
+  position: relative;
+  bottom: 5px;
+}
+tbody .add,tbody .reduce {
+  float: left;
+  width: 20px;
+  height: 20px;
+  border:1px solid #ccc;
+  text-align: center;
+
+}
+tbody input[type=text] {
+  width: 50px;
+  float: left;
+  height: 18px;
+  text-align: center;
+}
+tbody .count-c {
+  width: 98px;
+  margin:0 auto;
+}
+tbody td img {
+  margin-top: 10px;
+}
+tbody td p {
+  margin:10px 0;
+}
+.disabled {
+  color:#ddd;
+  cursor:not-allowed;
+}
+tbody tr:hover {
+  background: rgba(241, 209, 149, 0.945);
+}
+tbody tr.active{
+  background: rgba(241, 209, 149, 0.945);
+}
+tbody td:nth-child(4) {
+  position: relative;
+}
+tbody td:nth-child(4) div {
+  width: 98px;
+  position: absolute;
+  left:50%;
+  transform: translateX(-50%);
+}
+.controls  {
+  width: 790px;
+  margin:10px auto;
+  border:1px solid #ccc;
+  line-height: 50px;
+  padding-left: 10px;
+  position: fixed;
+  bottom: 0px;
+  background: #fff;
+  left:50%;
+  transform: translateX(-50%);
+}
+.controls .del-all,.controls .clear {
+  float: left;
+  margin-right: 50px;
+}
+.controls p {
+  float: right;
+  margin-right: 100px;
+} 
+.controls span {
+  color:red;
+}
+.controls .pay {
+  position: absolute;
+  right: 0;
+  width: 80px;
+  height: 54px;
+  background: red;
+  font:bold 20px/54px '宋体';
+  color:#fff;
+  text-align: center;
+  bottom: -1px;
+}
+.controls .total-price {
+  font-weight: bold;
+}
+.box {
+  width: 800px;
+  height: 300px;
+  background: pink;
+  font:bold 50px/300px  '宋体';
+  text-align: center;
+  color:#666;
+  margin:0 auto;
+  display: none;
+}

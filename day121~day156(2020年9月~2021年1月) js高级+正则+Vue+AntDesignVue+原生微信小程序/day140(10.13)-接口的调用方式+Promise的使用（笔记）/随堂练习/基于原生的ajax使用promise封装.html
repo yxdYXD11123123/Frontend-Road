@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>点我看看</button>
+    <script>
+        let oBtn = document.querySelector('button');
+
+        oBtn.onclick = function () {
+            // 面条式解决回调地狱
+            queryData('http://localhost/data1').then((result) => {
+                console.log(result);
+                return queryData('http://localhost/data2');
+            }).then((result)=>{
+                console.log(result);
+                return queryData('http://localhost/data3');
+            }).then((result)=>{
+                console.log(result);
+            })
+        };
+
+        // 请求，返回一个 promise对象
+        function queryData(url) {
+            let p = new Promise(function (resolve,reject) {
+                let xhr = new XMLHttpRequest();
+                xhr.open('GET', url);
+                xhr.send(null);
+                xhr.onreadystatechange = function () {
+                    if(xhr.readyState!==4) return;
+                    if (xhr.readyState==4 && xhr.status==200) {
+                        resolve(xhr.responseText);
+                    } else {
+                        reject('服务器错误')
+                    }
+                    
+                }
+            });
+            return p;
+        }
+    </script>
+</body>
+</html>

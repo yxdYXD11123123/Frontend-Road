@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <h2 v-redColor>自定义标签v-redColor</h2>
+        <h2 v-color:[whichstyle]="blueColor">自定义标签v-color可传参</h2>
+        <input type="range" min="0" max="60" v-model="fontsize"> 字体大小
+        <p v-size="fontsize">11111111111111111</p>
+    </div>
+
+    <script src="./lib/vue-3.0.js"></script>
+    <script>
+        let vm = Vue.createApp({
+            data() {
+                return {
+                    whichstyle: 'style',
+                    blueColor: "blue",
+                    fontsize: 30
+                }
+            },
+            directives: {
+                redcolor: {
+                    // 在挂载绑定元素的父组件是调用
+                    mounted(el) {
+                        el.style.color = 'red';
+                    }
+                },
+                size: {
+                    // 在包含组件的Vnode及其子组件的Vnode更新后调用
+                    updated(el, binding) {
+                        el.style['font-size'] = binding.value + "px"
+                    }
+                }
+            }
+        });
+        vm.directive("color", {
+            mounted(el, binding) {
+                console.log(binding);
+                el[binding.arg].color = binding.value;
+            }
+        })
+        vm.mount('#app');
+    </script>
+</body>
+
+</html>

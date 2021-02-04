@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <!-- 引入初始化 -->
+  <link rel="stylesheet" href="css/base.css">
+  <!-- 引入购物车样式 -->
+  <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+  <div class="car">
+    <table>
+      <thead>
+        <tr>
+          <th>
+            <input type="checkbox" id="all">全选
+          </th>
+          <th>
+            商品
+          </th>
+          <th>
+            单价
+          </th>
+          <th>
+            商品数量
+          </th>
+          <th>
+            小计
+          </th>
+          <th>
+            操作
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+
+
+      </tbody>
+    </table>
+    <div class="controls clearfix">
+      <a href="javascript:" class="del-all">删除所选商品</a>
+      <a href="javascript:" class="clear">清理购物车</a>
+      <a href="javascript:" class="pay">去结算</a>
+      <p>
+          已经选中<span id="totalCount">0</span>件商品;总价：<span id="totalPrice" class="total-price">0￥</span>
+     </p>
+    </div>
+  </div>
+  <div class="box">
+    购物车空空如也
+  </div>
+    <script src="lib/jquery-1.12.4.js"></script>
+    <script src="js/car.js"></script>
+</body>
+
+</html>

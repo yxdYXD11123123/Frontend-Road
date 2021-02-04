@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+
+        <gg></gg>
+        <cdd></cdd>
+    </div>
+
+    <script src="./lib/vue3.0.global.js"></script>
+    <script src="./lib/mitt-2.1.0.js"></script>
+    <script>
+        let mitter = new mitt();
+        let vm = Vue.createApp({
+            data() {
+                return {}
+            }
+        });
+        vm.component('gg', {
+            data() {
+                return {
+                    msg: ''
+                }
+            },
+            template: `<div class="gg">哥哥组件<input type="text" v-model='msg'></div>`,
+            mounted() {
+                mitter.on('datafromcdd', (val) => {
+                    this.msg = val;
+                })
+            }
+        });
+        vm.component('cdd', {
+            data() {
+                return {
+                    msg: '我来源于弟弟'
+                }
+            },
+            methods: {
+                givegg() {
+                    mitter.emit('datafromcdd', this.msg)
+                }
+            },
+            template: `<div class="cdd" @click='givegg'>弟弟组件</div>`
+        })
+        vm.mount('#app');
+    </script>
+</body>
+
+</html>

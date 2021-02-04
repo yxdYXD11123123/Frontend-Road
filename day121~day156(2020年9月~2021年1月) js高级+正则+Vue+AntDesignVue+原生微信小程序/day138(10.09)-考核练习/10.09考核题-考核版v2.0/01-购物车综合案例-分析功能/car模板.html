@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <!-- 引入初始化 -->
+  <link rel="stylesheet" href="css/base.css">
+  <!-- 引入购物车样式 -->
+  <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+  <div class="car" id="app">
+    <table>
+      <thead>
+        <tr>
+          <th>
+            <input type="checkbox" id="all" @click="clickAll($event)">全选
+          </th>
+          <th>
+            商品
+          </th>
+          <th>
+            单价
+          </th>
+          <th>
+            商品数量
+          </th>
+          <th>
+            小计
+          </th>
+          <th>
+            操作
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr v-for="(item,index) in datas" :key="item.pName">
+          <td>
+            <input type="checkbox" class="checkboxs" @click='clickCheckbox($event,item.pName)'
+              v-bind:title="item.pName">
+          </td>
+          <td>
+            <img :src="item.src">
+            <p>{{item.name}}</p>
+          </td>
+          <td>
+            {{item.price}}￥
+          </td>
+          <td>
+            <div class="count-c clearfix">
+              <!-- // 【功能6：点击减按钮实现数量递减】 -->
+              <a href="javascript:" :class="['reduce', item.count<=1?'disabled':'']"
+                @click='item.count>1?item.count--:item'>-</a>
+              <input type="text" :value="item.count">
+              <!-- // 【功能5：点击加按钮实现数量递增】 -->
+              <a href="javascript:" class="add" @click='item.count++'>+</a>
+            </div>
+          </td>
+          <td>
+            {{item.count*item.price}}￥
+          </td>
+          <td>
+            <a href="javascript:" class="del" @click='clickRemove(item.pName)'>删除</a>
+          </td>
+        </tr>
+        <!-- <tr>
+          <td>
+            <input type="checkbox">
+          </td>
+          <td>
+            <img src="uploads/01.jpg">
+            <p>牛奶</p>
+          </td>
+          <td>
+            20￥
+          </td>
+          <td>
+            <div class="count-c clearfix">
+              <a href="javascript:" class="reduce">-</a>
+              <input type="text" readonly value="2">
+              <a href="javascript:" class="add">+</a>
+            </div>
+          </td>
+          <td>
+            40￥
+          </td>
+          <td>
+            <a href="javascript:" class="del">删除</a>
+          </td>
+
+        </tr>
+        <tr>
+          <td>
+            <input type="checkbox">
+          </td>
+          <td>
+            <img src="uploads/01.jpg">
+            <p>牛奶</p>
+          </td>
+          <td>
+            20￥
+          </td>
+          <td>
+            <div class="count-c clearfix">
+              <a href="javascript:" class="reduce">-</a>
+              <input type="text" readonly value="2">
+              <a href="javascript:" class="add">+</a>
+            </div>
+          </td>
+          <td>
+            40￥
+          </td>
+          <td>
+            <a href="javascript:" class="del">删除</a>
+          </td>
+
+        </tr>
+        <tr>
+          <td>
+            <input type="checkbox">
+          </td>
+          <td>
+            <img src="uploads/01.jpg">
+            <p>牛奶</p>
+          </td>
+          <td>
+            20￥
+          </td>
+          <td>
+            <div class="count-c clearfix">
+              <a href="javascript:" class="reduce">-</a>
+              <input type="text" readonly value="2">
+              <a href="javascript:" class="add">+</a>
+            </div>
+          </td>
+          <td>
+            40￥
+          </td>
+          <td>
+            <a href="javascript:" class="del">删除</a>
+          </td>
+
+        </tr> -->
+
+      </tbody>
+    </table>
+    <div class="controls clearfix">
+      <a href="javascript:" class="del-all" @click="removeChecked">删除所选商品</a>
+      <a href="javascript:" class="clear" @click='removeAll'>清理购物车</a>
+      <a href="javascript:" class="pay" @click="accounts">去结算</a>
+      <p>
+        已经选中<span id="totalCount">{{allNum}}</span>件商品;总价：<span id="totalPrice" class="total-price">{{allPrice}}￥</span>
+      </p>
+    </div>
+  </div>
+  <div class="box">
+    购物车空空如也
+  </div>
+
+  <script src="./lib/vue3.0.global.js"></script>
+  <script>
+    // 数据
+    var datas = [
+      { pName: '牛奶', src: './uploads/01.jpg', price: 10, count: 1 },
+      { pName: '三只松鼠', src: './uploads/02.jpg', price: 30, count: 1 },
+      { pName: '蓝牙播放器', src: './uploads/03.jpg', price: 100, count: 1 },
+      { pName: '大米', src: './uploads/04.jpg', price: 50, count: 1 },
+      { pName: '路由器', src: './uploads/05.jpg', price: 110, count: 1 },
+      { pName: '罐头', src: './uploads/06.jpg', price: 20, count: 1 }
+    ];
+
+
+    // 【功能1：生成表格】
+    let vm = Vue.createApp({
+      data() {
+        return {
+          datas: datas,
+          checkDatas: []
+        }
+      },
+      methods: {
+        clickCheckbox(event, name) {
+          if (event.target.checked) {
+            let product = this.datas.filter((item) => {
+              return item.pName == name;
+            })[0];
+            this.checkDatas.push(product);
+          }
+          else {
+            let index = this.checkDatas.findIndex((item) => {
+              return item.pName == name;
+            });
+            this.checkDatas.splice(index, 1);
+          }
+          // 【功能3：控制全选→点击tbody中的某一个复选框，控制thead中的复选框是否选中】
+          document.querySelector('#all').checked = (this.datas.length == this.checkDatas.length)
+        },
+        // 【功能2：全选→点击thead中的复选框时，tbody中的复选框同步变化】
+        clickAll(event) {
+          let unchecked = document.querySelectorAll('.checkboxs');
+          if (event.target.checked) {
+            for (let i = 0; i < unchecked.length; i++) {
+              if (unchecked[i].checked == false) {
+                unchecked[i].click();
+              }
+            }
+          }
+          else {
+            for (let i = 0; i < unchecked.length; i++) {
+              if (unchecked[i].checked) {
+                unchecked[i].click();
+              }
+            }
+          }
+        },
+        // 【功能7：删除单项】
+        clickRemove(name) {
+          this.datas = this.datas.filter(value => value.pName != name);
+          this.checkDatas = this.checkDatas.filter(value => value.pName != name);
+        },
+        // 【功能8：删除所选项】
+        removeChecked() {
+          let all = document.querySelectorAll('.checkboxs');
+          let allRemove = document.querySelectorAll('.del')
+          for (let i = 0; i < all.length; i++) {
+            if (all[i].checked) {
+              allRemove[i].click()
+            }
+          }
+
+        },
+        // 【功能9：清理购物车】
+        removeAll() {
+          let allRemove = document.querySelectorAll('.del')
+          for (let i = 0; i < allRemove.length; i++) {
+            allRemove[i].click()
+          }
+        },
+        accounts() {
+          alert('总共' + this.allPrice + "元");
+        }
+      },
+      computed: {
+        // 【功能4：封装计算选中的总数量和总价格】
+        allNum() {
+          let sum = 0;
+          for (let i = 0; i < this.checkDatas.length; i++) {
+            sum += this.checkDatas[i].count;
+          }
+          return sum;
+        },
+        allPrice() {
+          let sum = 0;
+          for (let i = 0; i < this.checkDatas.length; i++) {
+            sum += this.checkDatas[i].price * this.checkDatas[i].count;
+          }
+          return sum;
+        }
+      }
+    });
+    vm.mount('#app');
+
+  </script>
+</body>
+
+</html>

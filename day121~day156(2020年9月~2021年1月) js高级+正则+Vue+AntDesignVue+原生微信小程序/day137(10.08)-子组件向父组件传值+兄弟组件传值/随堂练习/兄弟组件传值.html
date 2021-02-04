@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <gg></gg>
+        <cdd></cdd>
+    </div>
+    <script src="./lib/vue-3.0.js"></script>
+    <script src="https://unpkg.com/mitt/dist/mitt.umd.js"></script>
+    <script>
+        let vm = Vue.createApp({
+            data() {
+                return {}
+            }
+        });
+        // 引入 创建事件监听事件的插件mitt
+        let emitter = mitt();
+        vm.component('gg', {
+            data() {
+                return {
+                    datafromgg: '我是来自哥哥的数据'
+                }
+            },
+            methods: {
+                fromgg() {
+                    // 触发事件，传递值
+                    emitter.emit('give', this.$data)
+                }
+            },
+            template: `<div class="gg" @click="fromgg">哥哥组件</div>`
+        })
+        vm.component('cdd', {
+            data() {
+                return {
+                    msg: ''
+                }
+            },
+            // 在生命周期执行到mounted时，开始监听
+            mounted() {
+                // 监听事件，接收值
+                emitter.on('give', (dataFromGg) => {
+                    // 接收数据
+                    console.log(dataFromGg);
+                    this.msg = dataFromGg.datafromgg
+                })
+            },
+            template: ` <div class="cdd">弟弟组件 ----{{msg}}</div>`
+        })
+        vm.mount('#app');
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <button @click="go">走起来</button>
+        <button @click="stop">停下来</button>
+        <p>{{str}}</p>
+    </div>
+</body>
+</html>
+<script src="vue.js"></script>
+<script>
+    const vm = new Vue({
+        el:'#app',
+        data:{
+            str: '你好，世界！Hello World！',
+            // 定义定时器，默认为null
+            timer: null
+        },
+        methods:{
+            // 启动
+            go() {
+                if(this.timer != null) return;
+                this.timer = setInterval(() => {
+                    // 截取第一个字符串
+                    let first1 = this.str.substring(0,1)
+                    // 截取其他字符串
+                    let other1 = this.str.substring(1)
+                    // 把第一个字符串放到末尾
+                    this.str =  other1 + first1
+                }, 300)
+            },
+
+            // 停止
+            stop() {
+                // 清除定时器
+                clearInterval(this.timer)
+                // 把定时器重置为null
+                this.timer = null
+            }
+        }
+    })
+</script>

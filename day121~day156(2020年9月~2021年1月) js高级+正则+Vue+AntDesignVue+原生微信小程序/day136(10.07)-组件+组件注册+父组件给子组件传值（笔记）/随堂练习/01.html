@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #app {
+            width: 500px;
+            height: 500px;
+            background-color: aqua;
+        }
+
+        /* 组件样式要根据模板来 */
+        #app div {
+            background-color: cadetblue;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 根组件 -->
+    <div id="app">
+        {{msg}}
+        <hello-world></hello-world>
+        再来一个
+        <hello-world></hello-world>
+        <hello-world></hello-world>
+    </div>
+
+    <script src="./lib/vue-3.0.js"></script>
+    <script>
+        // 第一步：创建实例
+        let vm = Vue.createApp({
+            data() {
+                return {
+                    msg: '根组件'
+                }
+            },
+            methods: {}
+        })
+        // vm.directive 全局
+        // directives 局部
+
+        // 第二布：创建组件
+        // 要注册组件（component）
+        vm.component('hello-world', {
+            // 组件都有数据域
+            data() {
+                return {
+                    info: '我是全局组件'
+                }
+            },
+            // 组件都有方法
+            methods: {
+                handle() {
+                    this.info = '我是被点击后的全局组件'
+                }
+            },
+            // 组件都有模板
+            template: `<div @click="handle">
+            {{info}}
+            <helloWorld></helloWorld>
+            </div>`
+        })
+        // 驼峰命名组件
+        vm.component('helloWorld', {
+            data() {
+                return {
+                    info: '我是驼峰全局组件'
+                }
+            },
+            methods: {
+                handle() {
+                    this.info = '我是被点击后的驼峰全局组件'
+                }
+            },
+            template: '<div @click="handle">{{info}}</div>'
+        })
+
+        // 第三步：挂载到某个元素上
+        vm.mount("#app");
+    </script>
+</body>
+
+</html>

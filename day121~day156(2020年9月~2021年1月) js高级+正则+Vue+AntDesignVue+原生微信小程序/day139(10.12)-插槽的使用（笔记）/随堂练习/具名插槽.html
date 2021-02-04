@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">  
+        <headerb>
+            <template v-slot:top>我是放入top</template>
+           <span>我被放入插槽</span>
+        </headerb>
+    </div>
+    <script src="./lib/vue-3.0.js"></script>
+    <script>
+        let vm = Vue.createApp({});
+        vm.component('headerb', {
+            template: `
+            <slot name="top">这里是一个插槽</slot>
+            <slot>无名插槽</slot>
+            `
+        });
+        vm.mount('#app');
+    </script>
+</body>
+</html>

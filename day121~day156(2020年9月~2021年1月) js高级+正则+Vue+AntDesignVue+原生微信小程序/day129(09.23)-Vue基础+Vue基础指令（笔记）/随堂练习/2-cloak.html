@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>测试cloak</title>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h1 v-cloak>{{msg}}</h1>
+    </div>
+
+    <script src="./lib/vue-3.0.js"></script>
+
+    <script>
+        let vm = Vue.createApp({
+            data() {
+                return {
+                    msg: '闪烁'
+                }
+            }
+        });
+
+        vm.mount('div')
+    </script>
+</body>
+
+</html>

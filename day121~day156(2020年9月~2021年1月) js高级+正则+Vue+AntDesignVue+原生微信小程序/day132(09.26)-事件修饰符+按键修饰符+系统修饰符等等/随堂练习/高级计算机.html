@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-model='n1'>
+        <select v-model="opt">
+            <option value="+" selected>+</option>
+            <option value="-">-</option>
+            <option value="x">x</option>
+            <option value="/">/</option>
+        </select>
+        <input type="text" v-model='n2'>
+        <span @click='calc'>=</span>
+        <input type="text" disabled v-text='result'>
+    </div>
+
+    <script src="./lib/vue-3.0.js"></script>
+    <script>
+        let vm = Vue.createApp({
+            data() {
+                return {
+                    n1: 0,
+                    n2: 0,
+                    opt: '',
+                    result: 0
+                }
+            },
+            methods: {
+                calc() {
+                    let num1 = parseFloat(this.n1);
+                    let num2 = parseFloat(this.n2);
+                    let opt = this.opt;
+                    console.log(num1, num2, opt);
+                }
+            }
+        }).mount('#app');
+    </script>
+</body>
+
+</html>

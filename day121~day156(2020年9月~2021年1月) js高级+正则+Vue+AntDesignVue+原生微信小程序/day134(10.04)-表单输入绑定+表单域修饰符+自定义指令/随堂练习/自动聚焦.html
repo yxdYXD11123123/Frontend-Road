@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 局部指令 -->
+        <input type="text" v-autofocus v-color='blue'>
+    </div>
+
+    <script src="./lib/vue-3.0.js"></script>
+    <script>
+        // 局部指令
+        let vm = Vue.createApp({
+            data() {
+                return {
+                    msg: {
+                        color: 'yellow'
+                    }
+                }
+            },
+            // 局部组件
+            directives: {
+                autofocus: {
+                    mounted(el) {
+                        el.focus();
+                    }
+                },
+                color: {
+                    mounted(el, binding) {
+                        console.log(binding);
+                        el.style.color = 'red';
+                        el.value = '这个绑定了v-color';
+                    }
+                }
+            }
+        }).mount('#app');
+    </script>
+</body>
+
+</html>

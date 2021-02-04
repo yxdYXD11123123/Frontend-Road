@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+            <!-- for循环遍历arr数据，i 是数组元素， -->
+            <!-- 这里的 :key='item.id' 将数据的id传给Vue内部，
+                帮助Vue在内部处理：根据model变换时，只重新渲染有变动的，而不是全部重新渲染-->
+            <li v-for='item in data' :key='item.id'>{{item.name}}的年龄是{{item.age}}</li>
+        </ul>
+    </div>
+
+    <script src="./lib/vue-3.0.js"></script>
+    <script>
+        let vm = Vue.createApp({
+            data() {
+                return {
+                    data: [
+                        // 这里加id是为了在视图层通过:key 传给Vue内部
+                        {
+                            id: 1,
+                            name: '张三',
+                            age: 2
+                        },
+                        {
+                            id: 2,
+                            name: '李四',
+                            age: 12
+                        },
+                        {
+                            id: 3,
+                            name: '王五',
+                            age: 3
+                        }
+                    ]
+                }
+            }
+        }).mount('#app');
+    </script>
+</body>
+
+</html>

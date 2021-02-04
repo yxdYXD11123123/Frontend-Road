@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>发请求</button>
+    <script>
+        // 原生ajax
+        let oBtn = document.querySelector('button');
+        oBtn.onclick = function () {
+            // 实例化xmlhttprequest对象
+            let xhr = new XMLHttpRequest();
+            console.log(xhr.readyState); // 0
+            // 设置请求方式，和请求地址 
+            xhr.open('get','http://localhost/data1');
+            // 设置请求头（get请求不用设置请求头，但是post必须设置）
+            console.log(xhr.readyState); // 1
+            // 发送请求数据
+            xhr.send(null);
+            // 监听并处理响应
+            xhr.onreadystatechange = function () {
+                console.log(xhr.readyState); // 2  3  4
+                if (xhr.readyState==4 && xhr.status==200) {
+                    console.log(xhr.responseText);
+                }
+            }
+        }
+    </script>
+</body>
+</html>

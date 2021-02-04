@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    table {
+      width: 400px;
+      border: 1px solid #000;
+      border-collapse: collapse;
+      margin: 0 auto;
+    }
+
+    td,
+    th {
+      border: 1px solid #000;
+      text-align: center;
+    }
+
+    input {
+      width: 50px;
+    }
+
+    .search {
+      width: 600px;
+      margin: 20px auto;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="search">
+    按照价格查询: <input type="text" class="start"> - <input type="text" class="end"> <button class="search-price">搜索</button>
+    按照商品名称查询: <input type="text" class="product"> <button class="search-pro">查询</button>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>产品名称</th>
+        <th>价格</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+      </tr> -->
+
+    </tbody>
+  </table>
+
+  <script>
+    let data = [{
+      id: 1,
+      pname: '小米',
+      price: 3999
+    }, {
+      id: 2,
+      pname: 'oppo',
+      price: 999
+    }, {
+      id: 3,
+      pname: '荣耀',
+      price: 1299
+    }, {
+      id: 4,
+      pname: '华为',
+      price: 1999
+    }];
+
+    // 获取元素
+    let tbody = document.querySelector('tbody');
+    let searchBtnA = document.querySelector('.search-price');
+    let searchBtnB = document.querySelector('.search-pro');
+    let minPrice = document.querySelector('.start');
+    let maxPrice = document.querySelector('.end');
+    let keywordsInput = document.querySelector('.product');
+
+    // 渲染方法
+    function render(data) {
+      let str = ''
+      data.forEach(value => {
+        str += `
+        <tr>
+        <td>${value.id}</td>
+        <td>${value.pname}</td>
+        <td>${value.price}</td>
+        </tr>
+        `
+      });
+      tbody.innerHTML = str;
+    }
+    // 初始渲染
+    render(data);
+
+    // 点击搜索
+    searchBtnA.onclick = search;
+    searchBtnB.onclick = search;
+    function search() {
+      let min = minPrice.value ? minPrice.value : 0;
+      let max = maxPrice.value ? maxPrice.value : Infinity;
+      let newData = data.filter((value) => {
+        return value.price >= min && value.price <= max && value.pname.includes(keywordsInput.value);
+      })
+      render(newData);
+    }
+
+
+  </script>
+
+</body>
+
+</html>

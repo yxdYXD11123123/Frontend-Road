@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-model="msg">
+        <span>有{{msg.length}}个字</span>
+    </div>
+
+    <script src="./lib/vue-3.0.js"></script>
+
+    <script>
+        let vm = Vue.createApp({
+            data() {
+                return {
+                    msg: ''
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+
+</html>

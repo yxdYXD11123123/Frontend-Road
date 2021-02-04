@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <form>
+            <!-- lazy 当表单发生事件变化时在进行 view到model -->
+            <input type="text" v-model.lazy='lazy'>
+            <p>{{lazy}}</p>
+
+            <p>转数字</p>
+            <input type="text" v-model.number='num'>
+
+            <p>去空格</p>
+            <input type="text" v-model.trim='useTrim'>
+            <input type="submit" @click.prevent="clickSubmit">
+        </form>
+    </div>
+
+    <script src="./lib/vue-3.0.js"></script>
+    <script>
+        let vm = Vue.createApp({
+            data() {
+                return {
+                    lazy: '',
+                    num: '',
+                    useTrim: ''
+                }
+            },
+            methods: {
+                clickSubmit() {
+                    console.log(this.num + 1);
+                    console.log(this.useTrim);
+                }
+            }
+        }).mount('#app');
+    </script>
+</body>
+
+</html>

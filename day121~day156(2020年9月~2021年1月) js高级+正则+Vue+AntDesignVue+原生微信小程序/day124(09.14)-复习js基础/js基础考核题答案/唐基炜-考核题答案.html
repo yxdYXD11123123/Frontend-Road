@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    //#region 第一题
+    // /**
+    //  *1.
+    //  * 定义数组
+    //  * let arr = [
+    //  *  [11, 11, 22, 33, 44, 55],
+    //  *  [22, 11, 22, 33, 44, 55, 88],
+    //  *  [33, 11, 22, 33, 44],
+    //  *  [44, 11, 22, 44, 55],
+    //  *  [55, 55],
+    //  *  ];
+    //  *
+    //  *  求出和,平均数,数字 11 出现的次数
+    //  *
+    //  */
+    // let arr = [
+    //   [11, 11, 22, 33, 44, 55],
+    //   [22, 11, 22, 33, 44, 55, 88],
+    //   [33, 11, 22, 33, 44],
+    //   [44, 11, 22, 44, 55],
+    //   [55, 55],
+    // ];
+    //  var avg=0;
+    //  var sum=0;
+    //  var num=0;
+    //    for(var i=0;i<arr.length;i++){
+    //      for(var j=0;j<arr[i].length;j++){
+    //        sum+=arr[i][j];
+    //        avg++;
+    //        if(arr[i][j]==11){
+    //    num++;
+    //        }
+    //      }
+    //    }
+    //  console.log(`求出和为${sum},平均数为${sum/avg},数字 11 出现的次数为${num}次`);
+    //#endregion
+
+
+    //#region 第二题
+    // /**
+    //  * 2. 已有数组var nums = [5,10,15],要求创建一个新数组
+    //  *  1.新数组的长度和已知数组相同
+    //  *  2.新数组每个元素的值，是已知对应位置元素的2倍
+    //  *  3.在控制台中打印新数组的所有元素
+    //  */
+
+    // var nums = [5, 10, 15];
+    // var arr=[];
+    // for(var i=0;i<nums.length;i++){
+    //   arr.push(nums[i]*2);
+    // }
+    // console.log(arr);
+    //#endregion
+
+    //#region 第三题
+    //  // 3. 写一个(函数)，实现n的阶层的和求1+2!+3!+...+n!的和
+    //    function getFactorial() {
+    //   var num = +prompt("请输入一个数");
+    //   var sum = 0;
+    //   var jie = 1;
+    //   for (var i = 1; i <= num; i++) {
+    //     jie *= i;
+    //     sum += jie;
+    //   }
+    //   return sum;
+    // }
+
+    // console.log("阶乘和为: " + getFactorial());
+    //#endregion
+
+    //#region 第四题
+    //  // 4. 自定义构造函数，创建一个自己的信息，包含name,age,sex,hobbies(爱好,数组形式),say(方法,想说的一句话)
+    //       function My(name,age,sex,hobbies,say){
+    //         this.name=name;
+    //         this.age=age;
+    //         this.sex=sex;
+    //         this.hobbies=hobbies;
+    //         this.say=say;
+
+    //       }
+    // var myname=new My('张三',18,'男',['吃饭','睡觉','打豆豆'],function(){
+    //   console.log('1111111 ');
+    // })
+    // console.log(myname);
+    //#endregion
+
+    //#region 第五题
+    // // 5. 	输入一个年份判断是否是闰年(能被400整除 或 被4整除同时不能被100整除)
+    // var year=+prompt('请输入一个年份');
+    // if(year%400==0||(year%4==0&&year%100!=0)){
+    //   alert(year+'是一个闰年')
+    // }else{
+
+    //   alert(year+'不是一个闰年')
+    // }
+    //#endregion
+
+    //#region 第六题
+    // /*6.
+    //  *获取地址里面的用户名和年龄和邮箱
+    //  *https://www.baidu.com?username=lisi&age=28&email=120122@qq.com
+    //  *并且控制台输出对象的格式
+    //  *{username:'lisi',age:28,email:120122@qq.com}
+    //  */
+    //  let url ="https://www.baidu.com?username=lisi&age=28&email=120122@qq.com"
+    //  let t = url.split("?");
+    //  let n = t[1].split("&");
+    //  console.log(n);
+    //  let obj = {};
+    //   //隔开name和zs
+    //   for (var i = 0; i < n.length; i++) {
+    //     let key = n[i].split("=")[0];
+    //     //隔开pwd和zs
+    //     let value = n[i].split("=")[1];
+    //     obj[key] = value;
+    //   }
+    //   console.log(obj);
+    //#endregion
+
+    //#region 第七题
+    // /** 7.
+    // * 根据当前时间编写一个函数，做出相应问候语：
+    // *早上8点~12点 “早上好，欢迎登陆系统”
+    // *中午 12点~14点 “中午好，该休息了”
+    // *下午14点~18点 “下午好！欢迎登录系统”
+    // *晚上19点~0点 “晚上好，该休息了”
+    // */
+    // now = new Date(),hour = now.getHours()
+    // if(hour >= 8&&hour<=12){
+    //   document.write("早上好，欢迎登陆系统")
+    // }else if( hour >= 12&&hour<=14){
+    //   document.write("中午好，该休息了")
+    // }else if(hour >= 14&&hour<=18){
+    //   document.write("“下午好！欢迎登录系统”")
+    // }else if( hour >= 19&&hour<=0){
+    //   document.write("“晚上好，该休息了”")
+    // }
+    //#endregion
+
+    //#region 第八题
+    //  // 8. 随机产生一个十六进制的颜色值 ,例如：#90E353
+    //  var colors = ["0","1","2","3","4","5","6","7","8","9","A","B","C","D","E","F"];
+    //       var str = "#";
+    //       for (var i = 0; i < 6; i++) {
+    //         str += colors[parseInt(Math.random() * 16)];
+    //       }
+    //       console.log(str);
+    //#endregion
+
+    //#region 第九题
+    // //  9.  var str = "yuan yuan yuan jiang jiang yong aaaaaaaaaaaaa aaaaaaaaaaaaa odpsospoaioaoaoaoaoao";
+    // // 找字符串里面的最长的单词和单词的长度
+    // var str = "yuan yuan yuan jiang jiang yong aaaaaaaaaaaaa aaaaaaaaaaaaa odpsospoaioaoaoaoaoao";
+    // var arr=str.split(' ');
+    // // console.log(arr);
+    // var max=0;
+    // var word='';
+    // for(var i=0;i<arr.length;i++){
+    //   // console.log(arr[i].length);
+    //   if(arr[i].length>max){
+    //     max=arr[i].length
+    //     word=arr[i]
+    //   }
+
+    // }
+    // console.log(`字符串里面的最长的单词是${word}和单词的长度是${max}`);
+    // /*
+    //#endregion
+
+
+    //#region 第十题
+    // 10. 有一个二维数组，每条数据固定stuid表示学号,name表示姓名,gender表示性别
+    // var students = [
+    //   { stuid: "S01", name: "周夏", gender: "男",score: 86 },
+    //   { stuid: "S02", name: "郑竹", gender: "男",score: 77 },
+    //   { stuid: "S03", name: "吴兰", gender: "女",score: 35},
+    //   { stuid: "S04", name: "李云", gender: "男",score: 56 }
+    // ];
+    // 定义函数getMaxScore,
+    // 要求:接收学生信息二维数组students,函数中找出成绩最高和最低的学生姓名，并将结果返回
+
+    // */
+
+    // var students = [
+    //   { stuid: "S01", name: "周夏", gender: "男", score: 86 },
+    //   { stuid: "S02", name: "郑竹", gender: "男", score: 77 },
+    //   { stuid: "S03", name: "吴兰", gender: "女", score: 35 },
+    //   { stuid: "S04", name: "李云", gender: "男", score: 56 }
+    // ];
+
+    // function getMaxScore(arr) {
+    //   var max = -Infinity;
+    //   var min = Infinity;
+    //   var maxname;
+    //   var minname;
+
+    //   for (var i = 0; i < arr.length; i++) {
+    //     if (arr[i].score > max) {
+    //       max = arr[i].score;
+    //       maxname = arr[i];
+    //     };
+    //     if (arr[i].score < min) {
+    //       min = arr[i].score;
+    //       minname = arr[i];
+    //     };
+    //   }
+    //   var str = `成绩最高的学生姓名是${maxname.name}成绩是${max}和最低的学生姓名${minname.name}成绩是${min}`
+    //   return str
+    // }
+    // console.log(
+    // getMaxScore(students)
+
+    // );
+
+    //#endregion
+  </script>
+
+</body>
+
+</html>

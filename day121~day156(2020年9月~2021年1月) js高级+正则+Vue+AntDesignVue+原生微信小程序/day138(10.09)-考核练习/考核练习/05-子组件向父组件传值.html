@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <father></father>
+    </div>
+    <script src="./lib/vue3.0.global.js"></script>
+    <script>
+        let vm = Vue.createApp({
+            data() {
+                return {}
+            }
+        });
+        vm.component('father', {
+            data() {
+                return {}
+            },
+            methods: {
+                fatherfn(value) {
+                    console.log(value);
+                }
+            },
+            template: `
+            <div class="father">
+            <son @father="fatherfn"></son>
+            </div>
+            `
+        });
+        vm.component('son', {
+            data() {
+                return {
+                    datafromson: '我是子组件'
+                }
+            },
+            template: `
+            <div class="son" @click="$emit('father', datafromson)">我是子组件</div>
+            `,
+        });
+        vm.mount('#app');
+
+    </script>
+</body>
+
+</html>

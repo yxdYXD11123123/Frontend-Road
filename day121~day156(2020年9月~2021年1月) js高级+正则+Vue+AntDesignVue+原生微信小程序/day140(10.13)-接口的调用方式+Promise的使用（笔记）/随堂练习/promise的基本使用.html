@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 从语法上讲，promise是一个对象（构造函数）
+        // 我们使用new来构建一个Promise  Promise的构造函数接收一个参数，是函数，
+        // 并且传入两个参数：resolve，reject
+        // 分别表示异步操作执行成功后的回调函数和异步操作执行失败后的回调函数
+        let p = new Promise(function (resolve, reject) {
+            // resolve 如果是正常的响应，那么就把结果传给resolve
+            // reject 如果是错误的响应，那么就把结果传给reject
+            // 在这里实现异步任务，然后用resolve和reject接收（注意：resolve和reject只能执行一个）
+            setTimeout(() => {
+                let flag = true;
+                if (flag) {
+                    resolve('这是正确的结果');
+                }
+                else {
+                    reject('这是错误的结果');
+                }
+            }, 1000);
+        });
+        // 方式一：获取结果（then获取成功的回调，catch获取失败的回调）
+        p.then(function (result) {
+            console.log(result);
+        }).catch((err) => {
+            console.log(err);
+        })
+        // 方式二：获取结果（默认then中第一个回调函数是成功的回调函数，
+        //            第二个回调函数是失败的回调函数）
+        p.then(function (result) {
+            console.log(result);
+        }, function (err) {
+            console.log(err);
+        })
+
+
+        // 如果你在.then方法中return了结果，
+        // 那么后面的.then可以继续拿到前面.then方法return过来结果
+        p.then(function (result) {
+            return '123';
+        }).then((result) => {
+            console.log(result); // 123
+        })
+
+        // 使用async/await获取结果
+        async function waitwait(params) {
+            let result = await p;
+            console.log(result);
+        }
+        waitwait();
+    </script>
+</body>
+
+</html>

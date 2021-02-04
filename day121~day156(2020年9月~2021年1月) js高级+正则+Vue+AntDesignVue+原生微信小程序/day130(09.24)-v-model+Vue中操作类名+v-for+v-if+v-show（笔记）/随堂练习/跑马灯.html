@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <button @click="run">浪起来</button>
+        <button v-on:click="stop">消停会</button>
+        <h2>{{msg}}</h2>
+    </div>
+
+    <script src="./lib/vue-3.0.js"></script>
+    <script>
+        let that;
+        let vm = Vue.createApp({
+            data() {
+                return {
+                    msg: '稳住，我们能赢！！！',
+                    interId: null
+                }
+            },
+            methods: {
+                // 运动
+                run() {
+                    that = this
+                    // 节流阀
+                    if (this.interId != null) return;
+                    // 这里注意要使用 箭头函数 方便this指向问题
+                    this.interId = setInterval(() => {
+                        let end = this.msg.slice(1);
+                        let start = this.msg.slice(0, 1);
+                        this.msg = end + start;
+                    }, 500);
+                },
+                // 停止
+                stop() {
+                    // 清除定时器
+                    clearInterval(this.interId);
+                    // 配合节流阀
+                    this.interId = null;
+                }
+            }
+        }).mount('#app');
+
+    </script>
+</body>
+
+</html>

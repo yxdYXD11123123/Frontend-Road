@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <div>
+            性别：
+            <br>
+            <input type="radio" v-model="gender" value="男">男
+            <br>
+            <input type="radio" v-model="gender" value="女">女
+        </div>
+        <div>
+            爱好：
+            <br>
+            <input type="checkbox" v-model="hobbies" value="抽烟"> 抽烟
+            <br>
+            <input type="checkbox" v-model="hobbies" value="喝酒"> 喝酒
+            <br>
+            <input type="checkbox" v-model="hobbies" value="烫头"> 烫头
+        </div>
+        <div>
+            职业
+            <br>
+            <select v-model="careers" multiple>
+                <option value="医生">医生</option>
+                <option value="教师">教师</option>
+                <option value="助教">助教</option>
+            </select>
+        </div>
+        <textarea v-model="content" cols="30" rows="10"></textarea>
+        {{content}}
+        <button @click="clickBtn">点击</button>
+    </div>
+
+    <script src="./lib/vue-3.0.js"></script>
+    <script>
+        let vm = Vue.createApp({
+            data() {
+                return {
+                    gender: '',
+                    hobbies: [],
+                    careers: [],
+                    content: ''
+                }
+            },
+            methods: {
+                clickBtn() {
+                    console.log(this.gender);
+                    console.log(this.hobbies);
+                    console.log(this.careers);
+                }
+            }
+        }).mount("#app");
+    </script>
+</body>
+
+</html>

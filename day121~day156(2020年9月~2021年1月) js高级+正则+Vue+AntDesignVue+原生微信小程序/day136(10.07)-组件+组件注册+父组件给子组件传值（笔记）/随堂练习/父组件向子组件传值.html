@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .father {
+            width: 400px;
+            height: 400px;
+            background-color: cyan;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <father></father>
+    </div>
+
+    <script src="./lib/vue-3.0.js"></script>
+    <script>
+        let vm = Vue.createApp({
+            data() {
+                return {}
+            }
+        });
+
+        vm.component('father', {
+            data() {
+                return {
+                    msg: '我来自father',
+                    family: 'home'
+                }
+            },
+            // 在父模板里使用子组件时，给子组件添加属性
+            template: `<h1>father<son :content="'你好'" :msg='msg' :my-family='family'></son></h1>`
+        });
+
+        vm.component('son', {
+            data() {
+                return {}
+            },
+            // 子组件用 props 接收
+            props: ['content', 'msg', "myFamily"],
+            template: `<h2>son {{content}} -- {{msg}} -- {{myFamily}}</h2>`
+        });
+
+        vm.mount('#app');
+    </script>
+</body>
+
+</html>

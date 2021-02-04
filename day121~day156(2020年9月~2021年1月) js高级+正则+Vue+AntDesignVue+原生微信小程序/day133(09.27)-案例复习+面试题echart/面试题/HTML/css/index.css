@@ -1,0 +1,467 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html,body {
+    width: 100%;
+    height: 100%;
+    background-image: url(../img/beijing.png);
+}
+
+.bj-box {
+    width: 100%;
+    height: 100%;
+}
+
+.bj-box .title-box {
+    height: 90px;
+    background: url(../img/title.png) no-repeat center top;
+    background-size: 100% 100px;
+    display: flex;
+    flex-direction:row;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.bj-box .title-box .left {
+    flex: 1;
+    padding-left: 20px;
+    height: 55px;
+}
+
+.title-box .left .danwei {
+    border: 1px solid #41c7e8;
+    display: inline-block;
+    margin-top: 15px;
+    font-size: 12px;
+    margin-right: 5px;
+    color: #6bb6ef;
+}
+
+.left .danwei p {
+    padding: 4px 15px 2px 10px;
+    border-right: 1px solid #0a4770;
+    display: inline-block;
+}
+
+.left .danwei .iconfont {
+    padding-right: 5px;
+    padding-left: 2px;
+}
+
+.bj-box .title-box .title {
+    flex: 2;
+    height: 85px;
+}
+
+.title-box .title h3 {
+    text-align: center;
+    line-height: 85px;
+    letter-spacing: 20px;
+}
+
+.bj-box .title-box .right {
+    flex: 1;
+    height: 55px;
+}
+
+.title-box .right .time {
+    border: 1px solid #41c7e8;
+    display: inline-block;
+    margin-top: 15px;
+    font-size: 12px;
+    color: #6bb6ef;
+    padding: 3px 5px;
+}
+
+.title-box .right .zhi {
+    color: #6bb6ef;
+    display: inline-block;
+    margin: 0 5px;
+}
+
+.right .time p {
+    margin-left: 10px;
+    display: inline-block;
+}
+
+.bj-box .content-box {
+    display: flex;
+    flex-direction:row;
+    height: 100%;
+}
+
+.bj-box .content-box .left-box {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px;
+    height: 113%;
+}
+
+.content-box .left-box .bkgk {
+    flex: 1;
+    background: url(../img/bkgk.png) no-repeat;
+    background-size: 100% 100%;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.left-box .bkgk .title1 {
+    text-align: center;
+    font-size: 12px;
+    margin-top: 7px;
+}
+
+.left-box .bkgk .title2 {
+    text-align: center;
+    margin-top: 20px;
+    color: #15f0eb;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.left-box .bkgk .information {
+    width: 100%;
+    height: 40px;
+    background-color: #01224b;
+    margin-top: 20px;
+    position: relative;
+    color: #15f0eb;
+}
+
+.bkgk .information .iconfont {
+    font-size: 25px;
+    position: absolute;
+    left: 50px;
+    line-height: 40px;
+}
+
+.bkgk .information h4 {
+    display: inline-block;
+    position: absolute;
+    font-size: 15px;
+    left: 90px;
+    line-height: 40px;
+}
+
+.bkgk .information p {
+    display: inline-block;
+    position: absolute;
+    right: 50px;
+    font-size: 20px;
+    line-height: 40px;
+}
+
+.content-box .left-box .classroom {
+    flex: 1;
+    background: url(../img/classroom.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+.left-box .classroom .title {
+    text-align: center;
+    font-size: 12px;
+    margin-top: 6px;
+    color: #fff;
+}
+
+.left-box .classroom .information {
+    height: 40px;
+    border: 1px solid #00c7a9;
+    background-color: #011d33;
+    border-radius: 15px;
+    margin: 20px 10px 0 10px;
+    position: relative;
+    color: #05e8ac;
+}
+
+.classroom .information .ranking {
+    font-size: 23px;
+    position: absolute;
+    left: 20px;
+    line-height: 40px;
+}
+
+.classroom .information h4 {
+    display: inline-block;
+    position: absolute;
+    font-size: 15px;
+    left: 50px;
+    line-height: 40px;
+}
+
+.classroom .information .hits {
+    display: inline-block;
+    position: absolute;
+    right: 50px;
+    font-size: 15px;
+    line-height: 40px;
+    color: #fff;
+}
+
+.classroom .information .num {
+    display: inline-block;
+    position: absolute;
+    right: 20px;
+    font-size: 20px;
+    line-height: 40px;
+}
+
+.bj-box .content-box .zhong-box {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.content-box .zhong-box .statistics {
+    flex: 1;
+    background: url(../img/statistics.png) no-repeat;
+    background-size: 100% 100%;
+    margin-bottom: 19px;
+}
+
+.zhong-box .statistics .title {
+    text-align: center;
+    font-size: 12px;
+    margin-top: 7px;
+    margin-left: 27px;
+    color: #fff;
+}
+
+.zhong-box .statistics p {
+    color: #fff;
+    font-size: 12px;
+    margin: 15px 0 0 25px;
+}
+
+.zhong-box .statistics #main {
+    width: 100%;
+    height: 300px;
+    margin-top: 10px;
+}
+
+.content-box .zhong-box .reci {
+    flex: 1;
+    background: url(../img/reci.png) no-repeat;
+    background-size: 100% 100%;
+    display: flex;
+    flex-direction:row;
+}
+
+.zhong-box .reci .jiaoan {
+    flex: 0 0 182px;
+    background: url(../img/jiaoan.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+.reci .jiaoan .title {
+    text-align: center;
+    font-size: 12px;
+    margin-top: 7px;
+    color: #fff;
+}
+
+.zhong-box .reci .reci-ranking {
+    flex: 1;
+    height: 361px;
+}
+
+.reci .reci-ranking .title {
+    text-align: center;
+    font-size: 12px;
+    margin-top: 7px;
+    color: #fff;
+}
+
+.reci .reci-ranking .information {
+    height: 40px;
+    border: 1px solid #007fc0;
+    background-color: #052147;
+    border-radius: 15px;
+    margin: 20px 10px 0 10px;
+    position: relative;
+    color: #15f0eb;
+}
+
+.reci-ranking .information .ranking {
+    font-size: 17px;
+    position: absolute;
+    left: 20px;
+    line-height: 40px;
+}
+
+.reci-ranking .information h4 {
+    display: inline-block;
+    position: absolute;
+    font-size: 15px;
+    left: 90px;
+    line-height: 40px;
+}
+
+.reci-ranking .information .num {
+    display: inline-block;
+    position: absolute;
+    right: 37px;
+    font-size: 20px;
+    line-height: 40px;
+}
+
+.reci-ranking .information .hits {
+    display: inline-block;
+    position: absolute;
+    right: 20px;
+    font-size: 15px;
+    line-height: 40px;
+    color: #fff;
+}
+
+.bj-box .content-box .right-box {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px;
+    height: 113.3%;
+}
+
+.content-box .right-box .prop {
+    flex: 1;
+    background: url(../img/prop.png) no-repeat;
+    background-size: 100% 100%;
+    margin-bottom: 20px;
+}
+
+.right-box .prop .title {
+    text-align: center;
+    font-size: 12px;
+    margin-top: 7px;
+    margin-left: 25px;
+    color: #fff;
+}
+
+.right-box .prop #main1 {
+    width: 100%;
+    height: 250px;
+}
+
+.right-box .prop .zuzhi {
+    display: flex;
+    flex-direction: row;
+    height: 230px;
+}
+
+.prop .zuzhi .jhzz {
+    flex: 1;
+    position: relative;
+}
+
+.zuzhi .jhzz .title1 {
+    position: absolute;
+    font-size: 12px;
+    color: #15f0eb;
+    left: 55px;
+    top: 10px;
+}
+
+.zuzhi .jhzz #main2 {    
+    height: 180px;
+}
+
+.prop .zuzhi .xxzz {
+    flex: 1;
+    position: relative;
+}
+
+.zuzhi .xxzz .title1 {
+    position: absolute;
+    font-size: 12px;
+    color: #15f0eb;
+    left: 55px;
+    top: 10px;
+    z-index: 10;
+}
+
+.zuzhi .xxzz #main3 {    
+    height: 180px;
+}
+
+.content-box .right-box .bklph {
+    flex: 1;
+    background: url(../img/bklph.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+.right-box .bklph .title {
+    text-align: center;
+    font-size: 12px;
+    margin-top: 6px;
+    margin-left: 29px;
+    color: #fff;
+}
+
+.right-box .bklph .information {
+    height: 40px;
+    border: 1px solid #00c7a9;
+    background-color: #011d33;
+    border-radius: 15px;
+    margin: 20px 10px 0 10px;
+    position: relative;
+    color: #05e8ac;
+}
+
+.bklph .information .ranking {
+    font-size: 20px;
+    position: absolute;
+    left: 20px;
+    line-height: 40px;
+}
+
+.bklph .information .classname {
+    display: inline-block;
+    position: absolute;
+    font-size: 15px;
+    left: 60px;
+    line-height: 40px;
+}
+
+.bklph .information .jh {
+    width: 100px;
+    height: 100%;
+    display: inline-block;
+    position: relative;
+    left: 100px;
+}
+
+.bklph .information .bk {
+    width: 75px;
+    height: 100%;
+    display: inline-block;
+    position: relative;
+    left: 105px;
+}
+
+.bklph .information .bkl {
+    width: 105px;
+    height: 100%;
+    display: inline-block;
+    position: relative;
+    left: 107px;
+}
+
+.information .jh .hits, .information .bk .hits, .information .bkl .hits {
+    display: inline-block;
+    position: absolute;
+    font-size: 15px;
+    line-height: 40px;
+    color: #fff;
+}
+
+.information .jh .num, .information .bk .num, .information .bkl .num {
+    display: inline-block;
+    position: absolute;
+    right: 8px;
+    font-size: 20px;
+    line-height: 40px;
+}

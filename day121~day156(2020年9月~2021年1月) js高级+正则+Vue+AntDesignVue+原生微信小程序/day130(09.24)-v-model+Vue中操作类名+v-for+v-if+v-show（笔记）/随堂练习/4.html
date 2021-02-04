@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <input type="number" class="num1" v-model="num1">
+        <span>+</span>
+        <input type="number" class="num2" v-model="num2">
+        <button @click='Sum'>=</button>
+        <input type="text" disabled :value="sum">
+    </div>
+
+    <script src="./lib/vue-3.0.js"></script>
+    <script>
+        let vm = Vue.createApp({
+            data() {
+                return {
+                    num1: '',
+                    num2: '',
+                    sum: ''
+                }
+            },
+            methods: {
+                Sum() {
+                    this.sum = parseFloat(this.num1) + parseFloat(this.num2)
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+
+</html>

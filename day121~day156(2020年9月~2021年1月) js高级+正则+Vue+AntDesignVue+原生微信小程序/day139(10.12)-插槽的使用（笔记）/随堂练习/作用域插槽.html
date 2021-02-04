@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作用域插槽</title>
+</head>
+<body>
+    <div id="app">
+        <num :list='list'>
+            <!-- 在插槽模板标签中， v-slot:插槽名="给插槽准备的属性(slotProps)" -->
+            <template  v-slot:chacao="slotProps">
+                <!-- slotProps是可以自定义其它名字的，但是一般习惯用slotProps -->
+                <!-- 在插槽模板就可以使用slotProps渲染数据了 -->
+                <strong v-if="slotProps.info.id!=2">{{slotProps.info.name}}</strong>
+                <small v-else>{{slotProps.info.name}}</small>
+            </template>
+        </num>
+    </div>
+    <script src="./lib/vue-3.0.js"></script>
+    <script>
+        let vm = Vue.createApp({
+            data(){
+                return {
+                    list: [
+                        {
+                            id: 1,
+                            name: 'one'
+                        },
+                        {
+                            id: 2,
+                            name: 'two'
+                        },
+                        {
+                            id: 3,
+                            name: 'three'
+                        }
+                    ]
+                }
+            }
+        });
+        // 用一个组件来渲染项目数组
+        vm.component('num', {
+            props: ['list'],
+            // 在 slot标签中 :给slotProps添加的属性="属性值"
+            template: `
+            <ul>
+                <li v-for="(item,index) in list" :key="item.id">
+                    <slot name="chacao" :info="item">{{item.name}}</slot>
+                </li>
+            </ul>
+            `
+        });
+        vm.mount('#app');
+    </script>
+</body>
+</html>

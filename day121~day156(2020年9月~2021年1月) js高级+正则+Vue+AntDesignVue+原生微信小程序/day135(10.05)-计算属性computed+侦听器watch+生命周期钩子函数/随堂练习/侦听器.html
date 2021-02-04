@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-model="word">
+    </div>
+
+    <script src="./lib/vue-3.0.js"></script>
+    <script>
+        let vm = Vue.createApp({
+            data() {
+                return {
+                    word: ''
+                }
+            },
+            // 侦听 (尽可能多用computed 替代 watch)
+            watch: {
+                word: function (newValue, oldValue) {
+                    console.log("新：" + newValue);
+                    console.log("旧：" + oldValue);
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+
+</html>

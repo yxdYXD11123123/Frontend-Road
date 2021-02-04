@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-model="firstname">
+        <input type="text" v-model="lastname">
+        <br>
+        <input type="text" v-model="fullname">
+    </div>
+
+    <script src="./lib/vue-3.0.js"></script>
+    <script>
+        let vm = Vue.createApp({
+            data() {
+                return {
+                    firstname: '',
+                    lastname: ""
+                }
+            },
+            computed: {
+                fullname: {
+                    // getter 获取方法
+                    get() {
+                        return this.firstname + this.lastname;
+                    },
+                    // setter 设置方法
+                    set(val) {
+                        let arr = val.split(' ');
+                        this.firstname = arr[0];
+                        this.lastname = arr[1];
+                    }
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+
+</html>

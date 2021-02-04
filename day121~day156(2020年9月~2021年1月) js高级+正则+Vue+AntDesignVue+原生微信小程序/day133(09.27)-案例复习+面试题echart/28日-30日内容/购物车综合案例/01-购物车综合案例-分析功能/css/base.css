@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color:#666;
+}
+body {
+  background: #fff;
+  color:#666;
+  font-size: 14px;
+}
+input {
+  outline: none;
+}
+.clearfix::before,.clearfix::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+.clearfix {
+  *zoom: 1;
+}

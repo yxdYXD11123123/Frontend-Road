@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <p v-cloak>{{p}}</p>
+
+        <section v-text="section"></section>
+
+        <p v-html='innerhtml'></p>
+
+        <a v-bind:href="aHref">点击到百度</a>
+
+        <div style="background-color: rosybrown;" :title="divTitle">这是带颜色的div</div>
+
+        <button v-on:click='clickBtn'>按钮</button>
+        <input type="text" @blur='inputBlur("")'>
+    </div>
+
+    <script src="./lib/vue-3.0.js"></script>
+
+    <script>
+        let times = 0;
+        let viewModle = Vue.createApp({
+            data() {
+                return {
+                    p: '我是p标签',
+                    section: '<i>我是section标签</i>',
+                    innerhtml: '<i>这是v-html的作用</i>',
+                    aHref: 'http://www.baidu.com',
+                    divTitle: '这是带颜色的盒子'
+                }
+            },
+            methods: {
+                clickBtn() {
+                    console.log('点击了button');
+                },
+                inputBlur() {
+                    times++;
+                    console.log('input失去焦点第' + times + "次");
+                }
+            }
+        });
+
+        viewModle.mount('#app');
+    </script>
+</body>
+
+</html>

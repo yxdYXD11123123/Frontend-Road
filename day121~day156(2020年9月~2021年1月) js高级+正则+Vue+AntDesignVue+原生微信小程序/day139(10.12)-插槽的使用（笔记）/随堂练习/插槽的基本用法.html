@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <headerb>
+            <template v-slot:left>
+                我是插槽插入的left
+            </template>
+            <template v-slot:right>
+                我是插槽插入的right
+            </template>
+            <template v-slot:default>
+                我是传给匿名插槽的
+            </template>
+        </headerb>
+    </div>
+
+    <script src="./lib/vue-3.0.js"></script>
+    <script>
+        let vm = Vue.createApp({});
+        vm.component('headerb', {
+            template: `
+            <slot name="left">我是默认的left</slot> <br>
+            <slot></slot> <br>
+            <slot name="centre">我是默认的centre</slot> <br>
+            <slot></slot> <br>
+            <slot name="right"></slot> <br>
+            `
+        })
+        vm.mount('#app');
+    </script>
+</body>
+</html>

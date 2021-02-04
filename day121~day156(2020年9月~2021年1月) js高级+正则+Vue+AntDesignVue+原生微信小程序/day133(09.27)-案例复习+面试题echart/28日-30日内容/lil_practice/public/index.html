@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>用户列表</title>
+  <link rel="stylesheet" href="./lib/bootstrap-3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container">
+    <h6>
+      <a href="/add.html" class="btn btn-primary">添加用户</a>
+    </h6>
+    <table class="table table-striped table-bordered">
+      <thead>
+        <tr>
+          <th>用户名</th>
+          <th>年龄</th>
+          <th>爱好</th>
+          <th>邮箱</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- <tr>
+          <td>张三</td>
+          <td>20</td>
+          <td>
+            <span>抽烟</span>
+            <span>喝酒</span>
+            <span>烫头</span>
+          </td>
+          <td>zhangsan@itcast.cn</td>
+          <td>
+            <a href="javascript:;" class="btn btn-danger btn-xs">删除</a>
+            <a href="javascript:;" class="btn btn-success btn-xs">修改</a>
+          </td>
+        </tr> -->
+      </tbody>
+    </table>
+    <!-- <button class="page-left"><span class="glyphicon glyphicon-chevron-left"></span></button>
+    <button class="page-right"><span class="glyphicon glyphicon-chevron-right"></span></button> -->
+  </div>
+  <ul class="pager">
+    <!-- <li class="disabled"><a href="#"><span class="glyphicon glyphicon-chevron-left"></span></a></li>
+    <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span></a></li> -->
+  </ul>
+
+  <!-- 修改用户模态框 -->
+  <!-- Modal -->
+  <div class="modal fade" id="modify-modal" tabindex="-1">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+              aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">修改用户信息</h4>
+        </div>
+        <div class="modal-body">
+          <form id="modify-form">
+            <div class="form-group">
+              <label>用户名</label>
+              <input type="text" name="username" class="form-control" placeholder="请填写用户名">
+            </div>
+            <div class="form-group">
+              <label>密码</label>
+              <input type="password" name="password" class="form-control" placeholder="请输入密码">
+            </div>
+            <div class="form-group">
+              <label>年龄</label>
+              <input type="text" name="age" class="form-control" placeholder="请填写年龄">
+            </div>
+            <div class="form-group">
+              <label>邮箱</label>
+              <input type="email" name="email" class="form-control" placeholder="请填写邮箱">
+            </div>
+            <div class="form-group">
+              <label>请选择爱好</label>
+              <div>
+                <label class="checkbox-inline">
+                  <input type="checkbox" name="hobbies" value="足球"> 足球
+                </label>
+                <label class="checkbox-inline">
+                  <input type="checkbox" name="hobbies" value="篮球"> 篮球
+                </label>
+                <label class="checkbox-inline">
+                  <input type="checkbox" name="hobbies" value="橄榄球"> 橄榄球
+                </label>
+                <label class="checkbox-inline">
+                  <input type="checkbox" name="hobbies" value="敲代码"> 敲代码
+                </label>
+                <label class="checkbox-inline">
+                  <input type="checkbox" name="hobbies" value="抽烟"> 抽烟
+                </label>
+                <label class="checkbox-inline">
+                  <input type="checkbox" name="hobbies" value="喝酒"> 喝酒
+                </label>
+                <label class="checkbox-inline">
+                  <input type="checkbox" name="hobbies" value="烫头"> 烫头
+                </label>
+
+              </div>
+            </div>
+            <input type="hidden" name="id">
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+          <button type="button" class="btn btn-primary save-btn">保存</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 引入插件 -->
+  <script src="./lib/jquery/jquery-3.5.1.js"></script>
+  <script src="./lib/artTemplate/template-web.js"></script>
+  <!-- 引入bootstrap使用模态框 -->
+  <script src="./lib/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+  <!-- 数据摸板 -->
+  <script type="text/template" id="template_users">
+    {{each list}}
+    <tr>
+      <td>{{$value.uname}}</td>
+      <td>{{$value.age}}</td>
+      <td>
+        {{each $value.hobbies}}
+          <span>{{$value}}</span>
+        {{/each}}
+      </td>
+      <td>{{$value.email}}</td>
+      <td>
+        <a href="javascript:;" class="btn btn-danger btn-xs delete-btn" data-id="{{$value.uid}}">删除</a>
+        <a href="javascript:;" class="btn btn-success btn-xs modify-btn" data-id="{{$value.uid}}">修改</a>
+      </td>
+    </tr>
+    {{/each}}
+  </script>
+  <!-- 按钮模板 -->
+  <!-- <script type="text/template" id="template_btn">
+
+    <li class="{{pageNum-1<=0?'disabled':''}}"><a href="javascript:;" data-pageNum="{{pageNum-1}}"><span class="glyphicon glyphicon-chevron-left"></span></a></li>
+    <li class="{{pageSum<pageNum+1?'disabled': ''}}"><a href="javascript:;" data-pageNum="{{pageNum+1}}"><span class="glyphicon glyphicon-chevron-right"></span></a></li>
+
+  </script> -->
+
+  <!-- 自己的 -->
+  <script src="./js/index.js"></script>
+</body>
+
+</html>

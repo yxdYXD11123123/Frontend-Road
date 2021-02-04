@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .grid {
+            margin: auto;
+            width: 500px;
+            text-align: center;
+        }
+
+        .grid table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .grid th,
+        td {
+            padding: 10;
+            border: 1px dashed orange;
+            height: 35px;
+            line-height: 35px;
+        }
+
+        .grid th {
+            background-color: orange;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+
+        <div class="grid">
+            <table>
+                <thead>
+                    <tr>
+                        id: <input type="text" v-model='id' disabled>
+                        书名： <input type="text" v-model='bname'>
+                        <button @click='add'>{{addFlag?'添加':'提交'}}</button>
+                    </tr>
+                </thead>
+                <thead>
+                    <tr>
+                        <th>编号</th>
+                        <th>名称</th>
+                        <th>时间</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="(item,index) in datas">
+                        <td>{{item.id}}</td>
+                        <td>{{item.name}}</td>
+                        <td>{{item.time}}</td>
+                        <td>
+                            <a href="#" @click.prevent="modify(item.id)">修改</a>
+                            <span>|</span>
+                            <a href="#" @click.prevent="removeBook(item.id)">删除</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="./lib/vue3.0.global.js"></script>
+    <script>
+        let vm = Vue.createApp({
+            data() {
+                return {
+                    datas: [],
+                    bname: '',
+                    id: '',
+                    addFlag: true
+                }
+            },
+            created() {
+                this.datas = JSON.parse(localStorage.getItem('books') || '[]')
+            },
+            methods: {
+                add() {
+                    if (this.addFlag) {
+                        this.datas.push({
+                            id: +new Date(),
+                            name: this.bname,
+                            time: new Date().toLocaleString()
+                        })
+                    }
+                    else {
+                        let index = this.datas.findIndex(value => value.id == this.id);
+                        this.datas[index].name = this.bname;
+                        this.bname = this.id = '';
+                        this.addFlag = true;
+                    }
+                },
+                modify(id) {
+                    let index = this.datas.findIndex((value) => {
+                        return value.id == id
+                    });
+                    this.bname = this.datas[index].name;
+                    this.id = this.datas[index].id;
+                    this.btn = '提交';
+                    this.addFlag = false;
+                },
+                removeBook(id) {
+                    let index = this.datas.findIndex((value) => {
+                        return value.id == id
+                    });
+                    this.datas.splice(index, 1);
+                }
+            },
+            updated() {
+                localStorage.setItem('books', JSON.stringify(this.datas));
+            }
+        }).mount('#app');
+    </script>
+</body>
+
+</html>

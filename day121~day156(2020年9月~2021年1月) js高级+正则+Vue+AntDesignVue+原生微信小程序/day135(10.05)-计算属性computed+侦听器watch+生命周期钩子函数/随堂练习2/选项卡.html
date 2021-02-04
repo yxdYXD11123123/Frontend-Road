@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .currentTitle {
+            color: aqua;
+        }
+
+        .tab div {
+            display: none;
+        }
+
+        div.currentContent {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="tab">
+            <ul>
+                <li v-for="(item,index) in aList" :key="item.id" :class="[index==currentIndex?'currentTitle':'']"
+                    @click="clickLi(index)">
+                    {{item.title}}</li>
+            </ul>
+            <div v-for="(item,index) in aList" :key="item.id" :class="[index==currentIndex?'currentContent':'']">
+                {{item.font}}
+            </div>
+        </div>
+
+    </div>
+    <script src="./lib/vue-3.0.js"></script>
+    <script>
+        let vm = Vue.createApp({
+            data() {
+                return {
+                    aList: [
+                        {
+                            id: 1,
+                            title: 'apple',
+                            font: " one two three four five"
+                        },
+                        {
+                            id: 2,
+                            title: 'o apple',
+                            font: "five one two three four "
+                        },
+                        {
+                            id: 3,
+                            title: 'f apple',
+                            font: "four one two three  five"
+                        },
+                        {
+                            id: 4,
+                            title: 'k apple',
+                            font: "three one two  four five"
+                        },
+                    ],
+                    currentIndex: 0
+                }
+            },
+            methods: {
+                clickLi(index) {
+                    this.currentIndex = index;
+                }
+            }
+        }).mount("#app");
+    </script>
+</body>
+
+</html>

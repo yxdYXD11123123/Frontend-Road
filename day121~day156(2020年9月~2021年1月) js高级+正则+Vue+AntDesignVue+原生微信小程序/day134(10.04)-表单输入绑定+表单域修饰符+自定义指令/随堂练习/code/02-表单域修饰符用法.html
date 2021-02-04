@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 如果想自动将用户的输入值转为数值类型，可以给 v-model 添加 number 修饰符 -->
+    <!-- <input type="text" id="age" v-model.number="age"> -->
+    <!-- <input type="text" v-model.trim="str"> -->
+    <input type="text" v-model.lazy="str">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <p>{{str}}</p>
+    <button @click='handleInput'>点击</button>
+  </div>
+
+  <script src="./lib/vue-3.0.js"></script>
+  <script>
+    let app = Vue.createApp({
+      data() {
+        return {
+          age: '',
+          str: ''
+        }
+      },
+      methods: {
+        handleInput() {
+          console.log(this.age + 1);
+          console.log(this.str);
+        }
+      }
+    }).mount('#app')
+  </script>
+</body>
+
+</html>

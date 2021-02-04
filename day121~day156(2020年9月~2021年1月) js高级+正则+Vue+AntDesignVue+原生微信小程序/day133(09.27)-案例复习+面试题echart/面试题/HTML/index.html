@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数据统计</title>
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/iconfont.css">
+    <script src="./js/echarts.min.js"></script>
+</head>
+<body>
+    <div class="bj-box">
+        <div class="title-box">
+            <div class="left">
+                <div class="danwei">
+                    <p>单位选择</p>
+                    <i class="iconfont iconsanjiaoxing"></i>
+                </div>
+                <div class="danwei">
+                    <p>岗位选择</p>
+                    <i class="iconfont iconsanjiaoxing"></i>
+                </div>
+                <div class="danwei">
+                    <p>点位选择</p>
+                    <i class="iconfont iconsanjiaoxing"></i>
+                </div>
+            </div>
+            <div class="title">
+                <h3>数据统计</h3>
+            </div>
+            <div class="right">
+                <div class="time">
+                    <i class="iconfont iconic_calendar"></i>
+                    <p>2020-01-01</p>
+                </div>
+                <p class="zhi">至</p>
+                <div class="time">
+                    <i class="iconfont iconic_calendar"></i>
+                    <p>2020-090-09</p>
+                </div>
+            </div>
+        </div>
+        <div class="content-box">
+            <div class="left-box">
+                <div class="bkgk">
+                    <div class="title1">备课概况</div>
+                    <div class="title2">备课情况</div>
+                    <div class="information">
+                        <i class="iconfont iconjihua"></i>
+                        <h4>总计划数</h4>
+                        <p>64192</p>
+                    </div>
+                    <div class="information">
+                        <i class="iconfont iconxueshimao"></i>
+                        <h4>经常性教育计划数</h4>
+                        <p>64192</p>
+                    </div>
+                    <div class="information">
+                        <i class="iconfont iconthin-_book_writi"></i>
+                        <h4>其他教育计划数</h4>
+                        <p>64192</p>
+                    </div>
+                    <div class="information">
+                        <i class="iconfont iconshu"></i>
+                        <h4>总备课数</h4>
+                        <p>64192</p>
+                    </div>
+                </div>
+                <div class="classroom">
+                    <div class="title">最受欢迎教室TOP10</div>
+                    <div class="information">
+                        <p class="ranking">1</p>
+                        <h4>把握特点规律</h4>
+                        <p class="hits">点击量：</p>
+                        <p class="num">56</p>
+                    </div>
+                    <div class="information">
+                        <p class="ranking">2</p>
+                        <h4>把握特点规律</h4>
+                        <p class="hits">点击量：</p>
+                        <p class="num">56</p>
+                    </div>
+                    <div class="information">
+                        <p class="ranking">3</p>
+                        <h4>把握特点规律</h4>
+                        <p class="hits">点击量：</p>
+                        <p class="num">56</p>
+                    </div>
+                    <div class="information">
+                        <p class="ranking">4</p>
+                        <h4>把握特点规律</h4>
+                        <p class="hits">点击量：</p>
+                        <p class="num">56</p>
+                    </div>
+                    <div class="information">
+                        <p class="ranking">5</p>
+                        <h4>把握特点规律</h4>
+                        <p class="hits">点击量：</p>
+                        <p class="num">56</p>
+                    </div>
+                </div>
+            </div>
+            <div class="zhong-box">
+                <div class="statistics">
+                    <div class="title">计划数与备课数统计</div>
+                    <p>各单位计划数与备课数</p>
+                    <div id="main"></div>
+                </div>
+                <div class="reci">
+                    <div class="jiaoan">
+                        <div class="title">教案热词</div>
+                    </div>
+                    <div class="reci-ranking">
+                        <div class="title">热词排行</div>
+                        <div class="information">
+                            <p class="ranking">6</p>
+                            <h4>网络</h4>
+                            <p class="num">64</p>
+                            <p class="hits">次</p>
+                        </div>
+                        <div class="information">
+                            <p class="ranking">7</p>
+                            <h4>安全</h4>
+                            <p class="num">62</p>
+                            <p class="hits">次</p>
+                        </div>
+                        <div class="information">
+                            <p class="ranking">8</p>
+                            <h4>青春</h4>
+                            <p class="num">64</p>
+                            <p class="hits">次</p>
+                        </div>
+                        <div class="information">
+                            <p class="ranking">9</p>
+                            <h4>荣誉</h4>
+                            <p class="num">64</p>
+                            <p class="hits">次</p>
+                        </div>
+                        <div class="information">
+                            <p class="ranking">10</p>
+                            <h4>健康</h4>
+                            <p class="num">64</p>
+                            <p class="hits">次</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="right-box">
+                <div class="prop">
+                    <div class="title">各类计划类型占比</div>
+                    <div id="main1"></div>
+                    <div class="zuzhi">
+                        <div class="jhzz">
+                            <div class="title1">所有计划组织形式</div>
+                            <div id="main2"></div>
+                        </div>
+                        <div class="xxzz">
+                            <div class="title1">所有计划组织形式</div>
+                            <div id="main3"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bklph">
+                    <div class="title">备课率排行</div>
+                    <div class="information">
+                        <p class="ranking">1</p>
+                        <p class="classname">3班</p>
+                        <div class="jh">
+                            <p class="hits">计划：</p>
+                            <p class="num">2709</p>
+                        </div>
+                        <div class="bk">
+                            <p class="hits">备课：</p>
+                            <p class="num">59</p>
+                        </div>
+                        <div class="bkl">
+                            <p class="hits">备课率：</p>
+                            <p class="num">0.02</p>
+                        </div>
+                    </div>
+                    <div class="information">
+                        <p class="ranking">9</p>
+                        <p class="classname">4班</p>
+                        <div class="jh">
+                            <p class="hits">计划：</p>
+                            <p class="num">2709</p>
+                        </div>
+                        <div class="bk">
+                            <p class="hits">备课：</p>
+                            <p class="num">59</p>
+                        </div>
+                        <div class="bkl">
+                            <p class="hits">备课率：</p>
+                            <p class="num">0.02</p>
+                        </div>
+                    </div>
+                    <div class="information">
+                        <p class="ranking">10</p>
+                        <p class="classname">7班</p>
+                        <div class="jh">
+                            <p class="hits">计划：</p>
+                            <p class="num">2709</p>
+                        </div>
+                        <div class="bk">
+                            <p class="hits">备课：</p>
+                            <p class="num">59</p>
+                        </div>
+                        <div class="bkl">
+                            <p class="hits">备课率：</p>
+                            <p class="num">0.02</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./js/index-shu.js"></script>
+    <script src="./js/index-bing1.js"></script>
+    <script src="./js/index-bing2.js"></script>
+    <script src="./js/index-bing3.js"></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        computed结果：{{result}}
+        <br>
+        <input type="text" v-model="textone">
+        之前是 --{{textoneA}}--，现在是--{{textone}}--
+        <br>
+        <input type="text" v-model="texttwo">
+        <br>
+        之前合起来是 --{{resultByMethod()}}--
+    </div>
+
+    <script src="./lib/vue-3.0.js"></script>
+    <script>
+        let vm = Vue.createApp({
+            data() {
+                return {
+                    textone: '',
+                    texttwo: '',
+                    textoneA: ''
+                }
+            },
+            methods: {
+                resultByMethod() {
+                    return this.textoneA + this.texttwo
+                }
+            },
+            computed: {
+                result() {
+                    return this.textone + this.texttwo
+                }
+            },
+            watch: {
+                textone(newValue, oldValue) {
+                    this.textoneA = oldValue;
+                }
+            }
+        }).mount("#app");
+    </script>
+</body>
+
+</html>
