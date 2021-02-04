@@ -1,0 +1,105 @@
+{{extend './common/layout.html'}}
+
+{{block 'title'}}Blog - Content Manager{{/block}}
+
+{{block 'main'}}
+
+<div class="main">
+    <!-- 分类标题 -->
+    <div class="title">
+        <h4>文章</h4>
+        <span>找到1篇文章</span>
+        <a href="/article/showAdd" class="btn btn-primary new">发布新文章</a>
+    </div>
+    <!-- /分类标题 -->
+    <!-- 内容列表 -->
+    <table class="table table-striped table-bordered table-hover custom-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>标题</th>
+                <th>发布时间</th>
+                <th>作者</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- <tr>
+                <td>5b9a716cb2d2bf17706bcc0a</td>
+                <td>JavaScript基础一：基本介绍</td>
+                <td>2020-12-23</td>
+                <td>黑马讲师</td>
+                <td>
+                    <a href="/article/edit" class="glyphicon glyphicon-edit"></a>
+                    <i class="glyphicon glyphicon-remove" data-toggle="modal" data-target=".confirm-modal"></i>
+                </td>
+            </tr> -->
+        </tbody>
+    </table>
+    <!-- /内容列表 -->
+    <!-- 分页 -->
+    <ul class="pagination">
+        <!-- <li>
+            <a href="#">
+                <span>&laquo;</span>
+            </a>
+        </li>
+        <li><a href="#">1</a></li>
+        <li>
+            <a href="#">
+                <span>&raquo;</span>
+            </a>
+        </li> -->
+    </ul>
+    <!-- /分页 -->
+</div>
+
+{{/block}}
+
+{{block 'deleteconfirm'}}
+
+{{include './common/delete-confirm.html'}}
+
+{{/block}}
+
+{{block 'script'}}
+<script src="/lib/moment/moment-2.24.0.js"></script>
+<!-- tbody模板 -->
+<script type="text/template" id="table_template">
+    {&each records&}
+    <tr>
+        <td>{&$value._id&}</td>
+        <td>{&$value.title&}</td>
+        <td>{&$value.publishDate&}</td>
+        <td>{&$value.author.username&}</td>
+        <td>
+            <a href="/article/showEditArticle?articleid={&$value._id&}" class="glyphicon glyphicon-edit modify-btn" data-id="{&$value._id&}"></a>
+            <i class="glyphicon glyphicon-remove" data-toggle="modal" data-target=".confirm-modal" data-id="{&$value._id&}"></i>  
+        </td>
+    </tr>
+    {&/each&}
+</script>
+
+<!-- 分页模板 -->
+<script type="text/template" id="page_template">
+    <!-- 上一页按钮 -->
+<li class="{&page<=1?'disabled':''&}" data-pagenum="{&page-1&}">
+    <a href="javascript:;">
+        <span>&laquo;</span>
+    </a>
+</li>
+
+{&each display&}
+<li data-pagenum="{&$value&}"><a href="javascript:;">{&$value&}</a></li>
+{&/each&}
+<!-- 下一页按钮 -->
+<li class="{&page>=pages?'disabled':''&}" data-pagenum="{&page+1&}">
+    <a href="javascript:;">
+        <span>&raquo;</span>
+    </a>
+</li>
+
+</script>
+
+<script src="/js/article.js"></script>
+{{/block}}

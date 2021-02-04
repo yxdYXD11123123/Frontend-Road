@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <title>Sign in 登录页 &laquo; Admin</title>
+  <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="/lib/bootstrapValidator/css/bootstrapValidator.min.css">
+  <link rel="stylesheet" href="/css/admin.css">
+
+</head>
+
+<body>
+  <div class="login">
+    <form class="login-wrap" id="login-form">
+      <img class="avatar" src="/img/default.png">
+      <!-- 有错误信息时展示 -->
+      <!-- <div class="alert alert-danger">
+        <strong>错误！</strong> 用户名或密码错误！
+      </div> -->
+      <div class="form-group">
+        <label for="email" class="sr-only">邮箱</label>
+        <input id="email" type="email" name="email" class="form-control" placeholder="邮箱" autofocus>
+      </div>
+      <div class="form-group">
+        <label for="password" class="sr-only">密码</label>
+        <input id="password" type="password" name="password" class="form-control" placeholder="密码">
+      </div>
+      <button class="btn btn-primary btn-block" id="login-button">登 录</button>
+    </form>
+  </div>
+  <script src="/lib/jquery/jquery.min.js"></script>
+  <script src="/lib/bootstrapValidator/bootstrapValidator.min.js"></script>
+  <script src="/lib/bootstrapValidator/language/zh_CN.js"></script>
+  <script src="/js/adminLogin.js"></script>
+</body>
+
+</html>

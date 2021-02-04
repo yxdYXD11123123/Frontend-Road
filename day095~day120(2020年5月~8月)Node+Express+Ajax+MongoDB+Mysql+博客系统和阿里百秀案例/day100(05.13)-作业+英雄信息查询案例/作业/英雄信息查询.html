@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Document</title>
+  <style>
+    body {
+      background-color: black;
+    }
+
+    .hero {
+      display: block;
+      margin: 0 auto;
+      padding: 0px;
+      font-size: 16px;
+      width: 400px;
+      height: 36px;
+      border-radius: 18px;
+      outline: none;
+      border: 1px solid #593f08;
+      text-indent: 15px;
+      background-color: rgba(89, 63, 8, 0.4);
+      color: #d0b886;
+    }
+
+    .bg {
+      width: 1144px;
+      height: 635px;
+      margin: 10px auto;
+      background: url('images/yangpi_bg02.png') no-repeat;
+    }
+
+    .bg .left {
+      width: 450px;
+      height: 580px;
+      float: left;
+      margin-left: 56px;
+      position: relative;
+    }
+
+    .left span {
+      color: white;
+    }
+
+    .name_con {
+      margin-top: 305px;
+      font-size: 16px;
+      color: #593f08;
+      font-family: '楷体';
+      font-weight: bold;
+      line-height: 29px;
+    }
+
+    .showname {
+      position: absolute;
+      left: 100px;
+      top: 131px;
+      width: 240px;
+      line-height: 60px;
+      text-align: center;
+      font-size: 30px;
+      color: #593f08;
+      font-weight: bold;
+    }
+
+    .left .name {
+      font-size: 16px;
+      color: #593f08;
+      font-family: '楷体';
+      font-weight: bold;
+      line-height: 29px;
+    }
+
+    .title_con {
+      font-size: 16px;
+      color: #593f08;
+      font-family: '楷体';
+      font-weight: bold;
+      line-height: 29px;
+    }
+
+    .left .title {
+      font-size: 16px;
+      color: #593f08;
+      font-family: '楷体';
+      font-weight: bold;
+      line-height: 29px;
+    }
+
+    .story_con {
+      margin: 0px;
+      font-size: 16px;
+      color: #593f08;
+      font-family: '楷体';
+      font-weight: bold;
+      line-height: 29px;
+      width: 460px;
+      height: 200px;
+      overflow: auto;
+    }
+
+    .left .story {
+      font-size: 16px;
+      color: #593f08;
+      font-family: '楷体';
+      font-weight: bold;
+      line-height: 29px;
+    }
+
+    .right {
+      width: 547px;
+      height: 560px;
+      float: right;
+      margin: 32px 42px 0 0;
+      border: 2px solid #593f08;
+      /* background-image: url(http://img1.dwstatic.com/lol/1512/315320556654/1451366974753.jpg); */
+      background-position: right top;
+      background-repeat: no-repeat;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 
+  <img class="icon" src="http://img.dwstatic.com/lol/1310/246295394773/1382341114833.png" alt="" />
+ -->
+
+
+  <input type="text" class="hero" placeholder="输入英雄按下回车查询" />
+
+  <div class="bg">
+    <div class="left">
+      <!-- 下面的信息是根据服务端响应的数据进行生成的 -->
+
+    </div>
+
+    <div class="right">
+
+    </div>
+
+  </div>
+
+  <script src="./libs/jquery-1.12.4.min.js"></script>
+  <script src="./js/ajaxTools.js"></script>
+  <script>
+    // 给input绑定键盘事件
+    $(".hero").on("keydown", function (e) {
+      // 让回车键来触发
+      if (e.keyCode == 13) {
+        // 获取用户输入的名字
+        let heroName = $(".hero").val();
+        // 使用自己封装的ajax工具函数
+        //   ajax({
+        //     url: "https://autumnfish.cn/api/hero/info",
+        //     data: {
+        //       name: heroName
+        //     },
+        //     success: function (data) {
+        //       // console.log(data);
+        //       // 如果返回的参数不是下面这两句，说明返回了正确的英雄信息
+        //       if (data != "没有找到，是不是名字写错了啊" && data != "name参数没有传递哦") {
+        //         // 返回的是json对象，我们需要解析一下
+        //         let dataObj = JSON.parse(data);
+        //         console.log(dataObj);
+        //         // 设置右边的背景图
+        //         $(".right").css({
+        //           backgroundImage: `url(${dataObj.bg})`
+        //         })
+        //         // 设置左边内容
+        //         $(".left").html(`
+        // <div class="showname">${dataObj.name}</div>
+        // <div class="name name_con">名称：${dataObj.name}</div>
+        // <div class="title title_con">外号：${dataObj.title}</div>
+        // <div class="story story_con">简介：${dataObj.story}</div>
+        //         `)
+        //       }
+        //     }
+        //   })
+
+        // 使用jquery的函数
+        $.ajax({
+          type: "get",
+          url: "https://autumnfish.cn/api/hero/info",
+          data: {
+            name: heroName
+          },
+          success: function (data) {
+            // 如果返回的数据是对象，说明返回了正确的英雄信息
+            if (typeof data == "object") {
+              // 设置右边的背景图
+              $(".right").css({
+                backgroundImage: `url(${data.bg})`
+              })
+              // 设置左边内容
+              $(".left").html(`
+            <div class="showname">${data.name}</div>
+            <div class="name name_con">名称：${data.name}</div>
+            <div class="title title_con">外号：${data.title}</div>
+            <div class="story story_con">简介：${data.story}</div>
+                    `)
+            }
+          }
+        })
+      }
+
+    })
+  </script>
+</body>
+
+</html>

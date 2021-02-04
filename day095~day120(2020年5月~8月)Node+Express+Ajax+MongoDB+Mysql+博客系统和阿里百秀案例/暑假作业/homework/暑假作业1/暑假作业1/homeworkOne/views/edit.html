@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bootstrap 101 Template</title>
+
+  <!-- Bootstrap -->
+  <link href="./lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!--
+      HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries
+    -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  <style>
+    .wrap {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: url('images/bg03.jpg') center bottom no-repeat;
+      overflow: auto;
+    }
+
+    .navbar-brand {
+      padding: 10px 15px;
+    }
+
+    .page-title {
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .file-input {
+      outline: none;
+      display: inline-block;
+      margin-top: 5px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-horizontal {
+      margin-top: 10px;
+    }
+
+    .logout {
+      font-weight: 900;
+      font-size: 20px;
+      color: #ff0000;
+      text-decoration: none;
+    }
+
+    .logout:hover {
+      text-decoration: none;
+      color: yellowgreen;
+    }
+
+    .preview {
+      width: 100px;
+      height: 100px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <nav class="navbar  navbar-inverse navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mymenu">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"><img src="images/logo.png"></a>
+        </div>
+      </div>
+    </nav>
+
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="panel panel-default">
+            <div class="panel-heading clearfix">
+              <div class="row">
+                <div class="col-md-6 page-title">英雄信息修改</div>
+                <div class="col-md-6 text-right">当前位置：首页 &gt; 英雄信息修改</div>
+              </div>
+            </div>
+            <div class="panel-body">
+              <form class="form-horizontal" id="edit_form">
+                <!-- 隐藏一个input -->
+                <!-- <input type="hidden" name="id" /> -->
+                <div class="form-group">
+                  <label for="heroName" class="col-sm-2 control-label">姓名</label>
+                  <div class="col-sm-10">
+                    <input required type="text" class="form-control" id="heroName" name="hname" placeholder="请输入姓名"
+                      value="{{hero.hname}}" />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="username" class="col-sm-2 control-label">外号</label>
+                  <div class="col-sm-10">
+                    <input required type="text" class="form-control" id="username" name="nickname" placeholder="请输入外号"
+                      value="{{hero.nickname}}" />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="skillName" class="col-sm-2 control-label">技能</label>
+                  <div class="col-sm-10">
+                    <input required type="text" class="form-control" id="skillName" name="skill" placeholder="请输入技能"
+                      value="{{hero.skill}}" />
+                    <input type="hidden" name='id' value="{{hero.id}}">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-primary btn-save">
+                      保存
+                    </button>
+                    <button onclick="location.href='/'" type="button" class="btn btn-cancel">取消</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="/lib/bootstrap/js/jquery-1.12.4.js"></script>
+<!--
+  Include all compiled plugins (below), or include individual files as needed
+-->
+<script src="/lib/bootstrap/js/bootstrap.min.js"></script>
+<!-- 校验插件 -->
+<script src="/lib/bootstrapValidator/bootstrapValidator.min.js"></script>
+<script src="/lib/bootstrapValidator/language/zh_CN.js"></script>
+
+<!-- js -->
+<script src="/js/edit.js"></script>

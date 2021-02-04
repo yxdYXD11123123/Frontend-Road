@@ -1,0 +1,22 @@
+{
+  "name": "userSystem",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "art-template": "^4.13.2",
+    "express": "^4.17.1",
+    "express-art-template": "^1.0.1",
+    "express-session": "^1.17.1",
+    "md5": "^2.2.1",
+    "mongoose": "^5.9.17",
+    "mongoose-sex-page": "^1.2.4"
+  }
+}

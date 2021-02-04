@@ -1,0 +1,36 @@
+<!-- 继承模板 -->
+{{extend './common/layout.html'}}
+
+{{block 'title'}}用户登录{{/block}}
+
+{{block 'body'}}
+
+<div class="login-body">
+    <div class="login-container">
+        <h4 class="title">黑马程序员 - 博客管理员登录</h4>
+        <div class="login">
+            <form id="login-form">
+                <div class="form-group">
+                    <label>邮件</label>
+                    <input type="email" name="email" class="form-control" placeholder="请输入邮件地址">
+                </div>
+                <div class="form-group">
+                    <label>密码</label>
+                    <input type="password" name="password" class="form-control" placeholder="请输入密码">
+                </div>
+                <button type="button" class="btn btn-primary login-btn">登录</button>
+            </form>
+        </div>
+        <div class="tips"></div>
+    </div>
+</div>
+
+{{/block}}
+<!-- 这里不需要commonjs -->
+{{block 'commonjs'}} {{/block}}
+
+{{block 'script'}}
+<script src="/lib/jquery-validation-1.15.0/jquery.validate.min.js"></script>
+<script src="/lib/jquery-validation-1.15.0/localization/messages_zh.min.js"></script>
+<script src="/js/login.js"></script>
+{{/block}}

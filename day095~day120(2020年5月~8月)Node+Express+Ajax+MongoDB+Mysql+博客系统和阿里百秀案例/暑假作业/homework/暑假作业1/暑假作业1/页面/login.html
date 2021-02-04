@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bootstrap 101 Template</title>
+
+  <!-- Bootstrap -->
+  <link href="./lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  <style>
+    .login-panel {
+      margin-top: 100px;
+    }
+
+    .vCode {
+      height: 36px;
+      cursor: pointer;
+    }
+
+    .wrap {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: url('images/bg03.jpg') center bottom no-repeat;
+      overflow: auto;
+    }
+
+    .navbar-brand {
+      padding: 10px 15px;
+    }
+
+    .form-horizontal{
+      margin-top:10px;
+    }
+
+    .form-horizontal .form-group{
+      margin-bottom:20px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <nav class="navbar  navbar-inverse navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mymenu">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"><img src="images/logo.png"></a>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <div class="panel panel-default login-panel">
+            <div class="panel-heading">
+              <h3 class="panel-title"><b>用户登录</b></h3>
+            </div>
+            <div class="panel-body">
+              <form action="#" method="post" class="form-horizontal">
+                <div class="form-group">
+                  <label for="userName" class="col-sm-2 control-label">用户名</label>
+                  <div class="col-sm-10">
+                    <!-- 用户名输入框 -->
+                    <input type="text" name="username" value="叶良辰" class="form-control" id="username"
+                      placeholder="请输入用户名" />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="userPass" class="col-sm-2 control-label">密码</label>
+                  <div class="col-sm-10">
+                    <!-- 密码输入框 -->
+                    <input type="password" name="password" value="1234" class="form-control" id="password"
+                      placeholder="请输入密码" />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-sm-offset-2 col-sm-10">
+                    <!-- 登录按钮 -->
+                    <button type="submit" class="btn btn-success login">
+                      登陆
+                    </button>
+                    <a href="./register.html" class="btn btn-default">注册</a>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</body>
+
+</html>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="./lib/bootstrap/js/jquery-1.12.4.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="./lib/bootstrap/js/bootstrap.min.js"></script>
+<script>
+  /*
+    功能分析：
+      点击登录按钮.login
+        - 通过post请求方式将用户名#username密码#password发送给服务端
+          - 检测失败，设置提示
+          - 检测成功，跳转到index.html页面
+  */
+
+  // 获取元素
+  var $username = $('#username');
+  var $password = $('#password');
+  
+  $('.login').on('click', function (e) {
+    // 阻止提交按钮的默认行为
+    e.preventDefault();
+    // 检测用户名或密码框是否为空
+    if ($username.val() === '' || $password.val() === '') {
+      alert('请完整填写表单');
+      return;
+    }
+    // 通过ajax将用户名和密码发送给服务端处理
+    $.ajax({
+      type : 'post',
+      url : 'http://localhost:4399/user/login',
+      data : {
+        username : $username.val(),
+        password : $password.val()
+      },
+      success : function (res) {
+        // 响应的数据中都包含code和msg两个部分:
+        //  - 可以通过判断code，检测是否可以登录
+        //    - 200 表示成功，可以登录
+        //    - 400 表示不成，不能登录
+        if (res.code === 200) {
+          // 登录成功，跳转到index.html
+          location.href = 'index.html';
+        } else if (res.code === 400) {
+          alert('用户名或密码错误！');
+
+          // 用户名或密码错误后，可以将输入框内容清除，方便下次输入
+          $username.val('');
+          $password.val('');
+        }
+
+      }
+    });
+
+  });
+
+
+
+</script>
+

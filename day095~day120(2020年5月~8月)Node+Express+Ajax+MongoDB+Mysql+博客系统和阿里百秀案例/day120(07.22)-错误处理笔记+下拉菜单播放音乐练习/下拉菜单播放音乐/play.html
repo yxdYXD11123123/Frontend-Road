@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <audio src=""  controls height="100"  width="100">
+        <source src=".  /music/1.mp3" type="audio/mpeg">          
+        <source src=".  /music/1.mp3" type="audio/ogg">
+        <embed height="50" width="100" src=". /music/1.mp3">
+    </audio>
+    <select name="" id="playmusic">
+
+        <option value="./music/1.mp3">第一首歌曲</option>
+        <option value="./music/2.mp3">第二首歌曲</option>
+        <option value="./music/3.mp3">第三首歌曲</option>
+        <option value="./music/4.mp3">第四首歌曲</option>
+        <option value="" selected> 下拉选择播放歌曲 </option>
+
+    </select>
+    <button class="stop-music">暂停 / 继续</button>
+    <button class="repeat-music">重播</button>
+
+    <script src="./lib/jquery.min.js"></script>
+    <script>
+        let audio = document.createElement('audio');
+        $("#playmusic").on('change', function () {
+            console.log($(this).val());
+            if ($(this).val() != '') {
+                audio.src = $(this).val();//路径
+                audio.play();
+            }
+        })
+        // 暂停
+        $('.stop-music').on("click", function () {
+            if (audio.src == '') {
+                return;
+            }
+            if (audio.paused) {
+                audio.play();
+            }
+            else {
+                audio.pause();
+            }
+        })
+        // 重播
+        $('.repeat-music').on("click", function () {
+            if (audio.src == '') {
+                return;
+            }
+            audio.currentTime = 0;
+            audio.play();
+        })
+
+    </script>
+</body>
+
+</html>

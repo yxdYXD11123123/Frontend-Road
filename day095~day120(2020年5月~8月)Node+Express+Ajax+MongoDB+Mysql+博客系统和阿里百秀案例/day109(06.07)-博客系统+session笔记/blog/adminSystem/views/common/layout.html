@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>{{block 'title'}}{{/block}}</title>
+    <link rel="stylesheet" href="/lib/bootstrap-3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <!-- css文件的坑 -->
+    {{block 'link'}} {{/block}}
+</head>
+
+<body>
+    {{block 'body'}}
+    <!-- 头部 -->
+    {{include './header.html'}}
+    <!-- /头部 -->
+    <!-- 主体内容 -->
+    <div class="content">
+        <!-- 侧边栏 -->
+        {{include './aside.html'}}
+        <!-- 侧边栏 -->
+        <!-- 主体部分 -->
+        {{block 'main'}}
+        {{/block}}
+    </div>
+    <!-- 删除确认框 -->
+    {{block 'deleteconfirm'}}
+    {{/block}}
+
+    {{/block}}
+    <script src="/lib/jquery/jquery-3.5.1.js"></script>
+    <script src="/lib/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <!-- 点击头部或者侧边栏的时候，要做的功能 -->
+    {{block 'commonjs'}}
+    <script src="/lib/artTemplate/template-web.js"></script>
+    <script>
+        // 界定符 就是{{ }}  改为 {& &}
+        // 为啥要修改界定符呢：因为前后端都是art-template模板引擎，界定符都是 {{}} 所以会有冲突
+        // 当然还可以用别的方法解决
+        // 例如：前后端使用不同模板引擎、获取前端用老版本，后端用新版本
+        template.defaults.rules[1].test = /{&([@#]?)[ \t]*(\/?)([\w\W]*?)[ \t]*&}/;
+    </script>
+    <script src="/js/common.js"></script>
+    {{/block}}
+    <!-- js文件的坑 -->
+    {{block 'script'}} {{/block}}
+</body>
+
+</html>

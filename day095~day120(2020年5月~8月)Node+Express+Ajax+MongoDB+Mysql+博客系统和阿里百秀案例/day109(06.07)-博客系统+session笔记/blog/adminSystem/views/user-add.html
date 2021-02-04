@@ -1,0 +1,53 @@
+{{extend './common/layout.html'}}
+
+{{block 'title'}}Blog - Content Manager{{/block}}
+
+{{block 'main'}}
+
+<div class="main">
+    <!-- 分类标题 -->
+    <div class="title">
+        <p class="tips">错误信息</p>
+    </div>
+    <!-- /分类标题 -->
+    <form class="form-container" id="add-form">
+        <div class="form-group">
+            <label>用户名</label>
+            <input type="text" name="username" class="form-control" placeholder="请输入用户名">
+        </div>
+        <div class="form-group">
+            <label>邮箱</label>
+            <input type="email" name="email" class="form-control" placeholder="请输入邮箱地址">
+        </div>
+        <div class="form-group">
+            <label>密码</label>
+            <input type="password" name="password" class="form-control" placeholder="请输入密码">
+        </div>
+        <div class="form-group">
+            <label>角色</label>
+            <select class="form-control" name="role">
+                <option value="普通用户">普通用户</option>
+                <option value="超级管理员">超级管理员</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>状态</label>
+            <select class="form-control" name="status">
+                <option value="1">启用</option>
+                <option value="0">禁用</option>
+            </select>
+        </div>
+        <div class="buttons">
+            <input type="button" class="btn btn-primary add-btn" value="提交">
+        </div>
+    </form>
+</div>
+
+{{/block}}
+
+<!-- js文件的坑 -->
+{{block 'script'}}
+<script src="/lib/jquery-validation-1.15.0/jquery.validate.min.js"></script>
+<script src="/lib/jquery-validation-1.15.0/localization/messages_zh.min.js"></script>
+<script src="/js/userAdd.js"></script>
+{{/block}}

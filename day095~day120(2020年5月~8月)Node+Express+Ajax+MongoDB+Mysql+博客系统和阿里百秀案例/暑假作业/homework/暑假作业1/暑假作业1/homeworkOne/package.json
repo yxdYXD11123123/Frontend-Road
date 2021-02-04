@@ -1,0 +1,22 @@
+{
+  "name": "homeworkOne",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "art-template": "^4.13.2",
+    "express": "^4.17.1",
+    "express-art-template": "^1.0.1",
+    "express-session": "^1.17.1",
+    "md5": "^2.3.0",
+    "mysql": "^2.18.1",
+    "validator": "^13.1.1"
+  }
+}

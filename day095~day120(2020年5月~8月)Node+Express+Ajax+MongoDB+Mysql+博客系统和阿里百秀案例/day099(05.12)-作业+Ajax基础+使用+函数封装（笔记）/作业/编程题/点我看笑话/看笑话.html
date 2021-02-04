@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0px;
+    }
+
+    .header_con {
+      height: 100px;
+      background-color: #458ccb;
+    }
+
+    .header {
+      width: 1000px;
+      height: 100px;
+      margin: 0px auto;
+    }
+
+    .logo {
+      float: left;
+      width: 197px;
+      height: 67px;
+      margin-top: 16px;
+    }
+
+    .getJoke {
+      width: 120px;
+      height: 36px;
+      font-size: 16px;
+      background-color: #ff0;
+      border-radius: 4px;
+      cursor: pointer;
+      outline: none;
+      float: right;
+      border: 0px;
+      margin-top: 32px;
+    }
+
+    .joke-container {
+      width: 516px;
+      height: 349px;
+      margin: 40px auto 0;
+      background: url('images/bean01.png') no-repeat;
+      position: relative;
+    }
+
+    .joke-text {
+      width: 390px;
+      height: 155px;
+      position: absolute;
+      left: 52px;
+      top: 29px;
+      font-size: 16px;
+      line-height: 24px;
+      color: #333;
+      overflow: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="header_con">
+    <div class="header">
+      <a href="#" class="logo"><img src="images/logo.png" alt=""></a>
+      <input type="button" value="点我看笑话" class="getJoke" />
+    </div>
+  </div>
+
+  <div class="joke-container">
+    <div class="joke-text">
+      点按钮，我给你讲个笑话。
+    </div>
+  </div>
+
+  <script>
+    let oBtn = document.querySelector(".getJoke")
+    console.log(oBtn);
+    oBtn.onclick = clickBtn;
+    function clickBtn() {
+      // 实例化对象
+      let xhr = new XMLHttpRequest();
+      // 设置请求行
+      xhr.open("GET", "https://autumnfish.cn/api/joke");
+      // 发送请求
+      xhr.send(null);
+      // 绑定准备状态改变的事件
+      xhr.onreadystatechange = function () {
+        // 准备状态为4时，已经完全接收完响应内容
+        if (xhr.readyState == 4 && xhr.status == 200) {
+          // 插入文本
+          document.querySelector(".joke-text").innerHTML = xhr.responseText;
+        }
+      }
+    }
+  </script>
+</body>
+
+</html>
