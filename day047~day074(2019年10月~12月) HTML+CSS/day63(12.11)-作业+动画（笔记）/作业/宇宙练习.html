@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        body {
+            background-image: url(img/bg.jpg);
+        }
+
+        .whole {
+            position: relative;
+            width: 600px;
+            height: 600px;
+            margin: 40px auto;
+        }
+
+        .centre {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: #cc9900;
+            border-radius: 50%;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            margin: auto;
+            box-shadow: 0px 0px 44px #cc9900;
+        }
+
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            margin: auto;
+            border: 2px solid #363c53;
+        }
+
+        .one {
+            width: 100px;
+            height: 100px;
+        }
+
+        .two {
+            width: 150px;
+            height: 150px;
+            background-image: url(./img/asteroids_meteorids.png);
+            background-size: 150px 150px;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .three {
+            width: 200px;
+            height: 200px;
+        }
+
+        .four {
+            width: 250px;
+            height: 250px;
+            background-image: url(./img/asteroids_meteorids.png);
+            background-size: 250px 250px;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .five {
+            width: 300px;
+            height: 300px;
+        }
+
+        .six {
+            width: 350px;
+            height: 350px;
+            background-image: url(./img/asteroids_meteorids.png);
+            background-size: 350px 350px;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .seven {
+            width: 400px;
+            height: 400px;
+        }
+
+        .eight {
+            width: 450px;
+            height: 450px;
+        }
+
+        .nine {
+            width: 500px;
+            height: 500px;
+        }
+
+
+
+        .star {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            top: -5px;
+            left: 50%;
+            margin-left: -5px;
+        }
+
+        .one .star {
+            background-color: mediumspringgreen;
+            transform-origin: center 55px;
+            animation: rotate-one 6s linear infinite;
+        }
+
+        .two .star {
+            background-color: lime;
+            transform-origin: center 80px;
+            animation: rotate-one 2s linear reverse infinite;
+        }
+
+        .three .star {
+            background-color: mediumslateblue;
+            transform-origin: center 105px;
+            animation: rotate-one 5s linear infinite;
+        }
+
+        .four .star {
+            background-color: hotpink;
+            transform-origin: center 130px;
+            animation: rotate-one 11s linear reverse infinite;
+        }
+
+        .five .star {
+            background-color: gold;
+            transform-origin: center 155px;
+            animation: rotate-one 8s linear infinite;
+        }
+
+        .six .star {
+            background-color: rebeccapurple;
+            transform-origin: center 180px;
+            animation: rotate-one 6s linear reverse infinite;
+        }
+
+        .seven .star {
+            background-color: orangered;
+            transform-origin: center 205px;
+            animation: rotate-one 4s linear infinite;
+        }
+
+        .eight .star {
+            background-color: lawngreen;
+            transform-origin: center 230px;
+            animation: rotate-one 9s linear reverse infinite;
+        }
+
+        .nine .star {
+            background-color: saddlebrown;
+            transform-origin: center 255px;
+            animation: rotate-one 7s linear infinite;
+        }
+
+        .lil:before {
+            content: "";
+            display: block;
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background-color: greenyellow;
+            top: -8px;
+            left: 50%;
+            margin-left: -2px;
+            transform-origin: center 14px;
+            animation: rotate-one 2s linear infinite;
+        }
+
+        .ring::before {
+            content: "";
+            position: absolute;
+            display: block;
+            width: 15px;
+            height: 15px;
+            border: 2px solid #CCC;
+            left: -4px;
+            top: -4px;
+            transform: skew(0, 45deg);
+            border-radius: 50%;
+        }
+
+
+
+
+
+        @keyframes rotate-one {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="whole">
+        <div class="centre">
+        </div>
+        <div class="circle one">
+            <div class="star">
+            </div>
+        </div>
+        <div class="circle two">
+            <div class="star">
+            </div>
+        </div>
+        <div class="circle three">
+            <div class="star lil">
+
+            </div>
+        </div>
+        <div class="circle four">
+            <div class="star">
+            </div>
+        </div>
+        <div class="circle five">
+            <div class="star">
+            </div>
+        </div>
+        <div class="circle six">
+            <div class="star">
+            </div>
+        </div>
+        <div class="circle seven">
+            <div class="star ring">
+            </div>
+        </div>
+        <div class="circle eight">
+            <div class="star">
+            </div>
+        </div>
+        <div class="circle nine">
+            <div class="star">
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

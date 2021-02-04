@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            background-image: linear-gradient(to bottom, #27f4eb, #000303);
+        }
+
+        .centre {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            margin: 250px auto;
+            transform: rotateX(-15deg) rotateY(35deg);
+            transform-style: preserve-3d;
+            animation: move 10s linear infinite;
+        }
+
+
+        @keyframes move {
+            0% {
+                transform: rotateX(-180deg) rotateY(-180deg) rotateX(-180deg);
+            }
+
+            50% {
+                transform: rotateX(180deg) rotateY(180deg) rotateX(180deg);
+            }
+
+            100% {
+                transform: rotateX(-180deg) rotateY(-180deg) rotateX(-180deg);
+            }
+        }
+
+
+
+        .centre>span {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100px;
+            height: 100px;
+            box-sizing: border-box;
+            border: 5px solid rgba(0, 0, 0, 0.65);
+            border-radius: 18px;
+            background-color: white;
+            opacity: 0.8;
+            transform-style: preserve-3d;
+        }
+
+        .one {
+            transform: translateZ(50px);
+        }
+
+
+
+        i {
+            position: absolute;
+            border-radius: 50%;
+            background-color: darkslateblue;
+        }
+
+        .one i {
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            width: 40px;
+            height: 40px;
+        }
+
+        .centre s {
+            position: absolute;
+            display: block;
+            width: 201px;
+            height: 201px;
+            left: 50%;
+            top: 50%;
+            margin-left: -100px;
+            margin-top: -100px;
+            border: 8px solid #65d8fd;
+            box-sizing: border-box;
+            background-color: rgba(0, 0, 0, 0.2);
+            color: rgba(255, 255, 255, 0.8);
+            text-align: center;
+            line-height: 200px;
+            font-size: 40px;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: all .4s linear;
+        }
+
+        .one-face {
+            transform: translateZ(100px);
+        }
+
+        .centre:hover .one-face {
+            transform: translateZ(250px);
+        }
+
+        .two {
+            transform: rotateY(90deg) translateZ(50px);
+        }
+
+        .two-face {
+            transform: rotateY(90deg) translateZ(100px);
+        }
+
+        .centre:hover .two-face {
+            transform: rotateY(90deg) translateZ(250px);
+        }
+
+        .two i {
+            width: 25px;
+            height: 25px;
+        }
+
+        .two i:nth-child(1) {
+            left: 10px;
+            top: 10px;
+        }
+
+        .two i:nth-child(2) {
+            bottom: 10px;
+            right: 10px;
+        }
+
+        .three {
+            transform: rotateY(180deg) translateZ(50px);
+        }
+
+        .three-face {
+            transform: rotateY(180deg) translateZ(100px);
+        }
+
+        .centre:hover .three-face {
+            transform: rotateY(180deg) translateZ(250px);
+        }
+
+        .three i {
+            width: 20px;
+            height: 20px;
+        }
+
+        .three i:nth-child(1) {
+            top: 10px;
+            left: 10px;
+        }
+
+        .three i:nth-child(2) {
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+        }
+
+        .three i:nth-child(3) {
+            right: 10px;
+            bottom: 10px;
+        }
+
+        .four {
+            transform: rotateY(-90deg) translateZ(50px);
+        }
+
+        .four-face {
+            transform: rotateY(-90deg) translateZ(100px);
+        }
+
+        .centre:hover .four-face {
+            transform: rotateY(-90deg) translateZ(250px);
+        }
+
+        .four i {
+            width: 20px;
+            height: 20px;
+        }
+
+        .four i:nth-child(1) {
+            left: 15px;
+            top: 15px;
+        }
+
+        .four i:nth-child(2) {
+            left: 15px;
+            bottom: 15px;
+        }
+
+        .four i:nth-child(3) {
+            right: 15px;
+            top: 15px;
+        }
+
+        .four i:nth-child(4) {
+            right: 15px;
+            bottom: 15px;
+        }
+
+        .five {
+            transform: rotateX(90deg) translateZ(50px);
+        }
+
+        .five-face {
+            transform: rotateX(90deg) translateZ(100px);
+        }
+
+        .centre:hover .five-face {
+            transform: rotateX(90deg) translateZ(250px);
+        }
+
+        .five i {
+            width: 20px;
+            height: 20px;
+        }
+
+        .five i:nth-child(1) {
+            left: 8px;
+            top: 8px;
+        }
+
+        .five i:nth-child(2) {
+            left: 8px;
+            bottom: 8px;
+        }
+
+        .five i:nth-child(3) {
+            right: 8px;
+            top: 8px;
+        }
+
+        .five i:nth-child(4) {
+            right: 8px;
+            bottom: 8px;
+        }
+
+        .five i:nth-child(5) {
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+        }
+
+        .six {
+            transform: rotateX(-90deg) translateZ(50px);
+        }
+
+        .six-face {
+            transform: rotateX(-90deg) translateZ(100px);
+        }
+
+        .centre:hover .six-face {
+            transform: rotateX(-90deg) translateZ(250px);
+        }
+
+        .six i {
+            width: 20px;
+            height: 20px;
+        }
+
+        .six i:nth-child(1) {
+            left: 18px;
+            top: 8px;
+        }
+
+        .six i:nth-child(2) {
+            left: 18px;
+            bottom: 8px;
+        }
+
+        .six i:nth-child(3) {
+            right: 18px;
+            top: 8px;
+        }
+
+        .six i:nth-child(4) {
+            right: 18px;
+            bottom: 8px;
+        }
+
+        .six i:nth-child(5) {
+            left: 18px;
+            top: 50%;
+            margin-top: -10px;
+        }
+
+        .six i:nth-child(6) {
+            right: 18px;
+            top: 50%;
+            margin-top: -10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="centre">
+        <span class="one">
+            <i></i>
+
+        </span>
+        <s class="one-face">前面</s>
+        <span class="two">
+            <i></i>
+            <i></i>
+
+        </span>
+        <s class="two-face">右面</s>
+        <span class="three">
+            <i></i>
+            <i></i>
+            <i></i>
+        </span>
+        <s class="three-face">后面</s>
+        <span class="four">
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+        </span>
+        <s class="four-face">左面</s>
+        <span class="five">
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+        </span>
+        <s class="five-face">上面</s>
+        <span class="six">
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+        </span>
+        <s class="six-face">下面</s>
+    </div>
+</body>
+
+</html>

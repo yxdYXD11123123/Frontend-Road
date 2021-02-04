@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #f5f5f5;
+        }
+
+        .product {
+            position: relative;
+            width: 293px;
+            height: 425px;
+            background-color: white;
+            border-top: 1px solid #2196f3;
+        }
+
+        img {
+            display: block;
+            width: 250px;
+            height: 250px;
+            margin: 0 auto;
+            margin-top: 30px;
+        }
+
+        .product:before {
+            content: '5折';
+            display: block;
+            position: absolute;
+            width: 82px;
+            height: 26px;
+            background-color: #e13834;
+            top: 0;
+            left: 50%;
+            margin-left: -41px;
+            font-size: 16px;
+            color: white;
+            text-align: center;
+            line-height: 26px;
+        }
+
+        p {
+            text-align: center;
+            margin: 0;
+            padding: 0;
+
+        }
+
+        .name {
+            font-size: 19px;
+            height: 19px;
+            line-height: 19px;
+            margin-top: 10px;
+            color: #4e4e4e;
+        }
+
+        .use {
+            font-size: 16px;
+            height: 16px;
+            line-height: 16px;
+            margin-top: 14px;
+            color: #adadad;
+        }
+
+        .price {
+            font-size: 18px;
+            height: 18px;
+            line-height: 18px;
+            color: #fa6b13;
+            margin-top: 27px;
+            font-weight: 700;
+        }
+
+        .price small {
+            font-size: 17px;
+            color: #adadad;
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="product">
+        <img src="作业二/images/2.jpg" alt="">
+        <p class="name">MIJOY 胶带座套装 白色</p>
+        <p class="use">结实耐用 轻松便捷</p>
+        <p class="price">9.95元 <small>19.9元</small></p>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            width: 1920px;
+        }
+
+        .all {
+            width: 1532px;
+            height: 724px;
+            /* background-color: violet; */
+            margin: 0 auto;
+        }
+
+        .top {
+            height: 79px;
+            /* background-color: teal; */
+        }
+
+        .top>div {
+            float: right;
+            margin-top: 35px;
+        }
+
+        .top h5 {
+            float: left;
+            font-size: 28px;
+            font-weight: 300;
+            height: 79px;
+            line-height: 79px;
+        }
+
+        .top div a {
+            float: left;
+            text-decoration: none;
+            width: 45px;
+            height: 30px;
+            border: 1px solid #e0e0e0;
+            font-size: 34px;
+            font-weight: 900;
+            line-height: 26px;
+            text-align: center;
+            color: #e0e0e0;
+        }
+
+        .top div a:hover {
+            color: #b0b0b0;
+        }
+
+        /* 清除浮动 */
+        .content:after {
+            content: '';
+            display: block;
+            height: 0;
+            margin: 0;
+            padding: 0;
+            clear: both;
+            visibility: hidden;
+        }
+
+        .product {
+            float: left;
+            position: relative;
+            width: 293px;
+            height: 425px;
+            background-color: white;
+            border-top: 1px solid #2196f3;
+            margin-right: 17px;
+        }
+
+        img {
+            display: block;
+            width: 250px;
+            height: 250px;
+            margin: 0 auto;
+            margin-top: 30px;
+        }
+
+        .five:before {
+            content: '5折';
+            display: block;
+            position: absolute;
+            width: 82px;
+            height: 26px;
+            background-color: #e13834;
+            top: 0;
+            left: 50%;
+            margin-left: -41px;
+            font-size: 16px;
+            color: white;
+            text-align: center;
+            line-height: 26px;
+        }
+
+        .one:before {
+            content: '1元';
+            display: block;
+            position: absolute;
+            width: 82px;
+            height: 26px;
+            background-color: #e13834;
+            top: 0;
+            left: 50%;
+            margin-left: -41px;
+            font-size: 16px;
+            color: white;
+            text-align: center;
+            line-height: 26px;
+        }
+
+        p {
+            text-align: center;
+            margin: 0;
+            padding: 0;
+
+        }
+
+        .name {
+            font-size: 19px;
+            height: 19px;
+            line-height: 19px;
+            margin-top: 10px;
+            color: #4e4e4e;
+        }
+
+        .use {
+            font-size: 16px;
+            height: 16px;
+            line-height: 16px;
+            margin-top: 14px;
+            color: #adadad;
+        }
+
+        .price {
+            font-size: 18px;
+            height: 18px;
+            line-height: 18px;
+            color: #fa6b13;
+            margin-top: 27px;
+            font-weight: 700;
+        }
+
+        .price small {
+            font-size: 17px;
+            color: #adadad;
+            text-decoration: line-through;
+        }
+
+        .time {
+            float: left;
+            position: relative;
+            width: 293px;
+            height: 425px;
+            background-color: #f1eded;
+            border-top: 1px solid #e53935;
+            margin-right: 16px;
+        }
+
+        .time .match {
+            margin-top: 75px;
+            font-size: 26px;
+            color: #ef3a3b;
+            /* text-align: center; */
+        }
+
+        .time img {
+            width: 42px;
+            height: 67px;
+            margin: 0 auto;
+            margin-top: 40px;
+        }
+
+        .time .end {
+            color: #706f6f;
+            font-size: 21px;
+            text-align: center;
+            margin-top: 42px;
+        }
+
+        .time>div:after {
+            content: '';
+            display: block;
+            height: 0;
+            clear: both;
+            visibility: hidden;
+        }
+
+        .time>div>div {
+            float: left;
+        }
+
+        .grey {
+            position: relative;
+            width: 58px;
+            height: 58px;
+            background-color: #605751;
+            text-align: center;
+            line-height: 58px;
+            color: white;
+            margin-right: 20px;
+            margin-top: 40px;
+            font-size: 24px;
+        }
+
+        .greyone {
+            margin-left: 36px;
+        }
+
+        .grey-point:after,
+        .grey-point:before {
+            content: "";
+            display: block;
+            position: absolute;
+            background-color: #605751;
+            width: 4px;
+            height: 4px;
+        }
+
+        .grey-point:after {
+            left: 66px;
+            top: 31px;
+        }
+
+        .grey-point:before {
+            left: 66px;
+            top: 21px;
+        }
+
+        .bottom a {
+            display: block;
+            width: 1532px;
+            height: 150px;
+            background-image: url(作业五/images/banner.webp);
+            background-repeat: no-repeat;
+        }
+
+        .bottom {
+            margin-top: 28px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="all">
+        <div class="top">
+            <h5>小米闪购</h5>
+            <div>
+                <a href="#" class="last">&lt;</a>
+                <a href="#" class="next">&gt;</a>
+            </div>
+        </div>
+        <div class="content">
+            <div class="time">
+                <p class="match">14:00 场</p>
+                <img src="作业五/images/left.png" alt="">
+                <p class="end">距离结束还有</p>
+                <div>
+                    <div class="grey greyone grey-point">00</div>
+                    <div></div>
+                    <div class="grey grey-point">01</div>
+                    <div></div>
+                    <div class="grey">26</div>
+                </div>
+            </div>
+            <div class="product five" style="border-top-color: #ffac13;">
+                <img src="作业五/images/1.png" alt="">
+                <p class="name">米家电水壶 白色</p>
+                <p class="use">一杯水，是一家人的安心</p>
+                <p class="price">49.5元 <small>99元</small></p>
+            </div>
+            <div class="product one" style="border-top-color: #83c44e;">
+                <img src="作业五/images/2.jpg" alt="">
+                <p class="name">贝医生巴氏牙刷（单支装）...</p>
+                <p class="use">对细节苛刻，是对健康呵护</p>
+                <p class="price">1元 <small>9.9元</small></p>
+            </div>
+            <div class="product">
+                <img src="作业五/images/3.jpg" alt="">
+                <p class="name">净化器滤芯 通用版</p>
+                <p class="use">3层高效净化悬浮物</p>
+                <p class="price">74.5元 <small>149元</small></p>
+            </div>
+            <div class="product" style="margin-right: 0;border-top-color: #e53935;">
+                <img src="作业五/images/4.webp" alt="">
+                <p class="name">最生活毛巾·Air （10条装） ...</p>
+                <p class="use">给生活一条好毛巾</p>
+                <p class="price">99元 <small>169元</small></p>
+            </div>
+
+        </div>
+        <div class="bottom">
+            <a href="#"></a>
+        </div>
+    </div>
+</body>
+
+</html>

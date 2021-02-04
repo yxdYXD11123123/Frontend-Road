@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./js/flexible_css.debug.js"></script>
+    <script src="./js/flexible.debug.js"></script>
+    <script src="./js/vconsole.js"></script>
+    <link rel="stylesheet" href="./lib/normalize.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/index-third.css">
+</head>
+
+<body>
+    <!-- 顶部 -->
+    <div class="title"><a href="#"><img src="./img/reback.png" alt="">优惠活动</a> <a href="#">规则说明</a></div>
+    <!-- 主体部分 -->
+    <main>
+        <div class="main-name">
+            <label for="main-name">活动名称</label>
+            <input type="text" id="main-name">
+        </div>
+        <div class="main-discount">
+            <div class="main-discount-left">
+                <label for="main-discount-left">每单满足<span>不包括托运费</span></label>
+                <input type="text" id="main-discount-left">元
+            </div>
+            <div class="main-discount-right">
+                <label for="main-discount-right">减免</label>
+                <input type="text" id="main-discount-right">元
+            </div>
+        </div>
+        <div class="main-date">
+            <span>活动日期</span>
+            <span>14-12-09 至 14-12-06</span>
+        </div>
+        <div class="main-time">
+            <span>优惠时段<small>此时段下优惠生效</small></span>
+            <span>00:24-11:11</span>
+        </div>
+        <div class="main-first">
+            <span>仅首次下单有优惠</span>
+            <button><img src="./img/ON.png" alt=""></button>
+        </div>
+        <div class="main-save">
+            <button class="main-save-content">保存</button>
+        </div>
+    </main>
+</body>
+
+</html>

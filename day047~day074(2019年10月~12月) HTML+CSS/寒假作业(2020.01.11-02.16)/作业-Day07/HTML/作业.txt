@@ -1,0 +1,122 @@
+1.关于盒子宽度下列正确的是（D）
+
+(A) 盒子宽：就是width的大小
+
+(B) 盒子宽： padding-left + width + padding-right 
+
+(C) 盒子宽： border-left + width + border-right 
+
+(D) 盒子宽： border-left+ padding-left + width + padding-right + border-right
+
+
+2.关于盒子高度下列正确的是（D）
+
+(A) 盒子高：就是height的大小
+
+(B) 盒子高：padding-top +height + padding-bottom 
+
+(C) 盒子高：border-top + height + border-bottom
+
+(D) 盒子高：border-top + padding-top +height + padding-bottom + border-bottom
+
+3关于根据下列代码计算 盒子宽高下列说法正确的是（B）
+
+		div {
+
+​			width: 200px;
+
+​			height: 200px;
+
+​			border: 1px solid #000000;
+
+​			border-top: 5px solid blue;
+
+​			padding: 50px;
+
+​			padding-left: 100px;
+
+​		}
+
+(A) 宽度为200px 高度为200px
+
+(B) 宽度为352px 高度为306px
+
+(C) 宽度为302px 高度为307px
+
+(D) 宽度为302px 高度为252px
+
+
+4.外边距合并及解决方案
+外边距合并是指一个A盒子,一个B盒子，当这两个盒子在标准流下上下摆放时，两个盒子的距离不是两个盒子之间两个margin值的和，而是其中较大的一个margin是两个盒子的距离。
+解决方案：只给其中一个盒子对应的margin值
+
+5.用公式写两个列子
+  /*外盒尺寸计算（元素空间尺寸）*/
+  Element空间高度 = content height + padding + border + margin
+  Element 空间宽度 = content width + padding + border + margin
+  /*内盒尺寸计算（元素实际大小）*/
+  Element Height = content height + padding + border （Height为内容高度）
+  Element Width = content width + padding + border （Width为内容宽度）
+
+6.什么是浮动？以及清除浮动的方法（4种）
+浮动是网页布局方式之一，它是让网页元素脱离标准流的方式之一，利用浮动，我们可以改变元素默认的排列方式。可以让多个块级元素在一行内显示，并且没有空隙。
+
+清除浮动的方法：
+1. 给浮动元素的父元素添加overflow: hidden;属性
+2. 隔墙法：给浮动元素的后面添加一个<div style="clear: both;"></div>
+3. 单伪元素法：
+给父元素添加
+.clearfix:after {
+	content: '';
+	display: block;
+	clear: both;
+}
+.clearfix {
+	*zoom: 1;
+}
+
+4. 双伪元素法：
+.clearfix:before,
+.clearfix:after {
+	content: '';
+	display: table;
+}
+.clearfix:after {
+	clear: both;
+}
+.clearfix {
+	*zoom: 1;
+}
+
+7.定位都有哪些，以及各自的特点
+静态定位：相当于没有定位
+相对定位：相对于自身定位
+绝对定位：相对于有定位的祖先元素定位
+固定定位：相对于浏览器的可视窗口定位
+
+8元素的显示与隐藏（display 、visibility、overflow）的特点？
+display 的显示与隐藏中，隐藏后，不再占有原来的位置；
+visibility 中隐藏后，元素还会占有原来的位置；
+overflow的显示与隐藏是对于元素的内容来说的，而display和visibility的显示与隐藏是对于元素本身来说的。
+
+9.单行出现省略号与多行出现省略号的方法？
+
+单行出现省略号：
+限制宽度；
+text-overflow: ellipsis;
+强制一行显示 
+white-space: nowrap; 
+规定段落中的文本不进行换行
+overflow: hidden;
+溢出隐藏
+
+多行出现省略号：
+限制宽度；
+display: -webkit-box;
+显示方式为弹性盒子
+-webkit-line-clamp: 2;
+规定文字显示2行
+-webkit-box-orient: vertical;
+水平方向
+word-break: break-all;
+不论是不是单词，坚决换行

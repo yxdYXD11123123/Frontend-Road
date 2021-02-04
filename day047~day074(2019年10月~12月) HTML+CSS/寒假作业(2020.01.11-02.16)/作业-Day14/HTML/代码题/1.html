@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #cccccc;
+        }
+
+        .wallet {
+            position: relative;
+            margin: 100px auto;
+            width: 302px;
+            height: 301px;
+            transform-style: preserve-3d;
+            transition: 2s all;
+
+        }
+
+        .wallet-front {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url(./images/baidu.png);
+            background-repeat: no-repeat;
+        }
+
+        .wallet-back {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url(./images/baidu.png);
+            background-repeat: no-repeat;
+            background-position: -305px 0px;
+            transform: rotateY(180deg);
+        }
+
+        .wallet:hover {
+            transform: rotateY(180deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wallet">
+        <div class="wallet-back"></div>
+        <div class="wallet-front"></div>
+
+    </div>
+</body>
+
+</html>

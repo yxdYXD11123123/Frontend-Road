@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        img {
+            vertical-align: middle;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .windows {
+            height: 86px;
+            width: 500px;
+            display: block;
+            margin: 100px auto;
+            overflow: hidden;
+        }
+
+        .windows:hover {
+            animation-play-state: paused;
+        }
+
+        ul {
+            width: calc(126px * 14);
+            animation: move 10s linear infinite;
+            overflow: hidden;
+        }
+
+        li {
+            float: left;
+        }
+
+        @keyframes move {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            100% {
+                transform: translate(calc(-126px * 14 + 500px), 0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="windows">
+        <ul>
+            <li>
+                <img src="./images/nav1.jpg" alt="">
+            </li>
+            <li>
+                <img src="./images/nav2.jpg" alt="">
+            </li>
+            <li>
+                <img src="./images/nav3.jpg" alt="">
+            </li>
+            <li>
+                <img src="./images/nav4.jpg" alt="">
+            </li>
+            <li>
+                <img src="./images/nav5.jpg" alt="">
+            </li>
+            <li>
+                <img src="./images/nav6.jpg" alt="">
+            </li>
+            <li>
+                <img src="./images/nav7.jpg" alt="">
+            </li>
+            <li>
+                <img src="./images/nav1.jpg" alt="">
+            </li>
+            <li>
+                <img src="./images/nav2.jpg" alt="">
+            </li>
+            <li>
+                <img src="./images/nav3.jpg" alt="">
+            </li>
+            <li>
+                <img src="./images/nav4.jpg" alt="">
+            </li>
+            <li>
+                <img src="./images/nav5.jpg" alt="">
+            </li>
+            <li>
+                <img src="./images/nav6.jpg" alt="">
+            </li>
+            <li>
+                <img src="./images/nav7.jpg" alt="">
+            </li>
+        </ul>
+    </div>
+</body>
+
+</html>

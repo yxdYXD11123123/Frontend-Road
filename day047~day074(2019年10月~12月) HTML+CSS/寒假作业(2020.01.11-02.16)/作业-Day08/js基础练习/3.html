@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 让用户输入一个数字，判断该数字是否大于10，并告知用户结果，如果输入的非数字告知用户输入错误 -->
+    <script>
+        let num = prompt("请您输入一个数字")
+        if (isNaN(Number(num)) == true) {
+            alert("输入错误")
+        }
+        else if (num > 10) {
+            alert("该数字大于10")
+        }
+        else {
+            alert("该数字小于等于10")
+        }
+    </script>
+</body>
+
+</html>

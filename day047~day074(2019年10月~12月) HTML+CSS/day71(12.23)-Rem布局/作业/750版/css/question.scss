@@ -1,0 +1,206 @@
+@mixin clearfix {
+    &:after,
+    &:before {
+        content: "";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+
+.top {
+    width: 100%;
+    img {
+        width: 100%;
+        height: (88rem/ 75)
+    }
+}
+
+.focus {
+    width: 100%;
+    a {
+        display: block;
+        width: 100%;
+    }
+    img {
+        width: 100%;
+        height: (262rem/ 75);
+    }
+}
+
+.main-top {
+    font-size: (30rem / 75);
+    line-height: (64rem/ 75);
+    padding-left: (36rem/ 75);
+    padding-right: (36rem/ 75);
+    background-color: white;
+    box-shadow: 0px (2rem / 75) rgba($color: #000000, $alpha: 0.1);
+    ul {
+        @include clearfix();
+    }
+    li {
+        float: left;
+        width: 33.33333%;
+        text-align: center;
+    }
+    a {
+        color: rgb(63,63,63);
+    }
+    a:hover {
+        text-decoration: none;
+    }
+
+    li:nth-child(1) a {
+        position: relative;
+        color: rgb(255,105,1);
+    }
+    li:nth-child(1) a:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: (-13rem/ 75);
+        background-color: rgb(255,105,1);
+        width: 100%;
+        height: (4rem/ 75);
+        z-index: 1;
+    }
+}
+
+// 搜索框
+.main-search {
+    width: 100%;
+    text-align: center;
+    position: relative;
+    input {
+        background-color: transparent;
+        width: (678rem/ 75);
+        height: (60rem/ 75);
+        border: (2rem/ 75) solid #707070;
+        border-radius: (30rem/ 75);
+        margin-top: (24rem/ 75);
+        margin-bottom: (24rem/ 75);
+        text-align: center;
+    }
+    i {
+        position: absolute;
+        display: block;
+        right: (54rem/ 75);
+        top: (35rem/ 75);
+        width: (38rem/ 75);
+        height: (38rem/ 75);
+        background-image: url(../img/search.png);
+        background-size: (38rem/ 75) (38rem/ 75);
+        background-repeat: no-repeat;
+    }
+}
+
+// 内容部分
+// 第一块
+.main-content{
+    padding-bottom: (98rem/ 75);
+    li {
+        background-color: white;
+        padding-right: (56rem/ 75);
+        padding-left: (36rem / 75);
+        padding-top: (36rem/ 75);
+        box-shadow: 0px (2rem / 75) rgba($color: #000000, $alpha: 0.1);
+        padding-bottom: (35rem/ 75);
+        margin-bottom: (24rem/ 75);
+    }
+
+    p:nth-child(1) {
+        font-size: (28rem/ 75);
+        color: #3f3f3f;
+        line-height: (42rem/ 75);
+        letter-spacing: (1rem/ 75);
+    }
+    div {
+        overflow: hidden;
+        margin-top: (20rem/ 75);
+    }
+    div > img {
+        float: left;
+        position: relative;
+        z-index: 3;
+        // margin-top: (4rem/ 75);
+        width: (80rem/ 75);
+        height: (80rem/ 75);
+    }
+    a {
+        float: left;
+        position: relative;
+        display: block;
+        height: (80rem/ 75);
+        width: (360rem / 75);
+        background-color: rgb(255,105,1);
+        border-radius: (39rem/ 75);
+        border-top-left-radius: 0px;
+        line-height: (80rem/ 75);
+        color: white;
+        font-size: (23rem/ 75);
+    }
+
+    li:nth-child(2n) a {
+        background-color: rgb(60,176,52);
+    }
+    li:nth-child(2n) a:before {
+        background-color: rgb(60,176,52);
+    }
+    a:before {
+        content: "";
+        display: block;
+        position: absolute;
+        z-index: 2;
+        width: (38rem/ 75);
+        height: (36rem/ 75);
+        background-color: rgb(255,105,1);
+        top: 0;
+        left: (-36rem/ 75);
+    }
+    a > img {
+        width: (24rem/ 75);
+        height: (34rem/ 75);
+        margin-top: (-5rem/ 75);
+        margin-left: (50rem/ 75);
+        margin-right: (56rem/ 75);
+    }
+    p:nth-child(3) {
+        margin-top: (24rem/ 75);
+        font-size: (23rem/ 75);
+        color: rgb(144,144,144);
+        s {
+            color: rgb(255,105,1);
+        }
+    }
+}
+ 
+// 底部导航
+nav {
+    position: fixed;
+    z-index: 5;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: (98rem/ 75);
+    background-color: white;
+    box-shadow: 0px (-2rem / 75) rgba($color: #000000, $alpha: 0.1);
+    a {
+        float: left;
+        width: 25%;
+        text-align: center;
+        color: rgb(63,63,63);
+    }
+    a:first-child {
+        color: rgb(255,105,1);
+    }
+    img {
+        width: (28rem/ 75);
+        height: (28rem/ 75);
+        margin-top: (18rem/ 75);
+    }
+    p {
+        margin-top: (13rem/ 75);
+    }
+}

@@ -1,0 +1,29 @@
+1.总结所有的让元素水平居中的方法
+方法一：
+给父盒子display: flex; align-items: center; justify-content: center;
+
+方法二：
+给父盒子position: relative;
+给子盒子position: absolute; top: 50%; left:50%; margin-left: -子盒子宽度的一半; margin-top: -子盒子的高度的一半; 
+
+方法三：
+给父盒子position: relative;
+给子盒子position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%)
+
+方法四：
+给子盒子display: inline-block;
+给父盒子text-align: center;
+
+2.em和rem的区别
+em是相对与当前元素的font-size而决定的
+rem是相对于html标签的font-size而决定的
+
+
+3.less与sass的区别
+声明变量时，less用@声明，sass用$声明
+在sass中我们可以使用一些if{}else{},for{}循环
+混合方法不同
+继承方法不同
+
+
+4.代码题

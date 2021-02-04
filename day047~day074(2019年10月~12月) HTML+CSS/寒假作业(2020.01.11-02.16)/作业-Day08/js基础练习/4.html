@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 让用户输入年龄，并判断该用户年龄是否成年，如果成年并告知：恭喜你已成年，如果还未成年需告知用户还有多少年就成年了，如果用户输入的不是年龄数字提示输入错误 -->
+    <script>
+        let age = prompt("请您输入年龄")
+        age = Number(age);
+        if (isNaN(age) == true || age < 0) {
+            alert("输入错误")
+        }
+        else if (age >= 18) {
+            alert("恭喜您已成年")
+        }
+        else {
+            alert("您还有" + (18 - age) + "年就成年了")
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .clearfix:before,
+        .clearfix:after {
+            content: "";
+            display: table;
+        }
+
+        .clearfix:after {
+            clear: both;
+        }
+
+        .clearfix {
+            *zoom: 1;
+        }
+
+        nav {
+            margin-top: 20px;
+            background-color: #444444;
+        }
+
+        a {
+            position: relative;
+            float: left;
+            font-size: 14px;
+            line-height: 30px;
+            height: 30px;
+            text-decoration: none;
+            padding: 0 10px;
+            color: white;
+        }
+
+        a:nth-child(1) {
+            background-color: #1066a4;
+            margin-left: 300px;
+        }
+
+        a:hover {
+            background-color: #1066a4;
+        }
+
+        span.hot {
+            position: absolute;
+            display: block;
+            width: 25px;
+            height: 20px;
+            background-image: url(./img/sprite1.png);
+            background-position: -58px 0px;
+            background-repeat: no-repeat;
+            left: 50%;
+            margin-left: -12px;
+            top: -10px;
+        }
+
+        span.new {
+            position: absolute;
+            display: block;
+            width: 25px;
+            height: 20px;
+            background-image: url(./img/sprite1.png);
+            background-position: -136px 0px;
+            background-repeat: no-repeat;
+            left: 50%;
+            margin-left: -12px;
+            top: -10px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="clearfix">
+        <a href="#">首页</a>
+        <a href="#">Java</a>
+        <a href="#">iOS</a>
+        <a href="#">UI设计</a>
+        <a href="#">前端与移动开发<span class="hot"></span></a>
+        <a href="#">PHP</a>
+        <a href="#">C/C++</a>
+        <a href="#">python<span class="new"></span></a>
+        <a href="#">网络营销</a>
+        <a href="#">问答专区</a>
+    </nav>
+</body>
+
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .circle {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            border: 5px solid black;
+            border-radius: 50%;
+        }
+
+        .circle>div {
+            position: absolute;
+            width: 2px;
+            height: 200px;
+            background-color: indigo;
+            left: 100px;
+
+        }
+
+        .circle>div:nth-child(2) {
+            transform: rotate(30deg);
+        }
+
+        .circle>div:nth-child(3) {
+            transform: rotate(60deg);
+        }
+
+        .circle>div:nth-child(4) {
+            transform: rotate(90deg);
+        }
+
+        .circle>div:nth-child(5) {
+            transform: rotate(1200deg);
+        }
+
+        .circle>div:nth-child(6) {
+            transform: rotate(150deg);
+        }
+
+        .circle .cover {
+            position: absolute;
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            background-color: white;
+        }
+
+        .h {
+            position: absolute;
+            width: 6px;
+            height: 30px;
+            background-color: mediumslateblue;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            top: 50px;
+            animation: rotate-s 216000s steps(60) infinite;
+            transform-origin: center bottom;
+        }
+
+        .m {
+            position: absolute;
+            width: 4px;
+            height: 50px;
+            left: 0;
+            top: 30px;
+            right: 0;
+            margin: 0 auto;
+            background-color: mediumspringgreen;
+            animation: rotate-s 3600s steps(60) infinite;
+            transform-origin: center bottom;
+        }
+
+        .s {
+            position: absolute;
+            width: 2px;
+            height: 70px;
+            left: 0;
+            top: 10px;
+            right: 0;
+            margin: 0 auto;
+            background-color: mediumturquoise;
+            animation: rotate-s 60s steps(60) infinite;
+            transform-origin: center bottom;
+        }
+
+        .point {
+            position: absolute;
+            width: 17px;
+            height: 17px;
+            border-radius: 50%;
+            background-color: darkgrey;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+        }
+
+        @keyframes rotate-s {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="circle">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div class="cover">
+            <div class="h"></div>
+            <div class="m"></div>
+            <div class="s"></div>
+            <div class="point"></div>
+        </div>
+    </div>
+</body>
+
+</html>

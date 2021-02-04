@@ -1,0 +1,11 @@
+html {
+    background-color: #fafafc;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+img {
+    vertical-align: middle;
+}

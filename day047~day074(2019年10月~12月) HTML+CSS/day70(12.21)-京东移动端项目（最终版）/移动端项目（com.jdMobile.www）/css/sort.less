@@ -1,0 +1,146 @@
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    width: 100%;
+    height: 45px;
+    background-image: url(../img/header-bg.png);
+    background-repeat: repeat-x;
+    border-bottom: 1px solid #bfbfbf;
+}
+
+.header-left-right {
+    position: absolute;
+    top: 0;
+    width: 20px;
+    margin: 10px;
+    height: 24px; 
+    background-image: url(../img/jd-sprites.png);
+    background-size: 200px 200px;
+    background-repeat: no-repeat;
+}
+
+.header-left {
+    .header-left-right;
+    left: 0;
+    background-position: -22px 2px;
+
+}
+
+.header-middle {
+    width: 100%;
+    padding: 0 40px;
+    input {
+        width: 100%;
+        border: 1px solid #bfbfbf;
+        border-radius: 4px;
+        height: 30px;
+        font-size: 12px;
+        padding-left: 10px;
+        margin-top: 7px;
+    }
+}
+
+.header-right {
+    .header-left-right;
+    right: 0;
+    background-position: -61px 2px;
+}
+
+aside {
+    position: fixed;
+    padding-top: 45px;
+    
+    width: 90px;
+    ul {
+        width: 100%;
+    }
+    li {
+        height: 50px;
+        text-align: center;
+        line-height: 49px;
+        font-size: 13px;
+        color: #252525;
+        border-bottom: 1px solid #E0E0E0;
+        border-right: 1px solid #E0E0E0;
+        background-color: #f3f4f6;
+    }
+}
+main {
+    padding-top: 45px;
+    padding-left: 100px;
+    padding-right: 10px;
+}
+
+.h4-title {
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    color: #888888;
+}
+
+.recommend {
+    width: 100%;
+    h4 {
+        .h4-title();
+    }
+    ul {
+        width: 100%;
+        border-top: 1px solid #e0e0e0;
+        border-left: 1px solid #e0e0e0;
+        overflow: hidden;
+    }
+    li {
+        float: left;
+        width: 33.3333333%;
+        border-bottom: 1px solid #e0e0e0;
+        border-right: 1px solid #e0e0e0;
+    }
+    a {
+        display: block;
+        width: 100%;
+        line-height: 50px;
+        color: #252525;
+        text-align: center;
+    }
+}
+
+.sort {
+    h4 {
+        .h4-title();
+    }
+    ul {
+        width: 100%;
+        overflow: hidden;
+    }
+    li {
+        float: left;
+        width: 33.333333%;
+    }
+    a {
+        display: block;
+        width: 100%;
+        text-align: center;
+        color: #333333;
+    }
+    img {
+        width: 100%;
+    }
+    p {
+        margin-top: 5px;
+        margin-bottom: 10px;
+    }
+}
+
+.guide {
+    .sort();
+}
+
+.hotsale {
+    .sort();
+}
+
+.dress {
+    .sort();
+}

@@ -1,0 +1,55 @@
+1.BFC的主要用途（不知道的去网上查）
+不和浮动元素重叠；
+清除元素内部的浮动；
+解决上下相邻的两个元素外边距合并；
+
+2.优雅降级和渐进增强定义及作用
+优雅降级：一开始就构建完整的功能，然后再针对低版本浏览器进行兼容
+作用：提供了较好的平台稳定性，维护起来资金小，长期来说降低开发成本
+
+渐进增强：针对低版本浏览器进行构建页面，保证最基本的功能，然后再针对高级浏览器进行效果，交互等改进和追加功能达到更好的用户体验。
+作用：可以短时间开发出一个完整版，拿去测试，试水，可以节约成本
+
+3.浏览器前缀都有哪些
+-webkit- 谷歌/苹果
+-ms- IE
+-moz- 火狐
+-o- Opera
+
+4.HTML5新标签与特性
+<nav>
+<header>
+<footer>
+<article>
+<section>
+<aside>
+
+新特性:
+用于绘画的canvas标签
+用于媒体回放的video和audio标签
+对于本体离线存储更好的支持
+新内容元素
+新表单控件
+
+5CSS3 新增选择器
+结构伪类选择器
+
+6":" 与 "::" 区别
+单冒号用于css3伪类
+双冒号用于css3伪元素
+
+
+7.过渡（transition）的属性
+transition: property duration timing-function delay;
+
+8.transform的属性值有哪些
+translate位移
+scale缩放
+rotate旋转
+skew倾斜转换
+perspective 为3D转换元素定义透视视图
+
+9.动画 animation 的属性值
+animation: name duration timing-function速度曲线 delay iteration-count次数 direction
+
+10.代码题

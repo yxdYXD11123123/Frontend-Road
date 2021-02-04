@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #001078;
+        }
+
+        .big {
+            position: relative;
+            text-align: center;
+        }
+
+        .change {
+            position: absolute;
+            margin: auto;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            animation: breath 1s linear infinite;
+        }
+
+        .big p {
+            position: absolute;
+            color: white;
+            width: 182px;
+            height: 100px;
+            font-size: 21px;
+            font-weight: 700;
+            margin: auto;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+        }
+
+        @keyframes breath {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            50% {
+                transform: scale(1.07);
+                opacity: 0.3;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .bottom {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="big">
+        <img src="img/box4_img1.png" alt="">
+        <img src="img/box4_img3.png" alt="" class="change">
+        <p>学员从新媒体+短视频运营毕业后，可从事的多个就业方向</p>
+    </div>
+    <div class="bottom">
+        <img src="img/box4_img2.png" alt="">
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,13 @@
+.container {
+    position: relative;
+    width: 1200px;
+    margin: 0 auto;
+}
+
+img {
+    vertical-align: middle;
+}
+
+body {
+    background-color: #f8f8f8;
+}

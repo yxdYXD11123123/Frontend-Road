@@ -1,0 +1,82 @@
+@mixin asideNav($backcolor) {
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 40px;
+    line-height: 40px;
+    padding-right: 15px;
+    font-size: 14px;
+    color: white;
+    white-space: nowrap;
+    background-color: $backcolor;
+}
+
+.asidenav {
+    position: fixed;
+    top: 50px;
+    left: 30px;
+    a {
+        position: relative;
+        display: block;
+        width: 40px;
+        height: 40px;
+        background-color: #f6f6f6;
+        background-image: url(../img/spirte.png);
+        background-repeat: no-repeat;
+    }
+    li:nth-child(1) a:hover {
+        background-color: #93d46f;
+        background-position: -40px 0px;
+    }
+
+    li:nth-child(1):hover a:before {
+        content: "图书";
+        @include asideNav(#93d46f);
+    }
+
+    li:nth-child(2) a {
+        background-position: 0px -480px;
+    }
+    li:nth-child(2) a:hover {
+        background-color: #f97f67;
+        background-position: -40px -480px;
+    }   
+    li:nth-child(2):hover a:before {
+        content: "服装";
+        @include asideNav(#f97f67);
+    } 
+    li:nth-child(3) a {
+        background-position: 0px -520px;
+    }
+    li:nth-child(3) a:hover {
+        background-color: #72d599;
+        background-position: -40px -520px;
+    }
+    li:nth-child(3):hover a:before {
+        content: "日用百货";
+        @include asideNav(#72d599);
+    } 
+    li:nth-child(4) a {
+        background-position: 0px -240px;
+    }
+    li:nth-child(4) a:hover {
+        background-color: #ff857f;
+        background-position: -40px -240px;
+    }
+    li:nth-child(4):hover a:before {
+        content: "孕婴童";
+        @include asideNav(#ff857f);
+    } 
+    li:nth-child(5) a {
+        background-position: -40px -560px;
+        background-color: #f97f67;
+    }
+    li:nth-child(5) a:hover {
+        background-color: #f97f67;
+        background-position: -40px -560px;
+    }
+    li:nth-child(5):hover a:before {
+        content: "猜你喜欢";
+        @include asideNav(#f97f67);
+    } 
+}

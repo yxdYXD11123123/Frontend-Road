@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            /* overflow: hidden; */
+            width: 620px;
+            margin: 100px auto;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        li {
+            position: relative;
+            float: left;
+            width: 60px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            font-size: 20px;
+            margin-right: 10px;
+            transform-style: preserve-3d;
+            transform: rotateX(0deg) rotateY(15deg);
+            transition: all 1s linear;
+        }
+
+        a {
+            color: white;
+        }
+
+        li span:nth-child(1) {
+            position: absolute;
+            display: block;
+            width: 60px;
+            height: 30px;
+            background-color: teal;
+            transform: translateZ(15px);
+        }
+
+        li span:nth-child(2) {
+            position: absolute;
+            display: block;
+            width: 60px;
+            height: 30px;
+            background-color: mediumorchid;
+            transform: rotateX(90deg) translateZ(15px);
+        }
+
+        li:hover {
+            transform: rotateX(-90deg) rotateZ(15deg);
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>
+            <a href="#">
+                <span>AAA</span>
+                <span>FFF</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <span>AAA</span>
+                <span>FFF</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <span>AAA</span>
+                <span>FFF</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <span>AAA</span>
+                <span>FFF</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <span>AAA</span>
+                <span>FFF</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <span>AAA</span>
+                <span>FFF</span>
+            </a>
+        </li>
+    </ul>
+</body>
+
+</html>

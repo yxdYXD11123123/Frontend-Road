@@ -1,0 +1,97 @@
+1.总结浏览器内核。
+Safari     webkit 内核
+Chrome(opera)   Blink 内核
+IE        Trident 内核
+Firefox   Gecko 内核
+
+2.Web 标准构成以及好处
+HTML
+CSS
+Java Script
+好处：
+1. 让Web的发展前景更广阔
+2. 内容能被更广泛的设备访问
+3. 更容易被搜索引擎搜索
+4. 降低网站流量费用
+5. 使网站更易于维护
+6. 提高页面浏览速度
+
+
+3**1.关于WEB标准下列说法正确的是: **  （C）
+
+A html决定页面的行为，css决定页面的样式，js决定页面的结构
+
+B html决定页面的样式，css决定页面的结构，js决定页面的行为
+
+C html决定页面的结构，css决定页面的样式，js决定页面的行为
+
+D 以上都不正确
+
+
+4. **web 标准里边规定三层分离不包括哪部分** （D）
+
+A．HTML
+
+B．CSS
+
+C．JavaScript
+
+D．PHP
+
+
+5.**关于WEB标准下列说法正确的是**  （B）
+
+A．html相当于人的动作行为，CSS相当于人的穿着打扮，javascript相当于人的骨架结构；
+
+B．html相当于人的骨架结构，CSS相当于人的穿着打扮，javascript相当于人的动作行为；
+
+C．html相当于人的穿着打扮，CSS相当于人的骨架结构，javascript相当于人的动作行为；
+
+D．html相当于人的骨架结构，CSS相当于人的动作行为，javascript相当于人的穿着打扮；
+
+
+6.HTML 的了解及认识。
+用于美化标准，美化网页，相当于人穿各式各样的衣服
+
+
+7.文档类型<!DOCTYPE>的作用，字符集<meta charset="UTF-8" />的作用
+<!DOCTYPE>的作用：
+<!DOCTYPE>标签是一种标准通用标记语言的文档类型声明，它的目的是要告诉标准通用标记语言解析器，使用W3C的标准解析渲染页面。
+
+<meta charset="UTF-8" />的作用：
+是告知浏览器这个页面属于什么字符编码格式，让下一步浏览器做好翻译工作。
+
+
+8.总结我们学过的所有标签，例如：p 块级 独占一行 是具有段落的语义
+块级：
+div
+h1-h6 具有标题的语义 
+ul 无序列表
+ol 有序列表
+li 
+table 表格
+header 头部
+footer 底部
+article 文章
+section 部分
+main 主体
+aside 侧边栏
+nav 导航
+
+行内块：
+img 图片标签
+input 
+td
+
+行内：
+s 
+b 
+small
+strong
+a 超链接
+span 
+del 
+
+
+9.代码题
+

@@ -1,0 +1,176 @@
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+.top a {
+    display: block;
+}
+
+img {
+    vertical-align: top;
+}
+
+.top img {
+    width: 100%;
+}
+
+li {
+    list-style: none;
+}
+
+.content-one,
+.content-two,
+.content-three {
+    display: flex;
+    height: 90px;
+    margin: 5px 5px 0px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.content-one-left,
+.content-two-left,
+.content-three-left {
+    flex: 1;
+    background-color: #ff697a;
+}
+
+.content-two-left {
+    background-color: #3d98ff;
+}
+
+.content-three-left {
+    background-color: #44c522;
+}
+
+.content-one-right,
+.content-two-right,
+.content-three-right {
+    flex: 2;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.content-one-right li,
+.content-two-right li,
+.content-three-right li {
+    flex: 50%;
+    background-color: #ff697a;
+    box-sizing: border-box;
+    border-left: 1px solid white;
+}
+
+.content-two-right li {
+    background-color: #3d98ff;
+}
+
+.content-three-right li {
+    background-color: #44c522;
+}
+
+.content-one-right li:nth-child(-n+2),
+.content-two-right li:nth-child(-n+2),
+.content-three-right li:nth-child(-n+2) {
+    border-bottom: 1px solid white;
+}
+
+.content-one-right li a,
+.content-two-right li a,
+.content-three-right li a,
+.content-four li a {
+    display: block;
+    line-height: 44px;
+    text-align: center;
+    color: white;
+    font-size: 14px;
+    text-shadow: 0 2px 1px rgba(0,0,0,0.2);
+}
+
+
+.content-four ul {
+    display: flex;
+    height: 90px;
+    background-color: aquamarine;
+    margin: 5px 5px 0px;
+    border-radius: 8px;
+    overflow: hidden;
+    flex-wrap: wrap;
+}
+
+.content-four li {
+    flex: 33.3%;
+    box-sizing: border-box;
+    background-color: #fc9720;
+}
+
+.content-four li:nth-child(2),
+.content-four li:nth-child(3),
+.content-four li:nth-last-child(-n+2) {
+    border-left: 1px solid white;
+}
+
+.content-four li:nth-last-child(-n+3) {
+    border-top: 1px solid white;
+}
+
+.gift {
+    display: flex;
+}
+
+.gift a {
+    flex: 1;
+}
+
+.gift a img {
+    width: 100%;
+}
+
+.bottomnav {
+    display: flex;
+    height: 44px;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+.bottomnav a {
+    flex: 1;
+    color: #333333;
+    line-height: 44px;
+    text-align: center;
+    font-size: 12px;
+}
+
+.footer {
+    display: flex;
+    margin-top: 15px;
+    justify-content: center;
+    color: #666666;
+    font-size: 12px;
+}
+
+.footer a {
+    color: #666666;
+    font-size: 12px;
+    margin: 0px 5px;
+}
+
+.last {
+    margin-top: 18px;
+    text-align: center;
+    color: #999999;
+    font-size: 12px;
+    margin-bottom: 10px;
+}

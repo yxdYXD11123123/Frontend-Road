@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            position: relative;
+            width: 343px;
+            height: 150px;
+            margin: 200px auto;
+            box-sizing: border-box;
+            background-color: #003169;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        img {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 343px;
+            transition: 3s linear;
+        }
+
+        .two {
+            transform: translate(0px, -267px);
+        }
+
+        .box:hover .one {
+            transform: translate(0px, -267px);
+        }
+
+        .box:hover .two {
+            transform: translate(0px, 0px);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <img src="./images/paopao.png" alt="" class="one">
+        <img src="./images/paopao.png" alt="" class="two">
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        body {
+            background-color: #f6f6f6;
+        }
+
+        .big {
+            width: 743px;
+            height: 569px;
+            background-color: white;
+            margin: 10px auto;
+        }
+
+        .top {
+            height: 75px;
+            background-color: #b35058;
+        }
+
+        .top-left {
+            float: left;
+            height: 26px;
+            line-height: 26px;
+            font-size: 24px;
+            color: white;
+            font-weight: 800;
+            margin-top: 27px;
+            padding-left: 26px;
+        }
+
+        .top-right {
+            float: right;
+            padding-right: 11px;
+        }
+
+        .top-right a {
+            float: left;
+            width: 97px;
+            height: 37px;
+            border: 1px solid #d59da2;
+            background-color: #c27379;
+            text-decoration: none;
+            line-height: 37px;
+            font-size: 18px;
+            text-align: center;
+            margin-top: 20px;
+            margin-right: 15px;
+            color: white;
+        }
+
+        .content {
+            width: 743px;
+            height: 397px;
+        }
+
+        .content-left {
+            float: left;
+            width: 456px;
+            height: 388px;
+            /* background-color: yellowgreen; */
+            margin-left: 26px;
+        }
+
+        .content-left-top,
+        .content-left-bl,
+        .content-left-br {
+            float: left;
+        }
+
+        .content-left-top {
+            line-height: 144px;
+            width: 436px;
+            height: 144px;
+            border-bottom: 1px solid #e6e6e6;
+        }
+
+        .content-left-top img {
+            float: left;
+            width: 100px;
+            height: auto;
+            margin-top: 20px;
+            margin-left: 57px;
+        }
+
+        .content-left-top div {
+            display: inline-block;
+            margin-top: 42px;
+            margin-left: 29px;
+            width: 164px;
+            height: 85px;
+        }
+
+        .content-left-top p {
+            float: left;
+            height: 23px;
+            line-height: 23px;
+            font-size: 19px;
+            font-weight: 800;
+            margin-top: 5px;
+            color: #b35058;
+        }
+
+        .content-left-bl {
+            width: 220px;
+            height: 217px;
+            margin-top: 18px;
+            border-right: 1px solid #e6e6e6;
+        }
+
+        .content-left-bl-up {
+            float: left;
+            width: 178px;
+            height: 112px;
+            border-bottom: 1px solid #e6e6e6;
+            background-image: url(作业五/images/icon2.png);
+            /* background-color: rgb(143, 184, 102); */
+            background-repeat: no-repeat;
+            background-position: 10px center;
+            line-height: 112px;
+            font-size: 19px;
+        }
+
+        .content-left-bl-up a {
+            display: block;
+            padding-left: 86px;
+            text-decoration: none;
+            color: black;
+        }
+
+        .content-left-bl-down {
+            float: left;
+            width: 178px;
+            height: 112px;
+            background-image: url(作业五/images/icon1.png);
+            background-repeat: no-repeat;
+            background-position: 10px center;
+            line-height: 112px;
+            font-size: 19px;
+            /* background-color: rgb(143, 184, 102); */
+        }
+
+        .content-left-bl-down a {
+            /* background-color: chartbreuse; */
+            display: block;
+            padding-left: 86px;
+            text-decoration: none;
+            color: black;
+        }
+
+        .content-left-br {
+            width: 178px;
+            height: 224px;
+            margin-top: 18px;
+            margin-left: 38px;
+            /* border-right: 1px solid #e6e6e6; */
+        }
+
+        .content-left-br-up {
+            float: left;
+            width: 178px;
+            height: 112px;
+            /* border-bottom: 1px solid #e6e6e6; */
+            background-image: url(作业五/images/icon3.png);
+            /* background-color: rgb(143, 184, 102); */
+            background-repeat: no-repeat;
+            background-position: 10px center;
+            border-bottom: 1px solid #e6e6e6;
+            line-height: 112px;
+            font-size: 19px;
+            /* padding-left: 86px; */
+            /* overflow: hidden; */
+        }
+
+        .content-left-br-up a {
+            display: block;
+            padding-left: 86px;
+            text-decoration: none;
+            color: black;
+        }
+
+        .content-left-br-down {
+            float: left;
+            width: 178px;
+            height: 112px;
+            /* border-bottom: 1px solid #e6e6e6; */
+            /* background-image: url(作业五/images/icon3.png); */
+            /* background-color: rgb(143, 184, 102); */
+            background-repeat: no-repeat;
+            background-position: 10px center;
+            line-height: 112px;
+            font-size: 19px;
+            /* padding-left: 86px; */
+            /* overflow: hidden; */
+        }
+
+        .content-left-br-down a {
+            display: inline-block;
+            height: 112px;
+            width: 178px;
+            margin-top: 0px;
+            text-decoration: none;
+            color: black;
+        }
+
+        .content-left-br-down a p {
+            /* display: inline-block; */
+            height: 30px;
+            line-height: 30px;
+            margin: 0 auto;
+            margin-bottom: 0px;
+            margin-top: 35px;
+            width: 120px;
+        }
+
+        .content-left-br-down .hundred {
+            /* display: inline-block; */
+            width: 156px;
+            height: 20px;
+            line-height: 20px;
+            font-size: 15px;
+            color: white;
+            text-align: right;
+            padding-right: 5px;
+            background-color: #b35058;
+            margin: 10px auto;
+        }
+
+        .content-right {
+            float: right;
+            width: 260px;
+            height: 360px;
+            margin-top: 27px;
+            /* background-color: yellowgreen; */
+            border-left: 1px solid #e6e6e6;
+        }
+
+        .content-right-top {
+            line-height: 47px;
+            font-size: 19px;
+            /* text-align: center; */
+            padding-left: 71px;
+            width: 169px;
+            height: 47px;
+            /* background-color: turquoise; */
+            border: 1px solid #cccccc;
+            background-image: url(作业五/images/kczxdown.png);
+            background-repeat: no-repeat;
+            background-position: 168px 22px;
+            background-size: 11px auto;
+            margin: 0px auto;
+        }
+
+        .basic {
+            width: 240px;
+            height: 150px;
+            margin: 20px auto 0px;
+        }
+
+        .basic li {
+            list-style: none;
+            font-size: 18px;
+            height: 38px;
+            /* background-color: turquoise; */
+        }
+
+        .worked {
+            width: 240px;
+            height: 130px;
+            margin: 12px auto 0px;
+        }
+
+        .worked li {
+            list-style: none;
+            font-size: 18px;
+            height: 36px;
+        }
+
+        .bottom {
+            position: relative;
+            width: 694px;
+            height: 77px;
+            background-image: url(作业五/images/technologyadweb.jpg);
+            background-repeat: no-repeat;
+            background-size: 694px auto;
+            margin: 10px auto;
+        }
+
+        .bottom div {
+            position: absolute;
+            width: 694px;
+            height: 77px;
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="big">
+        <div class="top">
+            <div class="top-left">前端移动和开发</div>
+            <div class="top-right">
+                <a href="#">进入学院</a>
+                <a href="#">学习社区</a>
+                <a href="#">申请试听</a>
+            </div>
+        </div>
+        <div class="content">
+            <div class="content-left">
+                <div class="content-left-top">
+                    <img src="作业五/images/web_icon.jpg" alt="">
+                    <div>
+                        <p>大前端改变世界</p>
+                        <p>我们改变前端</p>
+                    </div>
+                </div>
+                <div class="content-left-bl">
+                    <div class="content-left-bl-up">
+                        <a href="#">课程大纲</a>
+                    </div>
+                    <div class="content-left-bl-down">
+                        <a href="#">就业前景</a>
+                    </div>
+                </div>
+                <div class="content-left-br">
+                    <div class="content-left-br-up">
+                        <a href="#">师资力量</a>
+                    </div>
+                    <div class="content-left-br-down">
+                        <a href="#">
+                            <p>免费视频下载</p>
+                            <p class="hundred">100%</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="content-right">
+                <div class="content-right-top">
+                    北京校区
+                </div>
+                <ul class="basic">
+                    <li>基础班 2019-10-22 已开班</li>
+                    <li>基础班 2019-11-09 报名中</li>
+                    <li>基础班 2019-11-26 报名中</li>
+                    <li style="color: red;">基础班 2019-12-26 报名中</li>
+                </ul>
+                <ul class="worked">
+                    <li>就业班 2019-11-13 报名中</li>
+                    <li>就业班 2019-11-26 报名中</li>
+                    <li>就业班 2019-12-01 报名中</li>
+                    <li style="height: 21px;">就业班 2019-12-19 报名中</li>
+                </ul>
+            </div>
+        </div>
+        <div class="bottom">
+            <div></div>
+        </div>
+    </div>
+</body>
+
+</html>

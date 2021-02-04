@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //     7.一个加油站为了鼓励车主多加油，所以加的多有优惠。
+        //   92号汽油，每升6元；如果大于20升，那么超出部分每升5.9；
+        //   95号汽油，每升7元；如果大于30升，那么超出部分每升6.95
+        //   编写JS程序，用户输入自己的汽油编号，然后输入自己加多少升， 弹出价格。   
+
+        // 步骤：
+        // 声明一个变量，作为汽油编号
+        let Id = prompt('请输入您要选择的汽油编号');
+        // 声明一个变量，作为 油的升数
+        let L = prompt('请输入您要加多少升');
+        // 声明一个变量，作为总价格
+        let money = 0;
+        // 先判断用户选择哪种油
+        if (Id == 92) {
+            // 判断用户加的油是不是大于20L
+            if (L > 20) {
+                // 大于20L，那么超出20L的部分按5.9每升计算
+                money = 20 * 6 + (L - 20) * 5.9
+            }
+            else {
+                // 没超过20L，每升按6元
+                money = L * 6
+            }
+        }
+        // 如果是95号油
+        else if (Id == 95) {
+            // 判断是否大于30L
+            if (L > 30) {
+                // 大于30，那么超出部分按6.95计算
+                money = 30 * 7 + (L - 30) * 6.95
+            }
+            else {
+                // 小于30，那么每升7元
+                money = L * 7
+            }
+        }
+        // 弹出价格
+        alert('您需要支付' + money + '元')
+    </script>
+</body>
+
+</html>

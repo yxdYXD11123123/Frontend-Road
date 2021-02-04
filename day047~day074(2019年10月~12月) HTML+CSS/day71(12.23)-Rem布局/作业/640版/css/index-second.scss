@@ -1,0 +1,284 @@
+@mixin Vcenter($width, $height) {
+    position: absolute;
+    left: 50%;
+    margin-left: -$width/ 2;
+    top: 50%;
+    margin-top: -$height / 2;
+}
+
+
+// 顶部
+.title {
+    background-color: #ff9b25;
+    width: 100%;
+    line-height: (88rem / 64);
+    font-size: (32rem/ 64);
+    color: white;
+    font-weight: 700;
+    a {
+        display: inline-block;
+        padding-left: (20rem / 64);
+    }
+    img {
+        width: (26rem/ 64);
+    }
+}
+
+// 全场优惠
+.discount {
+    width: 100%;
+    padding: 0 (24rem / 64);
+    margin-top: (27rem / 64);
+    
+    h4 {
+        width: 100%;
+        font-size: (28rem / 64);
+        overflow: hidden;
+        span:nth-child(1) {
+            float: left;
+            color: black;
+        }
+        span:nth-child(2) {
+            float: right;
+            color: #888888;
+        }
+    }
+}
+
+
+
+.discount-content-tillhundred {
+    position: relative;
+    margin-top: (30rem / 64);
+    width: (587rem / 64);
+    height: (314rem / 64);
+    padding-left: (30rem / 64);
+    background-image: url(../img/tillhundred-two.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    h2 {
+        margin-top: (32rem / 64);
+        font-size: (46rem / 64);
+        color: white;
+        font-weight: normal;
+    }
+    p:nth-child(2) {
+        font-size: (24rem/ 64);
+        color: #bdf3ce;
+        margin-top: (15rem/ 64);
+    }
+    p:nth-child(3) {
+        font-size: (22rem / 64);
+        color: white;
+        margin-top: (63rem/ 64);
+    }
+    span {
+        position: absolute;
+        padding: (4rem/ 64) (4rem/ 64);
+        padding-top: (6rem/ 64);
+        right: (37rem/ 64);
+        top: (178rem/ 64);
+        background-color: #2a603b;
+        color: #bdf3ce;
+        font-size: (22rem/ 64);
+    }
+    div {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: (70rem/ 64);
+        width: 100%;
+    }
+    div a {
+        float: left;
+        width: 50%;
+        text-align: center;
+        line-height: (70rem/ 64);
+        font-size: (26rem/ 64);
+        color: #888888;
+    }
+    a img {
+        width: (24rem/ 64);
+        height: (24rem/ 64);
+        margin-right: (20rem/ 64);
+    }
+}
+
+// 优惠券栏
+.coupon {
+    width: 100%;
+    padding: 0 (24rem / 64);
+    margin-top: (34rem / 64);
+    h4 {
+        width: 100%;
+        font-size: (28rem / 64);
+        overflow: hidden;
+        span:nth-child(1) {
+            float: left;
+            color: black;
+        }
+        span:nth-child(2) {
+            float: right;
+            color: #888888;
+        }
+    }
+}
+
+.coupon-content {
+    margin-top: (27rem / 64);
+}
+
+.coupon-content-tillfive {
+    position: relative;
+    height: (222rem / 64);
+    padding-left: (30rem/ 64);
+    padding-right: (30rem/ 64);
+    font-family: "STXihei";
+    background-color: #a974bc;
+    border-radius: (8rem/ 64);
+    line-height: 1;
+    overflow: hidden;
+    margin-bottom: (30rem / 64);
+    &:before {
+        content: "";
+        position: absolute;
+        top: (-20rem / 64);
+        right: (-5rem/ 64);
+        display: block;
+        width: (146rem / 64);
+        height: (146rem / 64);
+        background-image: url(../img/sale.png);
+        background-size: (146rem / 64) (146rem / 64);
+        background-repeat: no-repeat;
+    } 
+    h2 {
+         font-size: (24rem/ 64);
+         color: #eac7f7;
+         margin-top: (18rem/ 64);
+         s {
+             font-size: (34rem / 64);
+             color: white;
+             margin-right: (10rem / 64);
+         }
+         b {
+             font-size: (70rem/ 64);
+             color: white;
+             margin-right: (5rem / 64);
+         }
+    }
+    p:nth-child(2) {
+        margin-top: (50rem/ 64);
+        font-size: (22rem/ 64);
+        color: white;
+    }
+    P:nth-child(3) {
+        margin-top: (15rem/ 64);
+        font-size: (22rem/ 64);
+        color: white;
+        img {
+            width: (22rem/ 64);
+            height: (22rem/ 64);
+            vertical-align: baseline;
+        }
+    }
+    span {
+        position: absolute;
+        padding: (6rem/ 64) (4rem/ 64);
+        padding-top: (4rem/ 64);
+        right: (30rem/ 64);
+        top: (178rem/ 64);
+        background-color: rgb(106, 66, 121);
+        color: #f2d8fb;
+        font-size: (22rem/ 64);     
+    }
+}
+
+.coupon-content-tilltwenty {
+    @extend .coupon-content-tillfive;
+    margin-bottom: 0;
+    z-index: -2;
+    &:after {
+        content: "";
+        position: absolute;
+        display: block;
+        height: (18rem/ 64);
+        background-image: url(../img/no_circle.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+        bottom: (-9rem/ 64);
+        left: (7rem/ 64);
+        right: (7rem/ 64);
+        z-index: -1;
+    }
+}
+
+.coupon-content-tilltwenty-bottom {
+    height: (86rem/ 64);
+    width: 100%;
+    background-color: white;
+    margin-top: (-5rem/ 64);
+    a {
+        float: left;
+        display: block;
+        width: 33.3333%;
+        height: (47rem/ 64);
+        text-align: center;
+        line-height: (47rem/ 64);
+        margin-top: (20rem/64);
+        border-right: (1rem/ 64) solid #e8e2d9;
+        img {
+            width: (23rem/ 64);
+            height: (27rem/ 64);
+            margin-right: (20rem/ 64);
+            vertical-align: text-top;
+        }
+        color: #888888;
+        font-size: (26rem / 64);
+    }
+    a:last-child {
+        img {
+            width: (25rem/ 64);
+        }
+        border-right: none;
+    }
+    a:nth-child(2) {
+        img {
+            width: (32rem/ 64);
+            height: (18rem/ 64);
+            vertical-align: unset;
+        }
+    }
+}
+
+.coupon-more {
+    position: relative;
+    margin-top: (30rem / 64);
+    height: (224rem / 64);
+    width: 100%;
+    background-color: white;
+    border: (3rem/64) dashed #dedede;
+    a {
+        @include Vcenter((100rem/ 64),((100rem/ 64)+(43rem/ 64)));
+        display: block;
+    }
+    img {
+        width: (100rem/ 64);
+        height: (100rem/ 64);
+    }
+    p {
+        font-size: (26rem / 64);
+        color: #aeaeae;
+        margin-top: (18rem / 64);
+    }
+}
+
+// 底部
+.footer {
+    margin: 0px (24rem / 64);
+    margin-top: (120rem/ 64);
+    font-size: (24rem/ 64);
+    line-height: (40rem/ 64);
+    color: #999999;
+}
+

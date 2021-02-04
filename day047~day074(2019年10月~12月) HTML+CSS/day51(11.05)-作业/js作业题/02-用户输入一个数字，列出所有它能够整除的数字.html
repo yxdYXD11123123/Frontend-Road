@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 2. 用户输入一个数字，列出所有它能够整除的数字。
+
+        // 让用户输入一个数字
+        let num = prompt('请您输入一个数字')
+        // 准备一个字符串
+        let str = ''
+        // 循环
+        for (let i = 1; i <= num; i++) {
+            // 判断是否能被这个数整除
+            if (num % i == 0) {
+                // 如果可以将其列入字符串
+                str = str + i + ','
+            }
+        }
+        // 列出字符串
+        alert(str)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,177 @@
+@mixin content-title {
+    font-size: (30rem/ 64);
+    font-family: "STXihei";
+    color: #555555;
+}
+@mixin content-content {
+    font-size: (26rem/ 64);
+    font-family: "STXihei";
+    color: #999999;
+}
+
+// 顶部
+.title {
+    background-color: #ff9b25;
+    width: 100%;
+    line-height: (88rem / 64);
+    overflow: hidden;
+    a {
+        float: left;
+        display: block;
+        font-size: (32rem/ 64);
+       color: white;
+       font-weight: 700;
+       margin-left: (20rem/ 64);
+    }
+    a:last-child {
+        float: right;
+        margin-right: (26rem / 64);
+    }
+    img {
+        width: (26rem/ 64);
+        margin-right: (20rem / 64);
+    }
+}
+
+.main-name {
+    border-top: 1px solid #dddddd;
+    margin-top: (33rem/ 64);
+    width: 100%;
+    height: (104rem/ 64);
+    line-height: (104rem/ 64);
+    padding-left: (24rem/64);
+    padding-right: (24rem/64);
+    background-color: white;
+    @include content-title();
+    input {
+        float: right;
+        height: 100%;
+        width: (360rem / 64);
+        border: none;
+    }
+}
+
+.main-discount {
+    border-top: 1px solid #dddddd;
+    width: 100%;
+    overflow: hidden;
+}
+
+.main-discount-left {
+    float: left;
+    width: 65%;
+    height: (104rem/ 64);
+    line-height: (104rem/ 64);
+    padding-left: (24rem/64);
+    padding-right: (24rem/64);
+    background-color: white;
+    @include content-title();
+    input {
+        height:100%;
+        width: 40%;
+        border: none;
+        padding-left: (20rem/ 64);
+    }
+    border-right: 1px solid #dddddd;
+}
+
+.main-discount-left {
+    label {
+        position: relative;
+        top: (-12rem/ 64);
+    }
+    span {
+        position: absolute;
+        left: 0;
+        top: (40rem/ 64);
+        font-size: (20rem/ 64);
+        color: #bbbbbb;
+        line-height: 1;
+        width: calc(200rem/ 64);
+    }
+}
+
+.main-discount-right {
+    @extend .main-discount-left;
+    width: 35%;
+    border-right: none;
+    label {
+        position: static;
+    }
+}
+
+.main-date {
+    border-top: 1px solid #dddddd;
+    width: 100%;
+    height: (104rem/ 64);
+    line-height: (104rem/ 64);
+    padding-left: (24rem/64);
+    padding-right: (24rem/64);
+    background-color: white;
+    span:first-child {
+        @include content-title();
+    }
+    span:last-child {
+        float: right;
+        @include content-content();
+    }
+}
+
+.main-time {
+    @extend .main-date;
+    span:nth-child(1) {
+        position: relative;
+        top: (-12rem/ 64);
+        small {
+            position: absolute;
+            left: 0;
+            top: (40rem/ 64);
+            font-size: (20rem/ 64);
+            color: #bbbbbb;
+            line-height: 1;
+            width: calc(200rem/ 64);
+        }
+    }
+}
+
+.main-first {
+    border-top: 1px solid #dddddd;
+    width: 100%;
+    height: (104rem/ 64);
+    line-height: (104rem/ 64);
+    padding-left: (24rem/64);
+    padding-right: (24rem/64);
+    background-color: white;
+    span {
+        float: left;
+        @include content-title();
+    }
+    button {
+        float: right;
+        border: none;
+        margin-top: (30rem/ 64);
+        background-color: white;
+    }
+    img {
+        width: (124rem/64);
+        height: (55rem/ 64);
+    }
+}
+
+.main-save {
+    width: 100%;
+    margin-top: (50rem/ 64);
+    padding: 0 (25rem/ 64);
+}
+
+.main-save-content {
+    display: block;
+    background-color: #ff9b25;
+    font-size: (32rem/ 64);
+    font-family: "STXihei";
+    line-height: (80rem/ 64);
+    border: none;
+    width: 100%;
+    color: white;
+    border-radius: (8rem/ 64);
+}

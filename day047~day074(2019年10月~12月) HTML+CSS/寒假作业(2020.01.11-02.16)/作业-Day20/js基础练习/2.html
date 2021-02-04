@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 编写一个程序，让用户输入一个5位数，判断该 五位数是否为 `回文数`。（判断第一位和第五位是否一样，第二位和第四位是否一样）
+        // 如果用户输入的不是5位数提示错误并继续输入直到用户输入一个5位数
+
+        while (true) {
+            let num = +prompt("请您输入一个5位数");
+            if (num >= 10000 && num < 100000 && (num - parseInt(num) == 0)) {
+                let gewei = num % 10;
+                let shiwei = parseInt(num / 10 % 10);
+                let qianwei = parseInt(num / 1000 % 10);
+                let wanwei = parseInt(num / 10000)
+                if (gewei == wanwei && shiwei == qianwei) {
+                    alert(num + '是一个回文数')
+
+                }
+                else {
+                    alert(num + "不是一个回文数")
+
+                }
+            }
+            else {
+                while (true) {
+                    alert("输入错误")
+                    let num = +prompt('请您重新输入一个5位数')
+                    if (num >= 10000 && num < 100000 && (num - parseInt(num) == 0)) {
+                        let gewei = num % 10;
+                        let shiwei = parseInt(num / 10 % 10);
+                        let qianwei = parseInt(num / 1000 % 10);
+                        let wanwei = parseInt(num / 10000)
+                        if (gewei == wanwei && shiwei == qianwei) {
+                            alert(num + '是一个回文数')
+                            break;
+                        }
+                        else {
+                            alert(num + "不是一个回文数")
+                            break;
+                        }
+                    } else {
+                        continue;
+                    }
+                }
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>

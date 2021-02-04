@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        img {
+            vertical-align: middle;
+        }
+
+        .main {
+            position: relative;
+            margin: 100px auto;
+            width: 450px;
+            overflow: visible;
+            perspective: 1000;
+            -webkit-perspective: 1000;
+        }
+
+        .door-left {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 225px;
+            height: 300px;
+            background-image: url(./images/bg.png);
+            transform-origin: 0px 0px;
+            transition: 2s all;
+        }
+
+        .door-right {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 225px;
+            height: 300px;
+            background-image: url(./images/bg.png);
+            transform-origin: 225px 0px;
+            transition: 2s all;
+        }
+
+        .main:hover .door-left {
+            transform: rotateY(-180deg);
+        }
+
+        .main:hover .door-right {
+            transform: rotateY(180deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <img src="./images/3.jpg" alt="">
+        <div class="door-left"></div>
+        <div class="door-right"></div>
+    </div>
+</body>
+
+</html>

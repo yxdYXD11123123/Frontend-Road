@@ -1,0 +1,85 @@
+.top {
+    height: 102px;
+    width: 1920px;
+    background-color: darkseagreen;
+}
+
+.nav {
+    height: 420px;
+    width: 1920px;
+    background-color: #1c036c;
+}
+
+.nav-content {
+    height: 420px;
+    width: 1201px;
+    background-image: url(images/banner2.jpg);
+    background-size: 1201px;
+    margin: 0 auto;
+}
+
+.nav-content-left {
+    float: left;
+    height: 405px;
+    width: 191px;
+    padding-top: 15px;
+    background-color: rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.nav-content-left li {
+    /* float: left; */
+    height: 44px;
+    /* background-color: deepskyblue; */
+    line-height: 52px;
+}
+
+.nav-content-left li a {
+    display: inline-block;
+    width: 191px;
+    height: 15px;
+    line-height: 15px;
+    /* background-color: gold; */
+    font-size: 16px;
+    color: white;
+}
+
+.nav-content-left li a:hover {
+    color: #00b4ff;
+}
+
+a .nav-content-left-left {
+    float: left;
+    margin-left: 20px;
+}
+
+a .nav-content-left-right {
+    float: right;
+    margin-right: 20px;
+}
+
+.nav-content-right {
+    float: right;
+    width: 229px;
+    height: 301px;
+    background-color: white;
+    margin-top: 50px;
+}
+.nav-content-right .my-classes {
+    height: 49px;
+    width: 229px;
+    background-color: #9bceea;
+    color: white;
+    font-size: 19px;
+    font-weight: 900;
+    line-height: 49px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+.nav-content-right li {
+    width: 192px;
+    height: 61px;
+    background-color: gold;
+    border-bottom: 1px solid #eaeaea;
+    margin: 0 auto;
+}

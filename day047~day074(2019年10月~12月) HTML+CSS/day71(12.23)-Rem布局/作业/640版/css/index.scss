@@ -1,0 +1,87 @@
+
+
+@mixin Vcenter($width, $height) {
+    position: absolute;
+    left: 50%;
+    margin-left: -$width/ 2;
+    top: 50%;
+    margin-top: -$height / 2;
+}
+
+// 顶部
+.title {
+    background-color: #ff9b25;
+    width: 100%;
+    line-height: (88rem / 64);
+    font-size: (32rem/ 64);
+    color: white;
+    font-weight: 700;
+    a {
+        display: inline-block;
+        padding-left: (20rem / 64);
+    }
+    img {
+        width: (26rem/ 64);
+    }
+}
+
+// 全场优惠
+.discount {
+    width: 100%;
+    padding: 0 (24rem / 64);
+    margin-top: (27rem / 64);
+    
+    h4 {
+        width: 100%;
+        font-size: (28rem / 64);
+        overflow: hidden;
+        span:nth-child(1) {
+            float: left;
+            color: black;
+        }
+        span:nth-child(2) {
+            float: right;
+            color: #888888;
+        }
+    }
+}
+
+
+.discount-content {
+    position: relative;
+    margin-top: (30rem / 64);
+    height: (224rem / 64);
+    width: 100%;
+    background-color: white;
+    border: (3rem/64) dashed #dedede;
+    a {
+        @include Vcenter((100rem/ 64),((100rem/ 64)+(43rem/ 64)));
+        display: block;
+    }
+    img {
+        width: (100rem/ 64);
+        height: (100rem/ 64);
+    }
+    p {
+        font-size: (26rem / 64);
+        color: #aeaeae;
+        margin-top: (18rem / 64);
+    }
+}
+
+.coupon {
+    @extend .discount;
+}
+
+.coupon-content {
+    @extend .discount-content;
+}
+
+// 底部
+.footer {
+    margin: 0px (24rem / 64);
+    margin-top: (120rem/ 64);
+    font-size: (24rem/ 64);
+    line-height: (40rem/ 64);
+    color: #999999;
+}

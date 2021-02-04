@@ -1,0 +1,259 @@
+nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    height: 44px;
+    width: 100%;
+    background-color: white;
+    a {
+        flex: 1;
+        height: 100%;
+        text-align: center;
+    }
+    img {
+        height: 100%;
+        width: auto;
+    }
+}
+
+header {
+    position: fixed;
+    display: flex;
+    z-index: 2;
+    height: 40px;
+    width: 100%;
+    background-color: #c91523;
+    padding: 0px 10px;
+}
+
+@mixin jd-sprites {
+    background-image: url(../img/jd-sprites.png);
+    background-size: 200px 200px;
+    background-repeat: no-repeat;
+}
+
+.header-logo {
+    width: 56px;
+    height: 20px;
+    margin-top: 10px;
+    @include jd-sprites();
+    background-position: 0px -109px;
+}
+
+.header-search {
+    position: relative;
+    flex: 1;
+    margin-left: 10px;
+    padding-top: 5px;
+    i {
+        position: absolute;
+        display: block;
+        top: 10px;
+        left: 10px;
+        width: 20px;
+        height: 20px;
+        @include jd-sprites();
+        background-position: -60px -109px;
+        cursor: pointer;
+    }
+    input {
+        width: 100%;
+        height: 30px;
+        border: none;
+        border-radius: 15px;
+        padding-left: 30px;
+        font-size: 14px;
+    }
+}
+
+.header-login {
+    margin-left: 15px;
+    height: 100%;
+    a {
+        display: block;
+        line-height: 40px;
+        color: white;
+        font-size: 15px;
+    }
+}
+
+// 主体轮播图
+main {
+    background-color: #f5f5f5;
+    width: 100%;
+    padding: 40px 0px;
+    height: 1000px;
+}
+
+.carousel {
+    a {
+        display: block;
+        width: 100%;
+    }
+    img {
+        width: 100%;
+    }
+}
+
+
+//主题导航栏
+.nav {
+    background-color: white;
+    width: 100%;
+    padding-bottom: 10px;
+    ul {
+        overflow: hidden;
+    }
+    li {
+        float: left;
+        width: 25%;
+        margin-top: 10px;
+        text-align: center;
+    }
+    a {
+        display: block;
+        width: 100%;
+        color: #666666;
+    }
+    img {
+        width: 40px;
+        height: 40px;
+    }
+    p {
+        margin-top: 5px;
+        font-size: 12px;
+    }
+}
+
+// 秒杀栏
+.seckill {
+    background-color: white;
+    margin-top: 10px;
+    padding: 0 10px;
+}
+
+.seckill-title {
+    width: 100%;
+    height: 35px;
+    line-height: 35px;
+    overflow: hidden;
+    h5 {
+        position: relative;
+        float: left;
+        font-size: 15px;
+        padding-left: 22px;
+        color: #CA1327;
+        font-weight: normal;
+        i {
+            position: absolute;
+            display: block;
+            left: 0px;
+            top: 5px;
+            width: 17px;
+            height: 26px;
+            @include jd-sprites();
+            background-position: -84px -109px;
+        }
+    }
+    div {
+        float: left;
+        font-size: 16px;
+        margin-left: 5px;
+        span:nth-child(odd) {
+            color: white;
+            font-size: 13px;
+            padding: 0px 1px;
+            background-color: #3d3d3d;
+        }
+    }
+    a {
+        position: relative;
+        float: right;
+        color: #666666;
+        padding-right: 13px;
+
+        i {
+            position: absolute;
+            display: block;
+            top: 50%;
+            margin-top: -9px;
+            right: 0px;
+            width: 10px;
+            height: 16px;
+            @include jd-sprites();
+            background-position: -185px -49px;
+        }
+    }
+}
+
+.seckill-content {
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    ul {
+        width: 100%;
+        overflow: hidden;
+    }
+    li {
+        float: left;
+        width: 33.333333%;
+        padding: 0 10px;
+        text-align: center;
+    }
+    a {
+        position: relative;
+        display: block;
+        width: 100%;
+    }
+    img {
+        width: 100%;
+    }
+    b {
+        margin: 8px 0px 4px 0px;
+        display: block;
+        font-weight: normal;
+        font-size: 14px;
+        color: #ed5657;
+    }
+    s {
+        font-size: 12px;
+        text-decoration: line-through;
+        color: #888888;
+    }
+    span {
+        position: absolute;
+        display: block;
+        bottom: 41px;
+        right: 0px;    
+        padding: 6px;
+        padding-bottom: 5px;
+        border-radius: 50%;
+        background-color: #fdb60a;
+        color: white;
+    }
+}
+
+// 活动栏
+.banner {
+    background-image: url(../upload/banner_bg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    ul {
+        padding: 0px 6px;
+        padding-top: 14%;
+        padding-bottom: 2%;
+        overflow: hidden;
+    }
+    li {
+        float: left;
+        width: 50%;
+    }
+    a {
+        display: block;
+        width: 100%;
+        img {
+            width: 100%;
+        }
+    }
+}

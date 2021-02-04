@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        img {
+            vertical-align: top;
+        }
+
+        .window {
+            width: calc(126px * 2);
+            height: 86px;
+            border: 2px solid pink;
+            margin: 100px auto;
+            overflow: hidden;
+        }
+
+        .window:hover ul {
+            animation-play-state: paused;
+        }
+
+        ul {
+            width: calc(126px * 14);
+            overflow: hidden;
+            animation: move 10s linear infinite;
+        }
+
+        .clearfix:after,
+        .clearfix:before {
+            content: "";
+            display: table;
+        }
+
+        .clearfix:after {
+            clear: both;
+        }
+
+        .clearfix {
+            *zoom: 1;
+        }
+
+        li {
+            list-style: none;
+            float: left;
+        }
+
+        @keyframes move {
+            0% {
+                transform: translate(0, 0px);
+            }
+
+            100% {
+                transform: translate(calc(-126px*12), 0px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="window">
+        <ul>
+            <li><img src="img/1.jpg" alt=""></li>
+            <li><img src="img/2.jpg" alt=""></li>
+            <li><img src="img/3.jpg" alt=""></li>
+            <li><img src="img/4.jpg" alt=""></li>
+            <li><img src="img/5.jpg" alt=""></li>
+            <li><img src="img/6.jpg" alt=""></li>
+            <li><img src="img/7.jpg" alt=""></li>
+            <li><img src="img/1.jpg" alt=""></li>
+            <li><img src="img/2.jpg" alt=""></li>
+            <li><img src="img/3.jpg" alt=""></li>
+            <li><img src="img/4.jpg" alt=""></li>
+            <li><img src="img/5.jpg" alt=""></li>
+            <li><img src="img/6.jpg" alt=""></li>
+            <li><img src="img/7.jpg" alt=""></li>
+        </ul>
+    </div>
+</body>
+
+</html>

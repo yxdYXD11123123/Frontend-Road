@@ -1,0 +1,11 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    background-color: #f7f4f1;
+}
+
+a:hover {
+    text-decoration: none;
+}

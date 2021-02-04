@@ -1,0 +1,30 @@
+{
+  "id": "1508411",
+  "name": "My fist web",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "11736971",
+      "name": "alarm-clock",
+      "font_class": "alarm-clock",
+      "unicode": "e62c",
+      "unicode_decimal": 58924
+    },
+    {
+      "icon_id": "11736972",
+      "name": "app",
+      "font_class": "app",
+      "unicode": "e62d",
+      "unicode_decimal": 58925
+    },
+    {
+      "icon_id": "11736973",
+      "name": "camera",
+      "font_class": "camera",
+      "unicode": "e62e",
+      "unicode_decimal": 58926
+    }
+  ]
+}

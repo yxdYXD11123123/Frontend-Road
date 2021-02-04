@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 定义一个1到10之间的数字，让用户猜，用户有3次机会，猜中弹出恭喜并结束程序，
+        // 猜错重新弹出输入框让用户输入，直到3次机会都用完弹出遗憾并结束程序。
+        let answer = 6;
+        for (let i = 1; i <= 3; i++) {
+            let guess = +prompt("请输入您的第" + i + "次猜测")
+            if (guess == answer) {
+                alert("恭喜")
+                break;
+            }
+            else {
+                if (i == 3) {
+                    alert("遗憾");
+                    break;
+                }
+                alert('请您重新输入')
+            }
+
+        }
+    </script>
+</body>
+
+</html>

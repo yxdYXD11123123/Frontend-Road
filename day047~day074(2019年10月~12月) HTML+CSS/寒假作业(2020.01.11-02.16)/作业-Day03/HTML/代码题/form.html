@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        img {
+            vertical-align: middle;
+        }
+
+        ul,
+        li {
+            padding: 0;
+            margin: 0;
+        }
+
+        main {
+            width: 600px;
+            margin: 0 auto;
+        }
+
+        h3 {
+            text-align: center;
+        }
+
+        li {
+            list-style: none;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .vertical-center {
+            line-height: 10;
+        }
+
+        .left {
+            float: left;
+            width: 120px;
+        }
+
+        .right {
+            float: right;
+            width: 480px;
+        }
+
+        button {
+            border: none;
+            background-color: none;
+            padding: 0;
+        }
+
+        .right ul {
+            padding-left: 40px;
+        }
+
+        .right li {
+            list-style-type: disc;
+            overflow: visible;
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <form action="">
+            <h3>青春不常在，抓紧谈恋爱</h3>
+            <ul>
+                <li>
+                    <div class="left">
+                        性别
+                    </div>
+                    <div class="right">
+                        <input type="radio" id="man" name="gender">
+                        <label for="man"><img src="./images/man.jpg" alt=""> 男</label>
+                        <input type="radio" id="women" name="gender">
+                        <label for="women"><img src="./images/women.jpg" alt=""> 女</label>
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        生日
+                    </div>
+                    <div class="right">
+                        <select name="year" id="year">
+                            <option value="">请选择年</option>
+                            <option value="">1998</option>
+                        </select>
+                        <select name="year" id="year">
+                            <option value="">请选择月</option>
+                            <option value="">12</option>
+                        </select>
+                        <select name="year" id="year">
+                            <option value="">请选择日</option>
+                            <option value="">31</option>
+                        </select>
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        所在地区
+                    </div>
+                    <div class="right">
+                        <input type="text" value="北京">
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        婚姻状况
+                    </div>
+                    <div class="right">
+                        <input type="radio" id="nothave" name="marry">
+                        <label for="nothave">未婚</label>
+                        <input type="radio" id="gone" name="marry">
+                        <label for="gone">离婚</label>
+                        <input type="radio" id="dead" name="marry">
+                        <label for="dead">丧偶</label>
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        学历
+                    </div>
+                    <div class="right">
+                        <input type="text" value="小学">
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        月薪
+                    </div>
+                    <div class="right">
+                        <input type="text" value="50-100">
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        手机号
+                    </div>
+                    <div class="right">
+                        <input type="number">
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        昵称
+                    </div>
+                    <div class="right">
+                        <input type="text">
+                    </div>
+                </li>
+                <li>
+                    <div class="left">
+                        喜欢的类型
+                    </div>
+                    <div class="right">
+                        <input type="checkbox" id="wumei"><label for="wumei"> 妩媚</label>
+                        <input type="checkbox" id="roumei"><label for="roumei"> 柔美</label>
+                        <input type="checkbox" id="cute"><label for="cute"> 可爱</label>
+                        <input type="checkbox" id="little"><label for="little"> 小鲜肉</label>
+                        <input type="checkbox" id="xin"><label for="xin"> 型男</label>
+                        <input type="checkbox" id="qizhi"><label for="qizhi"> 气质</label>
+                    </div>
+                </li>
+                <li>
+                    <div class="left vertical-center">
+                        自我介绍
+                    </div>
+                    <div class="right">
+                        <textarea name="introduce" id="" cols="50" rows="10"></textarea>
+                    </div>
+                </li>
+                <li>
+                    <div class="left"></div>
+                    <div class="right">
+                        <button><img src="./images/btn.png" alt=""></button>
+                    </div>
+                </li>
+                <li>
+                    <div class="left"></div>
+                    <div class="right">
+                        <input type="checkbox"> 我同意注册条款和会员加入标准
+                        <p><a href="#">我是会员，立即登录</a></p>
+                        <h4>我承诺</h4>
+                        <ul>
+                            <li>年满18岁，单身</li>
+                            <li>抱着严肃的态度</li>
+                            <li>真诚寻找另一半</li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </form>
+    </main>
+</body>
+
+</html>

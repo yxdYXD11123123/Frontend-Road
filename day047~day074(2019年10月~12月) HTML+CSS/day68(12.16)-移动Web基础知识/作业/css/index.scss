@@ -1,0 +1,105 @@
+@mixin asideNav {
+    position: absolute;
+    display: block;
+    visibility: hidden;
+    top: 0;
+    left: 0;
+    width: 80px;
+    line-height: 34px;
+    text-align: center;
+    background-color: #4f4f4f;
+    color: white;
+    transition: left .3s linear;
+}
+.asidenav {
+    position: fixed;
+    overflow: hidden;
+    padding-left: 80px;
+    right: 10px;
+    top: 10px;
+    a {
+        position: relative;
+        display: block;
+        width: 34px;
+        height: 34px;
+        background-image: url(../img/1.png);
+        background-repeat: no-repeat;
+    }
+    a:nth-child(1) span {
+        position: absolute;
+        top: 0;
+        right: 0;
+        line-height: 1.2em;
+        padding: 0px 5px;
+        background-color: #ff3228;
+        font-style: italic;
+        color: white;
+        border-radius: 5px;
+    }
+    a:nth-child(1) {
+        background-position: 0px 0px;
+    }
+    a:nth-child(1):hover {
+        background-position: -40px 0px;
+    }
+    a:nth-child(1):before {
+        content: "购物车";
+        @include asideNav();
+    }
+    a:nth-child(1):hover:before {
+        visibility: visible;
+        left: -80px;
+    }
+    a:nth-child(2) {
+        background-position: 0px -35px;
+    }
+    a:nth-child(2):hover {
+        background-position: -40px -35px;
+    }
+    a:nth-child(2):before {
+        content: "我的收藏";
+        @include asideNav();
+    }
+    a:nth-child(2):hover:before {
+        @extend a:nth-child(1):hover:before;
+    }
+    a:nth-child(3) {
+        background-position: 0px -70px;
+    }
+    a:nth-child(3):hover {
+        background-position: -40px -70px;
+    }
+    a:nth-child(3):before {
+        content: "我的浏览";
+        @include asideNav();
+    }
+    a:nth-child(3):hover:before {
+        @extend a:nth-child(1):hover:before;
+    }
+    a:nth-child(4) {
+        background-position: 0px -105px;
+    }
+    a:nth-child(4):hover {
+        background-position: -40px -105px;
+    }
+    a:nth-child(4):before {
+        content: "我的银铃铛";
+        @include asideNav();
+    }
+    a:nth-child(4):hover:before {
+        @extend a:nth-child(1):hover:before;
+    }
+    a:nth-child(5) {
+        background-position: 0px -210px;
+    }
+    a:nth-child(5):hover {
+        background-position: -40px -210px;
+    }
+    a:nth-child(5):before {
+        content: "咨询小当家";
+        @include asideNav();
+    }
+    a:nth-child(5):hover:before {
+        @extend a:nth-child(1):hover:before;
+    }
+}

@@ -1,0 +1,247 @@
+@mixin clearfix {
+    &:before,
+    &:after {
+        content: "";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+    & {
+        *zoom: 1;
+    }
+}
+
+// 补充重置样式
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: #666666;
+    text-decoration: none;
+}
+
+a:focus, a:hover {
+    text-decoration: none;
+}
+
+p {
+    margin: 0;
+}
+
+body {
+    background-color: #f5f5f5;
+}
+
+.container {
+    background-color: white;
+}
+
+// 修改container的最大宽度为1280px 根据设计稿来的
+@media screen and (min-width: 1280px) {
+    .container {
+        width: 1280px;
+    }
+}
+
+// header
+header.col-md-2 {
+    padding-left: 0;
+}
+
+.logo {
+    background-color: #429ad9;
+    a {
+        display: block;
+    }
+    img {
+        display: block;
+        margin: 0 auto;
+        // width: 100%;
+        // 我们需要使图片不缩放
+        max-width: 100%;
+    }
+    // 我们如果到了超小屏幕下，我们的logo图片就要隐藏起来
+    span {
+        display: block;
+        height: 50px;
+        line-height: 50px;
+        color: white;
+        font-size: 18px;
+        text-align: center;
+    }
+}
+
+// 当我们进入 小屏幕 还有超小屏幕的时候 我们 nav 里面的li 浮动起来 并且宽度为20%
+@media screen and (max-width: 991px) {
+    .nav {
+        li {
+            float: left;
+            width: 20%;
+            text-align: center;
+            a {
+                padding-left: 0;
+            }
+        }
+    }
+    article {
+        margin-top: 10px;
+    }
+}
+
+// 当我们进入超小屏幕的时候 我们 nav 文字会变成14px
+@media screen and (max-width: 767px) {
+    .nav {
+        li {
+            a {
+                font-size: 14px;
+            }
+        }
+    }
+
+    .news {
+        li:nth-child(1) {
+            width: 100%!important;
+        }
+        li:nth-last-child(-n+4) {
+            width: 50%!important;
+        }
+        li:nth-child(3),
+        li:nth-child(5) {
+            padding-right: 10px;
+        }
+    }
+    .publish h3 {
+        font-size: 14px;
+    }
+}
+
+.nav {
+    background-color: #eeeeee;
+    border-bottom: 1px solid #cccccc;
+    a {
+        display: block;
+        height: 50px;
+        line-height: 50px;
+        padding-left: 30px;
+        font-size: 16px;
+        &:hover {
+            background-color: white;
+            color: #333333;
+        }
+        i {
+            vertical-align: text-bottom;
+            margin-right: 5px;
+        }
+    }
+}
+
+.news {
+    ul {
+        @include clearfix();
+    }
+    li {
+        float: left;
+        width: 25%;
+        height: 128px;
+        margin-bottom: 10px;
+        &:nth-child(1) {
+            width: 50%;
+            height: 266px;
+            padding-right: 10px;
+            box-sizing: border-box;
+        }
+    }
+    
+    li:nth-child(2n) {
+        padding-right: 5px;
+    }
+    li:nth-child(5),
+    li:nth-child(3) {
+        padding-left: 5px;
+    }
+    a {
+        position: relative;
+        display: block;
+        height: 100%;
+    }
+    img {
+        width: 100%;
+        height: 100%;
+    }
+    p {
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+        left: 0;
+        color: white;
+        background-color: rgba(0,0,0,.5);
+        height: 41px;
+        padding: 0 10px;
+        padding-top: 5px;
+        font-size: 12px;
+    }
+    li:nth-child(1) p {
+        font-size: 20px;
+        line-height: 41px;
+        padding-top: 0px;
+    }  
+}
+
+.publish {
+    border-top: 1px solid #cccccc;
+    .row {
+        border-bottom: 1px solid #cccccc;
+        padding: 10px 0px;
+    }
+}
+
+.publish-left {
+    a {
+        color: #333333;
+    }
+    p {
+        margin-bottom: 10px;
+    }
+}
+
+.publish-right {
+    a {
+        display: block;
+        margin-top: 10px;
+    }
+    img {
+        width: 100%;
+    }
+}
+
+aside {
+    a {
+        display: block;
+    }
+    img {
+        width: 100%;
+    }
+}
+
+.hot {
+    position: relative;
+    margin-top: 20px;
+    border: 1px solid #cccccc;
+    padding: 0 20px 20px;
+    h4 {
+        margin-top: 54px;
+    }
+    p {
+        font-size: 12px;
+    }
+    span {
+        position: absolute;
+        top: 0px;
+        left: 20px;
+        border-radius: 0;
+    }
+}

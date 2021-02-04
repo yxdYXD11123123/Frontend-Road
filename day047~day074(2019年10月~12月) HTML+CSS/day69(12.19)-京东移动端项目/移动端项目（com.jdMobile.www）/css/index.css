@@ -1,0 +1,290 @@
+nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 44px;
+  width: 100%;
+  background-color: white;
+}
+
+nav a {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  height: 100%;
+  text-align: center;
+}
+
+nav img {
+  height: 100%;
+  width: auto;
+}
+
+header {
+  position: fixed;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  z-index: 2;
+  height: 40px;
+  width: 100%;
+  background-color: #c91523;
+  padding: 0px 10px;
+}
+
+.header-logo {
+  width: 56px;
+  height: 20px;
+  margin-top: 10px;
+  background-image: url(../img/jd-sprites.png);
+  background-size: 200px 200px;
+  background-repeat: no-repeat;
+  background-position: 0px -109px;
+}
+
+.header-search {
+  position: relative;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  margin-left: 10px;
+  padding-top: 5px;
+}
+
+.header-search i {
+  position: absolute;
+  display: block;
+  top: 10px;
+  left: 10px;
+  width: 20px;
+  height: 20px;
+  background-image: url(../img/jd-sprites.png);
+  background-size: 200px 200px;
+  background-repeat: no-repeat;
+  background-position: -60px -109px;
+  cursor: pointer;
+}
+
+.header-search input {
+  width: 100%;
+  height: 30px;
+  border: none;
+  border-radius: 15px;
+  padding-left: 30px;
+  font-size: 14px;
+}
+
+.header-login {
+  margin-left: 15px;
+  height: 100%;
+}
+
+.header-login a {
+  display: block;
+  line-height: 40px;
+  color: white;
+  font-size: 15px;
+}
+
+main {
+  background-color: #f5f5f5;
+  width: 100%;
+  padding: 40px 0px;
+  height: 1000px;
+}
+
+.carousel a {
+  display: block;
+  width: 100%;
+}
+
+.carousel img {
+  width: 100%;
+}
+
+.nav {
+  background-color: white;
+  width: 100%;
+  padding-bottom: 10px;
+}
+
+.nav ul {
+  overflow: hidden;
+}
+
+.nav li {
+  float: left;
+  width: 25%;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.nav a {
+  display: block;
+  width: 100%;
+  color: #666666;
+}
+
+.nav img {
+  width: 40px;
+  height: 40px;
+}
+
+.nav p {
+  margin-top: 5px;
+  font-size: 12px;
+}
+
+.seckill {
+  background-color: white;
+  margin-top: 10px;
+  padding: 0 10px;
+}
+
+.seckill-title {
+  width: 100%;
+  height: 35px;
+  line-height: 35px;
+  overflow: hidden;
+}
+
+.seckill-title h5 {
+  position: relative;
+  float: left;
+  font-size: 15px;
+  padding-left: 22px;
+  color: #CA1327;
+  font-weight: normal;
+}
+
+.seckill-title h5 i {
+  position: absolute;
+  display: block;
+  left: 0px;
+  top: 5px;
+  width: 17px;
+  height: 26px;
+  background-image: url(../img/jd-sprites.png);
+  background-size: 200px 200px;
+  background-repeat: no-repeat;
+  background-position: -84px -109px;
+}
+
+.seckill-title div {
+  float: left;
+  font-size: 16px;
+  margin-left: 5px;
+}
+
+.seckill-title div span:nth-child(odd) {
+  color: white;
+  font-size: 13px;
+  padding: 0px 1px;
+  background-color: #3d3d3d;
+}
+
+.seckill-title a {
+  position: relative;
+  float: right;
+  color: #666666;
+  padding-right: 13px;
+}
+
+.seckill-title a i {
+  position: absolute;
+  display: block;
+  top: 50%;
+  margin-top: -9px;
+  right: 0px;
+  width: 10px;
+  height: 16px;
+  background-image: url(../img/jd-sprites.png);
+  background-size: 200px 200px;
+  background-repeat: no-repeat;
+  background-position: -185px -49px;
+}
+
+.seckill-content {
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.seckill-content ul {
+  width: 100%;
+  overflow: hidden;
+}
+
+.seckill-content li {
+  float: left;
+  width: 33.333333%;
+  padding: 0 10px;
+  text-align: center;
+}
+
+.seckill-content a {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+.seckill-content img {
+  width: 100%;
+}
+
+.seckill-content b {
+  margin: 8px 0px 4px 0px;
+  display: block;
+  font-weight: normal;
+  font-size: 14px;
+  color: #ed5657;
+}
+
+.seckill-content s {
+  font-size: 12px;
+  text-decoration: line-through;
+  color: #888888;
+}
+
+.seckill-content span {
+  position: absolute;
+  display: block;
+  bottom: 41px;
+  right: 0px;
+  padding: 6px;
+  padding-bottom: 5px;
+  border-radius: 50%;
+  background-color: #fdb60a;
+  color: white;
+}
+
+.banner {
+  background-image: url(../upload/banner_bg.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.banner ul {
+  padding: 0px 6px;
+  padding-top: 14%;
+  padding-bottom: 2%;
+  overflow: hidden;
+}
+
+.banner li {
+  float: left;
+  width: 50%;
+}
+
+.banner a {
+  display: block;
+  width: 100%;
+}
+
+.banner a img {
+  width: 100%;
+}
+/*# sourceMappingURL=index.css.map */

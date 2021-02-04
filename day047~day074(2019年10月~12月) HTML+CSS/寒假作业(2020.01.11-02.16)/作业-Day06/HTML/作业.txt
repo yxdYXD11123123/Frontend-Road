@@ -1,0 +1,62 @@
+1元素有哪几种显示方式（A）
+(A)	 block inline inline-block
+(B) block   none  inline-block
+(C) none   inline inline-block
+(D) block inline none
+
+
+2关于显示方式说法不正确的是 （D）
+(A)	块级元素独占一行， 
+(B) 行内元素一行可以放多个
+(C) 块级可以容纳行内元素
+(D) 块级元素的代表有div h p img 等;
+
+
+3关于显示方式说法正确的是 （D）
+(A) 只有行内元素一行可以放多个
+(B) 所有的元素宽高都由内容决定
+(C) 行内元素只能容纳文本或其他行内元素
+(D) 行内元素的代表有span a img 等
+
+
+4给DIV设置什么属性可以  让一个div的显示方式与span标签一样的 （B）
+(A)	display: block
+(B) display: inline 
+(C) display: inline-block
+(D) display:none;
+
+
+5下面哪个标签默认情况下不能再同一行显示(A)     
+（A） p   （B） span  （C）a  （D） img 
+
+
+6.选择器#box p，下列说法中正确的是(B)
+(A) 选择的是id为box的元素的所有直接子元素p 
+(B) 选择的是id为box的元素的所有后代元素p 
+(C) 选择的是id为box的元素的第一个子元素p 
+(D) 选择的是id为box的元素的第一个后代元素p
+
+7.选择器#box>p，下列说法中正确的是(A)
+(A) 选择的是id为box的元素的所有直接子元素p 
+(B) 选择的是id为box的元素的所有后代元素p 
+(C) 选择的是id为box的元素的直接子元素p 
+(D) 选择的是id为box的元素和p元素
+
+8.选择器p, .box，下列说法中正确的是(B)
+(A) 选择的是p元素 后代里所有类名为box的元素 
+(B) 选择的是p元素 和所有类名为box的元素 
+(C) 选择的是p元素后代里第一个类名为box的子元素 
+(D) 选择的是拥有box类名的p元素
+
+9选择器p.box，下列说法中正确的是(D)
+(A) 选择的是p元素 后代里所有类名为box的元素 
+(B) 选择的是p元素 和所有类名为box的元素 
+(C) 选择的是p元素后代里第一个类名为box的子元素 
+(D) 选择的是拥有box类名的p元素
+
+
+10代码题
+
+
+
+

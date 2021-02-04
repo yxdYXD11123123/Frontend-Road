@@ -1,0 +1,258 @@
+/* 报告栏 */
+.report-left {
+    float: left;
+}
+
+.report-left li {
+    width: 120px;
+    height: 96px;
+    background-color: #e3001c;
+    cursor: pointer;
+    color: white;
+    font-size: 16px;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 30px 15px;
+    align-items: center;
+}
+
+.report-left li:hover {
+    background-color: #fd6564;
+}
+
+.report-right {
+    float: right;
+}
+
+.report-right-left {
+    float: left;
+    margin-right: 15px;
+}
+
+.report-right-left a {
+    position: relative;
+    display: block;
+    width: 642px;
+    height: 480px;
+    overflow: hidden;
+}
+
+.report-right-left img {
+    width: 642px;
+    height: 480px;
+    transition: all 0.8s linear;
+}
+
+.report-right-left img:hover,
+.report-right-right img:hover {
+    transform: scale(1.05);
+}
+
+.report-right-left span {
+    position: absolute;
+    display: block;
+    color: white;
+    width: 100%;
+    height: 40px;
+    bottom: 0px;
+    left: 0px;
+    background-color: rgba(107, 104, 104, 0.5);
+    line-height: 40px;
+    font-size: 16px;
+}
+
+.report-right-left span:hover,
+.report-right-right span:hover {
+    color: red;
+}
+
+.report-right-left span:hover i,
+.report-right-right span:hover i {
+    color: white;
+}
+
+.report-right-left span i,
+.report-right-right span i {
+    float: left;
+    font-size: 50px;
+    padding-top: 3px;
+}
+
+.report-right-right li {
+    margin-bottom: 15px;
+}
+
+.report-right-right li:last-child {
+    margin-bottom: 0px;
+}
+
+.report-right-right {
+    float: right;
+}
+
+.report-right-right a {
+    position: relative;
+    display: block;
+    width: 204px;
+    height: 150px;
+    overflow: hidden;
+}
+
+.report-right-right img {
+    width: 204px;
+    height: 150px;
+    transition: all 0.8s linear;
+}
+
+.report-right-right span {
+    position: absolute;
+    display: block;
+    color: white;
+    width: 100%;
+    height: 40px;
+    bottom: 0px;
+    left: 0px;
+    background-color: rgba(107, 104, 104, 0.5);
+    line-height: 40px;
+    font-size: 16px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding-right: 10px;
+}
+
+/* 书架栏 */
+.book {
+    background-color: rgb(210, 29, 0);
+    height: 240px;
+}
+
+.book .container {
+    background-image: url(../img/book_background.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: auto 240px;
+}
+
+.book ul {
+    width: 800px;
+    height: 240px;
+    box-sizing: border-box;
+    padding-top: 22px;
+    margin: 0 auto;
+}
+
+.book li {
+    float: left;
+    height: 220px;
+    overflow: hidden;
+}
+
+.book a {
+    display: block;
+    background-image: url(../img/book_li_background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 40px;
+    height: 195px;
+    line-height: 14px;
+    padding-top: 10px;
+    box-sizing: border-box;
+    color: #984517;
+    transition: all .5s linear;
+}
+
+.book p {
+    margin: 0 auto;
+    height: 155px;
+    box-sizing: border-box;
+    padding-top: 10px;
+    writing-mode: tb-rl;
+}
+
+.book a:hover {
+    transform: scale(1.15);
+}
+
+/* 侧边导航栏 */
+.asidenav {
+    position: fixed;
+    top: 60px;
+    right: 55px;
+}
+
+.asidenav ul li {
+    margin-bottom: 2px;
+}
+
+.asidenav ul a {
+    display: block;
+    width: 105px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 700;
+    background-color: #d7d7d7;
+    color: #111111;
+}
+
+.asidenav ul a:hover {
+    background: #fb9801;
+    color: #fff;
+}
+
+.asidenav-backtop {
+    background-color: #b50413;
+    width: 105px;
+    height: 50px;
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 50px;
+    cursor: pointer;
+}
+
+.asidenav-QR {
+    background-color: #a4221f;
+    width: 105px;
+    padding-top: 10px;
+    text-align: center;
+}
+
+.asidenav-QR img {
+    width: 85px;
+    height: 85px;
+}
+
+.asidenav-QR p {
+    line-height: 20px;
+    color: white;
+}
+
+.asidenav-contact {
+    width: 105px;
+    padding-top: 5px;
+    background-color: #ba2926;
+    color: white;
+    font-size: 18px;
+    line-height: 20px;
+    text-align: center;
+    padding-bottom: 3px;
+}
+
+.asidenav-contact p:nth-child(2) {
+    letter-spacing: 4px;
+} 
+
+.asidenav-contact p:nth-child(1),
+.asidenav-contact p:nth-child(3) {
+    line-height: 38px;
+    font-weight: 700;
+}
+
+.asidenav-contact p:nth-last-child(-n+2) {
+    font-size: 14px;
+}

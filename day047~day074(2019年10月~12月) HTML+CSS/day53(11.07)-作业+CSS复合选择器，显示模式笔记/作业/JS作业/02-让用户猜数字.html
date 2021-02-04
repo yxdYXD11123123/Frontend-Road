@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 声明一个变量，假设一个谜底
+        let answer = 46;
+        // 写一个while死循环，后期在内部利用break终止循环
+        while (true) {
+            // 让用户输入数字
+            let num = prompt("请您输入您猜的数字")
+            // 判断数字是否大于答案
+            if (num > answer) {
+                // 如果大于，输出猜大了
+                alert("猜大了")
+                // 并且跳出循环
+                continue;
+            }
+            else if (num < answer) {
+                alert("猜小了")
+                continue;
+            }
+            // 如果用户输入数字等于答案
+            else if (num == answer) {
+                // 输出中奖了
+                alert('中奖了（不能继续猜谜）')
+                // 并且终止循环
+                break;
+            }
+        }    
+    </script>
+</body>
+
+</html>
