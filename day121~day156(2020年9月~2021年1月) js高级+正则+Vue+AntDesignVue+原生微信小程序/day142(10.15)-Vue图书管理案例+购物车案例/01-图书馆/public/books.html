@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    .grid {
+      margin: auto;
+      width: 530px;
+      text-align: center;
+    }
+
+    .grid table {
+      border-top: 1px solid #C2D89A;
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .grid th,
+    td {
+      padding: 10;
+      border: 1px dashed orange;
+      height: 35px;
+      line-height: 35px;
+    }
+
+    .grid th {
+      background-color: orange;
+    }
+
+    .grid .book {
+      padding-bottom: 10px;
+      padding-top: 5px;
+      background-color: orange;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <div class="grid">
+      <div>
+        <h1>图书管理</h1>
+        <div>
+          图书数量:
+          <span v-text='sum'></span>
+        </div>
+        <div class="book">
+          <div>
+            <label for="id">
+              编号：
+            </label>
+            <input type="text" id="id" v-model='bid' disabled>
+            <label for="name">
+              名称：
+            </label>
+            <input type="text" id="name" v-model='bname'>
+            <button @click='addBook' :disabled="ishad">{{isMoidify?'修改':'提交'}}</button>
+          </div>
+        </div>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>编号</th>
+            <th>名称</th>
+            <th>时间</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="(item,index) in books" :key="item.id">
+            <td v-text='item.id'></td>
+            <td v-text='item.name'></td>
+            <td v-text='item.date'></td>
+            <td>
+              <a href="" @click.prevent="modifyBook(item.id)">修改</a>
+              <span>|</span>
+              <a href="" @click.prevent='removeBook(item.id)'>删除</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <script src="lib/vue-3.0.0.js"></script>
+  <script src="lib/axios.js"></script>
+  <script src="js/books.js"></script>
+</body>
+
+</html>

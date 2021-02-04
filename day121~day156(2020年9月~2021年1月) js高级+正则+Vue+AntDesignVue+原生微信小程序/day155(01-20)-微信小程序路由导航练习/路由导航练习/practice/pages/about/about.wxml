@@ -1,0 +1,5 @@
+<!--pages/about/about.wxml-->
+<view>关于页</view>
+<new-btn aname="按钮名"></new-btn>
+<!-- tabbar页面必须使用switchTab才能进行导航 -->
+<navigator url="/pages/index/index" open-type="switchTab">切换至首页</navigator>

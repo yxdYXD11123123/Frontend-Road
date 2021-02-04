@@ -1,0 +1,20 @@
+<!--index.wxml-->
+<view class="container">
+	<!-- 声明式导航 -->
+	<!-- tabbar页面必须使用switchTab才能进行导航 -->
+	<!-- 而且需要注意switchTab不支持url带有queryString，如果必要建议使用globalData -->
+	<navigator url="/pages/about/about" open-type="switchTab">声明式导航到about页</navigator>
+	<!-- 导航到非tarbar导航 -->
+	<navigator url="/pages/mine/mine?id=123">声明式导航至mine页</navigator>
+	<!-- 编程式导航 -->
+	<button size="mini" type="primary" bindtap="navToAbout">编程式导航至about页</button>
+	<!-- 编程式导航至非tarbar页 -->
+	<button size="mini" bindtap="navToMine">编程式导航至mine页</button>
+
+  <!-- 获取随机音乐 -->
+  <view>{{str}}</view>
+  <button size="mini" type="primary" bindtap="getWords">获取随机一句话</button>
+
+	<!-- 新盒子组件 -->
+	<new-box bind:myevent="tapNewBox"></new-box>
+</view>

@@ -1,0 +1,103 @@
+<!--index.wxml-->
+<view class="container">
+	<!-- 在用户信息未获取时，拉取用户信息 -->
+	<button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 允许获取头像昵称 </button>
+	<!-- 顶部用户栏 start -->
+	<view class="user" wx:else>
+		<!-- 头像 -->
+		<image mode="aspectFit" src="{{userInfo.avatarUrl}}"></image>
+		<!-- 用户名 -->
+		<text>{{userInfo.nickName}}</text>
+		<!-- 可提现金额 -->
+		<view class="user-can-reflect">
+			<view><text>￥</text>1200.00</view>
+			<view>可提现金额</view>
+		</view>
+		<!-- 箭头 -->
+		<image src="/images/arrow_right.png" class="user-arrow"></image>
+	</view>
+	<!-- 顶部用户栏 end -->
+
+	<!-- 营收数据栏 start -->
+	<view class="revenue">
+		<view>
+			<view><text>￥</text>1200.00</view>
+			<view>今日营收</view>
+		</view>
+		<view>
+			<view>12</view>
+			<view>订单</view>
+		</view>
+		<view>
+			<view>12</view>
+			<view>顾客</view>
+		</view>
+	</view>
+	<!-- 营收数据栏 end -->
+
+	<!-- 销量数据tab切换 start -->
+	<view class="sales">
+		<!-- 销售数据顶部tabBar start -->
+		<view class="sales-top">
+			<text class="sales-tab {{salesTabActive=='total'?'active':'gray-color'}}" bindtap="swichSalesTab" data-tab="total">累计</text>
+			<text class="sales-tab {{salesTabActive=='now'?'active':'gray-color'}}" bindtap="swichSalesTab" data-tab="now">今日</text>
+			<text class="gray-color sales-tab">单位：件</text>
+		</view>
+		<!-- 销售数据顶部tabBar end -->
+
+		<!-- 销量数据内容 start  -->
+		<view class="sales-content"  bindtouchstart="salesTouchStart" bindtouchmove="salesTouchMove">
+			<!-- 累计销量数据 start -->
+			<view class="sales-total" wx:if="{{salesTabActive=='total'}}">
+				<!-- 标题 -->
+				<view class="sales-tab active sales-title">销量TOP</view>
+				<!-- 累计销量数据列表 -->
+				<view class="sales-total-list" wx:for="{{salesData}}" wx:key="id">
+					<!-- 销量排名 -->
+					<view class="sales-rank">
+						<text>{{item.rank}}</text>
+					</view>
+					<view class="sales-info">
+						<!-- 商品名 ，价格 -->
+						<view>{{item.name}} {{item.price}}</view>
+						<!-- 订单 -->
+						<view>
+							<progress percent="100" stroke-width="8" style="width: {{item.orderNum}}px" color="{{salesDataColor.order}}" />
+							<text>{{item.orderNum}}</text>
+						</view>
+						<!-- 记账 -->
+						<view>
+							<progress percent="100" stroke-width="8" style="width: {{item.billNum}}px" color="{{salesDataColor.bill}}" />
+							<text>{{item.billNum}}</text>
+						</view>
+					</view>
+				</view>
+
+
+			</view>
+			<!-- 累计销量数据 end -->
+
+			<!-- 底部 start -->
+			<view class="sales-footer">
+				<view class="sales-footer-left">
+					<view style="background-color: {{salesDataColor.order}}"></view>
+					<text class="gray-color">订单</text>
+					<view style="background-color: {{salesDataColor.bill}}"></view>
+					<text class="gray-color">记账</text>
+				</view>
+				<view class="sales-footer-right">
+					<view class="{{salesTabActive=='total'?'sales-footer-active':''}}"></view>
+					<view class="{{salesTabActive=='now'?'sales-footer-active':''}}"></view>
+				</view>
+			</view>
+			<!-- 底部 end -->
+
+
+
+		</view>
+		<!-- 销量数据内容 end  -->
+
+	</view>
+	<!-- 销量数据tab切换 start -->
+
+</view>

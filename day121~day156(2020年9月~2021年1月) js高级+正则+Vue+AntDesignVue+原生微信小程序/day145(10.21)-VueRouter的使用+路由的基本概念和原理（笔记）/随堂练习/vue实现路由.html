@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 路由书写的地方 -->
+        <nav>
+            <a href="#/index">主页</a>
+            <a href="#/tech">科技</a>
+            <a href="#/depart">娱乐</a>
+        </nav>
+        <!-- 对应路由的内容 -->
+        <main>
+            <!-- 占位符：放什么组件，由is属性决定 -->
+            <!-- 注意：需要赋值字符串 -->
+            <component :is="currentRouter"></component>
+        </main>
+    </div>
+    <script src="./lib/vue-3.0.0.js"></script>
+    <script>
+        let index = {
+            template: `<h2>主页信息</h2>`
+        };
+        let tech = {
+            template: `<h2>科技信息</h2>`
+        };
+        let depart = {
+            template: `<h2>娱乐信息</h2>`
+        };
+        let vm = Vue.createApp({
+            data() {
+                return {
+                    currentRouter: 'index'
+                }
+            },
+            components: {
+                index,
+                tech,
+                depart
+            }
+        }).mount('#app');
+        // 监听 hash改变
+        window.onhashchange = function () {
+            if (location.hash == '#/index') {
+                vm.currentRouter = 'index';
+            }
+            else if (location.hash == '#/tech') {
+                vm.currentRouter = 'tech';
+            }
+            else if (location.hash == '#/depart') {
+                vm.currentRouter = 'depart'
+            }
+        }
+    </script>
+</body>
+
+</html>

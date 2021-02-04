@@ -1,0 +1,2 @@
+<!--components/newBtn/newBtn.wxml-->
+<button type="primary" plain="true" bindtap="clickBtn">{{aname}}</button>

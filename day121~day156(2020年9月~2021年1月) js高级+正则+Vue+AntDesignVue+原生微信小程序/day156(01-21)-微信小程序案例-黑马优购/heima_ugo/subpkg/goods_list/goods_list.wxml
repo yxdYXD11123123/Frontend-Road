@@ -1,0 +1,1 @@
+<view><view class="goods-list"><block wx:for="{{goodsList}}" wx:for-item="goods" wx:for-index="i" wx:key="i"><view data-event-opts="{{[['tap',[['gotoDetail',['$0'],[[['goodsList','',i]]]]]]]}}" bindtap="__e"><my-goods vue-id="{{'10cf42ec-1-'+i}}" goods="{{goods}}" bind:__l="__l"></my-goods></view></block></view></view>

@@ -1,0 +1,5 @@
+/* components/newBtn/newBtn.wxss */
+button[type='primary'][plain] {
+  color: aqua;
+  border-color: aqua;
+}

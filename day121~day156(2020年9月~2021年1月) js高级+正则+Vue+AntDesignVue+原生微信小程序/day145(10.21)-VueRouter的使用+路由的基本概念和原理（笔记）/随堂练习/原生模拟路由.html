@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <nav>
+        <a href="#index">首页</a>
+        <a href="#music">音乐</a>
+        <a href="#about">关于</a>
+    </nav>
+    <main>
+
+    </main>
+
+    <script>
+        window.onhashchange = function () {
+            console.log(location.hash);
+            if (location.hash == '#index') {
+                document.querySelector('main').innerHTML = '<h2>首页</h2>'
+            }
+            else if (location.hash == '#music') {
+                document.querySelector('main').innerHTML = '<h2>音乐</h2>'
+            }
+            else {
+                document.querySelector('main').innerHTML = '<h2>关于</h2>'
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "new-btn": "/components/newBtn/newBtn"
+  }
+}

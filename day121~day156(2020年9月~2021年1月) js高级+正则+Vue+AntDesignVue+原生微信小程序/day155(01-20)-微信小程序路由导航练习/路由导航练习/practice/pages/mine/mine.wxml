@@ -1,0 +1,3 @@
+<!--pages/mine/mine.wxml-->
+<view>个人中心页</view>
+<button bindtap="navBack">按钮返回上一页</button>

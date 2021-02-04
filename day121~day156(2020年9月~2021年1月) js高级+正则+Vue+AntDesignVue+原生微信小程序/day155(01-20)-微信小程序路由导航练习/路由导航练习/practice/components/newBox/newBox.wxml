@@ -1,0 +1,4 @@
+<!--components/newBox/newBox.wxml-->
+<view bindtap="click">
+我是newBox，点我看看
+</view>

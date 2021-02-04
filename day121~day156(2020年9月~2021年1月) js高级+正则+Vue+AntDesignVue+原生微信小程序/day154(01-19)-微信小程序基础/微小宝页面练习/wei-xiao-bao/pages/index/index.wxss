@@ -1,0 +1,225 @@
+/**index.wxss**/
+page {
+  background-color: #f5f5f5;
+}
+
+/* 顶部用户栏 start */
+.user {
+  margin-top: 17rpx;
+  height: 178rpx;
+  border-radius: 10rpx;
+  background-color: white;
+  line-height: 178rpx;
+}
+
+.user > image:nth-child(1) {
+  width: 90rpx;
+  height: 90rpx;
+  border-radius: 50%;
+  vertical-align: middle;
+  margin-left: 20rpx;
+  margin-right: 24rpx;
+}
+
+.user>text {
+  display: inline-block;
+  width: 300rpx;
+  font-size: 28rpx;
+  margin-right: 50rpx;
+}
+
+.user-can-reflect {
+  display: inline-block;
+  height: 65rpx;
+  line-height: 1em;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.user-can-reflect view:nth-child(1) {
+  font-size: 28rpx;
+  font-weight: 700;
+}
+.user-can-reflect view:nth-child(1) text {
+  font-size: 18rpx;
+}
+.user-can-reflect view:nth-child(2) {
+  font-size: 18rpx;
+  color: #999999;
+}
+
+.user-arrow {
+  margin-left: 26rpx;
+  width: 16rpx;
+  height: 24rpx;
+}
+/* 顶部用户栏 end */
+
+/* 营收数据栏 start */
+.revenue {
+  display: flex;
+  margin-top: 24rpx;
+  height: 210rpx;
+  background-color: #f6c529;
+  border-radius: 10rpx;
+}
+
+.revenue > view {
+  flex: 1;
+  padding-top: 70rpx;
+  text-align: center;
+}
+
+.revenue > view > view:nth-child(1) {
+  margin-bottom: 18rpx;
+  font-size: 28rpx;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.revenue > view > view:nth-child(2) {
+  font-size: 22rpx;
+}
+
+.revenue text {
+  font-size: 20rpx;
+}
+/* 营收数据栏 end */
+
+/* 销量数据tab切换 start */
+.sales {
+  margin-top: 24rpx;
+  border-radius: 10rpx;
+  background-color: white;
+  padding: 30rpx 22rpx;
+}
+
+.sales-top {
+  overflow: hidden;
+}
+
+.sales-top text:nth-child(-n+2) {
+  float: left;
+}
+
+.sales-top text:nth-child(2) {
+  margin-left: 44rpx;
+}
+
+.sales-top text:nth-child(3) {
+  float: right;
+}
+
+.sales-tab {
+  font-size: 29rpx;
+  padding-top: 8rpx;
+}
+
+.sales-tab.active {
+  font-size: 34rpx;
+  font-weight: 700;
+  padding-top: 0rpx;
+}
+
+.gray-color {
+  color: #999999;
+}
+
+.sales-content {
+  margin-top: 50rpx;
+}
+
+.sales-title {
+  margin-bottom: 26rpx;
+}
+
+.sales-total-list {
+  overflow: hidden;
+  margin-bottom: 25rpx;
+} 
+
+.sales-total-list > view {
+  float: left;
+  line-height: 110rpx;
+}
+
+.sales-info {
+  margin-left: 16rpx;
+}
+
+.sales-rank text {
+  display: inline-block;
+  height: 66rpx;
+  width: 66rpx;
+  background-color: #f9f9f9;
+  line-height: 66rpx;
+  text-align: center;
+  border-radius: 50%;
+}
+
+.sales-info > view:nth-child(1) {
+  margin-top: 10rpx;
+  font-size: 22rpx;
+  line-height: 1;
+}
+
+.sales-info progress {
+  display: inline-block;
+  margin-top: 18rpx;
+  height: 16rpx;
+}
+
+.sales-info > view:nth-last-child(-n+2) {
+  line-height: 1em;
+  font-size: 20rpx;
+}
+
+.sales-info text {
+  margin-left: 18rpx;
+}
+
+/* 底部 */
+.sales-footer {
+  overflow: hidden;
+  line-height: 21rpx;
+}
+
+.sales-footer-left {
+  float: left;
+  font-size: 21rpx;
+}
+
+.sales-footer-left view {
+  display: inline-block;
+  margin-right: 18rpx;
+  vertical-align: middle;
+  width: 16rpx;
+  height: 16rpx;
+}
+
+.sales-footer-left text {
+  margin-right: 20rpx;
+}
+
+.sales-footer-right {
+  float: right;
+  line-height: 14rpx;
+}
+
+.sales-footer-right > view {
+  display: inline-block;
+  height: 4rpx;
+  width: 28rpx;
+  background-color: #ddd;
+  vertical-align: middle;
+}
+
+.sales-footer-right > view:nth-child(1) {
+  margin-right: 4rpx;
+}
+
+view.sales-footer-active {
+  background-color: #efb600;
+}
+
+/* 销量数据tab切换 end */

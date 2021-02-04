@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-model="str">
+        <button @click="obj.hobbies[0]='so'">按钮</button>
+    </div>
+    <script src="./lib/vue-3.0.0.js"></script>
+    <script>
+        let vm = Vue.createApp({
+            data() {
+                return {
+                    obj: {
+                        name: 'dong',
+                        hobbies: ['篮球', '冒烟'],
+                        adult: true
+                    },
+                    str: '东'
+                }
+            },
+            watch: {
+                str(val) {
+                    console.log(val);
+                    console.log(this.obj);
+                },
+                obj: {
+                    handler() {
+                        console.log('obj变了');
+                    },
+                    deep: true
+                }
+            }
+        }).mount('#app');
+    </script>
+</body>
+
+</html>
