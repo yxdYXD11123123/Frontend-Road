@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .preview_img {
+      position: relative;
+      height: 398px;
+      width: 398px;
+      margin-left: 10px;
+      margin-top: 100px;
+      border: 1px solid #ccc;
+    }
+
+    .mask {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 300px;
+      height: 300px;
+      background: #FEDE4F;
+      opacity: .5;
+      border: 1px solid #ccc;
+      cursor: move;
+    }
+
+    .big {
+      display: none;
+      position: absolute;
+      left: 410px;
+      top: 0;
+      width: 500px;
+      height: 500px;
+      background-color: pink;
+      z-index: 999;
+      border: 1px solid #ccc;
+      overflow: hidden;
+    }
+
+    .big img {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="preview_wrap fl">
+    <div class="preview_img">
+      <img src="image/s3.png" alt="">
+      <div class="mask"></div>
+      <div class="big">
+        <img src="image/big.jpg" alt="" class="bigImg">
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // 获取元素
+    let oImg = document.querySelector(".preview_img>img")
+    let oMask = document.querySelector(".mask")
+    let oBig = document.querySelector('.big')
+    let oBigImg = document.querySelector(".bigImg")
+
+    // 当鼠标进入图片上方时，让mask和大图显示，为什么在mask上添加事件，
+    // 因为我这里获取的是img，而不是整个preview_img，所以当mask出现时，img是不包括mask的，会出现mask不停的开启关闭的现象
+    // 而且这样不给整个preview_img添加事件，还有一个好处：可以避免后面鼠标从mask上，快速移到大图上时，mask和大图不会消失的bug。
+    // 所以我们干脆给mask也添加上mouseover让mask显示，这样就和img没关系了，img只是帮助我们开启一下
+    oImg.addEventListener("mouseover", open)
+    oMask.addEventListener("mouseover", open)
+    function open() {
+      oMask.style.display = "block"
+      oBig.style.display = "block"
+    }
+
+    // 当鼠标移出图片时，让mask和大图隐藏
+    oMask.addEventListener("mouseout", close)
+    function close() {
+      oMask.style.display = "none"
+      oBig.style.display = "none"
+    }
+
+    // 当鼠标在mask上移动时，让mask随着鼠标移动
+    oMask.addEventListener("mousemove", maskMove)
+    function maskMove(e) {
+      // 获取鼠标在图片上的位置(距离图片边框的位置)
+      let distanceX = e.pageX - oImg.parentNode.offsetLeft;
+      let distanceY = e.pageY - oImg.parentNode.offsetTop;
+      // 将得到的mask新left和新top计算出来，并且保持鼠标在mask中心
+      let newLeft = distanceX - (oMask.offsetWidth / 2);
+      let newTop = distanceY - (oMask.offsetHeight / 2)
+      // 此时将计算出来的值赋值给mask的left和top
+      oMask.style.left = newLeft + "px";
+      oMask.style.top = newTop + "px";
+      // 判断一下, 如果超出范围，将left和top值控制一下, 并且继续让newLeft/Top保留实际的移动距离
+      if (newLeft < 0) {
+        // 控制好直接赋值
+        oMask.style.left = 0 + "px";
+        // 让newLeft/Top继续保留实际的移动距离
+        newLeft = 0;
+      } else if (newLeft > oImg.offsetWidth - oMask.offsetWidth) {
+        oMask.style.left = oImg.offsetWidth - oMask.offsetWidth + "px"
+        newLeft = oImg.offsetWidth - oMask.offsetWidth;
+      }
+      if (newTop < 0) {
+        oMask.style.top = 0 + "px";
+        newTop = 0;
+      } else if (newTop > oImg.offsetHeight - oMask.offsetHeight) {
+        oMask.style.top = oImg.offsetHeight - oMask.offsetHeight + "px";
+        newTop = oImg.offsetHeight - oMask.offsetHeight;
+      }
+
+      //  注意：如果按这样方式经过判断再给left和top赋值，理论上是没有问题的，
+      //  但是会出现一个bug就是：如果我们鼠标是很快速的移动到限制边界，那么left和top就是直接停止被赋值，mask会直接停留在原来的位置，而不能让值为0，使其最终靠在边上。
+      // if (newLeft >= 0 && newLeft <= oImg.offsetWidth - oMask.offsetWidth) {
+      //   oMask.style.left = newLeft + "px";
+      // }
+      // if (newTop >= 0 && newTop <= oImg.offsetHeight - oMask.offsetHeight) {
+      //   oMask.style.top = newTop + "px";
+      // }
+
+      // 接下来移动大图，因为小图的移动距离和大图的移动距离是成比例移动的，所以我们可以利用以下的等式进行计算。
+      // 小图的移动距离/小图的最大移动距离 = 大图的移动距离/大图的最大移动距离     利用这个等式求出 大图的移动距离
+      let bigMaxX = oBigImg.offsetWidth - oBig.offsetWidth;
+      let bigMaxY = oBigImg.offsetHeight - oBig.offsetHeight;
+      // 小图的移动距离就是newleft和newtop， 注意这里要给负值，因为大图和小图是朝相反方向移动的。
+      oBigImg.style.left = -newLeft * bigMaxX / (oImg.offsetWidth - oMask.offsetWidth) + "px"
+      oBigImg.style.top = -newTop * bigMaxY / (oImg.offsetHeight - oMask.offsetHeight) + "px"
+    }
+  </script>
+</body>
+
+</html>

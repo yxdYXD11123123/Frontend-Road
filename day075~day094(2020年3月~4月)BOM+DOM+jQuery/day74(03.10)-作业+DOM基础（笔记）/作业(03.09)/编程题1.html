@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="mod-tabs">
+        <ul>
+            <li>list1</li>
+            <li>list2</li>
+            <li id="list3">list3</li>
+            <li>
+                <ul>
+                    <li>list41</li>
+                    <li>list42</li>
+                </ul>
+            </li>
+            <li>list5</li>
+        </ul>
+        <button class="btn">点我</button>
+    </div>
+    <script>
+        // 1. 获取上面代码中的html元素
+        let oHtmlA = document.getElementsByTagName("html")[0]
+        let oHtmlB = document.documentElement
+        console.log(oHtmlA, oHtmlB);
+
+        // 2. 获取上面代码中的body元素
+        let oBodyA = document.getElementsByTagName("body")[0]
+        let oBodyB = document.body
+        console.log(oBodyA, oBodyB);
+
+        // 3. 获取上面代码中的按钮,通过三种方式
+        let btnA = document.getElementsByClassName("btn")[0]
+        let btnB = document.getElementsByClassName("mod-tabs")[0].getElementsByTagName("button")[0]
+        let btnC = document.querySelector("button")
+        console.log(btnA, btnB, btnC);
+
+        // 4. 获取上面代码中所有的li元素,用2种方式
+        let aLiA = document.getElementsByTagName("li")
+        let aLiB = document.querySelectorAll("li")
+        console.log(aLiA, aLiB);
+
+        // 5. 获取上面代码中list3元素
+        let oList3 = document.getElementById('list3')
+        console.log(oList3);
+
+        // 6. 获取第二个ul中的所有li
+        let aSecondUlLi = document.getElementsByTagName("ul")[1].getElementsByTagName("li")
+        console.log(aSecondUlLi);
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./lunbo.css">
+</head>
+
+<body>
+    <div class="carousel">
+        <ul>
+            <li><a href="#"><img src="./images/ifold1.jpg" alt=""></a></li>
+            <li><a href="#"><img src="./images/ifold2.jpg" alt=""></a></li>
+            <li><a href="#"><img src="./images/ifold3.jpg" alt=""></a></li>
+            <li><a href="#"><img src="./images/ifold4.jpg" alt=""></a></li>
+            <li><a href="#"><img src="./images/ifold5.jpg" alt=""></a></li>
+        </ul>
+        <i class="prev"></i>
+        <i class="next"></i>
+        <ol>
+            <!-- <li></li>
+            <li></li> -->
+        </ol>
+    </div>
+
+    <!-- 引入动画插件 -->
+    <script src="./animate.js"></script>
+    <script>
+        // 1. 鼠标经过轮播图区域左右按钮显示，离开该区域左右按钮隐藏
+        // 2. 点击右侧按钮一次，图片往左走一张  (实现无缝)
+        // 3. 点击左侧按钮一次，图片往右走一张
+        // 4. 图片轮播的同时，下面播放相应的小圆点
+        // 5. 点击小圆点导航，可以播放相应的图片
+        // 6. 鼠标进入轮播图区域，停止自动轮播
+        // 7. 鼠标移出轮播图区域，继续自动轮播
+        // 8. 轮播图默认向左轮播
+        // 9. 节流阀解决按钮连续点击造成播放过快的问题
+
+        // 获取元素  /  声明变量
+        let carousel = document.querySelector(".carousel")
+        let ul = document.querySelector(".carousel ul")
+        let ol = carousel.children[3]
+        let clicks = 0; // 记录点击按钮播放对应图片的索引
+        let circle = 0; // 记录突出显示的小圆点的索引
+        // 为了实现无缝滚动，把第一个图片补到最后一份
+        let lastOne = ul.children[0].cloneNode(true)
+        ul.appendChild(lastOne)  //补充后要注意，ul的宽度要改变，否则补充的这个会到下一层
+        ul.style.width = ul.children.length * 400 + "px"
+        let prevBtn = document.querySelector(".prev")
+        let nextBtn = document.querySelector(".next")
+        let timer = null;
+        // 为了避免我们连续点击时，让图片过快滑动，我们要声明一个节流阀
+        let flag = true;
+
+
+
+        // 根据ul的子元素数量，插入ol中的小圆点
+        for (let i = 0; i < ul.children.length - 1; i++) {
+            // 获取当前ol内容字符串
+            let nowStr = ol.innerHTML
+            // 生成新的小圆点
+            let newStr = `<li></li>`
+            // 插入
+            ol.innerHTML = nowStr + newStr
+            // 给小圆点绑定对应的自定义属性
+            ol.children[i].setAttribute("index", i)
+        }
+        // 给第一个小圆点上加active类名
+        ol.children[0].className = "active"
+
+
+        // 给next绑定事件
+        nextBtn.addEventListener("click", next)
+        function next() {
+            if (flag) {
+                // 关闭阀门
+                flag = false;
+                // 先判断是不是已经走到最后一张
+                if (clicks == ul.children.length - 1) {
+                    // 直接变回到第一张的位置
+                    ul.style.left = 0
+                    // 并且让clicks回到1
+                    clicks = 0;
+                }
+                // 调用动画函数，到下一张
+                animate(ul, {
+                    left: -(clicks + 1) * 400
+                }, function () {
+                    flag = true;
+                })
+                // 让clicks加一
+                clicks++;
+
+                // 如果小圆点的索引到达 最后一个，索引归零
+                circle++
+                if (circle == ol.children.length) {
+                    circle = 0;
+                }
+                // 让小圆点的也跟着动
+                for (let i = 0; i < ol.children.length; i++) {
+                    ol.children[i].classList.remove('active')
+                }
+                ol.children[circle].classList.add("active")
+            }
+        }
+
+        // 给prev绑定事件
+        prevBtn.addEventListener("click", prev)
+        function prev() {
+            if (flag) {
+                // 关闭阀门
+                flag = false;
+                // 先判断是不是已经走到第一张
+                if (clicks == 0) {
+                    // 直接变回到最后一张的位置
+                    ul.style.left = -(ul.children.length - 1) * 400 + "px"
+                    // 并且让clicks回到 最后一个图片的索引
+                    clicks = ul.children.length - 1;
+                }
+                // 调用动画函数，到上一张
+                animate(ul, {
+                    left: -(clicks - 1) * 400
+                }, function () {
+                    flag = true; // 放开阀门
+                })
+                // 让clicks减一
+                clicks--;
+
+                // 如果小圆点的索引到达 第一个，索引到最后一个
+                circle--;
+                if (circle == -1) {
+                    circle = ol.children.length - 1;
+                }
+                // 让小圆点的也跟着动
+                for (let i = 0; i < ol.children.length; i++) {
+                    ol.children[i].classList.remove('active')
+                }
+                ol.children[circle].classList.add("active")
+            }
+        }
+
+        // 给小圆点绑定点击事件
+        for (let i = 0; i < ol.children.length; i++) {
+            ol.children[i].addEventListener('click', circleClick)
+        }
+        function circleClick() {
+            if (flag) {
+                // 关闭阀门
+                flag = false;
+                // 这里依旧要再判断一次，否则 当我走到最后补充的图片上时，
+                // 我们点击小圆点会发现：动画效果的方向相反（本来应该往后移，现在是往前移）。
+                // 先判断是不是已经走到最后一张
+                if (clicks == ul.children.length - 1) {
+                    // 直接变回到第一张的位置
+                    ul.style.left = 0
+                    // 并且让clicks回到1
+                    clicks = 0;
+                }
+                // 用排他思想，切换小圆点的样式
+                for (let i = 0; i < ol.children.length; i++) {
+                    ol.children[i].classList.remove('active')
+                }
+                this.classList.add("active")
+                // 根据小圆点绑定的index自定义属性   让ul走到对应位置 
+                // 注意：我们这里getAttribute接收到的是字符串，我们要变成数字，方便下面给circle,clicks重置
+                let index = Number(this.getAttribute("index"))
+                animate(ul, {
+                    left: - index * 400
+                }, function () {
+                    flag = true;
+                })
+                // 这里是很容易忽视的问题
+                // 我们需要在这里让circle和clicks与小圆点点击后，小圆点和图片索引都一致，不然我们点击小圆点后：再点击前后按钮，clicks和circle的还是基于原来的值改变
+                circle = index;
+                clicks = index;
+            }
+        }
+
+        // 让轮播图自动轮播
+        timer = setInterval(function () {
+            nextBtn.click();
+        }, 2000)
+
+        // 鼠标进入后，停止轮播
+        carousel.addEventListener("mouseenter", function () {
+            clearInterval(timer);
+            timer = null;
+        })
+        // 鼠标移出，再次自动轮播
+        carousel.addEventListener("mouseleave", function () {
+            timer = setInterval(function () {
+                nextBtn.click();
+            }, 2000)
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <!-- 引入初始化 -->
+  <link rel="stylesheet" href="css/base.css">
+  <!-- 引入购物车样式 -->
+  <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+  <div class="car">
+    <table>
+      <thead>
+        <tr>
+          <th>
+            <input type="checkbox" id="all">全选
+          </th>
+          <th>
+            商品
+          </th>
+          <th>
+            单价
+          </th>
+          <th>
+            商品数量
+          </th>
+          <th>
+            小计
+          </th>
+          <th>
+            操作
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <input type="checkbox">
+          </td>
+          <td>
+            <img src="uploads/01.jpg">
+            <p>牛奶</p>
+          </td>
+          <td>
+            20￥
+          </td>
+          <td>
+            <div class="count-c clearfix">
+              <a href="javascript:" class="reduce">-</a>
+              <input type="text" value="1">
+              <a href="javascript:" class="add">+</a>
+            </div>
+          </td>
+          <td>
+            20￥
+          </td>
+          <td>
+            <a href="javascript:" class="del">删除</a>
+          </td>
+
+        </tr>
+        <tr>
+          <td>
+            <input type="checkbox">
+          </td>
+          <td>
+            <img src="uploads/01.jpg">
+            <p>牛奶</p>
+          </td>
+          <td>
+            20￥
+          </td>
+          <td>
+            <div class="count-c clearfix">
+              <a href="javascript:" class="reduce">-</a>
+              <input type="text" readonly value="2">
+              <a href="javascript:" class="add">+</a>
+            </div>
+          </td>
+          <td>
+            40￥
+          </td>
+          <td>
+            <a href="javascript:" class="del">删除</a>
+          </td>
+
+        </tr>
+        <tr>
+          <td>
+            <input type="checkbox">
+          </td>
+          <td>
+            <img src="uploads/01.jpg">
+            <p>牛奶</p>
+          </td>
+          <td>
+            20￥
+          </td>
+          <td>
+            <div class="count-c clearfix">
+              <a href="javascript:" class="reduce">-</a>
+              <input type="text" readonly value="2">
+              <a href="javascript:" class="add">+</a>
+            </div>
+          </td>
+          <td>
+            40￥
+          </td>
+          <td>
+            <a href="javascript:" class="del">删除</a>
+          </td>
+
+        </tr>
+        <tr>
+          <td>
+            <input type="checkbox">
+          </td>
+          <td>
+            <img src="uploads/01.jpg">
+            <p>牛奶</p>
+          </td>
+          <td>
+            20￥
+          </td>
+          <td>
+            <div class="count-c clearfix">
+              <a href="javascript:" class="reduce">-</a>
+              <input type="text" readonly value="2">
+              <a href="javascript:" class="add">+</a>
+            </div>
+          </td>
+          <td>
+            40￥
+          </td>
+          <td>
+            <a href="javascript:" class="del">删除</a>
+          </td>
+
+        </tr>
+
+      </tbody>
+    </table>
+    <div class="controls clearfix">
+      <a href="javascript:" class="del-all">删除所选商品</a>
+      <a href="javascript:" class="clear">清理购物车</a>
+      <a href="javascript:" class="pay">去结算</a>
+      <p>
+        已经选中<span id="totalCount">0</span>件商品;总价：<span id="totalPrice" class="total-price">0￥</span>
+      </p>
+    </div>
+  </div>
+  <div class="box">
+    购物车空空如也
+  </div>
+
+  <script src="./lib/jquery-3.4.1.js"></script>
+
+  <script>
+    // - 页面已经给定，只需要完成效果，不能随意编辑里面的html和css
+    // - 功能1：点击"全选"复选框，下面的4个复选框都会选中，点击取消，下面也都不会被选中
+    $("#all").click(clickAll)
+    function clickAll() {
+      $(".car tbody input[type='checkbox']").prop("checked", $(this).prop("checked"))
+    }
+
+    // - 功能2：点击下面左边的那4个复选框，只有当下面4个复选框全部选中的时候，上面的全选才会被选中，否则不会被选中
+    $(".car tbody input[type='checkbox']").click(clicks)
+    function clicks() {
+      // 假设全都选中
+      let flag = true;
+      // 遍历每个复选框的选择状况
+      $.each($(".car tbody input[type='checkbox']"), function (i, j) {
+        // 这里的j 就是4个复选框 DOM对象
+        if (j.checked == false) {
+          flag = false;
+        }
+      })
+      // 让全选复选框跟随flag
+      $("#all").prop("checked", flag)
+    }
+
+    // 利用事件委托
+    $(".count-c").click(function (e) {
+      // - 功能3：点击"商品数量"的"+"号，当前的这个行前面的复选框也被选中，同时中间的数字也会改变，每次增量是1，后面的小计也会跟着变化，
+      // 如果点击的是增加按钮
+      if ($(e.target).hasClass("add")) {
+        $(this.children[1]).val(function () {
+          return Number($(this).val()) + 1
+        })
+
+        // 让小计跟随数量变化
+        // 利用prev()找到单价   获取单价
+        let price = parseInt($(this).parent().prev().text());
+        // 算出总价
+        let amount = price * Number($(this.children[1]).val())
+        // 利用next()找到小计并赋值
+        $(this).parent().next().text(`${amount}￥`)
+
+        // 一旦点击，让当前的商品被勾选
+        $(this).parents('tr')[0].children[0].children[0].checked = true;
+        // 再次检测
+        clicks();
+      }
+
+      // - 功能4：点击"商品数量"的"-"号，当前的这个行前面的复选框也被选中，同时中间的数字也会改变，每次减量是1，后面的小计也会跟着变化，当 数量是1的时候，就不能在减少了
+      // 如果点击的减少按钮
+      if ($(e.target).hasClass("reduce")) {
+        // 如果不等于1，在可以继续减
+        if ($(this.children[1]).val() != 1) {
+          $(this.children[1]).val(function () {
+            return Number($(this).val()) - 1
+          })
+        }
+        // 让小计跟随数量变化
+        // 利用prev()找到单价   获取单价
+        let price = parseInt($(this).parent().prev().text());
+        // 算出总价
+        let amount = price * Number($(this.children[1]).val())
+        // 利用next()找到小计并赋值
+        $(this).parent().next().text(`${amount}￥`)
+        // 一旦点击，让当前的商品被勾选
+        $(this).parents('tr')[0].children[0].children[0].checked = true;
+        // 再次检测
+        clicks();
+      }
+    })
+
+
+
+  </script>
+</body>
+
+</html>

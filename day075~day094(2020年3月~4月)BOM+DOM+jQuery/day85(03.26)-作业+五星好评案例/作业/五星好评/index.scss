@@ -1,0 +1,38 @@
+html,
+body,
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+.box {
+    border: 1px solid #cccccc;
+    height: 80px;
+    width: 300px;
+    margin: 50px auto;
+    ul {
+        float: left;
+        overflow: hidden;
+        margin-top: 32px;
+        margin-left: 20px;
+    }
+    li {
+        float: left;
+        width: 16px;
+        height: 16px;
+        background-image: url(./img/star2.png);
+    }
+    span {
+        float: left;
+        margin-left: 15px;
+        line-height: 80px;
+    }
+}
+
+.box .light {
+    background-image: url(./img/star1.png);
+}

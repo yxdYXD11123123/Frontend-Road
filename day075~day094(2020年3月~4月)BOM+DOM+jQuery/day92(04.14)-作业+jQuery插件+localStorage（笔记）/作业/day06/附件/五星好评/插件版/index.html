@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/normalize.min.css">
+    <link rel="stylesheet" href="./css/css-stars.css">
+</head>
+
+<body>
+    <select id="example">
+        <option value=""></option>
+        <option value="1" data-html="极差">1</option>
+        <option value="2" data-html="失望">2</option>
+        <option value="3" data-html="一般">3</option>
+        <option value="4" data-html="满意">4</option>
+        <option value="5" data-html="惊喜">5</option>
+    </select>
+
+    <script src="./js/jquery-3.4.1.js"></script>
+    <script src="./js/jquery.barrating.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('#example').barrating({
+                theme: 'css-stars'
+            });
+        });
+    </script>
+</body>
+
+</html>

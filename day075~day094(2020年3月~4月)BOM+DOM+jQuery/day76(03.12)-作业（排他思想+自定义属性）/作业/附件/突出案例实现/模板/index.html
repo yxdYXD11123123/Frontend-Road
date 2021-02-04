@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            background-color: black;
+            overflow: hidden;
+        }
+
+        div {
+            width: 610px;
+            margin: 50px auto;
+            border: 1px solid white;
+        }
+
+        ul {
+            display: flex;
+            flex-wrap: wrap;
+            width: 600px;
+            padding: 10px 10px 10px 0px;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        li {
+            position: relative;
+            flex: 30%;
+            list-style: none;
+            box-sizing: border-box;
+            margin-left: 10px;
+        }
+
+        li:nth-child(-n+3) {
+            margin-bottom: 10px;
+        }
+
+        img {
+            width: 100%;
+            vertical-align: middle;
+        }
+
+        span {
+            position: absolute;
+            display: none;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            opacity: 0.65;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <ul>
+            <li><img src="./images/01.jpg" alt=""><span></span></li>
+            <li><img src="./images/02.jpg" alt=""><span></span></li>
+            <li><img src="./images/03.jpg" alt=""><span></span></li>
+            <li><img src="./images/04.jpg" alt=""><span></span></li>
+            <li><img src="./images/05.jpg" alt=""><span></span></li>
+            <li><img src="./images/06.jpg" alt=""><span></span></li>
+        </ul>
+    </div>
+
+    <script>
+        // 获取元素
+        let aSpan = document.querySelectorAll("span")
+        let oUl = document.querySelector('ul')
+        // 当鼠标离开的时候， 消失， 变亮
+        oUl.onmouseout = function () {
+            for (let i = 0; i < aSpan.length; i++) {
+                aSpan[i].style.display = "none"
+            }
+            console.log("触发div移出事件");
+
+        }
+        // 当鼠标进入ul的时候， 让所有span显示
+        oUl.onmouseover = function () {
+            for (let i = 0; i < aSpan.length; i++) {
+                aSpan[i].style.display = "block"
+            }
+            console.log("触发了div的移入事件");
+
+
+        }
+
+        // 循环遍历给每个span绑定事件
+        for (let j = 0; j < aSpan.length; j++) {
+            aSpan[j].onmouseover = function () {
+                // 让span透明度改变，让它全透明
+                this.style.opacity = "0"
+                console.log("触发了span的移入事件");
+            }
+            // 让我们离开span的时候，让它恢复半透明状态
+            aSpan[j].onmouseout = function () {
+                this.style.opacity = "0.65"
+                console.log("触发了span的移出事件");
+            }
+        }
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        ul {
+            width: 800px;
+            margin: 100px auto;
+        }
+
+        li {
+            border: 1px solid #f00;
+            width: 80px;
+            float: left;
+            text-align: center;
+            height: 30px;
+            line-height: 30px;
+        }
+
+        .active {
+            background-color: #0F0
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="box">
+
+    </ul>
+    <script>
+        //     2. 实现键盘效果(附件)：
+        // - 把给定的数据渲染到页面上
+        // - 键盘按下对应的数据的哪个键，页面中对应的那个数据的就会选中，添加背景色
+
+        var allKey = ["1", '2', '3', '4', '5', '6', '7', '8', '9', '0', 'Q', 'W', 'E', 'R', 'T', 'Y', 'U',
+            'I', 'O', 'P', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'Z', 'X', 'C', 'V', 'B', 'N', 'M'
+        ];
+
+        // 获取元素
+        let oUl = document.querySelector(".box")
+
+        // 循环创建插入li
+        for (let i = 0; i < allKey.length; i++) {
+            let newLi = document.createElement("li")
+            newLi.innerText = allKey[i];
+            // 将 字母/数字的 ascii码 作为id 绑定到 li 上
+            newLi.id = `${allKey[i].charCodeAt()}`
+            oUl.appendChild(newLi);
+        }
+
+        // 按键按下时，给对应的ul中的子元素li加上背景颜色
+        document.addEventListener("keydown", function (e) {
+            // 利用绑定的id找到对应键位，使其变亮
+            document.getElementById(`${e.keyCode}`).classList.add('active')
+        })
+        // 按键松开时，去掉背景颜色
+        document.addEventListener("keyup", function (e) {
+            // 利用绑定的id找到对应键位，使其变亮
+            document.getElementById(`${e.keyCode}`).classList.remove('active')
+        })
+
+
+    </script>
+</body>
+
+</html>

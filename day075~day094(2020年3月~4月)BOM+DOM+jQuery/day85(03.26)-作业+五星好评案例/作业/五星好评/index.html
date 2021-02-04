@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+    <div class="box">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <span></span>
+    </div>
+
+    <script>
+        let starUl = document.querySelector(".box ul")
+        let oSpan = document.querySelector("span")
+        //假设一个刚点击过的星星索引
+        let clickedStar = -1;
+
+        // 给星星绑定移入事件 / 移出事件
+        for (let i = 0; i < starUl.children.length; i++) {
+            // 移入
+            starUl.children[i].addEventListener("mouseover", function () {
+                // 让所有的变暗
+                for (let j = 0; j < starUl.children.length; j++) {
+                    starUl.children[j].style.backgroundImage = "url(./img/star2.png)"
+                }
+                // 1 -- i
+                for (let k = 0; k <= i; k++) {
+                    starUl.children[k].style.backgroundImage = "url(./img/star1.png)"
+                    changeText(i);
+                }
+            })
+            // 移出
+            starUl.children[i].addEventListener("mouseout", function () {
+                // 让所有的变暗
+                for (let j = 0; j < starUl.children.length; j++) {
+                    starUl.children[j].style.backgroundImage = "url(./img/star2.png)"
+                    // 文字不应该显示
+                    oSpan.innerText = ''
+                }
+                // 让上次点击过的星星变亮
+                for (let k = 0; k <= clickedStar; k++) {
+                    starUl.children[k].style.backgroundImage = "url(./img/star1.png)"
+                    changeText(clickedStar)
+                }
+            })
+            // 点击
+            starUl.children[i].addEventListener("click", function () {
+                // 记录点击过的星星的索引
+                clickedStar = i;
+                // 在点击过程中，一定会mouseover/ mouseout（根据点击实现），所以其实这里不需要给click时修改样式
+                // for (let j = 0; j <= i; j++) {
+                //     starUl.children[j].style.backgroundImage = "url(./img/star1.png)"
+                //     changeText(i)
+                // }
+            })
+        }
+
+        // 写一个变换span内容的函数, 传入的参数为索引--数字
+        function changeText(index) {
+            if (index == 0) {
+                oSpan.innerText = "极差"
+            }
+            else if (index == 1) {
+                oSpan.innerText = "失望"
+            }
+            else if (index == 2) {
+                oSpan.innerText = "一般"
+            }
+            else if (index == 3) {
+                oSpan.innerText = "满意"
+            }
+            else if (index == 4) {
+                oSpan.innerText = "惊喜"
+            }
+        }
+    </script>
+</body>
+
+</html>

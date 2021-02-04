@@ -1,0 +1,128 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>留言板</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+    <h1>留言板</h1>
+    <div id="content">
+        <div id="post">
+            <div style="background:#3EADC5 ;height:30px;">
+                昵称：<input type="submit" id="shangtian" name="Submit3"
+                    style="border:none; background-color:#3EADC5; color:white;" value="默认用户点击改变" />
+            </div>
+            <div>
+                <textarea class="transition"></textarea>
+            </div>
+            <input id="postBt" type="button"
+                style="border:none; background-color:#3EADC5; color:white;border-radius:5px; width:80px; height:30px;"
+                value="发表留言" />
+            <input id="clearBt" type="button"
+                style="border:none; background-color:#3EADC5; color:white;border-radius:5px; width:80px; height:30px;"
+                value="清空" />
+        </div>
+        <!-- 留言区 -->
+        <div id="comment">
+            <!-- 这是创建元素的模板 -->
+            <!-- <span>
+        匿名发言者
+        <span class="fr">2020-03-13 21:08:55</span>
+        <p>
+          <span class="msg">111<input  id="clear" type="button" value="删除"></span>
+        </p>
+      </span> -->
+        </div>
+    </div>
+    <script>
+        // 获取留言按钮
+        let oPostBtn = document.querySelector("#postBt")
+        // 获取清空按钮
+        let oClearBtn = document.querySelector("#clearBt")
+        // 获取昵称输入框
+        let inputName = document.querySelector("#shangtian")
+        // 默认为匿名
+        // inputName.value = '匿名发言者'
+        // 获取文本框
+        let textArea = document.querySelector(".transition")
+        // 获取留言区
+        let oComment = document.querySelector("#comment")
+
+        // 功能1，点击留言，用户在文本框中输入内容，先判断输入的内容是否为空，如果为空，则弹出”请填写您的留言“
+        oPostBtn.onclick = function () {
+            if (textArea.value.trim().length == 0) {
+                alert("请填写您的留言")
+            }
+            // 功能2，如果用户输入的内容不为空，那么就会将内容添加下面的留言区域内，
+            else {
+                // 获取当前时间
+                let date = new Date();
+                // 补零函数
+                function fill(num) {
+                    return num > 10 ? num : "0" + num;
+                }
+                // 生成时间字符串
+                let dateStr = date.getFullYear() + "-" + fill(date.getMonth() + 1) + "-" + fill(date.getDate()) + " " + fill(date.getHours()) + ":" + fill(date.getMinutes()) + ":" + fill(date.getSeconds());
+                // 给新留言添加内容
+                let newStr = `
+                <span>
+        ${inputName.value}
+        <span class="fr">${dateStr}</span>
+        <p>
+          <span class="msg">${textArea.value}<input  id="clear" type="button" value="删除"></span>
+        </p>
+        </span>
+        `
+                // 将新留言插入留言区的第一个节点前，用字符串的方式
+                // 获取当前的comment内容字符串
+                let currentStr = oComment.innerHTML
+                // 将新模板字符串，插入当前模板内容字符串前面
+                oComment.innerHTML = newStr + currentStr
+                // 清空留言文本区
+                textArea.value = ""
+            }
+        }
+
+        // 功能4：点击留言区域内的”删除“按钮的时候，会将当前的这一行进行删除
+        // 利用事件委托, 将删除按钮的功能委托给 comment
+        oComment.addEventListener("click", function (e) {
+            if (e.target.id == "clear") {
+                oComment.removeChild(e.target.parentNode.parentNode.parentNode)
+            }
+        })
+
+        // 功能3：点击清空留言的时候，下面的留言区的内容就会被清空
+        oClearBtn.onclick = function () {
+            if (oComment.children.length == 0) {
+                alert("本来是空的，清个毛线！")
+            }
+            else {
+                let clearFlag = confirm("清空后不可恢复，是否确认清空？")
+                if (clearFlag == true) {
+                    oComment.innerHTML = ``;
+                }
+            }
+        }
+
+        // 功能5：默认用户点击改变，会弹出prompt，请输入您的文字，点击确定，弹出”欢迎你，xxx“,点击确定，新的昵称就会覆盖那些文字
+        inputName.onclick = function () {
+            let newname = prompt("请输入您的名字")
+            // 这里判断时，要注意，如果我们点了取消，返回值是null, null是个对象，是没有trim()方法的，所以，如果 || 前面是 newname.trim()的话，如果点取消就会报错
+            // 所以最好 把 newname.trim() 这部分 放到 || 的后面，这样如果是null的话，不需要看||的后面，可以避免报错
+            if (newname === null || newname.trim().length == 0) {
+                inputName.value = "匿名发言者"
+            }
+            else {
+                alert(`欢迎您：${newname}`)
+                inputName.value = newname;
+            }
+        }
+    </script>
+
+</body>
+
+</html>

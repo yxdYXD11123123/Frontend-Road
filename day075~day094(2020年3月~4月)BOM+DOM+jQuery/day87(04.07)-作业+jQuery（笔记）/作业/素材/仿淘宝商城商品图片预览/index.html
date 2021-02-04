@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>无标题文档</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+  <div class="Xcontent">
+    <ul class="Xcontent01">
+      <div class="Xcontent06"><img src="images/X1.png"></div>
+      <ol class="Xcontent08">
+        <div class="Xcontent07"><img src="images/X1.png"></div>
+        <div class="Xcontent09"><img src="images/X7.png"></div>
+        <div class="Xcontent10"><img src="images/X8.png"></div>
+        <div class="Xcontent11"><img src="images/X9.png"></div>
+        <div class="Xcontent12"><img src="images/X10.png"></div>
+      </ol>
+      <ol class="Xcontent13">
+        <div class="Xcontent14"><a href="#">
+            <p>新物品</p>
+          </a></div>
+        <div class="Xcontent15"><img src="images/X11.png"></div>
+        <div class="Xcontent16">
+          <p>充电5分钟，温暖2小时</p>
+        </div>
+        <div class="Xcontent17">
+          <p class="Xcontent18">售价</p>
+          <p class="Xcontent19">￥<span>69.00</span></p>
+          <div class="Xcontent20">
+            <p class="Xcontent21">促销</p>
+            <img src="images/X12.png">
+            <p class="Xcontent22">领610元新年礼券，满再赠好礼</p>
+          </div>
+          <div class="Xcontent23">
+            <p class="Xcontent24">服务</p>
+            <p class="Xcontent25">30天无忧退货&nbsp;&nbsp;&nbsp;&nbsp; 48小时快速退款 &nbsp;&nbsp;&nbsp;&nbsp; 满88元免邮</p>
+          </div>
+
+        </div>
+        <div class="Xcontent26">
+          <p class="Xcontent27">颜色</p>
+          <div class="Xcontent28"><img src="images/X14.png"></div>
+          <div class="Xcontent29"><img src="images/X1.png"></div>
+        </div>
+        <div class="Xcontent30">
+          <p class="Xcontent31">数量</p>
+          <div class="Xcontent32"><img src="images/X15.png"></div>
+          <form>
+            <input class="input" value="1">
+          </form>
+          <div class="Xcontent33"><img src="images/16.png"></div>
+
+        </div>
+        <div class="Xcontent34"><a href="#"><img src="images/X17.png"></a></div>
+        <div class="Xcontent35"><a href="#"><img src="images/X18.png"></a></div>
+
+      </ol>
+    </ul>
+  </div>
+
+  <script src="./lib/jquery-3.4.1.js"></script>
+
+  <script>
+    // 1. 实现仿淘宝商城商品图片预览效果(附件):给元素设置样式，可以自己去查css()这个api
+    // - 页面已经给定，只需要完成效果，不能随意编辑里面的html和css
+    // - 功能1：鼠标经过右边竖着的5个小图片，当前的这个小图片上面会显示一个红色边框，同时左边的大图也在跟着切换
+
+    // $(".Xcontent08 div")是所有的5个小图片
+    $(".Xcontent08 div").mouseenter(pictureOver)
+    function pictureOver() {
+      // 排他思想
+      // 让所有的变灰
+      $(".Xcontent08 div").css({ borderColor: "#e8e8e8" })
+      // 让当前的变红
+      $(this).css({ borderColor: "red" })
+      // 获取当前这个的图片的索引
+      let srcStr = $(this)[0].children[0].src
+      // 将索引给左边的大图
+      $(".Xcontent06")[0].children[0].src = srcStr
+    }
+
+
+
+    // - 功能2：鼠标点击"颜色"右边的2个小图片，点击的当前这个小图片就会上面有一个红色的边框，同时左边的大图也在跟着切换
+    //   ​     注意：当点击小图片的时候，那么之前竖着的5个小图片都是没有红色边框的
+    $('.Xcontent26 div').click(pictureClick)
+    function pictureClick() {
+      // 让竖着的5个小图片 全部 变灰
+      $(".Xcontent08 div").css({ borderColor: "#e8e8e8" })
+      // 排他思想
+      // 让所有的变灰
+      $(".Xcontent26 div").css({ borderColor: "#e8e8e8" })
+      // 让当前的变红
+      $(this).css({ borderColor: "red" })
+      // 获取当前这个的图片的索引
+      let srcStr = $(this)[0].children[0].src
+      // 将索引给左边的大图
+      $(".Xcontent06")[0].children[0].src = srcStr
+    }
+
+
+    // - 功能3：鼠标点击"数量"右边的"-"号的时候，数量就会减少，中间的数值随着也在改变，每次减少的量是1，当中间的数值显示为0的时候，点击 "-"号就不能继续在减了
+    // 给减号绑定点击事件
+    $(".Xcontent32").click(decrease)
+    function decrease() {
+      // 如果中间数值已经是0
+      if ($(".Xcontent30 input").val() == 0) {
+        // 让减号禁用
+        $(".Xcontent30 input").val(0)
+      }
+      // 否则就减一
+      else (
+        $(".Xcontent30 input").val(function () {
+          return Number($(this).val()) - 1
+        })
+      )
+    }
+
+    // - 功能4: 同理，点击"数量"右边的"+"号的时候，数量就会增加，中间的数值也会随着改变，每次增加的量是1，因为现在不涉及数据库要和库存比 较，所以点击"+"号目前是没有上限的
+    // 给加号绑定点击事件
+    $(".Xcontent33").click(increase)
+    function increase() {
+      // 给input的value重新赋值
+      $(".Xcontent30 input").val(function () {
+        // 重新赋值为元素本身的value再加一
+        // 注意：这里val()返回的字符串，所以要转数字
+        return Number($(this).val()) + 1
+      })
+    }
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .yellow {
+            background-color: yellow;
+        }
+
+        .red {
+            background-color: red;
+        }
+
+        .green {
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <button>按钮</button>
+    <ul>
+        <li>第1行</li>
+        <li>第2行</li>
+        <li>第3行</li>
+        <li>第4行</li>
+        <li>第5行</li>
+        <li>第6行</li>
+        <li>第7行</li>
+        <li>第8行</li>
+        <li>第9行</li>
+        <li>第10行</li>
+    </ul>
+
+    <script>
+        // 需求1. 实现隔行变色的效果(效果在附件):
+        // - 页面中有一个按钮和一个ul,ul里面有10个li元素
+        // - 点击按钮，实现10个li的隔行变色效果，奇数行是红色，偶数行是黄色
+        // - 鼠标经过li元素上面，当前的这个li就是绿色，鼠标离开这个li，这个li显示原来的颜色
+        let oBtn = document.querySelector("button");
+        let aLi = document.querySelectorAll("li");
+        oBtn.onclick = function () {
+            for (let i = 0; i < aLi.length; i++) {
+                if (i % 2 == 0) {
+                    aLi[i].classList.add("red")
+                }
+                else {
+                    aLi[i].classList.add("yellow")
+                }
+            }
+        }
+
+        for (let i = 0; i < aLi.length; i++) {
+            aLi[i].onmouseover = function () {
+                this.classList.add("green")
+            }
+            aLi[i].onmouseout = function () {
+                this.classList.remove("green")
+            }
+        }
+    </script>
+</body>
+
+</html>

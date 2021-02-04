@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+    <ul>
+        <li>园林酒店</li>
+        <li>情侣酒店</li>
+        <li>设计师酒店</li>
+        <li>青年旅舍</li>
+        <li>特色客栈</li>
+        <li>海岛酒店</li>
+        <li>海外温泉</li>
+    </ul>
+
+    <script>
+        // 目测我们的需求是，在每次的动画效果中，改变宽和行高，
+        // 而为了字体保证在图片中央呢，行高和宽的值应该是相等的，所以我干脆还是变动一个单个属性，但是赋值两次就可以了
+
+        // 写一个获取元素任意属性的函数
+        function getStyle(element, attr) {
+            if (window.getComputedStyle) {
+                return window.getComputedStyle(element, null)[attr]
+            }
+            else {
+                return element.currentStyle[attr]
+            }
+        }
+
+        // 封装一个缓动动画函数, 用这个函数改变元素的width值
+        function animate(element, target) {
+            // 清楚之前的定时器
+            clearInterval(element.timer);
+            element.timer = setInterval(function () {
+                // 获取元素的当前位置, 
+                let current = parseInt(getStyle(element, "width"));
+                // 计算每次缓动的步进
+                let step = (target - current) / 10;
+                // 保证如果步进值无论为正负数时，要向上取整/向下取整
+                step = step > 0 ? Math.ceil(step) : Math.floor(step);
+                // 让元素的位置，在当前位置的基础上 一次次 步进
+                element.style.width = current + step + "px";
+                // 让元素的行高也等于这个值
+                element.style.lineHeight = current + step + "px";
+                // 如果达到目标值
+                if (parseInt(getStyle(element, "width")) == current) {
+                    // 停止定时器
+                    clearInterval(element.timer)
+                }
+            }, 20)
+        }
+
+        // 获取元素
+        let oUl = document.querySelector("ul")
+
+        // 循环给每个li绑定事件
+        for (let i = 0; i < oUl.children.length; i++) {
+            oUl.children[i].addEventListener("mouseover", over)
+        }
+        // 鼠标移入
+        function over() {
+            // 先让其他的都变小
+            for (let i = 0; i < oUl.children.length; i++) {
+                animate(oUl.children[i], 125)
+            }
+            animate(this, 400)
+        }
+
+    </script>
+</body>
+
+</html>

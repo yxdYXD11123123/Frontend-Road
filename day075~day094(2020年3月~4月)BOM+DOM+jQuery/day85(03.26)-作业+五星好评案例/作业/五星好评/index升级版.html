@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+    <div class="box">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <span></span>
+    </div>
+
+    <script>
+        let starUl = document.querySelector(".box ul")
+        let oSpan = document.querySelector("span")
+        //假设一个刚点击过的星星索引
+        let clickedStar = -1;
+
+        // 给星星绑定移入事件 / 移出事件
+        for (let i = 0; i < starUl.children.length; i++) {
+            // 移入
+            starUl.children[i].addEventListener("mouseover", function () {
+                paiTa(i)
+            })
+            // 移出
+            starUl.children[i].addEventListener("mouseout", function () {
+                paiTa(clickedStar)
+            })
+            // 点击
+            starUl.children[i].addEventListener("click", function () {
+                clickedStar = i;
+            })
+        }
+
+        // 用一个数组保留span的不同内容，并且索引与星星相对应
+        let aSpan = ["极差", "失望", "一般", "满意", "惊喜"]
+
+        // 将mouseover, mouseout中的排他思想写在一个函数里，当前的星星索引作为参数
+        function paiTa(i) {
+            // 让所有的变暗
+            for (let j = 0; j < starUl.children.length; j++) {
+                starUl.children[j].style.backgroundImage = "url(./img/star2.png)"
+                oSpan.innerText = ""
+            }
+            // 1 -- i  让第一个到这个星星都亮起来
+            for (let k = 0; k <= i; k++) {
+                starUl.children[k].style.backgroundImage = "url(./img/star1.png)"
+                // 给span添加对应索引的内容
+                oSpan.innerText = aSpan[i];
+            }
+        }
+    </script>
+</body>
+
+</html>

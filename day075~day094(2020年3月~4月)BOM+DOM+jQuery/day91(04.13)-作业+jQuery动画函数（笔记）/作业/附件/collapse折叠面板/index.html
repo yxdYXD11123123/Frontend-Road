@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+    <ul class="floder">
+        <li>
+            <a href="javascript:;">一致性 Consistency <span></span></a>
+            <p>与现实生活一致：与现实生活的流程、逻辑保持一致，遵循用户习惯的语言和概念；<br>
+                在界面中一致：所有的元素和结构需保持一致，比如：设计样式、图标和文本、元素的位置等。</p>
+        </li>
+        <li>
+            <a href="javascript:;">反馈 Feedback<span></span></a>
+            <p>控制反馈：通过界面样式和交互动效让用户可以清晰的感知自己的操作；<br>
+                页面反馈：操作后，通过页面元素的变化清晰地展现当前状态。</p>
+        </li>
+        <li>
+            <a href="javascript:;">效率 Efficiency<span></span></a>
+            <p>简化流程：设计简洁直观的操作流程；<br>
+                清晰明确：语言表达清晰且表意明确，让用户快速理解进而作出决策； <br>
+                帮助用户识别：界面简单直白，让用户快速识别而非回忆，减少用户记忆负担。</p>
+        </li>
+        <li>
+            <a href="javascript:;">可控 Controllability<span></span></a>
+            <p>用户决策：根据场景可给予用户操作建议或安全提示，但不能代替用户进行决策；<br>
+                结果可控：用户可以自由的进行操作，包括撤销、回退和终止当前操作等。</p>
+        </li>
+    </ul>
+
+    <script src="./lib/jquery-3.4.1.js"></script>
+    <script>
+        // - 页面和效果都需要自己完成
+        // - 点击上面的文字和箭头所在的区域，如果下面的面板为展开的，再次点击就是合上的，反之，如果下面的面板是合上的，点
+        //   击就是展开的
+        // - 注意：小箭头的方向也再跟着变化，具体效果看视频
+
+        // 假设当前面板是 关闭的状态
+        let openFlag = false
+        $(".floder li a").on("click", function () {
+            // 让p标签 切换拉下和卷起的状态， 时间和 箭头的 transition时间保持一致
+            $(this).next().stop().slideToggle(500)
+            if (openFlag == false) {
+                // 改变箭头的方向
+                $(this).children("span").css("transform", "rotateZ(0deg)")
+                // 并切换为开启状态
+                openFlag = true
+            }
+            else {
+                $(this).children("span").css("transform", "rotateZ(-90deg)")
+                openFlag = false
+            }
+        })
+    </script>
+</body>
+
+</html>

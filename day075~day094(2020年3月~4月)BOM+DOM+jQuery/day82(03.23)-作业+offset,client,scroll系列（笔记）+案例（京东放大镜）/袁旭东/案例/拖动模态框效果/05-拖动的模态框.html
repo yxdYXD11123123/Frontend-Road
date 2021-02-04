@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .login-header {
+      width: 100%;
+      text-align: center;
+      height: 30px;
+      font-size: 24px;
+      line-height: 30px;
+    }
+
+    ul,
+    li,
+    ol,
+    dl,
+    dt,
+    dd,
+    div,
+    p,
+    span,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    a {
+      padding: 0px;
+      margin: 0px;
+    }
+
+    .login {
+      display: none;
+      width: 512px;
+      height: 280px;
+      position: fixed;
+      border: #ebebeb solid 1px;
+      left: 50%;
+      top: 50%;
+      background: #ffffff;
+      box-shadow: 0px 0px 20px #ddd;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+    }
+
+    .login-title {
+      width: 100%;
+      margin: 10px 0px 0px 0px;
+      text-align: center;
+      line-height: 40px;
+      height: 40px;
+      font-size: 18px;
+      position: relative;
+      cursor: move;
+    }
+
+    .login-input-content {
+      margin-top: 20px;
+    }
+
+    .login-button {
+      width: 50%;
+      margin: 30px auto 0px auto;
+      line-height: 40px;
+      font-size: 14px;
+      border: #ebebeb 1px solid;
+      text-align: center;
+    }
+
+    .login-bg {
+      display: none;
+      width: 100%;
+      height: 100%;
+      position: fixed;
+      top: 0px;
+      left: 0px;
+      background: rgba(0, 0, 0, .3);
+    }
+
+    a {
+      text-decoration: none;
+      color: #000000;
+    }
+
+    .login-button a {
+      display: block;
+    }
+
+    .login-input input.list-input {
+      float: left;
+      line-height: 35px;
+      height: 35px;
+      width: 350px;
+      border: #ebebeb 1px solid;
+      text-indent: 5px;
+    }
+
+    .login-input {
+      overflow: hidden;
+      margin: 0px 0px 20px 0px;
+    }
+
+    .login-input label {
+      float: left;
+      width: 90px;
+      padding-right: 10px;
+      text-align: right;
+      line-height: 35px;
+      height: 35px;
+      font-size: 14px;
+    }
+
+    .login-title span {
+      position: absolute;
+      font-size: 12px;
+      right: -20px;
+      top: -30px;
+      background: #ffffff;
+      border: #ebebeb solid 1px;
+      width: 40px;
+      height: 40px;
+      border-radius: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="login-header"><a id="link" href="javascript:;">点击，弹出登录框</a></div>
+  <div id="login" class="login">
+    <div id="title" class="login-title">登录会员
+      <span><a id="closeBtn" href="javascript:void(0);" class="close-login">关闭</a></span>
+    </div>
+    <div class="login-input-content">
+      <div class="login-input">
+        <label>用户名：</label>
+        <input type="text" placeholder="请输入用户名" name="username" id="username" class="list-input">
+      </div>
+      <div class="login-input">
+        <label>登录密码：</label>
+        <input type="password" placeholder="请输入登录密码" name="password" id="password" class="list-input">
+      </div>
+    </div>
+    <div id="loginBtn" class="login-button"><a href="javascript:void(0);" id="login-button-submit">登录会员</a></div>
+  </div>
+  <!-- 遮盖层 -->
+  <div id="bg" class="login-bg"></div>
+
+  <script>
+    // 先获取元素
+    let oLink = document.querySelector("#link")
+    let oLogin = document.querySelector("#login")
+    let oBg = document.querySelector("#bg")
+
+    // 给a链接绑定点击功能，让登录框和灰色背景显示
+    oLink.addEventListener("click", open)
+    function open() {
+      oLogin.style.display = "block";
+      oBg.style.display = "block";
+    }
+
+    // 给关闭按钮绑定点击功能，让登录框和背景消失
+    oLogin.children[0].children[0].children[0].addEventListener("click", close)
+    function close() {
+      oLogin.style.display = "none";
+      oBg.style.display = "none";
+    }
+
+    // 当按下鼠标左键时，实现拖动效果
+    // 给login的标题部分绑定mousedown事件
+    oLogin.children[0].addEventListener("mousedown", drag);
+    // 将鼠标距离 登录框左边框的距离保留到这里（方便我们使用在外面使用具名函数）
+    let distanceLeft = 0;
+    let distanceTop = 0;
+    function drag(e) {
+      // 第一步：获取鼠标在标题部分的位置 (通过e.pageX - offsetLeft就可以得到鼠标距离 登录框左边框的距离)
+      distanceLeft = e.pageX - oLogin.offsetLeft
+      distanceTop = e.pageY - oLogin.offsetTop
+
+      // 第二步：按住左键的同时我们要拖动鼠标，所以此时我们要在整个页面中，获取鼠标的移动，也就是在document中加上鼠标移动事件
+      document.addEventListener("mousemove", mouseMove)
+    }
+    function mouseMove(e) {
+      // 第三步：想要实现盒子随着鼠标同时移动，那么盒子和鼠标就要保持相对静止的运动（也就是distanceLeft和Top不变），
+      // 在保证这个前提之下，让鼠标在页面中的移动（移动时的e.pageX和e.pageY），改变盒子的位置（top, left）
+      // 那么一下等式就可以实现
+      // 那么盒子的位置（变化的量） + 不变的distanceLeft/Top（不变的量） = 鼠标在页面中的位置（变化的量）
+      // 其中盒子的位置就是我们想要的值！   我们便可以通过一个变化的值（鼠标在页面中的新位置）  减去  一个保持不变的值（鼠标距离盒子的位置）  得到   盒子的新位置
+      oLogin.style.left = e.pageX - distanceLeft + "px";
+      oLogin.style.top = e.pageY - distanceTop + "px";
+    }
+
+    // 第四步：松开鼠标时，让left和top停止变化
+    oLogin.children[0].addEventListener("mouseup", dragStop);
+    function dragStop() {
+      // 取消监听鼠标移动并给top/left赋值的事件
+      document.removeEventListener("mousemove", mouseMove)
+    } 
+  </script>
+</body>
+
+</html>

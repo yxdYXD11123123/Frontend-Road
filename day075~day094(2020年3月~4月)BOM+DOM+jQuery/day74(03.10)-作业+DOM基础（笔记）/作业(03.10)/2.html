@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .black {
+            background-color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btn">关</button>
+
+    <script>
+        //  需求2. 实现网页的开关灯效果:
+        //  页面有一个按钮，按钮上面的文字是”开”，点击后变成”关”
+        //  同时网页的背景色是黑色，再次点击就变成”开”,同时网页的背景色是白色，如此反复循环
+        let oBtn = document.getElementById("btn")
+
+        // 方法一：
+        // oBtn.onclick = function () {
+        //     document.documentElement.classList.toggle("black")
+        //     if (this.innerText == "关") {
+        //         this.innerText = "开"
+        //     }
+        //     else (
+        //         this.innerText = "关"
+        //     )
+        // }
+
+        // 方法二：
+        oBtn.onclick = function () {
+            if (this.innerText == "关") {
+                document.documentElement.style.backgroundColor = "black"
+                this.innerText = "开"
+            }
+            else {
+                document.documentElement.style.backgroundColor = "white"
+                this.innerText = "关"
+            }
+        }
+    </script>
+</body>
+
+</html>

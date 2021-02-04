@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 500px;
+            margin: 50px auto;
+        }
+
+        label {
+            vertical-align: baseline;
+        }
+
+        span {
+            vertical-align: bottom;
+            font-size: 14px;
+            color: #bbbbbb;
+        }
+
+        img {
+            vertical-align: middle;
+        }
+
+        input {
+            border: 1px solid #cccccc;
+        }
+
+        .red-border {
+            border-color: red;
+        }
+
+        .green-border {
+            border-color: green;
+        }
+
+        .red-color {
+            color: red;
+        }
+
+        .green-color {
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <label for="score">您的成绩：</label><input type="text" placeholder="请输入分数" id="score">
+        <img><span>请输入您的成绩</span>
+    </div>
+    <script>
+        // 需求2. 简单js表单校验效果(素材和效果在附件里面)：布局和功能都需要自己完成
+        // - 具体需求请看word里面。
+        let oInput = document.querySelector("input")
+        let oSpan = document.querySelector("span")
+        let oImg = document.getElementsByTagName("img")[0]
+
+        function wrong() {
+            oInput.className = "red-border";
+            oSpan.className = "red-color";
+            oImg.src = "./img/error.png";
+        }
+
+        function right() {
+            oInput.className = "green-border";
+            oSpan.className = "green-color";
+            oImg.src = "./img/right.png";
+        }
+        oInput.onblur = function () {
+            wrong();
+            oSpan.innerHTML = "请您输入数字"; // 文字部分
+            if (oInput.value <= 100 && oInput.value >= 0) {
+                if (oInput.value != "") {
+                    oSpan.innerText = "输入成绩正确";
+                    right();
+                }
+            }
+            else if (oInput.value > 100) {
+                oSpan.innerText = "成绩不能超出100"
+            }
+            else if (oInput.value < 0) {
+                oSpan.innerText = "成绩不能小于0"
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,150 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  background: url(../img/bg_main.jpg);
+}
+
+header {
+  position: relative;
+  height: 126px;
+  background: url(../img/top.jpg) no-repeat;
+}
+
+.send {
+  position: absolute;
+  left: 550px;
+  top: 45px;
+  z-index: 20;
+  width: 120px;
+  height: 65px;
+  background: url(../img/send.png) no-repeat;
+}
+
+/* 内容区域 */
+main .list{
+  position: absolute;
+}
+main .list-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 235px;
+  height: 68px;
+  background: url(../img/a1_1.gif) no-repeat;
+}
+
+.list-top span:first-child {
+  font-size: 13px;
+  float: left;
+  color: #3875D7;
+  padding-left: 22px;
+}
+
+.list-top span:last-child {
+  font-size: 12px;
+  float: right;
+  color: #81C01A;
+  padding-right: 10px;
+}
+
+.list-center {
+  width: 237px;
+  padding: 10px 5px 5px 25px;
+  box-sizing: border-box;
+  font-size: 12px;
+  color: #666;
+  background: url("../img/a1_2.gif") repeat-y;
+}
+
+.list-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 235px;
+  height: 72px;
+  background: url(../img/a1_3.gif) no-repeat;
+}
+
+.list-bottom span:nth-child(1) {
+  padding: 0 0 20px 25px;
+  color: #999999
+}
+
+.list-bottom span:nth-child(2) {
+  display: block;
+  width: 29px;
+  height: 24px;
+  padding:0 10px 20px 0;
+  background: url(../img/close.png) no-repeat;
+}
+
+/* 遮罩层 */
+.mask{
+  position: absolute;
+  top:0;
+  left:0;
+  bottom:0;
+  right:0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  z-index: 9999;
+}
+.box{
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  width: 360px;
+  height: 350px;
+  background: #fff;
+}
+.mask-title{
+  height: 56px;
+  line-height: 56px;
+  text-align: center;
+  font-size: 18px;
+  color: #666;
+  background-color: #def2f9;
+  font-weight: bold;
+}
+.mask-title span:nth-child(2){
+  display: inline-block;
+  margin-right:20px;
+  margin-top:15px;
+  width: 29px;
+  height: 24px;
+  background: url(../img/close.png) no-repeat;
+}
+.box h3{
+  color:#888;
+  font-size:16px;
+}
+.mask-content{
+  padding:10px;
+  box-sizing: border-box;
+}
+.mask-nickname input{
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 180px;
+  height: 24px;
+  padding: 5px;
+  margin-bottom:15px;
+}
+.mask-wish textarea{
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: none;
+  padding: 5px;
+  width: 300px;
+  height: 80px;
+  margin-bottom:5px;
+}
+.mask-wish i{
+  font-weight: bolder;
+  font-style: italic;
+  font-size:18px;
+  color: #444;
+} 

@@ -1,0 +1,203 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Untitled Document</title>
+
+
+  <style type="text/css">
+    .one {
+      background-color: #9bf7d5;
+    }
+
+    .two {
+      background-color: #f3e99a;
+    }
+
+    .over {
+      background-color: #ef7125;
+    }
+
+    table {
+      border: #249bdb 1px solid;
+      width: 500px;
+      border-collapse: collapse;
+    }
+
+    table td {
+      border: #249bdb 1px solid;
+      padding: 10px;
+    }
+
+    table th {
+      border: #249bdb 1px solid;
+      padding: 10px;
+      background-color: rgb(200, 200, 200);
+    }
+  </style>
+</head>
+
+<body>
+
+  <table id="mailtable">
+    <tr>
+      <th>
+        <input type="checkbox" name="all" />全选
+      </th>
+      <th>
+        发件人
+      </th>
+      <th>
+        邮件名称
+      </th>
+      <th>
+        邮件附属信息
+      </th>
+    </tr>
+
+    <tr class="one">
+      <td>
+        <input type="checkbox" name="mail" />
+      </td>
+      <td>
+        张三11
+      </td>
+      <td>
+        我是邮件11
+      </td>
+      <td>
+        我是附属信息11
+      </td>
+    </tr>
+    <tr class="two">
+      <td>
+        <input type="checkbox" name="mail" />
+      </td>
+      <td>
+        张三22
+      </td>
+      <td>
+        我是邮件22
+      </td>
+      <td>
+        我是附属信息22
+      </td>
+    </tr>
+    <tr class="one">
+      <td>
+        <input type="checkbox" name="mail" />
+      </td>
+      <td>
+        张三33
+      </td>
+      <td>
+        我是邮件33
+      </td>
+      <td>
+        我是附属信息33
+      </td>
+    </tr>
+    <tr class="two">
+      <td>
+        <input type="checkbox" name="mail" />
+      </td>
+      <td>
+        张三44
+      </td>
+      <td>
+        我是邮件44
+      </td>
+      <td>
+        我是附属信息44
+      </td>
+    </tr>
+
+    <tr>
+      <th>
+
+      </th>
+      <th colspan="3">
+        <input type="button" value="全选" />
+        <input type="button" value="取消全选" />
+        <input type="button" value="反选" />
+
+      </th>
+    </tr>
+  </table>
+  <script>
+    // 1.勾选全选复选框，列表中的选项都被选中，取消全选复选框的勾选，列表中的选项都被取消选中
+    // 2.点击全选按钮，列表中的选项都被选中
+    // 3.点击取消全选按钮，列表中的选项都被取消选中
+    // 4.点击反选按钮，列表中选项选结果呈相反选中结果（原来选择的都取消选择，原来未选择的都变为选择）
+    let aChecks = document.querySelectorAll("td input")
+    let oCheckAll = document.querySelector("tr:nth-child(1) input")
+    let oCheckAllBtn = document.querySelector("tr:nth-last-child(1) input")
+    let oNotCheckAllBtn = document.querySelector("tr:nth-last-child(1) input:nth-child(2)")
+    let oTagCheckBtn = document.querySelector("tr:nth-last-child(1) input:nth-child(3)")
+
+    // 全选按钮
+    oCheckAllBtn.onclick = function () {
+      for (let i = 0; i < aChecks.length; i++) {
+        aChecks[i].checked = true;
+      }
+      oCheckAll.checked = true;
+    }
+
+    // 全选按钮
+    oCheckAll.onclick = function () {
+      // 获取到自身的选择状态
+      let oCheckAllFlag = this.checked
+      // 遍历所有check框，统一状态
+      for (let i = 0; i < aChecks.length; i++) {
+        aChecks[i].checked = oCheckAllFlag;
+      }
+    }
+
+    // 取消全选按钮
+    oNotCheckAllBtn.onclick = function () {
+      for (let i = 0; i < aChecks.length; i++) {
+        aChecks[i].checked = false;
+      }
+      oCheckAll.checked = false;
+    }
+
+    // 反选按钮
+    oTagCheckBtn.onclick = function () {
+      for (let i = 0; i < aChecks.length; i++) {
+        aChecks[i].checked = aChecks[i].checked ? false : true;
+      }
+      // 假设checks已经被全选
+      let flag = true;
+      // 循环遍历，如果发现有没被选中的check框，则改变flag
+      for (let j = 0; j < aChecks.length; j++) {
+        if (aChecks[j].checked == false) {
+          flag = false;
+        }
+      }
+      // 让全选按钮的结果等于flag的值
+      oCheckAll.checked = flag;
+    }
+
+
+    // 通过给每个check框绑定事件
+    for (let i = 0; i < aChecks.length; i++) {
+      aChecks[i].onclick = function () {
+        // 假设checks已经被全选
+        let flag = true;
+        // 循环遍历，如果发现有没被选中的check框，则改变flag
+        for (let j = 0; j < aChecks.length; j++) {
+          if (aChecks[j].checked == false) {
+            flag = false;
+          }
+        }
+        // 让全选按钮的结果等于flag的值
+        oCheckAll.checked = flag;
+      }
+    }
+
+
+  </script>
+</body>
+
+</html>

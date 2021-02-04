@@ -1,0 +1,54 @@
+/* 初始化 */
+* {
+  margin: 0;
+  padding: 0;
+}
+ul {
+  list-style: none;
+}
+
+/* 版心 */
+.w {
+  width: 1120px;
+  margin: 0 auto;
+}
+
+/* 左侧盒子 */
+.leftBox {
+  width: 400px;
+  float: left;
+}
+.leftBox .top {
+  width: 400px;
+  border:1px solid #ccc;
+}
+.leftBox .top img {
+  width: 400px;
+
+}
+.leftBox ul {
+  width: 188px;
+  margin: 10px auto;
+}
+.leftBox ul li {
+  float: left;
+  width: 54px;
+  height: 54px;
+  border:1px solid #fff;
+}
+.leftBox ul li.active {
+  border-color: red;
+}
+.leftBox ul li + li {
+  margin-left: 10px;
+}
+
+/* 右侧盒子 */
+.rightBox {
+  float: left;
+  margin-left:10px;
+  width: 500px;
+  height: 500px;
+  border:1px solid #ccc;
+  overflow: hidden;
+}

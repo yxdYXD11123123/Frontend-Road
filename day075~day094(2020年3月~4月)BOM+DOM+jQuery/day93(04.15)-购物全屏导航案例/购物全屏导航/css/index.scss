@@ -1,0 +1,485 @@
+@keyframes sofa1{
+    0% {
+        bottom: 346px;
+    }
+    50% {
+        bottom: 366px;
+    }
+    100% {
+        bottom: 346px;
+    }
+}
+
+@keyframes fly{
+    0% {
+        bottom:549px;
+    }
+    50% {
+        bottom:589px;
+    }
+    100% {
+        bottom:549px;
+    }
+}
+@keyframes keepgo{
+    0% {
+        bottom:80px;
+    }
+    50% {
+        bottom:100px;
+    }
+    100% {
+        bottom:80px;
+    }
+}
+
+.go-directly {
+    position: fixed;
+    right: 5%;
+    top: 5%;
+    z-index: 1000;
+}
+
+.keep-go {
+    position: fixed;
+    right: 5%;
+    bottom: 80px;
+    z-index: 1000;
+    display: none;
+    animation: keepgo 1s linear infinite;
+}
+// 解决图片三像素
+img {
+   vertical-align: middle; 
+}
+
+// 虽然 fullpage.js帮我们写了每个section为position:relavtive,但是在这里我们最好在css中再写一遍，
+// 可以改善闪屏问题
+.section {
+    position: relative;
+}
+
+.section1 {
+    background-image: url(../images/section1_bg.png);   
+    background-repeat: no-repeat;
+    background-position: center bottom;
+
+    .container {
+        position: relative;
+        margin: 0 auto;
+        width: 990px;
+        height: 100%;
+        // background-color: rgba(0, 0, 0, 0.2);
+    }
+    img {
+        position: absolute;
+    }
+    .goods {
+        left: 50%;
+        margin-left: -412px;
+        bottom: 150px;
+    }
+    .sofa1 {
+        position: absolute;
+        bottom: 346px;
+        left: 296px;
+        animation: sofa1 1s infinite linear;
+    }
+    .fly {
+        position: absolute;
+        bottom: 569px;
+        right: 9%;
+        animation: fly 1.5s infinite linear;
+    }
+}
+
+.section2 {
+    // 为了让第二屏的沙发，成功出现在第三屏，我们需要提高第二屏的z-index
+    z-index: 2;
+    background-image: url(../images/section2_bg.png);   
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    .section2-title {
+        position: absolute;
+        bottom: 560px;
+        left: 50%;
+        transform: translateX(-50%);
+        img:nth-child(2) {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+    .section2-computer {
+        position: absolute;
+        width: 990px;
+        height: 500px;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 0;
+    }
+    .section2-computer-search {
+        position: absolute;
+        right: -30px;
+        bottom: 300px;
+        display: none;
+        img:nth-child(2) {
+            position: absolute;
+            right: 30px;
+            top: 5px;
+            // 因为我们后面要将文字淡出，
+            // 这里可以有两种思路
+            // 一：用animate操作 opacity ,（这样不需要display:none）
+            // 二：用fadeIn操作，这里必须是 diaplay:none的前提下，才会有效果
+            display: none;
+        }
+    }
+    .section2-computer-together {
+        position: absolute;
+        right: 370px;
+        bottom: 300px;
+        // 这个会直接显示
+        display: none;
+    }
+    .section2-computer-sofas {
+        position: absolute;
+        height: 100px;
+        bottom: 217px;
+        right: 270px;
+        opacity: 0;
+    }
+    .section2-computer-sofa2 {
+        display: none;
+        position: absolute;
+        height: 83px;
+        bottom: 346px;
+        left: 392px;
+    }
+    .section2-computer-cover {
+        display: none;
+        position: absolute;
+        width: 103px;
+        height: 83px;
+        bottom: 346px;
+        left: 392px;
+        background-color: white;
+    }
+}
+
+/* 第三屏幕 start */
+.section3-main {
+    position: absolute;
+    width: 700px;
+    height: 500px;
+    background-image: url(../images/section3_bg.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    left: 50%;
+    margin-left: -350px;
+    bottom: 50px;
+    .section3-select {
+        position: absolute;
+        right: 14px;
+        bottom: 120px;
+        img:first-child {
+            // 让被选中的这个图片覆盖到  未被选中的图片上面，再隐藏起来
+            position: absolute;
+            left: 50%;
+            display: none;
+            transform: translateX(-50%);
+        }
+        img:nth-last-child(-n+2) {
+            position: absolute;
+            bottom: -98px;
+            right: 78px;
+        }
+        img:nth-last-child(1) {
+            display: none;
+        }
+    }
+    .section3-sofa2,
+    .section3-sofa3 {
+        position: absolute;
+        display: none;
+        left: 115px;
+        bottom: 200px;
+        z-index: 1;
+    }
+}
+/* 第三屏幕 end */
+
+
+/* 第四屏幕 start */
+@keyframes section4cloud{
+    0% {
+        transform: translateX(-40%);
+    }
+    50% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(-40%);
+    }
+}
+.section4 {
+    background-image: url(../images/section4_bg.png);
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    .section4-cloud {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 550px;
+        animation: section4cloud 30s linear infinite;
+    }
+}
+.section4-words1,
+.section4-words2 {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 500px;
+}
+
+.section4-words2 {
+    display: none;
+}
+.cartwithsofa {
+    z-index: 2;
+    position: absolute;
+    width: 500px;
+    height: 346px;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 50px;
+    img:nth-child(1) {
+        display: none;
+        position: absolute;
+        bottom: 190px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: -1;
+    }
+}
+
+.section4_note {
+    display: none;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 180px;
+    img:nth-child(2) {
+        display: none;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 164px;
+    }
+}
+/* 第四屏幕 end */
+
+
+/* 第五屏幕 start */
+.section5 {
+    background-image: url(../images/section5_bg.png);
+    background-repeat: repeat;
+}
+
+.section5-mouseandhand {
+    position: absolute;
+    height: 100%;
+    width: 225px;
+    right: 18%;
+    top: 0;
+    overflow: hidden;
+}
+.section5-mouse,
+.section5-mousedown {
+    position: absolute;
+    bottom: 220px;
+    left: 20px;
+}
+.section5-hand {
+    position: absolute;
+    bottom: -375px;
+    left: 0px;
+}
+.section5-left {
+    position: absolute;
+    bottom: 200px;
+    left: 20%;
+    .section5-paper,
+    .section5-sofa {
+        position: absolute;
+        top: 50px;
+        left: 42%;
+        transform: translateX(-50%);
+    }
+    .section5-cards{
+        position: relative;
+        z-index: 4;
+    }
+
+}
+.section5-sofa-top {
+    position: absolute;
+    display: none;
+    top: -162px;
+    left: 25%;
+}
+/* 第五屏幕 end */
+
+
+/* 第六屏幕 start */
+@keyframes section6clouds {
+    0% {
+        right: -125px;
+    }
+    50% {
+        right: 0px;
+    }
+    100% {
+        right: -125px;
+    }
+}
+
+.section6 {
+    background-image: url(../images/section6_bg.png);
+    background-repeat: no-repeat;
+    background-position: 25% 100%;
+}
+
+.section6-title {
+    position: absolute;
+    left: 32%;
+    bottom: 480px;
+    width: 308px;
+    height: 59px;
+    img:nth-child(1) {
+        position: relative;
+        z-index: 1;
+    }
+    img:nth-child(2) {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 0;
+    }
+}
+.section6-clouds {
+    position: absolute;
+    bottom: 550px;
+    right: 0;
+    animation: section6clouds 15s linear infinite;
+    .section6-cloud2 {
+        position: absolute;
+        top: 30px;
+        left: -250px;
+    }
+}
+.section6-box {
+    position: absolute;
+    left: -200px;
+    bottom: 370px;
+    z-index: 3;
+    display: none;
+}
+.section6-car {
+    position: absolute;
+    bottom: 0;
+    right: 50%;
+    
+    .section6-car-car {
+        position: relative;
+        z-index: 4;
+    }
+    .section6-target {
+        position: absolute;
+        top: -37px;
+        right: -61px;
+        display: none;
+    }
+    .section6-man {
+        position: absolute;
+        width: 50px;
+        bottom: 20px;
+        left: 80px;
+    }
+    .section6-takeit {
+        position: absolute;
+        top: -400px;
+        left: 267px;
+        display: none;
+        z-index: 2;
+    }
+}
+
+.section6-opendoor {
+    position: absolute;
+    right: 284px;
+    bottom: 110px;
+    display: none;
+}
+
+.section6-woman {
+    position: absolute;
+    right: 310px;
+    height: 146px;
+    bottom: 115px;
+    opacity: 0;
+}
+/* 第六屏幕 end */
+
+
+/* 第七屏幕 start */
+.section7 {
+    background-image: url(../images/section7_bg.png);
+    background-repeat: no-repeat;
+    background-position: 50% 100%;
+}
+.section7-star {
+    position: absolute;
+    left: 50%;
+    bottom: 439px;
+    margin-left: -295px;
+    background-image: url(../images/section7_star.png);
+    background-repeat: no-repeat;
+    background-size: 98px 18px;
+    width: 0px;
+    height: 20px;
+}
+.section7-nice {
+    position: absolute;
+    bottom: 382px;
+    left: 50%;
+    margin-left: -289px;
+    display: none;
+}
+/* 第七屏幕 end */
+
+
+/* 第八屏幕 start */
+.section8 {
+    background-image: url(../images/section8_bg.png);
+}
+.section8-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 389px;
+    height: 160px;
+    bottom: 360px;
+}
+.section8-again {
+    position: absolute;
+    bottom: 403px;
+    left: 50%;
+    margin-left: 240px;
+}
+.section8-hand {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* 第八屏幕 end */

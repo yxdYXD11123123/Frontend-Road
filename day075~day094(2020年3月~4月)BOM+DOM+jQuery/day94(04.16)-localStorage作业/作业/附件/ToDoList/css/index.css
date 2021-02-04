@@ -1,0 +1,94 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background: #666;
+}
+h2 {
+  font-family: "华文楷体";
+  background: #fff;
+  margin-top:20px;
+  padding: 10px;
+  border-left: 10px solid skyblue;
+}
+li {
+  list-style: none;
+}
+.w {
+  width: 980px;
+  margin:0 auto;
+  
+}
+input {
+  border:none;
+  outline: none;
+  height: 40px;
+}
+.plan {
+  height: 45px;
+  background: #000;
+  text-align: center;
+  padding-top: 5px;
+  position: relative;
+}
+.plan div {
+  width: 510px;
+  margin:0 auto;
+}
+.plan input {
+  float: left;
+}
+.plan input[type=text] {
+  width:400px;
+  font-size: 20px;
+  padding-left: 10px;
+}
+.plan input[type=button] {
+  width: 100px;
+  background: deepskyblue;
+  color:#fff;
+  cursor: pointer;
+}
+.plan input[type=button]:hover {
+  background: dodgerblue;
+}
+.w li {
+  margin:0 auto;
+  overflow: hidden;
+  padding:10px;
+  border-bottom: 1px dotted #fff;
+}
+.w li span,.w li input {
+  float: left;
+
+}
+ol li {
+  background: rgb(3, 90, 71);
+  color:gold;
+}
+ul li {
+  background: #ccc;
+  color: red;
+  
+}
+ul li span {
+  text-decoration: line-through;
+}
+.w li span {
+  padding-left: 20px;
+  font:bold 20px '宋体';
+}
+.w li input {
+  width: 20px;
+  height: 20px;
+}
+h1 {
+  position: absolute;
+  top:5px;
+  color: gold;
+  font-size: 20px;
+  line-height: 40px;
+  padding-left: 20px;
+  font-family: "华文楷体";
+}

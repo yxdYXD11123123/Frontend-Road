@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    ul {
+      width: 800px;
+      margin: 100px auto;
+    }
+
+    li {
+      border: 1px solid #f00;
+      width: 80px;
+      float: left;
+      text-align: center;
+      height: 30px;
+      line-height: 30px;
+    }
+
+    .active {
+      background-color: #0F0
+    }
+  </style>
+</head>
+
+<body>
+  <ul class="box">
+
+  </ul>
+  <script src="./lib/jquery-3.4.1.js"></script>
+  <script>
+    // - 把给定的数据渲染到页面上
+    //  - 键盘按下对应的数据的哪个键，页面中对应的那个数据的就会选中，添加背景色
+    var allKey = ["1", '2', '3', '4', '5', '6', '7', '8', '9', '0', 'Q', 'W', 'E', 'R', 'T', 'Y', 'U',
+      'I', 'O', 'P', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'Z', 'X', 'C', 'V', 'B', 'N', 'M'
+    ];
+    // // 1.遍历allkey数组
+    // 获取box
+    let $box = $(".box")
+    // 渲染数据
+    $.each(allKey, function (i, j) {
+      $box.append(`<li keyCode="${j.charCodeAt()}">${j}</li>`)
+    })
+    // // 2.给document添加keydown事件 e.keyCode a+健码 = id 通过id找到这个元素 让这个元素高亮
+    $(document).keydown(downKey)
+    function downKey(e) {
+      $(`.box li[keyCode = ${e.keyCode}]`).addClass("active")
+    }
+    // // 3.给document添加keyup事件 e.keyCode a+健码 = id 通过id找到这个元素 让这个元素去除active
+    $(document).keyup(upKey)
+    function upKey(e) {
+      $(`.box li[keyCode = ${e.keyCode}]`).removeClass("active")
+    }
+  </script>
+</body>
+
+</html>

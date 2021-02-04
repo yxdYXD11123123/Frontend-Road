@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            margin: 50px auto;
+            background-color: aqua;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="show">显示</button>
+    <button id="hidden">隐藏</button>
+    <div></div>
+    <script>
+        // 需求1.div的显示和隐藏效果：(用2种方式实现)
+
+        // - 页面中有一个div, 2个按钮，一个按钮的文字是"显示"，一个按钮的文字是"隐藏"
+        // - 点击隐藏按钮，那么div就会在页面中隐藏
+        // - 点击显示按钮，那么div就会在页面中显示
+        let showBtn = document.getElementById("show");
+        let hiddenBtn = document.getElementById("hidden");
+        let oDiv = document.querySelector("div")
+
+        showBtn.onclick = function () {
+            // 方法一
+            // oDiv.style.display = "block"
+
+            // 方法二
+            // oDiv.style.visibility = "visible"
+
+            // 方法三
+            oDiv.classList.remove("hidden")
+        }
+
+        hiddenBtn.onclick = function () {
+            // 方法一
+            // oDiv.style.display = "none"
+
+            // 方法二
+            // oDiv.style.visibility = "hidden"
+
+            // 方法三
+            oDiv.classList.add("hidden")
+        }
+
+
+    </script>
+</body>
+
+</html>

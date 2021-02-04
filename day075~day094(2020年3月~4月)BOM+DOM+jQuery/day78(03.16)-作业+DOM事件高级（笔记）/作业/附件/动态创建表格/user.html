@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/user.css">
+</head>
+
+<body>
+  <button>动态创建表格</button>
+
+  <div id="box1">
+    <!-- 放表格 -->
+
+  </div>
+  <script>
+    // 后端的数据
+    var heads = ['姓名', '年龄', '性别', '学号', '薪资', '城市', '操作'];
+    var datas = [{
+      name: '欧阳霸天',
+      age: 19,
+      gender: '男',
+      stuId: '1001',
+      salary: '20000',
+      city: '上海'
+    },
+    {
+      name: '令狐霸天',
+      age: 19,
+      gender: '男',
+      stuId: '1001',
+      salary: '20000',
+      city: '北京'
+    },
+    {
+      name: '诸葛霸天',
+      age: 19,
+      gender: '男',
+      stuId: '1001',
+      salary: '20000',
+      city: '南京'
+    },
+    {
+      name: '西门霸天',
+      age: 19,
+      gender: '男',
+      stuId: '1001',
+      salary: '20000',
+      city: '深圳'
+    },
+    {
+      name: '上官霸天',
+      age: 19,
+      gender: '男',
+      stuId: '1001',
+      salary: '20000',
+      city: '北京'
+    },
+    {
+      name: '欧阳霸天',
+      age: 19,
+      gender: '男',
+      stuId: '1001',
+      salary: '20000',
+      city: '上海'
+    },
+    {
+      name: '令狐霸天',
+      age: 19,
+      gender: '男',
+      stuId: '1001',
+      salary: '20000',
+      city: '北京'
+    },
+    {
+      name: '诸葛霸天',
+      age: 19,
+      gender: '男',
+      stuId: '1001',
+      salary: '20000',
+      city: '南京'
+    },
+    {
+      name: '西门霸天',
+      age: 19,
+      gender: '男',
+      stuId: '1001',
+      salary: '20000',
+      city: '深圳'
+    },
+    {
+      name: '上官霸天',
+      age: 19,
+      gender: '男',
+      stuId: '1001',
+      salary: '20000',
+      city: '北京'
+    },
+    ];
+
+    // 获取按钮
+    let oBtn = document.querySelector("button")
+    // 获取表格盒子
+    let oBox = document.querySelector("#box1")
+
+    // 给按钮绑定事件
+    oBtn.onclick = function () {
+      if (oBox.children.length == 1) {
+        alert("只能创建一个表格")
+      }
+      else {
+
+
+        // 创建表格
+        let oTable = document.createElement('table')
+        // 创建一个caption
+        let oCaption = document.createElement("caption")
+        oCaption.innerText = "就业榜"
+        oTable.appendChild(oCaption, oTable.childNodes[0])
+
+        // 创建第一行th的tr
+        let oTrHead = document.createElement("thead")
+        for (let i = 0; i < heads.length; i++) {
+          let oTh = document.createElement("th")
+          oTh.innerText = `${heads[i]}`
+          oTrHead.appendChild(oTh)
+        }
+
+        // 将第一行插入table头部
+        oTable.appendChild(oTrHead)
+
+        // 创建一个tbody
+        let oTbody = document.createElement("tbody")
+
+        for (let j = 0; j < datas.length; j++) {
+          let oTrData = document.createElement("tr")
+          // 遍历每个对象的value值
+          for (let value in datas[j]) {
+            // 创建信息表格td
+            let oTd = document.createElement("td")
+            // 将value值写入td内容
+            oTd.innerText = `${datas[j][value]}`
+            // 将td插入tr中
+            oTrData.appendChild(oTd)
+          }
+          // 再创建一个td中放a
+          let oTdA = document.createElement("td")
+          oTdA.innerHTML = `<a>删除</a>`
+          // 将tdA插入tr中
+          oTrData.appendChild(oTdA)
+          // 将每行tr插入tbody中
+          oTbody.appendChild(oTrData)
+        }
+        // 给每个a绑定点击事件
+        for (let i = 0; i < oTbody.children.length; i++) {
+          // console.log(oTable.children[i].lastChild.children[0]);
+          oTbody.children[i].lastChild.children[0].onclick = function () {
+            // 弹出确认框
+            let flag = confirm("你真的要删除吗？")
+            if (flag == true) {
+              oTbody.removeChild(this.parentNode.parentNode)
+              if (oTbody.children.length == 0) {
+                oBox.innerHTML = ""
+              }
+            }
+          }
+        }
+
+
+        // 将 tbody 插入 table 中
+        oTable.appendChild(oTbody)
+        // 将table插入box
+        oBox.appendChild(oTable)
+
+      }
+
+    }
+
+
+
+
+
+  </script>
+</body>
+
+</html>

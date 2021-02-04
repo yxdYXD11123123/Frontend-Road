@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    body {
+      margin: 0 auto;
+      padding: 0px;
+      font-size: 12px;
+      background: url(images/bg.gif) repeat center 36px;
+      text-align: center;
+      background-color: #c30230;
+    }
+
+    #content {
+      margin: 0 auto;
+      width: 960px;
+      background: url(images/content_bg.jpg) no-repeat left top;
+      height: 627px;
+      position: relative;
+    }
+
+    #content .tip1,
+    #content .tip2,
+    #content .tip3,
+    #content .tip4,
+    #content .tip5,
+    #content .tip6,
+    #content .tip7,
+    #content .tip8 {
+      position: absolute;
+      width: 227px;
+      left: 200px;
+      top: 100px;
+    }
+
+
+    #content .tip1 .tip_h,
+    #content .tip2 .tip_h,
+    #content .tip3 .tip_h,
+    #content .tip4 .tip_h,
+    #content .tip5 .tip_h,
+    #content .tip6 .tip_h,
+    #content .tip7 .tip_h,
+    #content .tip8 .tip_h {
+      width: 227px;
+      padding-top: 45px;
+      height: 23px;
+      text-align: left;
+      cursor: move;
+      background: url(images/tip1_h.gif) no-repeat left top;
+    }
+
+
+
+    #content .tip1 .tip_c,
+    #content .tip2 .tip_c,
+    #content .tip3 .tip_c,
+    #content .tip4 .tip_c,
+    #content .tip5 .tip_c,
+    #content .tip6 .tip_c,
+    #content .tip7 .tip_c,
+    #content .tip8 .tip_c {
+      width: 200px;
+      padding-left: 12px;
+      padding-right: 15px;
+      min-height: 40px;
+      text-align: left;
+      line-height: 20px;
+      max-height: 160px;
+      word-wrap: break-word;
+      word-break: break-all;
+      overflow: hidden;
+      background: url(images/tip1_c.gif) repeat-y;
+    }
+
+
+
+    #content .tip1 .tip_f,
+    #content .tip2 .tip_f,
+    #content .tip3 .tip_f,
+    #content .tip4 .tip_f,
+    #content .tip5 .tip_f,
+    #content .tip6 .tip_f,
+    #content .tip7 .tip_f,
+    #content .tip8 .tip_f {
+      width: 227px;
+      height: 53px;
+      padding-top: 20px;
+      background: url(images/tip1_f.gif) no-repeat left top;
+    }
+
+    #content .close,
+    #content .close2 {
+      float: left;
+      font-size: 12px;
+      cursor: pointer;
+      color: #000000;
+    }
+
+    .clr {
+      clear: both;
+      overflow: auto;
+      display: block;
+      height: 0px;
+    }
+
+    #content .icon {
+      float: left;
+      width: 35px;
+      padding-left: 15px;
+      height: 35px;
+      text-align: center;
+    }
+
+    #content .name {
+      float: right;
+      padding-right: 15px;
+      text-align: right;
+      font-size: 14px;
+      line-height: 35px;
+      color: #C0F;
+    }
+
+    #content .num {
+      float: left;
+      padding-left: 7px;
+      width: 195px;
+    }
+
+    .none {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!--纸条墙-->
+  <div id="content">
+    <div class="tip1" id="tip7" style="top: 63px; left: 82px;">
+      <div class="tip_h" title="双击关闭纸条">
+        <div class="num">第[49568]条 2020-03-13 16:30:00</div>
+        <div class="close" title="关闭纸条">×</div>
+        <div class="clr"></div>
+      </div>
+      <div class="tip_c">希望早点在学校相聚,我在沭阳等你们</div>
+      <div class="tip_f">
+        <div class="icon"><img src="images/bpic_1.gif" alt="" title=""></div>
+        <div class="name">拉拉留言</div>
+        <div class="clr"></div>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+    //模拟数据
+    var messages = [{
+      "id": 1,
+      "name": "mahu",
+      "content": "今天你拿苹果支付了么",
+      "time": "2016-02-17 00:00:00"
+    },
+    {
+      "id": 2,
+      "name": "haha",
+      "content": "今天天气不错，风和日丽的",
+      "time": "2016-02-18 12:40:00"
+    },
+    {
+      "id": 3,
+      "name": "jjjj",
+      "content": "常要说的事儿是乐生于苦",
+      "time": "2016-03-18 12:40:00"
+    },
+    {
+      "id": 4,
+      "name": "9.8的妹纸",
+      "content": "把朋友家厕所拉堵了 不敢出去 掏了半小时了都",
+      "time": "2016-03-18 12:40:00"
+    },
+    {
+      "id": 5,
+      "name": "雷锋ii.",
+      "content": "元宵节快乐",
+      "time": "2016-02-22 12:40:00"
+    },
+    {
+      "id": 6,
+      "name": "哎呦哥哥.",
+      "content": "据说今晚央视的元宵晚会导演和春晚导演是同一个人，真是躲得过初一，躲不过十五。",
+      "time": "2016-02-22 01:30:00"
+    },
+    {
+      "id": 7,
+      "name": "没猴哥，不春晚",
+      "content": "班主任:“小明，你都十二岁了，还是三年级，不觉得羞愧吗”？。小明:“一点也不觉得，老师你都四十多岁了，不也是年年在三年级混日子吗？羞愧的应该是你”。老师:……",
+      "time": "2016-02-22 01:30:00"
+    },
+    {
+      "id": 8,
+      "name": "哎呦杰杰.",
+      "content": "真搞不懂你们地球人，月亮有什么好看的，全是坑，还是对面那哥们好看，",
+      "time": "2016-02-22 01:30:00"
+    },
+    ];
+
+
+    // 获取content
+    let oContent = document.getElementById("content")
+
+
+
+    for (let i = 0; i < messages.length; i++) {
+      let oCopyTip = document.getElementById("tip7").cloneNode(true);
+      // 产生随机top left 值
+      let randomTop = Math.floor(Math.random() * (627 - 241 + 1));
+      let randomLeft = Math.floor(Math.random() * (960 - 227 + 1));
+      // 让许愿签在content内 随机的位置 出现
+      oCopyTip.style.top = randomTop + "px";
+      oCopyTip.style.left = randomLeft + "px";
+      // 更改class 更改id
+      oCopyTip.className = `tip${i + 1}`
+      oCopyTip.id = `tip${messages[i].id}`
+      // 更改名字
+      oCopyTip.children[2].children[1].innerText = messages[i].name;
+      // 更改内容
+      oCopyTip.children[1].innerText = messages[i].content;
+      // 更改时间  以及条数
+      let newTime = oCopyTip.children[0].children[0].innerText.split(" ");
+      // 因为时间部分2016-02-18 12:40:00 中间还有一个空格，所以删掉后一个，只留前一个重新赋值就行
+      delete newTime[2];
+      newTime[1] = messages[i].time;
+      newTime[0] = `第[${Number(newTime[0].split('[')[1].split("]")[0]) + i + 1}]条`;
+      // 将修改好的时间条数数组变成字符串，重新赋值给time位置
+      oCopyTip.children[0].children[0].innerText = newTime.join(" ");
+
+      // 将这个新的tip插入content中
+      oContent.append(oCopyTip);
+    }
+
+    // 删除样板tip
+    oContent.removeChild(oContent.children[0])
+
+    // 双击头部关闭
+    let aTipHead = document.getElementsByClassName("tip_h");
+    for (let i = 0; i < aTipHead.length; i++) {
+      aTipHead[i].ondblclick = function () {
+        this.parentElement.classList.add("none")
+      }
+    }
+    // 点击头部按钮关闭
+    let aTipClose = document.getElementsByClassName("close");
+    for (let i = 0; i < aTipHead.length; i++) {
+      aTipClose[i].onclick = function () {
+        this.parentElement.parentElement.classList.add("none")
+      }
+    }
+  </script>
+
+
+
+</body>
+
+</html>

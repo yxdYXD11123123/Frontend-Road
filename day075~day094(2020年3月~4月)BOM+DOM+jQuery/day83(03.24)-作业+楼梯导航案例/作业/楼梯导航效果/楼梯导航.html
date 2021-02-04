@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/13.css">
+
+</head>
+
+<body>
+  <div class="top">
+    <img src="img/top1.png" alt="" />
+  </div>
+  <div class="louceng">
+    <!-- 楼层1 -->
+    <div class="jd jia">
+      <img src="img/jia.png" alt="" />
+    </div>
+    <!-- 楼层2 -->
+    <div class="jd dian">
+      <img src="img/dian.png" alt="" />
+    </div>
+    <!-- 楼层3 -->
+    <div class="jd fu">
+      <img src="img/fu.png" alt="" />
+    </div>
+    <!-- 楼层4 -->
+    <div class="jd mei">
+      <img src="img/mei.png" alt="" />
+    </div>
+  </div>
+  <div class="bottom">
+    <img src="img/bottom.png" alt="" />
+  </div>
+  <!-- 侧边栏 -->
+  <div class="subnav">
+    <ul>
+      <li>家电通讯</li>
+      <li>电脑数码</li>
+      <li>服饰精品</li>
+      <li>美容珠宝</li>
+    </ul>
+    <div class="back">返回</div>
+
+  </div>
+  <script>
+    // 此处最好用window.onload，等所有图片加载完之后在运行js，否则 获取每层楼到顶边的距离偶尔会出错
+    window.onload = function () {
+      // 获取每层楼到顶边的距离
+      let jiaToTop = document.querySelector(".jia").offsetTop;
+      let dianToTop = document.querySelector(".dian").offsetTop;
+      let fuToTop = document.querySelector(".fu").offsetTop;
+      let meiToTop = document.querySelector(".mei").offsetTop;
+
+      // 获取元素
+      let subnav = document.querySelector(".subnav");
+
+      // // 功能1：滚动条滚动中，显示或隐藏侧边栏
+      // 给document添加滚动监听
+      document.addEventListener("scroll", showAside)
+      function showAside() {
+        if (document.documentElement.scrollTop >= jiaToTop) {
+          subnav.style.display = "block"
+        }
+        else {
+          subnav.style.display = "none"
+        }
+      }
+
+
+      //   // 功能2：滚动条滚动中，控制侧边栏对应的切换项
+      document.addEventListener("scroll", lightLi);
+      function lightLi() {
+        // 判断我们走到了哪一层？
+        if (document.documentElement.scrollTop >= meiToTop) {
+          // 利用排他思想，先移除所有li的current，再添加单个的
+          removeCurrent();
+          subnav.children[0].children[3].classList.add("current")
+          console.log(4 + " " + meiToTop);
+
+        }
+        else if (document.documentElement.scrollTop >= fuToTop) {
+          removeCurrent();
+          subnav.children[0].children[2].classList.add("current")
+          console.log(3);
+
+        }
+        else if (document.documentElement.scrollTop >= dianToTop) {
+          removeCurrent();
+          subnav.children[0].children[1].classList.add("current")
+          console.log(2);
+
+        }
+        else {
+          removeCurrent();
+          subnav.children[0].children[0].classList.add("current")
+          console.log(1);
+
+        }
+      }
+      // 清楚所有li的 current类名
+      function removeCurrent() {
+        for (let j = 0; j < subnav.children[0].children.length; j++) {
+          subnav.children[0].children[j].classList.remove("current")
+        }
+      }
+
+      // // 功能3：点击侧边栏切换项，控制滚动条滚动到对应的楼层
+      let louCeng = document.querySelector(".louceng")
+      // 给每个滚动条绑定点击事件，使其跳转到对应的楼层
+      for (let i = 0; i < subnav.children[0].children.length; i++) {
+        // // 给侧边栏中的选项注册click事件
+        subnav.children[0].children[i].addEventListener("click", function () {
+          // 转到对应的楼层
+          document.documentElement.scrollTop = louCeng.children[i].offsetTop;
+        })
+      }
+
+      // 给返回按钮，添加点击事件，返回顶部
+      document.querySelector(".back").onclick = function () {
+        document.documentElement.scrollTop = 0;
+      }
+    }
+
+  </script>
+</body>
+
+</html>

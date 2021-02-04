@@ -1,0 +1,40 @@
+
+.br-wrapper {
+  width: 300px;
+  height: 70px;
+  margin: 40px auto;
+  border: 1px solid #cccccc;
+}
+
+.br-widget {
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.br-theme-css-stars .br-widget {
+  height: 28px;
+}
+.br-theme-css-stars .br-widget a {
+  text-decoration: none;
+  height: 18px;
+  width: 18px;
+  float: left;
+  font-size: 23px;
+  margin-right: 2px;
+}
+.br-theme-css-stars .br-widget a:after {
+  content: "\2605";
+  position: absolute;
+  color: #dddddd;
+}
+.br-theme-css-stars .br-widget a.br-active:after {
+  color: #ffdf88;
+}
+.br-theme-css-stars .br-widget a.br-selected:after {
+  color: #ffdf88;
+}
+.br-theme-css-stars .br-widget .br-current-rating {
+  display: block;
+  line-height: 28px;
+  padding-left: 110px;
+}

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="./css/fullpage.css" />
+    <link rel="stylesheet" href="./css/index.css">
+    <!-- 这个案例推荐 把js文件写到head标签里，用入口函数初始化，可以改善闪屏情况 -->
+    <script src="./lib/jquery-3.4.1.min.js"></script>
+    <script src="./js/fullpage.js"></script>
+    <script src="./js/easings.js"></script>
+    <script src="./js/index.js"></script>
+</head>
+
+<body>
+    <div id="fullpage">
+        <a href="javascript:;" class="go-directly">
+            <img src="./images/go_directly.png" alt="">
+        </a>
+        <a href="javascript:;" class="keep-go">
+            <img src="./images/keep_go.png" alt="">
+        </a>
+        <!-- 第一屏 -->
+        <div class="section section1">
+            <!-- 这个项目可以得出一个经验：如果涉及到一些内容需要相对于一个背景图片的X轴位置对应，一般需要利用一个辅助的“版心”盒子，
+                对于Y轴呢，就是看背景图是在什么位置，如果背景图靠着底部，那么内容的Y轴位置就最好基于底部复制 -->
+            <!-- 这个版心可以帮助我们在不同屏幕下锁定里面三个图片相对背景图的位置 -->
+            <div class="container">
+                <img src="images/fly.png" class="fly updown">
+                <img style="opacity: 1;" src="images/goods.png" class="goods">
+                <img style="opacity: 1;" src="images/sofa1.png" class="sofa1">
+            </div>
+        </div>
+        <!-- 第二屏 -->
+        <div class="section section2">
+            <!-- 因为这块内容的左右x轴位置是居中的，所以，也可以不依赖于下面给电脑做的版心，主要是基于底部把高度调整好就行了 -->
+            <div class="section2-title">
+                <img src="./images/section2_title.png" alt="">
+                <img src="./images/section_title_1.png" alt="">
+            </div>
+            <!-- 为了让沙发和搜索框出现在对应位置（也是就刚好在电脑屏幕图片中）
+            我们需要一个居中的盒子来根据电脑屏幕的图片位置圈出一个范围，以此来适应不同屏幕大小情况下，沙发和搜索框不会跑偏-->
+            <div class="section2-computer">
+                <div class="section2-computer-search">
+                    <img src="./images/search.png" alt="">
+                    <img src="./images/section2_shafa.png" alt="">
+                </div>
+                <!-- 这里为了让图片缩放移动时，更容易保持一致，所以我们又用了一张完整的图片 -->
+                <img class="section2-computer-together" src="./images/section2_searchandshafa.png" alt="">
+                <img class="section2-computer-sofas" src="./images/sofas.png" alt="">
+                <!-- 我们在这里做一个白盒子, 沙发移走时，盖着原本的沙发 -->
+                <div class="section2-computer-cover"></div>
+                <!-- 我们在这里做一个小沙发，盖到多个沙发中的一个上面 -->
+                <img src="./images/sofa2.png" class="section2-computer-sofa2" alt="">
+
+            </div>
+        </div>
+
+        <!-- 第三屏 -->
+        <div class="section section3">
+            <div class="section3-main">
+                <div class="section3-select">
+                    <img src="./images/section3_checks.gif" alt="">
+                    <img src="./images/section3_unchecks.gif" alt="">
+                    <img src="./images/section3_greybtn.gif" alt="">
+                    <img src="./images/section3_btn.gif" alt="">
+                </div>
+                <!-- 沙发 -->
+                <img src="./images/sofa2.png" class="section3-sofa2" alt="">
+                <img src="./images/sofa3.png" class="section3-sofa3" alt="">
+            </div>
+
+        </div>
+
+        <!-- 第四屏 -->
+        <div class="section section4">
+            <img src="./images/section4_cloud.png" class="section4-cloud" alt="">
+            <img src="./images/section4_words1.png" alt="" class="section4-words1">
+            <img src="./images/section4_words2.png" alt="" class="section4-words2">
+            <div class="cartwithsofa">
+                <img src="./images/sofa3.png" alt="" class="cartwithsofa-sofa">
+                <img src="./images/section4_cart.png" alt="" class="cartwithsofa-cart">
+            </div>
+            <div class="section4_note">
+                <img src="./images/section4_t1.png" alt="">
+                <img src="./images/section4_t1_words.png" alt="">
+            </div>
+        </div>
+
+        <!-- 第五屏 -->
+        <div class="section section5">
+            <div class="section5-mouseandhand">
+                <img class="section5-mousedown" src="./images/section5_mouseup.png" alt="">
+                <img class="section5-mouse" src="./images/section5_mouse.png" alt="">
+                <img class="section5-hand" src="./images/section5_hand.png" alt="">
+            </div>
+            <img src="./images/sofa3.png" alt="" class="section5-sofa-top">
+            <div class="section5-left">
+                <img src="./images/section5_cards.png" alt="" class="section5-cards">
+                <img src="./images/section5_paper.png" alt="" class="section5-paper">
+                <img src="./images/sofa3.png" alt="" class="section5-sofa">
+            </div>
+        </div>
+
+        <!-- 第六屏 -->
+        <div class="section section6">
+            <div class="section6-title">
+                <img src="./images/section6_arrived.png" alt="">
+                <img src="./images/section6_here.png" alt="">
+            </div>
+            <div class="section6-clouds">
+                <img src="./images/section6_cloud1.png" alt="" class="section6-cloud1">
+                <img src="./images/section6_cloud2.png" alt="" class="section6-cloud2">
+            </div>
+            <img src="./images/section6_box.png" alt="" class="section6-box">
+            <div class="section6-car">
+                <img src="./images/section6_car.png" alt="" class="section6-car-car">
+                <img src="./images/section6_target.png" alt="" class="section6-target">
+                <img src="./images/section6_deliveryman.png" alt="" class="section6-man">
+                <img src="./images/section6_takeit.png" alt="" class="section6-takeit">
+            </div>
+            <img src="./images/section6_opendoor.png" alt="" class="section6-opendoor">
+            <img src="./images/section6_woman.png" alt="" class="section6-woman">
+        </div>
+
+        <!-- 第七屏 -->
+        <div class="section section7">
+            <div class="section7-star"></div>
+            <img src="./images/section7_nice.png" alt="" class="section7-nice">
+        </div>
+        <!-- 第八屏 -->
+        <div class="section section8">
+            <a href="javascript:;" class="section8-center">
+                <img src="./images/section8_btn.png" alt="">
+            </a>
+            <a href="javascript:;" class="section8-again">
+                <img src="./images/section8_again.png" alt="">
+            </a>
+            <img src="./images/section8_hand.png" alt="" class="section8-hand">
+        </div>
+    </div>
+
+
+</body>
+
+</html>

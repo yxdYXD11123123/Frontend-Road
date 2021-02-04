@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>title</title>
+
+</head>
+
+<body>
+  <img src="./meimei/" alt="" id="im" />
+
+  <script>
+    // 1. 实现美女时钟效果(附件)：
+    // - 页面和功能都需要自己完成
+    // - 页面中会不断变换美女，并且美女手里拿的日历的小时和秒是和系统当前的时间是一样的
+
+    let oImg = document.getElementById("im")
+    // 弥补第一秒的空白
+    moveImg();
+
+    // 利用周期定时器，每分钟都要触发换图事件
+    let moveTimer = setInterval(moveImg, 1000);
+
+    function moveImg() {
+      // 获取系统当前时间
+      let date = new Date();
+      let hour = date.getHours() >= 10 ? date.getHours() : "0" + date.getHours();
+      let min = date.getMinutes() >= 10 ? date.getMinutes() : "0" + date.getMinutes();
+      // 根据时间找图片
+      oImg.src = `./meimei/${hour}_${min}.jpg`
+    }
+
+
+  </script>
+
+</body>
+
+</html>

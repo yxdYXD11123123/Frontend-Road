@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style type="text/css">
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    body {
+      background: #000;
+    }
+
+    .wrap {
+      margin: 100px auto 0;
+      width: 630px;
+      height: 394px;
+      padding: 10px 0 0 10px;
+      background: #000;
+      overflow: hidden;
+      border: 1px solid #fff;
+    }
+
+    .wrap li {
+      float: left;
+      margin: 0 10px 10px 0;
+
+    }
+
+    .wrap img {
+      display: block;
+      border: 0;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="wrap">
+    <ul>
+      <li><a href="#"><img src="image/01.jpg" alt="" /></a></li>
+      <li><a href="#"><img src="image/02.jpg" alt="" /></a></li>
+      <li><a href="#"><img src="image/03.jpg" alt="" /></a></li>
+      <li><a href="#"><img src="image/04.jpg" alt="" /></a></li>
+      <li><a href="#"><img src="image/05.jpg" alt="" /></a></li>
+      <li><a href="#"><img src="image/06.jpg" alt="" /></a></li>
+
+    </ul>
+  </div>
+
+  <script src="./lib/jquery-3.4.1.js"></script>
+  <script>
+    let flag = true
+    // 记录亮起的索引
+    let index = 0;
+    $(".wrap").mouseenter(function () {
+      // 写个flag，当鼠标 直接移入的图片时 图片的enter会先触发，.wrap的enter紧随其后也会触发
+      // 此时我们就需要用flag判断一下，是否是先触发了子元素图片的enter, 
+      // 如果不是，让所有图片变暗
+      // 如果是，让已经亮起的图片除外的图片变暗
+      if (flag) {
+        $(this).find("li").css("opacity", 0.5)
+      }
+      // 而是除了亮起的图片以外的图片变暗
+      else {
+        $(this).children().children().eq(index).siblings().css("opacity", 0.5)
+      }
+    })
+    $(".wrap").mouseleave(function () {
+      $(this).find("li").css("opacity", 1)
+    })
+    $(".wrap li").mouseenter(function () {
+      flag = false;
+      $(this).css("opacity", 1)
+      index = $(this).index();
+    })
+    $(".wrap li").mouseleave(function () {
+      flag = true
+      $(this).css("opacity", 0.5)
+    })
+
+  </script>
+</body>
+
+</html>

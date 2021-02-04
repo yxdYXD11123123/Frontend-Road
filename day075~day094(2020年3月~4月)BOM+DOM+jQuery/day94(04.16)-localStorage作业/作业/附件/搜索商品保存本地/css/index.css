@@ -1,0 +1,82 @@
+*{
+  padding:0;
+  margin:0;
+  list-style: none;
+  border:0;
+}
+.fl{
+  float: left;
+}
+.app{
+  width: 500px;
+  /* height: 500px; */
+  margin:100px auto;
+  border:1px solid #ccc;
+  box-sizing: border-box;
+  font-size: 14px;
+  background-color:#f5f5f5 ;
+}
+/* 搜索框 */
+.nav{
+  position: relative;
+ overflow: hidden;
+ padding:10px;
+}
+.nav img{
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top:14px;
+  left:22px;
+}
+.navL input{
+  width: 400px;
+  height: 30px;
+  line-height: 30px;
+  padding-left:40px;
+  box-sizing: border-box;
+
+}
+.record_btn{
+  width: 50px;
+  height: 30px;
+  border-radius: 5px;
+  background-color: red;
+  color:#fff;
+  margin-left:10px;
+}
+/* 搜索历史 */
+.history{
+  display: none ;
+}
+.history_tit{
+  margin: 15px;
+  color:#a99a9a;
+}
+.history_list{
+   background-color: #fff;
+}
+.history_list li{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  line-height: 50px;
+  padding-left:10px;
+  border-bottom:1px solid #ccc;
+}
+.history_list li img{
+   height: 20px;
+   margin-right:10px;
+}
+/* 清除历史记录 */
+.close_whole{
+  width: 100px;
+  height: 40px;
+  line-height: 40px;
+  background-color: blue;
+  text-align: center;
+  color:#fff;
+  margin:20px auto;
+  display: none;
+}

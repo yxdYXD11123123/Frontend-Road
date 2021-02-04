@@ -1,0 +1,81 @@
+@charset "UTF-8";
+html,
+body,
+ul,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  border: 1px solid transparent;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #333333;
+}
+
+.floder {
+  width: 850px;
+  margin: 10px auto;
+  border: 1px solid #cccccc;
+  padding: 20px;
+}
+
+.floder li {
+  border-top: 1px solid #cccccc;
+}
+
+.floder li:last-child {
+  border-bottom: 1px solid #cccccc;
+}
+
+.floder a {
+  display: block;
+  height: 50px;
+  line-height: 50px;
+}
+
+.floder a span {
+  float: right;
+  margin-top: 18px;
+  width: 14px;
+  height: 14px;
+  background-image: url(../img/select.png);
+  background-repeat: no-repeat;
+  -webkit-transform: rotateZ(-90deg);
+          transform: rotateZ(-90deg);
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.floder p {
+  display: none;
+  margin-top: 5px;
+  margin-bottom: 20px;
+}
+
+.add_transform {
+  transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  /* IE9 */
+  -moz-transform: rotate(180deg);
+  /* Firefox */
+  -webkit-transform: rotate(180deg);
+  /* Safari和Chrome */
+  -o-transform: rotate(180deg);
+  /* Opera */
+  transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  /*Firefox 4 */
+  -webkit-transition: all 0.5s ease-in-out;
+  /* Safari和Chrome */
+  -o-transition: all 0.5s ease-in-out;
+  /* Opera */
+}
+/*# sourceMappingURL=index.css.map */

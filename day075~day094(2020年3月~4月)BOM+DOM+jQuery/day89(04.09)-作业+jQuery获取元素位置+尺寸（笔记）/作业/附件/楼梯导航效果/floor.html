@@ -1,0 +1,106 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+	<div class="top">
+		<img src="img/top1.png" alt="" />
+	</div>
+	<div class="louceng">
+		<!-- 楼层1 -->
+		<div class="jd jia">
+			<img src="img/jia.png" alt="" />
+		</div>
+		<!-- 楼层2 -->
+		<div class="jd dian">
+			<img src="img/dian.png" alt="" />
+		</div>
+		<!-- 楼层3 -->
+		<div class="jd fu">
+			<img src="img/fu.png" alt="" />
+		</div>
+		<!-- 楼层4 -->
+		<div class="jd mei">
+			<img src="img/mei.png" alt="" />
+		</div>
+	</div>
+	<div class="bottom">
+		<img src="img/bottom.png" alt="" />
+	</div>
+	<!-- 侧边栏 -->
+	<div class="subnav">
+		<ul>
+			<li>家电通讯</li>
+			<li>电脑数码</li>
+			<li>服饰精品</li>
+			<li>美容珠宝</li>
+		</ul>
+		<div class="back">返回</div>
+
+	</div>
+
+	<script src="./lib/jquery-3.4.1.js"></script>
+	<script>
+		// - 功能1: 随着滚动条的滚动，滚动到一定距离，右边的侧边栏就会显示，否则就是隐藏
+		// 获取每层距离页面顶部的距离
+		let jiaTop = $(".jia").offset().top
+		let dianTop = $(".dian").offset().top
+		let fuTop = $(".fu").offset().top
+		let meiTop = $(".mei").offset().top
+
+		$(document).scroll(documentScroll)
+		function documentScroll() {
+			// 如果滚到一楼，显示侧边栏
+			if ($(document).scrollTop() >= jiaTop) {
+				$('.subnav').show()
+				if ($(document).scrollTop() >= meiTop) {
+					subnavRed($(".mei"))
+				}
+				else if ($(document).scrollTop() >= fuTop) {
+					subnavRed($(".fu"))
+				}
+				else if ($(document).scrollTop() >= dianTop) {
+					subnavRed($(".dian"))
+				}
+				else {
+					subnavRed($(".jia"))
+				}
+			}
+			else {
+				// 否则隐藏
+				$('.subnav').hide()
+			}
+		}
+
+		// - 功能3: 随着滚动条的滚动，页面滚动到某一个楼层的时候，右侧的侧边栏对应的就会被选中，添加current这个类名
+		// 让当前楼层亮起的函数
+		function subnavRed(louCeng) {
+			$(".subnav ul li").removeClass("current")
+			$(".subnav ul li").eq(louCeng.index()).addClass("current")
+		}
+
+		// 点击侧边栏的不同楼层，跳到对应楼层
+		$(".subnav ul li").click(subnavClick)
+		function subnavClick() {
+			// 获取当前楼层的索引
+			let index = $(this).index()
+			// 跳转
+			$(document).scrollTop($(".louceng").children().eq(index).offset().top)
+		}
+
+
+		// - 功能2：点击侧边栏的"返回"，页面就会回到最开始的位置
+		$(".back").click(backTop)
+		function backTop() {
+			$(document).scrollTop(0)
+		}
+	</script>
+</body>
+
+</html>

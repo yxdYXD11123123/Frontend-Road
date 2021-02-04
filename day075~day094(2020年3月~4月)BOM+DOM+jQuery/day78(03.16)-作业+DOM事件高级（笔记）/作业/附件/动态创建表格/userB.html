@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/user.css">
+</head>
+
+<body>
+    <button>动态创建表格</button>
+
+    <div id="box1">
+        <!-- 放表格 -->
+
+    </div>
+    <script>
+        // 后端的数据
+        var heads = ['姓名', '年龄', '性别', '学号', '薪资', '城市', '操作'];
+        var datas = [{
+            name: '欧阳霸天',
+            age: 19,
+            gender: '男',
+            stuId: '1001',
+            salary: '20000',
+            city: '上海'
+        },
+        {
+            name: '令狐霸天',
+            age: 19,
+            gender: '男',
+            stuId: '1001',
+            salary: '20000',
+            city: '北京'
+        },
+        {
+            name: '诸葛霸天',
+            age: 19,
+            gender: '男',
+            stuId: '1001',
+            salary: '20000',
+            city: '南京'
+        },
+        {
+            name: '西门霸天',
+            age: 19,
+            gender: '男',
+            stuId: '1001',
+            salary: '20000',
+            city: '深圳'
+        },
+        {
+            name: '上官霸天',
+            age: 19,
+            gender: '男',
+            stuId: '1001',
+            salary: '20000',
+            city: '北京'
+        },
+        {
+            name: '欧阳霸天',
+            age: 19,
+            gender: '男',
+            stuId: '1001',
+            salary: '20000',
+            city: '上海'
+        },
+        {
+            name: '令狐霸天',
+            age: 19,
+            gender: '男',
+            stuId: '1001',
+            salary: '20000',
+            city: '北京'
+        },
+        {
+            name: '诸葛霸天',
+            age: 19,
+            gender: '男',
+            stuId: '1001',
+            salary: '20000',
+            city: '南京'
+        },
+        {
+            name: '西门霸天',
+            age: 19,
+            gender: '男',
+            stuId: '1001',
+            salary: '20000',
+            city: '深圳'
+        },
+        {
+            name: '上官霸天',
+            age: 19,
+            gender: '男',
+            stuId: '1001',
+            salary: '20000',
+            city: '北京'
+        },
+        ];
+
+        // 获取按钮
+        let oBtn = document.querySelector("button")
+        // 获取表格盒子
+        let oBox = document.querySelector("#box1")
+
+        // 给按钮绑定事件
+        oBtn.onclick = function () {
+            if (oBox.children.length == 1) {
+                alert("只能创建一个表格")
+            }
+            else {
+                // 创建表格
+                let oTable = document.createElement('table')
+                // 创建一个caption
+                let oCaption = document.createElement("caption")
+                oCaption.innerText = "就业榜"
+                oTable.appendChild(oCaption, oTable.childNodes[0])
+
+                // 创建第一行th的tr
+                let oTrHead = document.createElement("tr")
+                for (let i = 0; i < heads.length; i++) {
+                    // 用拼接字符串的方式添加 th
+                    let str = oTrHead.innerHTML
+                    oTrHead.innerHTML = str + `<th>${heads[i]}</th>`
+                }
+
+                // 将第一行插入table头部
+                oTable.appendChild(oTrHead)
+
+                // 创建一个tbody
+                let oTbody = document.createElement("tbody")
+                let str = ''
+                for (let j = 0; j < datas.length; j++) {
+                    // 开始标签
+                    str += `<tr>`
+                    // 遍历每个对象的value值
+                    for (let value in datas[j]) {
+                        // 插入td, 
+                        str += `<td>${datas[j][value]}</td>`
+                    }
+                    // 在结尾标签前再加上一个td中放a
+                    str += `<td><a class="delete">删除</a></td></tr>`
+                }
+                oTbody.innerHTML = str;
+                // 给每个a绑定点击事件   (这次不在创建时绑定事件，因为这样性能不如事件委托)
+
+                // 将 tbody 插入 table 中
+                oTable.appendChild(oTbody)
+                // 将table插入box
+                oBox.appendChild(oTable)
+            }
+        }
+
+        // 将删除a链接的功能委托给oBox
+        oBox.addEventListener("click", function (e) {
+            if (e.target.className == "delete") {
+                // 弹出确认框
+                let flag = confirm("你真的要删除吗？")
+                if (flag == true) {
+                    this.children[0].children[2].removeChild(e.target.parentNode.parentNode)
+                    if (this.children[0].children[2].children.length == 0) {
+                        oBox.innerHTML = ""
+                    }
+                }
+            }
+        })
+
+
+
+
+
+    </script>
+</body>
+
+</html>

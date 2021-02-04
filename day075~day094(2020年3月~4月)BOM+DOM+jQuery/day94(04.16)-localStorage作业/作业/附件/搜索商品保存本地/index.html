@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+  <div class="app">
+    <!--搜索框-->
+    <div class="nav">
+      <div class="navL fl">
+        <img src="./img/icon_search.png" alt="">
+        <input type="text" placeholder="输入您想找的商品" class="record_input">
+      </div>
+      <button class="record_btn fl">搜索</button>
+    </div>
+    <div class="hot_history">
+      <!--搜索历史-->
+      <div class="history">
+        <p class="history_tit">搜索历史</p>
+        <ul class="history_list">
+          <!--搜索历史循环列表-->
+          <!-- <li>全部搜索记录 <img src="./img/del.png" alt=""></li> -->
+        </ul>
+      </div>
+    </div>
+    <!--  清空 -->
+    <div class="close_whole">清空记录</div>
+  </div>
+
+  <script src="./lib/jquery-3.4.1.js"></script>
+  <script>
+    // - 页面已经给定只需要完成功能，将用户搜索商品的记录保存在本地，形成历史搜索记录
+    // - 功能1：在输入框中输入内容，如果内容为空，或者输入的都是空格，那么会弹出"请输入搜索内容,内容不能为空"
+    $(".record_btn").on("click", clickSearch)
+    function clickSearch() {
+      let keywords = $(".record_input").val().trim()
+      if (keywords.length == 0) {
+        alert("请输入搜索内容,内容不能为空")
+        // 清空
+        $(".record_input").val("")
+      }
+      // - 功能2：当输入框中的内容符合要求的情况下，点击"搜素"按钮，下面的"清空记录"和"搜索历史"就会显示出来，搜素的数据就
+      //   会添加到"搜索历史"里面，具体的格式页面已经给定
+      else {
+        $(".history").show()
+        $(".close_whole").show()
+        // 添加数据
+        // 先检测数据是否存在，不存在就创建一个
+        if (localStorage.getItem('searchHistory') == null) {
+          localStorage.setItem('searchHistory', '[]')
+        }
+        // 添加新数据
+        // 先获取原有的   用 JSON.parse 解析成数组
+        let currentArr = JSON.parse(localStorage.getItem('searchHistory'))
+        // 并且检测此记录是否已经存在，如果已经存在，把之前的删了
+        $.each(currentArr, function (i, j) {
+          if (j == keywords) {
+            // 利用当前索引i 将其删除
+            currentArr.splice(i, 1)
+          }
+        })
+        // 给数组添加新的记录
+        currentArr.push(keywords)
+        // 将数组 保留进去  利用 JSON.stringify 将数组转为 json字符串格式
+        localStorage.setItem('searchHistory', JSON.stringify(currentArr))
+        // 展示数组记录
+        showSearchHistory()
+
+        // 清空搜索框
+        $(".record_input").val("")
+      }
+    }
+
+    function showSearchHistory() {
+      // 先清空
+      $(".history_list").html("")
+      let currentArr = JSON.parse(localStorage.getItem('searchHistory'))
+      $.each(currentArr, function (i, j) {
+        $(".history_list").append(`
+        <li>${j} <img src="./img/del.png" alt=""></li> 
+        `)
+      })
+    }
+
+    // - 功能3：当点击"清空记录"，"搜索历史"里面的数据就会被清空，并且"清空记录"和"搜索历史"就会隐藏，再次刷新页面看看效
+    //   果
+    $(".close_whole").on("click", clearSearchHistory)
+    function clearSearchHistory() {
+      // 先隐藏起来
+      $(".history").hide()
+      $(".close_whole").hide()
+      // 清空数据
+      localStorage.setItem('searchHistory', '[]')
+    }
+
+    // - 功能4：当点击历史记录每行上面的"删除"图标的时候，这一行就会被删除，当历史记录里面的数据都被删除的时候，"清空记录
+    //   "和"搜索历史"就会隐藏，再次刷新页面看效果
+    // 利用事件委托
+    $(".history_list").on("click", "img", deleteHistory)
+    function deleteHistory() {
+      // 获取要被删除的这个记录
+      let beDeleted = $(this).parent().text().trim()
+      // 先获取原有的   用 JSON.parse 解析成数组
+      let currentArr = JSON.parse(localStorage.getItem('searchHistory'))
+      // 并且检测此记录是否已经存在，如果已经存在，把之前的删了
+      $.each(currentArr, function (i, j) {
+        if (j == beDeleted) {
+          // 利用当前索引i 将其删除
+          currentArr.splice(i, 1)
+        }
+      })
+      // 将数组 保留进去  利用 JSON.stringify 将数组转为 json字符串格式
+      localStorage.setItem('searchHistory', JSON.stringify(currentArr))
+      // 再次重新展示数据
+      showSearchHistory()
+      // 判断是否还有记录，没有就隐藏
+      if ($(".history_list").children().length == 0) {
+        $(".history").hide()
+        $(".close_whole").hide()
+      }
+    }
+  </script>
+</body>
+
+</html>

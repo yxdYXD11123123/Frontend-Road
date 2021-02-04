@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <ul class="nav">
+        <li>
+            <ul class="lil-nav one">
+                <li class="first">我是一级导航</li>
+                <li>二级导航</li>
+                <li>二级导航</li>
+                <li>二级导航</li>
+            </ul>
+        </li>
+        <li>
+            <ul class="lil-nav two">
+                <li class="first">我是一级导航</li>
+                <li>二级导航</li>
+                <li>二级导航</li>
+                <li>二级导航</li>
+            </ul>
+        </li>
+        <li>
+            <ul class="lil-nav three">
+                <li class="first">我是一级导航</li>
+                <li>二级导航</li>
+                <li>二级导航</li>
+                <li>二级导航</li>
+            </ul>
+        </li>
+    </ul>
+
+    <!-- 引入动画插件 -->
+    <script src="./animate.js"></script>
+    <script>
+        // 获取元素
+        let lilNavs = document.getElementsByClassName('lil-nav')
+        console.log(lilNavs);
+        lilNavs[0].addEventListener("click", function () {
+            animate(lilNavs[1], { top: 0 })
+            animate(lilNavs[2], { top: -28 * 3 })
+        })
+        lilNavs[1].addEventListener("click", function () {
+            animate(lilNavs[1], { top: -28 * 3 })
+            animate(lilNavs[2], { top: -28 * 3 })
+        })
+        lilNavs[2].addEventListener("click", function () {
+            animate(lilNavs[1], { top: -28 * 3 })
+            animate(lilNavs[2], { top: -28 * 3 * 2 })
+        })
+
+
+    </script>
+</body>
+
+</html>

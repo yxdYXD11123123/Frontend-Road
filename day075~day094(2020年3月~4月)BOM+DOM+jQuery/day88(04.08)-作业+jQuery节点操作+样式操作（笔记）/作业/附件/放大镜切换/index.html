@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+  <!--版心  -->
+  <div class="w">
+    <!-- 左侧 -->
+    <div class="leftBox">
+      <!-- 上 -->
+      <div class="top">
+        <img src="img/m1.jpg">
+      </div>
+      <ul>
+        <li class="active">
+          <img src="img/s1.jpg" msrc="m1.jpg" bsrc="b1.jpg">
+        </li>
+        <li>
+          <img src="img/s2.jpg" msrc="m2.jpg" bsrc="b2.jpg">
+        </li>
+        <li>
+          <img src="img/s3.jpg" msrc="m3.jpg" bsrc="b3.jpg">
+        </li>
+      </ul>
+    </div>
+    <!-- 右侧 -->
+    <div class="rightBox">
+      <img src="img/b1.jpg" alt="">
+    </div>
+  </div>
+
+  <script src="./lib/jquery-3.4.1.js"></script>
+  <script>
+    // - 只需要完成功能，页面已经给定,不能随意编辑html和css
+    // - 鼠标在下面的三个小图片上面经过，随着鼠标进入不同的小图，当前的这个小图上面有一个红色的小边框,类名active已经定义好，直接用
+    // - 三张小图上面的那个大图在跟着切换，右边的大图也在跟着切换
+
+    let $rightBig = $(".rightBox img")
+    let $topBig = $(".top img")
+    $(".leftBox ul li").mouseenter(lilImgMouseover)
+    function lilImgMouseover() {
+      // 切换类目
+      $(".leftBox ul li").removeClass("active")
+      $(this).addClass("active")
+      // 获取路径
+      let imgTopStr = $(this).find("img").attr("msrc")
+      // 修改大图路径
+      $topBig.attr("src", `img/${imgTopStr}`)
+      let imgRightStr = $(this).find("img").attr("bsrc")
+      $rightBig.attr("src", `img/${imgRightStr}`)
+    }
+  </script>
+</body>
+
+</html>

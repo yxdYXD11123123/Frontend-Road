@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0
+    }
+
+    ul {
+      list-style: none
+    }
+
+    body {
+      background-color: #333;
+    }
+
+    .nav {
+      width: 800px;
+      height: 42px;
+      margin: 100px auto;
+      background: url(images/rss.png) right center no-repeat;
+      background-color: #fff;
+      border-radius: 10px;
+      position: relative;
+    }
+
+    .nav li {
+      width: 83px;
+      height: 42px;
+      text-align: center;
+      line-height: 42px;
+      float: left;
+      cursor: pointer;
+    }
+
+    .nav span {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 83px;
+      height: 42px;
+      background: url(images/cloud.gif) no-repeat;
+    }
+
+    ul {
+      position: relative;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="nav">
+    <span id="cloud"></span>
+    <ul id="navBar">
+      <li>北京校区</li>
+      <li>上海校区</li>
+      <li>广州校区</li>
+      <li>深圳校区</li>
+      <li>武汉校区</li>
+      <li>关于我们</li>
+      <li>联系我们</li>
+      <li>招贤纳士</li>
+    </ul>
+  </div>
+
+  <script>
+    // 写一个获取元素任意属性的函数
+    function getStyle(element, attr) {
+      if (window.getComputedStyle) {
+        return window.getComputedStyle(element, null)[attr]
+      }
+      else {
+        return element.currentStyle[attr]
+      }
+    }
+
+    // 获取元素
+    let cloud = document.getElementById("cloud")
+    let navUl = document.getElementById("navBar")
+
+    // 封装一个缓动动画函数, 用这个函数改变元素的Left值
+    function animate(element, target) {
+      // 清楚之前的定时器
+      clearInterval(element.timer);
+      element.timer = setInterval(function () {
+        // 获取元素的当前位置, 
+        let current = parseInt(getStyle(element, "left"));
+        // 计算每次缓动的步进
+        let step = (target - current) / 10;
+        // 保证如果步进值无论为正负数时，要向上取整/向下取整
+        step = step > 0 ? Math.ceil(step) : Math.floor(step);
+        // 让元素的位置，在当前位置的基础上 一次次 步进
+        element.style.left = current + step + "px";
+        // 如果达到目标值
+        if (parseInt(getStyle(element, "left")) == current) {
+          // 停止定时器
+          clearInterval(element.timer)
+        }
+      }, 20)
+    }
+
+    // 设定一个鼠标移开后，cloud默认恢复的位置
+    let clicked = 0;
+
+    // 给每个li添加mouseover事件
+    for (let i = 0; i < navUl.children.length; i++) {
+      // 绑定移入事件
+      navUl.children[i].addEventListener("mouseover", over);
+      // 绑定移出事件
+      navUl.children[i].addEventListener("mouseout", out);
+      // 绑定点击事件
+      navUl.children[i].addEventListener("click", clickLi);
+    }
+    function over() {
+      // 当鼠标移入时，让cloud的left值 等于 当前Li的offsetLeft
+      animate(cloud, this.offsetLeft)
+    }
+    function out() {
+      // 当鼠标移出来，让cloud的left值等于 上次点击后的位置
+      animate(cloud, clicked)
+    }
+
+    function clickLi() {
+      animate(cloud, this.offsetLeft)
+      // 将本次点击的位置，保留在clicked中，但鼠标移出是返回这个位置
+      clicked = this.offsetLeft;
+    }
+  </script>
+</body>
+
+</html>

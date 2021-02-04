@@ -1,0 +1,58 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background:rgb(2, 78, 15);
+}
+button{
+  width: 150px;
+  height: 30px;
+  display: block;
+  margin: 10px auto;
+  background: goldenrod;
+  color: #fff;
+  border-radius: 15px;
+  line-height: 30px;
+  outline: none;
+  border: none;
+  font-size: 18px;
+}
+a {
+  text-decoration: none;
+  color:#aaa;
+  cursor: pointer;
+}
+caption {
+  text-align: center;
+  color:#fff;
+  margin: 20px 0;
+  font-size: 25px;
+ 
+}
+table {
+  margin:0 auto;
+  width: 800px;
+  border-collapse: collapse;
+}
+th {
+  padding: 10px;
+  background: purple;
+  color:gold;
+  font-size: 20px;
+}
+td,th {
+  border:1px solid #ccc;
+}
+td {
+  padding:10px;
+  color:#666;
+  text-align: center;
+  font-size: 16px;
+}
+tbody tr {
+  background: #fff;
+}
+tbody tr:hover {
+  background: gold;
+}

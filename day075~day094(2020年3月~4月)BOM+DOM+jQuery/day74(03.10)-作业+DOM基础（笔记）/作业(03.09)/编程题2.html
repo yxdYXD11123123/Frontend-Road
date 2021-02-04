@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            background-color: aqua;
+            width: 200px;
+            height: 200px;
+            margin: 200px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <script>
+        // 在页面中创建一个div，给这个div添加点击事件，在页面中显示，我被点击了，
+        let oDiv = document.getElementsByTagName('div')[0]
+        oDiv.onclick = function () {
+            alert("我被点击了")
+        }
+
+        // 鼠标进入事件，在页面中显示，鼠标移入到了盒子上，
+        // oDiv.onmouseover = function () {
+        //     alert("鼠标移入到了盒子上")
+        // }
+
+        // 鼠标离开事件，在页面中显示，鼠标离开了盒子
+        oDiv.onmouseout = function () {
+            alert("鼠标离开了盒子")
+        }
+    </script>
+</body>
+
+</html>

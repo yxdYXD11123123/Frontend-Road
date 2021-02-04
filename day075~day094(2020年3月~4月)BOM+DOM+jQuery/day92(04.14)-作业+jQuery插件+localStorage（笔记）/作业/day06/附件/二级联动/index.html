@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    select {
+      width: 100px;
+    }
+  </style>
+</head>
+
+<body>
+  <select id="selid">
+    <option>选择省市</option>
+    <option>北京</option>
+    <option>山东</option>
+    <option>辽宁</option>
+    <option>河北</option>
+  </select>
+  <select id="subselid">
+    <option>选择城市</option>
+  </select>
+  <script src="./lib/jquery-3.4.1.js"></script>
+  <script>
+    var collCities = [
+      ['选择城市'],
+      ['海淀区', '朝阳区', '东城区', '西城区'],
+      ['济南', '青岛', '烟台', '威海'],
+      ['沈阳', '大连', '鞍山', '抚顺'],
+      ['石家庄', '保定', '邯郸', '廊坊']
+    ];
+
+    // - 1. 实现二级联动效果(附件)：(友情提示，select有个change事件有帮助对这个题)
+    // - 页面已经给定，只需要完成功能
+    // - 城市的数据已经给定，根据选中的省，显示对应的城市，可以点击城市下拉列表中的城市，在第二个select中显示
+    // - 注意：什么叫联动，就是点击的省如果是北京的话，右边的数据显示的是和北京相关的，比方说海淀区，朝阳区这些
+    $("#selid").on('change', changeOption)
+    function changeOption() {
+      // 通过 option:selected 找到被选中的那个option, 然后用index() 获取 option在同辈元素中的索引
+      let index = $("#selid option:selected").index();
+      // 清空原本的所有option
+      $("#subselid").empty()
+      // 然后将 数组中的对应选项插入
+      $.each(collCities[index], function (index, item) {
+        $("#subselid").append(`<option>${item}</option>`)
+      })
+    }
+
+
+  </script>
+</body>
+
+</html>

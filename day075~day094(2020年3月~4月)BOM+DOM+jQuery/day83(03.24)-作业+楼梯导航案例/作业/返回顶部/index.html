@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <aside>
+        <ul>
+            <li><a href="#"></a><span></span></li>
+            <li><a href="#"></a><span></span></li>
+            <li><a href="#"></a></li>
+            <li><a href="javascript:;"></a></li>
+        </ul>
+    </aside>
+
+    <script>
+        // 获取元素
+        let oUl = document.querySelector("aside ul")
+
+        // 给前两个li绑定鼠标经过事件 以及 移除事件
+        for (let i = 0; i < 2; i++) {
+            oUl.children[i].addEventListener("mouseover", show)
+            oUl.children[i].addEventListener("mouseout", hidden)
+        }
+        // 移入li时，显示span
+        function show() {
+            this.getElementsByTagName("span")[0].style.display = "block"
+        }
+        // 移出li时，隐藏span
+        function hidden() {
+            this.getElementsByTagName("span")[0].style.display = "none"
+        }
+
+        // 给整个document添加监听滚动事件，如果scrollTop大于300，则显示第四个li
+        document.addEventListener("scroll", showBack)
+        function showBack() {
+            if (document.documentElement.scrollTop >= 200) {
+                oUl.children[3].style.display = "block"
+            }
+            else {
+                oUl.children[3].style.display = "none"
+            }
+        }
+
+        // 给第四个li绑定点击事件，返回顶部
+        oUl.children[3].onclick = function () {
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+html, body {
+  padding: 0;
+  margin: 0;
+}
+
+ul {
+  width: 1150px;
+  margin: 30px auto;
+  padding: 0;
+  overflow: hidden;
+}
+
+li {
+  float: left;
+  list-style: none;
+  padding: 0;
+  width: 125px;
+  height: 260px;
+  background-image: url(./images/ifold1.jpg);
+  background-position: center;
+  color: white;
+  -webkit-writing-mode: vertical-lr;
+      -ms-writing-mode: tb-lr;
+          writing-mode: vertical-lr;
+  line-height: 125px;
+  text-align: center;
+  letter-spacing: 5px;
+  font-size: 24px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+li:nth-child(1) {
+  width: 400px;
+  line-height: 400px;
+}
+
+li:nth-child(2) {
+  background-image: url(./images/ifold2.jpg);
+}
+
+li:nth-child(3) {
+  background-image: url(./images/ifold3.jpg);
+}
+
+li:nth-child(4) {
+  background-image: url(./images/ifold4.jpg);
+}
+
+li:nth-child(5) {
+  background-image: url(./images/ifold5.jpg);
+}
+
+li:nth-child(6) {
+  background-image: url(./images/ifold6.jpg);
+}
+
+li:nth-child(7) {
+  background-image: url(./images/ifold7.jpg);
+}
+/*# sourceMappingURL=index.css.map */

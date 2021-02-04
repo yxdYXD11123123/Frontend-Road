@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+    <div><span></span></div>
+
+    <!-- 引入动画插件 -->
+    <script src="./animate.js"></script>
+
+    <script>
+        let oDiv = document.querySelector("div")
+        let oSpan = document.querySelector("span")
+        // 假设目前是关
+        let flag = false;
+        oDiv.onclick = function () {
+            if (flag) {
+                animate(oSpan, {
+                    left: 2
+                })
+                oDiv.style.backgroundColor = "#ff1700";
+                flag = false
+            }
+            else {
+                animate(oSpan, {
+                    left: oDiv.offsetWidth - oSpan.offsetWidth - 2
+                })
+                oDiv.style.backgroundColor = "#006e00";
+                flag = true
+            }
+        }
+    </script>
+</body>
+
+</html>

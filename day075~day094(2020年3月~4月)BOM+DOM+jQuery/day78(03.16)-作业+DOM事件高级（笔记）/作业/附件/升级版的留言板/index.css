@@ -1,0 +1,22 @@
+*{margin:0; padding:0;}
+body,input{font-size:14px; line-height:24px; color:#333; font-family:Microsoft yahei, Song, Arial, Helvetica, Tahoma, Geneva;}
+h1{margin-bottom:15px; height:100px; line-height:100px; text-align:center; font-size:24px; color:#fff; background:black;}
+#content #post,#comment p{zoom:1;}
+#content #post:after,#comment p:after{display:block; height:0; clear:both; visibility:hidden; overflow:hidden; content:'.';}
+.transition{-webkit-transition:all 0.5s linear; -moz-transition:all 0.5s linear; -o-transition:all 0.5s linear; -ms-transition:all 0.5s linear; transition:all 0.5s linear;}
+#content{margin:0 auto; width:960px; overflow:hidden;}
+#content #post{margin-bottom:15px; padding-bottom:15px; border-bottom:1px #d4d4d4 dashed;
+	   height: 556px;
+   }
+#content #post textarea{display:block; margin-bottom:10px; padding:5px; width:948px; height:390px; border:1px #d1d1d1 solid; border-radius:5px; resize:none; outline:none;}
+#content #post textarea:hover{border:1px #9bdf70 solid; background:#f0fbeb;}
+#content #post #postBt,#content #post #clearBt{margin-left:5px; padding:3px; float:right;}
+#comment{overflow:hidden;}
+#comment p{margin-bottom:10px; padding:10px; border-radius:5px;}
+#comment p:nth-child(odd){border:1px solid #e3e197; background:#ffd;}
+#comment p:nth-child(even){border:1px solid #adcd3c; background:#f2fddb;}
+#comment p .msg{width:738px;}
+#comment p #clear{float:right;border:none;border-radius:5px;}
+.fr{
+  float: right;
+}

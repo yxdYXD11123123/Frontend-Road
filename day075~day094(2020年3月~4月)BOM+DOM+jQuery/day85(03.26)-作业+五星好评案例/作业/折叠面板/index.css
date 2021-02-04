@@ -1,0 +1,61 @@
+html,
+body,
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  list-style: none;
+}
+
+.nav {
+  height: 180px;
+  overflow: hidden;
+  width: 200px;
+  margin: 50px auto;
+}
+
+.lil-nav {
+  position: relative;
+  z-index: 1;
+  width: 200px;
+}
+
+.lil-nav li {
+  width: 200px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding-left: 10px;
+}
+
+.lil-nav li:nth-last-child(-n+3) {
+  background-color: #cccccc;
+  height: 28px;
+  line-height: 28px;
+  border-top: 2px solid white;
+  color: #333333;
+}
+
+.one {
+  top: 0px;
+}
+
+.two {
+  z-index: 2;
+  top: 0px;
+}
+
+.three {
+  z-index: 3;
+  top: -84px;
+}
+
+.first {
+  background-color: #00a1bd;
+  height: 32px;
+  color: white;
+  line-height: 32px;
+  cursor: pointer;
+}
+/*# sourceMappingURL=index.css.map */

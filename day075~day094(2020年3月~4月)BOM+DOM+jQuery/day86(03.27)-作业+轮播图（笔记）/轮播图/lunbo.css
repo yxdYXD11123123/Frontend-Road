@@ -1,0 +1,86 @@
+html,
+body,
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  vertical-align: middle;
+}
+
+li {
+  list-style: none;
+}
+
+.carousel {
+  position: relative;
+  width: 400px;
+  height: 260px;
+  margin: 50px auto;
+  overflow: hidden;
+}
+
+.carousel ul {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2000px;
+  overflow: hidden;
+}
+
+.carousel li {
+  float: left;
+}
+
+.carousel a {
+  display: block;
+}
+
+.carousel i {
+  position: absolute;
+  display: none;
+  width: 20px;
+  height: 30px;
+  background-color: black;
+  opacity: 0.75;
+  top: 50%;
+  margin-top: -15px;
+}
+
+.carousel .prev {
+  left: 0;
+}
+
+.carousel .next {
+  right: 0;
+}
+
+.carousel:hover .prev,
+.carousel:hover .next {
+  display: block;
+}
+
+.carousel ol {
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
+  bottom: 10px;
+}
+
+.carousel ol li {
+  width: 10px;
+  height: 10px;
+  background-color: #cccccc;
+  border: 2px solid white;
+  border-radius: 50%;
+  margin: 0 4px;
+}
+
+.carousel ol .active {
+  border-color: #ffffff;
+  background-color: black;
+}
+/*# sourceMappingURL=lunbo.css.map */

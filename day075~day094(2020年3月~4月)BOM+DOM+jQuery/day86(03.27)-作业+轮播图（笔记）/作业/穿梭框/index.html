@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+
+</head>
+
+<body>
+  <div style="margin-left: 500px; margin-top: 100px; background-color: #999999">
+    <select multiple="multiple" style="float: left; width: 60px; height: 100px;" id="se1">
+      <option>添加</option>
+      <option>删除</option>
+      <option>修改</option>
+      <option>查询</option>
+      <option>打印</option>
+    </select>
+    <div style="width: 50px; float: left;">
+      <input type="button" name="name" value=">" style="width: 50px;" id="toRight" />
+      <input type="button" name="name" value="<" style="width: 50px;" id="toLeft" />
+      <input type="button" name="name" value=">>" style="width: 50px;" id="toAllRight" />
+      <input type="button" name="name" value="<<" style="width: 50px;" id="toAllLeft" />
+    </div>
+    <select multiple="multiple" style="float: left; width: 60px; height: 100px;" id="se2">
+    </select>
+  </div>
+  <script>
+    let se1 = document.querySelector("#se1")
+    let se2 = document.querySelector("#se2")
+    let toRight = document.querySelector("#toRight")
+    let toLeft = document.querySelector("#toLeft")
+    let toAllRight = document.querySelector("#toAllRight")
+    let toAllLeft = document.querySelector("#toAllLeft")
+
+    // 给按钮添加点击事件
+    toRight.addEventListener('click', function () {
+      changeSelect(se1, se2)
+    })
+    toLeft.addEventListener('click', function () {
+      changeSelect(se2, se1)
+    })
+
+    function changeSelect(before, after) {
+      for (let i = 0; i < before.children.length; i++) {
+        // 被选中才移动
+        if (before.children[i].selected == true) {
+          // 这里需要一个变量来保留  被选中的option , 这样下面移除 option时，索引位置不会错乱
+          let change = before.children[i]
+          // 移除原本位置的option
+          before.removeChild(before.children[i]);
+          // 将保留下的option添加到另一边
+          after.appendChild(change)
+          // 移除了一个option后，当前select的子元素个数会变化，影响下次循环, 所以要让索引i退1，以免跳过option
+          i--;
+        }
+      }
+    }
+
+    // 给全部移动的按钮添加事件
+    toAllRight.addEventListener("click", function () {
+      changeSelectAll(se1, se2)
+    })
+    toAllLeft.addEventListener("click", function () {
+      changeSelectAll(se2, se1)
+    })
+
+    // 全部移动的函数
+    function changeSelectAll(before, after) {
+      for (let i = 0; i < before.children.length; i++) {
+        // 这里需要一个变量来保留  被选中的option , 这样下面移除 option时，索引位置不会错乱
+        let change = before.children[i]
+        // 移除原本位置的option
+        before.removeChild(before.children[i]);
+        // 将保留下的option添加到另一边
+        after.appendChild(change)
+        // 删除后，当前select的子元素个数会变化，影响下次循环, 所以要让索引i退1，以免跳过option
+        i--;
+      }
+    }
+  </script>
+</body>
+
+</html>

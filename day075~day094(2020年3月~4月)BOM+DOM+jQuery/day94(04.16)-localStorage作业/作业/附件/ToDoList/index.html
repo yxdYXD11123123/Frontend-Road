@@ -1,0 +1,177 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+  <!-- 输入框 -->
+  <div class="plan">
+    <h1>ToDoList</h1>
+    <div>
+      <input class="txt" placeholder="请输入目标..." type="text">
+      <input type="button" class="add" value="添加">
+    </div>
+  </div>
+  <div class="w">
+    <!-- 正在完成的任务 -->
+    <h2>正在进行的任务</h2>
+    <ol>
+      <!-- <li>
+        <input type="checkbox">
+        <span>吃饭</span>
+      </li> -->
+
+
+    </ol>
+    <!-- 已经完成的任务 -->
+    <h2>已经完成的任务</h2>
+    <ul>
+      <!-- <li>
+        <span>吃饭</span>
+      </li> -->
+    </ul>
+  </div>
+
+  <script src="./lib/jquery-3.4.1.js"></script>
+  <script>
+    //     - 1题：实现todoList效果(附件)
+    // - 页面已经给定，只需要完成功能
+    // 在本地存储里提前保留一个 doingTask 和一个 finishedTask
+    // localStorage.setItem("doingTask", '[]')
+    // localStorage.setItem("finishedTask", '[]')
+
+    // - 功能1：在表单输入框输入内容，点击”添加”按钮或者点击”enter”键，输入的内容就会添加到”正在进行的任务”列表里面
+    $(".add").on("click", addTask)
+
+    $(".txt").on("keypress", enterTxt)
+    function enterTxt(e) {
+      // 如果按下的是 enter键 
+      if (e.key == "Enter") {
+        // 添加任务
+        addTask()
+      }
+    }
+    function addTask() {
+      let newTask = $(".txt").val().trim()
+      // - 功能2：如果表单的内容为空，点击”添加”按钮或者点击”enter”键的时候会提示”内容不能为空”，空字符串就不会被添加道下面
+      //   的”正在进行的任务”列表里面
+      if (newTask.length == 0) {
+        alert("内容不能为空")
+        // 清空input
+        $(".txt").val("")
+      }
+      else {
+        // 给列表里插入对应内容  (这里可以不手动插入，再修改数据--->可以修改数据后重新渲染)
+        //   $(".w ol").append(`
+        //   <li>
+        //   <input type="checkbox">
+        //   <span>${newTask}</span>
+        // </li>
+        //   `)
+
+        // 数据部分
+        // 检测 存储数据是否为存在，不存在就创建一个
+        if (localStorage.getItem("doingTask") == null) {
+          localStorage.setItem("doingTask", '[]')
+        }
+        // 将数据保存到 localStorage中
+        let oldarr = JSON.parse(localStorage.getItem("doingTask"))
+        // 添加数据
+        oldarr.push(newTask)
+        // 再将数据存入 localStorage
+        localStorage.setItem("doingTask", JSON.stringify(oldarr))
+        showDataOfDoing()
+
+        // 清空input
+        $(".txt").val("")
+      }
+    }
+
+    // - 功能3: 当点击”正在进行的任务”列表里面的某一项的复选框，选中的那一项列表就会被添加到”已经完成的任务”列表里面，而
+    //   且会从“正在进行的任务”中删除这一项
+    // 利用事件委托
+    $(".w ol").on("click", "input:checkbox", finishedTask)
+    function finishedTask() {
+      let didTask = $(this).next().html().trim()
+      // 给列表里插入对应内容  (这里可以不手动插入，再修改数据，可以修改数据后重新渲染)
+      // $(".w ul").append(`
+      //   <li>
+      //   <span>${didTask}</span>
+      // </li>
+      //   `)
+
+      // 数据部分
+      // 检测 存储数据是否为存在，不存在就创建一个
+      if (localStorage.getItem("finishedTask") == null) {
+        localStorage.setItem("finishedTask", '[]')
+      }
+      // 获取旧的 finishedTask数据
+      let oldarr = JSON.parse(localStorage.getItem("finishedTask"))
+      // 添加数据
+      oldarr.push(didTask)
+      // 再将finished数据存入 localStorage
+      localStorage.setItem("finishedTask", JSON.stringify(oldarr))
+
+      showDataOfFinished()
+      // 删除doing中对应的数据
+      let doingarr = JSON.parse(localStorage.getItem("doingTask"))
+      // 寻找对应数据
+      $.each(doingarr, function (i, j) {
+        console.log(j);
+        if (j == didTask) {
+          // 删除
+          doingarr.splice(i, 1)
+        }
+      })
+      // 再将数据存入 localStorage
+      localStorage.setItem("doingTask", JSON.stringify(doingarr))
+      // 然后再删除自己
+      $(this).parent().remove()
+    }
+
+    // - 当刷新浏览器之后，页面还是保持不变(注：之前的数据不会消失)
+    // 展示之前的数据 正在进行的任务
+    function showDataOfDoing() {
+      // 先全部清空在渲染
+      $(".w ol").html("")
+      // 获取数据
+      let oldData = JSON.parse(localStorage.getItem("doingTask"))
+      // 遍历渲染
+      $.each(oldData, function (i, j) {
+        // 给列表里插入对应内容
+        $(".w ol").append(`
+        <li>
+        <input type="checkbox">
+        <span>${j}</span>
+      </li>
+        `)
+      })
+    }
+    showDataOfDoing()
+
+    // 展示 已经完成的任务数据
+    function showDataOfFinished() {
+      // 先清空
+      $(".w ul").html("")
+      let oldData = JSON.parse(localStorage.getItem("finishedTask"))
+      $.each(oldData, function (i, j) {
+        // 给列表里插入对应内容
+        $(".w ul").append(`
+        <li>
+        <span>${j}</span>
+      </li>
+        `)
+      })
+    }
+    showDataOfFinished()
+  </script>
+
+</body>
+
+</html>

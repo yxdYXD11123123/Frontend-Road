@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container {
+      width: 1600px;
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%);
+      height: 643px;
+      background: url(./images.jpg) no-repeat;
+    }
+
+    .content {
+      width: 700px;
+      height: 350px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+
+    .content p {
+      color: #138eee;
+      font-size: 66px;
+    }
+
+    .content span {
+      color: #fff;
+      font-size: 25px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="content">
+      <p>亲，准备好点名了吗？</p>
+      <span>开始点名</span>
+    </div>
+  </div>
+  <script>
+    // 2. 随机点名器效果(附件)：
+    // - 点击"开始点名"按钮，文字就会改成"停止点名",上面就会不断替换名字
+    // - 再次点击按钮，文字就会改成"开始点名",上面就显示当前选中的名字
+
+    // 定义数据
+    var names = ["王亚亚", "康春龙", "谢仲龙", "袁旭东", "范志伟", "杜鑫博", "官呈达", "谌雯雯", "杨文林", "周子轩", "苏傲"]
+
+    // 获取元素
+    let oP = document.querySelector("p")
+    let oSpan = document.querySelector("span")
+
+    // 给span绑定点击事件
+    oSpan.addEventListener("click", start)
+    // 这里为什么要将准备这么一个变量？这个主要是为了销毁每次正在执行的 定时器，
+    // 因为我们每次点击“开始点名”后生成的周期定时器的返回值是和上一次不一样的，但是用clear消除周期定时器时，必须需要定时器的独一无二的返回值给clear传参
+    // 所以要用这个变量将上一次的返回值保留下来，以便消除对应的执行过的定时器
+    // 我们可以把这个特定的返回值看作是每个定时器按顺序排下来的id/编号
+    let timerId = 0;
+    function start() {
+      if (oSpan.innerText == "开始点名") {
+        // 我们在这里启动定时器时，其实每次启动的定时器，都是又一个新的定时器，返回值比上次加1
+        timerId = setInterval(moveName, 50)
+        oSpan.innerText = "停止点名"
+      }
+      else {
+        // 通过保留下来的定时器返回值，消除对应的这次正在执行的定时器
+        clearInterval(timerId)
+        oSpan.innerText = "开始点名"
+      }
+    }
+    // 上面说了，每次都是一个新的定时器，那么这个参数最好是写个具名函数传参，不然会在内存中创建多个只使用了一次的匿名函数
+    function moveName() {
+      let randomIndex = Math.floor(Math.random() * (names.length - 1))
+      oP.innerHTML = `${names[randomIndex]}`
+    }
+  </script>
+</body>
+
+</html>

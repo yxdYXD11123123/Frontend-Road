@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background-color: black;
+
+        }
+
+        div {
+            width: 620px;
+            height: 386px;
+            border: 1px solid #ccc;
+            margin: 100px auto;
+            padding: 10px 10px;
+        }
+
+        ul {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            float: left;
+            list-style: none;
+        }
+
+        li:nth-child(1),
+        li:nth-child(2),
+        li:nth-child(4),
+        li:nth-child(5) {
+            margin-right: 10px;
+        }
+
+        li:nth-child(-n+3) {
+            margin-bottom: 10px;
+        }
+
+        img {
+            width: 100%;
+            /* display: inline-block; */
+            vertical-align: middle;
+        }
+
+        /* 这个是div移入移出时，操控的类名，优先级低一些 */
+        .active {
+            opacity: 0.5;
+        }
+
+        /* 研究的核心成果：一个优先级更高的类   因为子元素over和out经常会触发父元素的over和out ，而且会执行在子元素over/out触发后触发，
+        这样的话，子元素想实现的效果优先级必须高起来，才可以不被再次触发的father.over重新洗牌*/
+        div ul .active-high {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <ul>
+            <li><img src="./images/01.jpg" alt=""></li>
+            <li><img src="./images/02.jpg" alt=""></li>
+            <li><img src="./images/03.jpg" alt=""></li>
+            <li><img src="./images/04.jpg" alt=""></li>
+            <li><img src="./images/05.jpg" alt=""></li>
+            <li><img src="./images/06.jpg" alt=""></li>
+        </ul>
+    </div>
+    <script>
+        let odv = document.querySelector('div');
+        let oli = document.querySelectorAll('li');
+        // let oul = document.querySelector('ul'); 不需要
+        // let oimg = document.querySelectorAll('img') 不需要
+
+
+        // 鼠标在div上面的时候，发生.....
+        odv.onmouseover = function () {
+            for (let i = 0; i < oli.length; i++) {
+                // 给所有li添加类名 ".active"
+                oli[i].classList.add("active")// 变灰
+            }
+            console.log('div的移入事件被触发');
+        }
+
+        // 鼠标放在图片上的时候也是放在div里
+        /// div的事件要求：都变灰  给所有加active
+        //  图片的事件要求： 有一个变白  给其中一个去掉active
+
+
+        for (let i = 0; i < oli.length; i++) {
+            //  鼠标经过事件  over在...上面 /// 鼠标在图片上面的时候，发生....
+            oli[i].onmouseover = function () {
+                // for (let j = 0; j < oli.length; j++) {
+                //     oli[j].className = ""; // 也让所有变灰
+                //     oli[j].classList.add('active-high');
+                // }  在这里让所有变灰是没必要的，因为只要进入div,我们就是触发odv.onmouseover的状态（已经都变灰的状态）
+
+
+                this.classList.add('active-high')
+                // 这里我因为子元素over和out经常会触发父元素的over和out ，而且会执行在子元素over/out触发后触发， 也就是  oli[i].onmouseover 一执行 ==> odv.onmouseout 和odv.onmouseover也会执行一遍
+                // 这样的话，子元素想实现的效果优先级必须高起来，才可以不被再次触发的father.over重新洗牌  所以我们专门准备了一个 "div ul .active-high" 来 到达盖过 ".active" 的效果
+
+                // this.style.opacity = "1";  // 让某个图片变白   <li style="opacity = "1"">  1000   
+                // 起初我们计划用行内样式来盖过类名效果，但是这样会给标签内留下 style = "0.5" 这样的痕迹，以至于后来移出div时，div.onmouseout触发后改变类名 不能 改变效果（因为优先级补不够）
+
+
+                console.log("图片的移入事件被触发");
+
+            }
+            // 鼠标移开变灰
+            oli[i].onmouseout = function () {
+                this.classList.remove("active-high")
+                // 这里看似只去除了.active-high  实际上还同时添加了 .ative   
+                // 因为oli[i].onmouseout 执行后 会触发 div.onmouseout再次执行 再次添加上 .active 
+
+                // this.style.opacity = "0.5"  // 让某个图片变灰  会给标签内留下 style = "0.5" 这样的痕迹
+
+                console.log("图片的移出事件被触发");
+
+            }
+        }
+        odv.onmouseout = function () {
+
+            // 移出div时候， 每个li标签里都是只剩下  class = "active"
+            for (let i = 0; i < oli.length; i++) {
+
+                // 将所有li的"active"去除，达到变亮的效果
+                oli[i].classList.remove("active")// 变白
+
+            }
+            console.log('div的移出事件被触发');
+        }
+    </script>
+</body>
+
+</html>
