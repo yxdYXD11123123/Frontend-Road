@@ -1,0 +1,217 @@
+html {
+  height: 100%;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#5344ff), to(#5200ac));
+  background-image: linear-gradient(to bottom, #5344ff, #5200ac);
+}
+
+body {
+  height: 100%;
+  background-image: url(../img/bg.png);
+  background-size: 200%;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+}
+
+.logo {
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.logo img {
+  width: 100%;
+}
+
+h2,
+h5 {
+  text-align: center;
+  font-family: SourceHanSansCN-Bold,SourceHanSansCN;
+  font-weight: bold;
+  color: white;
+  line-height: 1;
+}
+
+p {
+  text-align: center;
+  font-family: SourceHanSansCN-ExtraLight,SourceHanSansCN;
+  color: #bbbbbb;
+  line-height: 32px;
+}
+
+.load-android {
+  float: left;
+}
+
+.load-os {
+  float: right;
+}
+
+.load {
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.load img {
+  width: 100%;
+}
+
+@media screen and (min-width: 1200px) {
+  .logo {
+    width: 100px;
+  }
+  .logo img {
+    margin-top: 30px;
+  }
+  h2 {
+    margin-top: 20px;
+    font-size: 50px;
+  }
+  h5 {
+    margin-top: 15px;
+    font-size: 22px;
+    color: #bbbbbb;
+    font-weight: normal;
+  }
+  p {
+    margin-top: 20px;
+    font-size: 22px;
+    font-weight: 200;
+  }
+  .load {
+    width: 315px;
+    margin-top: 25px;
+  }
+  .load a {
+    width: 100px;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  .logo {
+    width: 100px;
+  }
+  .logo img {
+    margin-top: 40px;
+  }
+  h2 {
+    margin-top: 20px;
+    font-size: 40px;
+  }
+  h5 {
+    margin-top: 15px;
+    font-size: 18px;
+    color: #bbbbbb;
+    font-weight: normal;
+  }
+  p {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: 200;
+  }
+  .load {
+    width: 295px;
+    margin-top: 25px;
+  }
+  .load a {
+    width: 90px;
+  }
+}
+
+@media screen and (max-width: 980px) {
+  .logo {
+    width: 100px;
+  }
+  .logo img {
+    margin-top: 90px;
+  }
+  h2 {
+    margin-top: 30px;
+    font-size: 50px;
+  }
+  h5 {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #bbbbbb;
+    font-weight: normal;
+  }
+  p {
+    margin-top: 30px;
+    font-size: 18px;
+    font-weight: 200;
+  }
+  .load {
+    width: 305px;
+    margin-top: 80px;
+  }
+  .load a {
+    width: 95px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .logo {
+    width: 85px;
+  }
+  .logo img {
+    margin-top: 70px;
+  }
+  h2 {
+    margin-top: 20px;
+    font-size: 0.48rem;
+  }
+  h5 {
+    margin-top: 10px;
+    font-size: 0.24rem;
+    color: #ffffff;
+    font-weight: bold;
+  }
+  p {
+    margin-top: 30px;
+    font-size: 20px;
+    font-weight: 200;
+  }
+  .load {
+    width: 310px;
+    margin-top: 80px;
+  }
+  .load a {
+    width: 90px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  html {
+    min-height: 815px;
+  }
+  .logo {
+    width: 1.3rem;
+  }
+  .logo img {
+    margin-top: 2.57rem;
+  }
+  h2 {
+    margin-top: 0.59rem;
+    font-size: 0.48rem;
+  }
+  h5 {
+    margin-top: 0.27rem;
+    font-size: 0.24rem;
+    color: #ffffff;
+    font-weight: bold;
+  }
+  p {
+    margin-top: .7rem;
+    font-size: 0.28rem;
+    font-weight: 200;
+    line-height: 0.4rem;
+  }
+  .load {
+    overflow: hidden;
+    width: 4.54rem;
+    margin-top: 1.6rem;
+  }
+  .load a {
+    width: 1.62rem;
+    max-width: 90px;
+  }
+}
+/*# sourceMappingURL=appdownload.css.map */
