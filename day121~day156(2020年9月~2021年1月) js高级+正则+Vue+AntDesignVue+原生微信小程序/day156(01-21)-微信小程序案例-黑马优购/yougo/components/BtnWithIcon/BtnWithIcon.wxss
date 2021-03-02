@@ -1,0 +1,37 @@
+/* components/BtnWithIcon/BtnWithIcon.wxss */
+.btn {
+  display: inline-block;
+  text-align: center;
+}
+
+/* 上半部分 图标 */
+.icon {
+  position: relative;
+  line-height: 1;
+}
+
+/* 小图标右上角的徽章 Badge */
+.icon-badge {
+  position: absolute;
+  height: 26rpx;
+  line-height: 26rpx;
+  width: 26rpx;
+  right: 0;
+  top: -4rpx;
+  background-color: red;
+  color: white;
+  font-size: 20rpx;
+  text-align: center;
+  border-radius: 50%;
+}
+
+.iconfont {
+  vertical-align: text-bottom;
+}
+
+/* 下半部分 按钮文本 */
+.text {
+  margin-top: 4rpx;
+  line-height: 1;
+}
+

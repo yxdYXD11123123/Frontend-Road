@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "BtnWithIcon": "/components/BtnWithIcon/BtnWithIcon"
+  }
+}

@@ -1,0 +1,36 @@
+<!-- 分类页 -->
+	<view class="top-search">
+		<!-- 搜索输入框 -->
+		<index-search />
+	</view>
+<view class="cates">
+	<!-- 左侧分类栏 start -->
+	<scroll-view class="cates-left" scroll-y="true">
+		<!-- 分类列表 start -->
+		<view wx:for="{{categories}}" wx:key="cat_id" class="{{activeKey==item.cat_id?'active':''}}" bindtap="chooseCategories" data-id="{{item.cat_id}}" data-index="{{index}}">
+			{{item.cat_name}}
+		</view>
+		<!-- 分类列表 end -->
+	</scroll-view>
+	<!-- 左侧分类栏 end -->
+
+	<!-- 右侧分类详情 start -->
+	<scroll-view class="cates-right" scroll-y="true">
+		<view wx:for="{{rightSideData}}" wx:key="cat_id">
+			<!-- 二级分类标题 start -->
+			<view class="cates-right-title">/ {{item.cat_name}} /</view>
+			<!-- 二级分类标题 end -->
+			<!-- 三级分类 start -->
+			<view class="cates-right-content">
+				<view wx:for="{{item.children}}" wx:key="cat_id" wx:for-item="v" bindtap="chooseLeafCategories" data-cid="{{v.cat_id}}">
+					<!-- 分类图片 -->
+					<image src="{{v.cat_icon}}"></image>
+					<!-- 分类名称 -->
+					<view>{{v.cat_name}}</view>
+				</view>
+			</view>
+			<!-- 三级分类 end -->
+		</view>
+	</scroll-view>
+	<!-- 右侧分类详情 end -->
+</view>

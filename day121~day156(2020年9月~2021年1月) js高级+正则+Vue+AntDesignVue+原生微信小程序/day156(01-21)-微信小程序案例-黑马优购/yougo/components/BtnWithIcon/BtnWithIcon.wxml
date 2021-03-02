@@ -1,0 +1,11 @@
+<!--带有图标的按钮-->
+<view class="btn">
+	<!-- 上半部分 图标 -->
+	<view class="icon">
+		<!-- 如果用徽章信息，则显示 -->
+		<view class="icon-badge" wx:if="{{badge!=''&&badge!=0}}">{{badge}}</view>
+		<text class="iconfont {{iconClass}}"></text>
+	</view>
+	<!-- 下半部分 按钮文本 -->
+	<view class="text">{{content}}</view>
+</view>

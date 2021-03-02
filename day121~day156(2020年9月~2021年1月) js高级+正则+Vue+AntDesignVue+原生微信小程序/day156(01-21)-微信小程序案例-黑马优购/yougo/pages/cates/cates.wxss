@@ -1,0 +1,88 @@
+/*  分类页  */
+
+/* 顶部搜索栏 start */
+.top-search {
+  height:100rpx;
+  background-color: #c00000;
+  padding-top: 10rpx;
+  box-sizing: border-box;
+}
+/* 顶部搜索栏 end */
+.cates,
+.cates>view {
+  height: calc(100vh - 100rpx);
+}
+
+.cates {
+  display: flex;
+}
+
+.cates-left {
+  width: 180rpx;
+  background-color: #f7f7f7;
+}
+
+.cates-right {
+  flex: 1;
+}
+
+/* 左侧分类栏 start */
+.cates-left view {
+  position: relative;
+  width: 100%;
+  height: 120rpx;
+  line-height: 120rpx;
+  text-align: center;
+  font-size: 24rpx;
+}
+
+.cates-left view.active {
+  background-color: #fff;
+}
+
+.cates-left view:after {
+  content: "";
+  position: absolute;
+  display: block;
+  top: 50%;
+  left: 0rpx;
+  width: 6rpx;
+  height: 60rpx;
+  margin-top: -30rpx;
+  background-color: transparent;
+}
+
+.cates-left view.active:after {
+  background-color: #c00000;
+}
+
+/* 左侧分类栏 end */
+
+/* 右侧分类详情 start */
+.cates-right-title {
+  text-align: center;
+  color: black;
+  font-weight: 700;
+  height: 92rpx;
+  line-height: 92rpx;
+}
+
+.cates-right-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+}
+
+.cates-right-content>view {
+  width: 120rpx;
+  padding: 0 30rpx;
+  text-align: center;
+  font-size: 24rpx;
+  margin-bottom: 20rpx;
+}
+
+.cates-right-content image {
+  width: 100%;
+  height: 120rpx;
+}
+/* 右侧分类详情 end */

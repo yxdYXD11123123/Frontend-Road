@@ -1,0 +1,76 @@
+/**index.wxss**/
+/* 顶部搜索栏 start */
+.top-search {
+  height:100rpx;
+  background-color: #c00000;
+  padding-top: 10rpx;
+  box-sizing: border-box;
+}
+/* 顶部搜索栏 end */
+
+/* 轮播图 start */
+.banner image {
+  width: 100%;
+  height: 100%;
+}
+/* 轮播图 end */
+
+/* 分类选项 start */
+.cates {
+  margin-top: 28rpx;
+  display: flex;
+  justify-content:space-evenly;
+  height: 140rpx;
+}
+
+.cates image {
+  width: 128rpx;
+  height: 100%;
+}
+/* 分类选项 end */
+
+/* 楼层 start */
+.floors {
+  margin-top: 36rpx;
+}
+
+.floors > view {
+  margin-bottom: 18rpx;
+}
+
+.floors-title {
+  height: 59rpx;
+  margin-bottom: 8rpx;
+}
+
+.floors-title image {
+  width: 100%;
+  height: 100%;
+}
+
+.floors-content {
+  overflow: hidden;
+  margin-left: 18rpx;
+  margin-right: 18rpx;
+}
+
+.floors-content image {
+  float: left;
+  height: 188rpx;
+}
+
+.floors-content image:nth-child(2), 
+.floors-content image:nth-child(3) {
+  margin-bottom: 10rpx;
+} 
+
+.floors-content image:nth-child(1) {
+  height: 386rpx;
+}
+
+.floors-content image:nth-last-child(-n+4) {
+  margin-left: 9rpx;
+}
+
+
+/* 楼层 end */

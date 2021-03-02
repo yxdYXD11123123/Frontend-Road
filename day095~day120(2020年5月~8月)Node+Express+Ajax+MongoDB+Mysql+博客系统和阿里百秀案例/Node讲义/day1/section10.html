@@ -1,0 +1,1339 @@
+<!DOCTYPE HTML>
+<html lang="zh-tw" >
+    <!-- Start book Node.js讲义 -->
+    <head>
+        <!-- head:start -->
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>路径 __dirname | Node.js讲义</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.6.7">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="../gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-splitter/splitter.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-emphasize/plugin.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-fontsettings/website.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-highlight/website.css">
+        
+    
+    
+
+        
+    
+    
+    <link rel="next" href="../day1/section11.html" />
+    
+    
+    <link rel="prev" href="../day1/section09.html" />
+    
+
+        <!-- head:end -->
+    </head>
+    <body>
+        <!-- body:start -->
+        
+    <div class="book"
+        data-level="1.11"
+        data-chapter-title="路径 __dirname"
+        data-filepath="day1/section10.md"
+        data-basepath=".."
+        data-revision="Thu Dec 13 2018 18:15:18 GMT+0800 (中国标准时间)"
+        data-innerlanguage="">
+    
+
+<div class="book-summary">
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+            
+
+            
+
+            
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                        课程介绍
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="day1/index.html">
+            
+                
+                    <a href="../day1/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        day1
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1" data-path="day1/section00.html">
+            
+                
+                    <a href="../day1/section00.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.</b>
+                        
+                        前言
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="day1/section01.html">
+            
+                
+                    <a href="../day1/section01.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.</b>
+                        
+                        前端与后端
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="day1/section02.html">
+            
+                
+                    <a href="../day1/section02.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.</b>
+                        
+                        Node.js的历史由来
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="day1/section03.html">
+            
+                
+                    <a href="../day1/section03.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.4.</b>
+                        
+                        Node.js介绍
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="day1/section04.html">
+            
+                
+                    <a href="../day1/section04.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.5.</b>
+                        
+                        安装Node.js
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="day1/section05.html">
+            
+                
+                    <a href="../day1/section05.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.6.</b>
+                        
+                        Node.js的功能
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="day1/section06.html">
+            
+                
+                    <a href="../day1/section06.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.7.</b>
+                        
+                        Node.js的镜像配置
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="day1/section07.html">
+            
+                
+                    <a href="../day1/section07.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.8.</b>
+                        
+                        使用Node执行代码的两种方式
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="day1/section08.html">
+            
+                
+                    <a href="../day1/section08.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.9.</b>
+                        
+                        读写模块fs
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="day1/section09.html">
+            
+                
+                    <a href="../day1/section09.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.10.</b>
+                        
+                        箭头函数
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.11" data-path="day1/section10.html">
+            
+                
+                    <a href="../day1/section10.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.11.</b>
+                        
+                        路径 __dirname
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="day1/section11.html">
+            
+                
+                    <a href="../day1/section11.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.12.</b>
+                        
+                        Web服务器介绍
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="day1/section12.html">
+            
+                
+                    <a href="../day1/section12.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.13.</b>
+                        
+                        请求响应的基本流程
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="day1/section13.html">
+            
+                
+                    <a href="../day1/section13.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.14.</b>
+                        
+                        http模块
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="day1/section14.html">
+            
+                
+                    <a href="../day1/section14.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.15.</b>
+                        
+                        http协议
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="day1/section15.html">
+            
+                
+                    <a href="../day1/section15.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.16.</b>
+                        
+                        请求报文
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" data-path="day1/section16.html">
+            
+                
+                    <a href="../day1/section16.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.17.</b>
+                        
+                        响应报文
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18" data-path="day1/section17.html">
+            
+                
+                    <a href="../day1/section17.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.18.</b>
+                        
+                        请求方式
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.19" data-path="day1/section18.html">
+            
+                
+                    <a href="../day1/section18.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.19.</b>
+                        
+                        url访问路径
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.20" data-path="day1/section19.html">
+            
+                
+                    <a href="../day1/section19.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.20.</b>
+                        
+                        静态资源请求路径问题
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="day2/index.html">
+            
+                
+                    <a href="../day2/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        day2
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="day2/section01.html">
+            
+                
+                    <a href="../day2/section01.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                        同步读取文件
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="day2/section02.html">
+            
+                
+                    <a href="../day2/section02.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                        异步读取文件
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="day2/section03.html">
+            
+                
+                    <a href="../day2/section03.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.</b>
+                        
+                        异步保证读取顺序
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="day2/section04.html">
+            
+                
+                    <a href="../day2/section04.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.</b>
+                        
+                        同步和异步的错误处理
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="day2/section05.html">
+            
+                
+                    <a href="../day2/section05.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.5.</b>
+                        
+                        模块化介绍
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="day2/section06.html">
+            
+                
+                    <a href="../day2/section06.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.6.</b>
+                        
+                        Node中的模块化
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.7" data-path="day2/section07.html">
+            
+                
+                    <a href="../day2/section07.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.7.</b>
+                        
+                        实现模块化
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.8" data-path="day2/section08.html">
+            
+                
+                    <a href="../day2/section08.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.8.</b>
+                        
+                        exports与module.exports
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.9" data-path="day2/section09.html">
+            
+                
+                    <a href="../day2/section09.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.9.</b>
+                        
+                        模块的加载规则
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.10" data-path="day2/section10.html">
+            
+                
+                    <a href="../day2/section10.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.10.</b>
+                        
+                        path
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.11" data-path="day2/section11.html">
+            
+                
+                    <a href="../day2/section11.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.11.</b>
+                        
+                        ES6中的新语法
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.12" data-path="day2/section12.html">
+            
+                
+                    <a href="../day2/section12.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.12.</b>
+                        
+                        art-template
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="day3/index.html">
+            
+                
+                    <a href="../day3/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        day3
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1" data-path="day3/section00.html">
+            
+                
+                    <a href="../day3/section00.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.</b>
+                        
+                        请求的方式
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="day3/section01.html">
+            
+                
+                    <a href="../day3/section01.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.2.</b>
+                        
+                        GET请求
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="day3/section02.html">
+            
+                
+                    <a href="../day3/section02.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.3.</b>
+                        
+                        POST请求
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="day3/section03.html">
+            
+                
+                    <a href="../day3/section03.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.4.</b>
+                        
+                        发送数据
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5" data-path="day3/section04.html">
+            
+                
+                    <a href="../day3/section04.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.5.</b>
+                        
+                        常见表单的处理
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6" data-path="day3/section05.html">
+            
+                
+                    <a href="../day3/section05.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.6.</b>
+                        
+                        AJAX编程
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.7" data-path="day3/section06.html">
+            
+                
+                    <a href="../day3/section06.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.7.</b>
+                        
+                        异步
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.8" data-path="day3/section07.html">
+            
+                
+                    <a href="../day3/section07.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.8.</b>
+                        
+                        XMLHttpRequest
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.9" data-path="day3/section08.html">
+            
+                
+                    <a href="../day3/section08.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.9.</b>
+                        
+                        API详解
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.10" data-path="day3/section09.html">
+            
+                
+                    <a href="../day3/section09.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.10.</b>
+                        
+                        GET与POST的差异
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.11" data-path="day3/section10.html">
+            
+                
+                    <a href="../day3/section10.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.11.</b>
+                        
+                        JSON
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.12" data-path="day3/section11.html">
+            
+                
+                    <a href="../day3/section11.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.12.</b>
+                        
+                        XML
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.13" data-path="day3/section12.html">
+            
+                
+                    <a href="../day3/section12.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.13.</b>
+                        
+                        jQuery中的Ajax
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.14" data-path="day3/section13.html">
+            
+                
+                    <a href="../day3/section13.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.14.</b>
+                        
+                        案例练习
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="day4/index.html">
+            
+                
+                    <a href="../day4/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        day4
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1" data-path="day4/section01.html">
+            
+                
+                    <a href="../day4/section01.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.1.</b>
+                        
+                        Express介绍
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="day4/section02.html">
+            
+                
+                    <a href="../day4/section02.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.2.</b>
+                        
+                        Express的基本使用
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="day4/section03.html">
+            
+                
+                    <a href="../day4/section03.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.3.</b>
+                        
+                        接收GET和POST请求
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="day4/section04.html">
+            
+                
+                    <a href="../day4/section04.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.4.</b>
+                        
+                        EJS模板引擎
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5" data-path="day4/section05.html">
+            
+                
+                    <a href="../day4/section05.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.5.</b>
+                        
+                        使用EJS渲染页面
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6" data-path="day4/section06.html">
+            
+                
+                    <a href="../day4/section06.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.6.</b>
+                        
+                        托管静态页面
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.7" data-path="day4/section07.html">
+            
+                
+                    <a href="../day4/section07.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.7.</b>
+                        
+                        修改默认界定符
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.8" data-path="day4/section08.html">
+            
+                
+                    <a href="../day4/section08.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.8.</b>
+                        
+                        include
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.9" data-path="day4/section09.html">
+            
+                
+                    <a href="../day4/section09.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.9.</b>
+                        
+                        路由
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10" data-path="day4/section10.html">
+            
+                
+                    <a href="../day4/section10.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.10.</b>
+                        
+                        中间件
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="day5/index.html">
+            
+                
+                    <a href="../day5/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        day5
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1" data-path="day5/section01.html">
+            
+                
+                    <a href="../day5/section01.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.1.</b>
+                        
+                        数据库介绍
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="day5/section02.html">
+            
+                
+                    <a href="../day5/section02.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.2.</b>
+                        
+                        基本概念
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="day5/section03.html">
+            
+                
+                    <a href="../day5/section03.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.3.</b>
+                        
+                        基本操作
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.4" data-path="day5/section04.html">
+            
+                
+                    <a href="../day5/section04.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.4.</b>
+                        
+                        常用SQL语句
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.5" data-path="day5/section05.html">
+            
+                
+                    <a href="../day5/section05.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.5.</b>
+                        
+                        几个常用函数
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.6" data-path="day5/section06.html">
+            
+                
+                    <a href="../day5/section06.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.6.</b>
+                        
+                        使用Node操作数据库
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="day6/index.html">
+            
+                
+                    <a href="../day6/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                        day6
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1" data-path="day6/section01.html">
+            
+                
+                    <a href="../day6/section01.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.1.</b>
+                        
+                        HTTP会话与无状态
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" data-path="day6/section02.html">
+            
+                
+                    <a href="../day6/section02.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.2.</b>
+                        
+                        cookie介绍
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.3" data-path="day6/section03.html">
+            
+                
+                    <a href="../day6/section03.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.3.</b>
+                        
+                        cookie的简单实现
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.4" data-path="day6/section04.html">
+            
+                
+                    <a href="../day6/section04.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.4.</b>
+                        
+                        cookie在登陆中的使用
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.5" data-path="day6/section05.html">
+            
+                
+                    <a href="../day6/section05.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.5.</b>
+                        
+                        session介绍
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.6" data-path="day6/section06.html">
+            
+                
+                    <a href="../day6/section06.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.6.</b>
+                        
+                        在express中使用session
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+            
+            <li class="divider"></li>
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    本書使用 GitBook 釋出
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header" role="navigation">
+    <!-- Actions Left -->
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../" >Node.js讲义</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1" role="main">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h2 id="dirname">__dirName</h2>
+<p>1.Node&#x5728;&#x6267;&#x884C;&#x8BFB;&#x5199;&#x6587;&#x4EF6;&#x7684;&#x65F6;&#x5019;,&#x8DEF;&#x5F84;&#x662F;&#x6839;&#x636E;&#x8FD0;&#x884C;Node&#x547D;&#x4EE4;&#x6240;&#x5728;&#x7684;&#x6587;&#x4EF6;&#x5939;&#x8DEF;&#x5F84;&#x8FDB;&#x884C;&#x67E5;&#x627E;&#x6587;&#x4EF6;&#x7684;.</p>
+<p>2.&#x4E3A;&#x4E86;&#x89E3;&#x51B3;Node&#x4E2D;fs&#x6A21;&#x5757;&#x7684;&#x8DEF;&#x5F84;&#x95EE;&#x9898;,Node&#x4E2D;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;<strong>__dirname</strong></p>
+<p>3.__dirname&#x62FF;&#x5230;&#x7684;&#x6C38;&#x8FDC;&#x662F;&#x8FD9;&#x4E2A;&#x5F53;&#x524D;&#x6B63;&#x5728;&#x6267;&#x884C;&#x7684;js&#x6587;&#x4EF6;&#x6240;&#x5728;&#x7684;&#x6839;&#x76EE;&#x5F55;,&#x662F;&#x4E00;&#x4E2A;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;,&#x662F;&#x4ECE;&#x7CFB;&#x7EDF;&#x76D8;&#x7B26;&#x5F00;&#x59CB;&#x7684;.</p>
+<p>4.&#x8FD9;&#x4E2A;&#x8DEF;&#x5F84;&#x662F;&#x52A8;&#x6001;&#x53EF;&#x53D8;&#x7684;,&#x6839;&#x636E;&#x6267;&#x884C;&#x6587;&#x4EF6;&#x7684;&#x4E0D;&#x540C;,&#x8DEF;&#x5F84;&#x4E5F;&#x4E0D;&#x540C;,&#x4F46;&#x80AF;&#x5B9A;&#x662F;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;,&#x662F;&#x4EE5;&#x76D8;&#x7B26;&#x5F00;&#x59CB;&#x7684;.</p>
+<pre><code class="lang-js"><span class="hljs-comment">// 1. &#x5F15;&#x5165;&#x6A21;&#x5757;</span>
+<span class="hljs-keyword">var</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;fs&apos;</span>)
+
+<span class="hljs-comment">// 2. &#x8C03;&#x7528;&#x65B9;&#x6CD5;&#x8BFB;&#x53D6;&#x6587;&#x4EF6;</span>
+<span class="hljs-comment">// Node&#x5728;&#x6267;&#x884C;&#x8BFB;&#x5199;&#x6587;&#x4EF6;&#x7684;&#x65F6;&#x5019;,&#x8DEF;&#x5F84;&#x662F;&#x6839;&#x636E;&#x8FD0;&#x884C;Node&#x547D;&#x4EE4;&#x6240;&#x5728;&#x7684;&#x6587;&#x4EF6;&#x5939;&#x8DEF;&#x5F84;&#x8FDB;&#x884C;&#x67E5;&#x627E;&#x6587;&#x4EF6;&#x7684;.</span>
+<span class="hljs-comment">// &#x4E3A;&#x4E86;&#x89E3;&#x51B3;Node&#x4E2D;fs&#x6A21;&#x5757;&#x7684;&#x8DEF;&#x5F84;&#x95EE;&#x9898;, Node&#x4E2D;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;__dirname,&#x83B7;&#x53D6;&#x7684;&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;</span>
+<span class="hljs-comment">// __dirname&#x83B7;&#x53D6;&#x7684;&#x6C38;&#x8FDC;&#x662F;&#x5F53;&#x524D;&#x7684;js&#x6587;&#x4EF6;&#x6240;&#x5728;&#x7684;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;</span>
+<span class="hljs-comment">// fs.readFile(&apos;./files/2.txt&apos;,&apos;utf-8&apos;,(err,data)=&gt;{</span>
+fs.readFile(__dirname+<span class="hljs-string">&apos;/files/2.txt&apos;</span>,<span class="hljs-string">&apos;utf-8&apos;</span>,(err,data)=&gt;{
+  <span class="hljs-keyword">if</span>(err) <span class="hljs-keyword">throw</span> err;
+  <span class="hljs-built_in">console</span>.log(data);
+})
+
+<span class="hljs-built_in">console</span>.log(__dirname);
+</code></pre>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../day1/section09.html" class="navigation navigation-prev " aria-label="Previous page: 箭头函数"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../day1/section11.html" class="navigation navigation-next " aria-label="Next page: Web服务器介绍"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/app.js"></script>
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-splitter/splitter.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"fontsettings":{"family":"sans","size":2,"theme":"white"},"toggle-chapters":{},"splitter":{},"emphasize":{},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]}};
+    gitbook.start(config);
+});
+</script>
+
+        <!-- body:end -->
+    </body>
+    <!-- End of book Node.js讲义 -->
+</html>

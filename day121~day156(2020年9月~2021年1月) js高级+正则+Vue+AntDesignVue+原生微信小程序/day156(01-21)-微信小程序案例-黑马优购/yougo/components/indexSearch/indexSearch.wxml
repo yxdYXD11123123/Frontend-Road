@@ -1,0 +1,7 @@
+<!--components/indexSearch/indexSearch.wxml-->
+<view class="top-search-input">
+	<!-- 搜索图标 -->
+	<icon wx:if="{{!searchInputing}}" class="icon-small" type="search" size="18"></icon>
+	<!-- 搜索输入框 -->
+	<input class="input" placeholder-class="search-placeholder" value="{{searchKey}}" bindinput="searchInput" placeholder="搜索" />
+</view>

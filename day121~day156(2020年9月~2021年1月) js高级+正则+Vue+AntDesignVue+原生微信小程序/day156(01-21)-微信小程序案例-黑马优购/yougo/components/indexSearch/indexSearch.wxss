@@ -1,0 +1,28 @@
+.top-search-input {
+  position: relative;
+  width: 710rpx;
+  margin: 0 auto;
+}
+/* 搜索icon */
+.top-search-input .icon-small {
+  position: absolute;
+  left: 50%;
+  margin-left: -32rpx;
+  margin-top: 18rpx;
+}
+
+.top-search-input .input {
+  height: 72rpx;
+  background-color: white;
+  vertical-align: middle;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  border-radius: 36rpx;
+}
+
+.search-placeholder {
+  text-align: center;
+  padding-left: 30rpx;
+  font-size: 26rpx;
+  color: #999;
+}

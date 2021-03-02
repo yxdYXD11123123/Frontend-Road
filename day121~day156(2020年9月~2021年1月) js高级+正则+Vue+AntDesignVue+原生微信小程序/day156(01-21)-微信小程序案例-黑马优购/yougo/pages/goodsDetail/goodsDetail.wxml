@@ -1,0 +1,50 @@
+<!-- 商品详情页 -->
+<view class="goods-detail">
+	<!-- 商品展示轮播图 start -->
+	<swiper indicator-dots autoplay class="goods-swiper">
+		<swiper-item wx:for="{{goodsInfo.pics}}" wx:key="pics_id" bindtap="previewPics">
+			<image src="{{item.pics_big}}" mode="aspectFit"></image>
+		</swiper-item>
+	</swiper>
+	<!-- 商品展示轮播图 end -->
+
+	<!-- 商品价格 start -->
+	<view class="goods-price">￥{{goodsInfo.goods_price}}</view>
+	<!-- 商品价格 start -->
+
+	<!-- 商品名称 start -->
+	<view class="goods-name">
+		<view>{{goodsInfo.goods_name}}</view>
+		<view class="goods-name-collect">
+			<text class="iconfont icon-shoucang"></text>
+			<text>收藏</text>
+		</view>
+	</view>
+	<!-- 商品名称 end -->
+
+	<!-- 快递 start -->
+	<view class="goods-post">快递：免运费</view>
+	<!-- 快递 end -->
+
+	<!-- 商品介绍 start -->
+	<view class="goods-intro">
+		<rich-text nodes="{{goodsInfo.goods_introduce}}"></rich-text>
+	</view>
+	<!-- 商品介绍 end -->
+
+	<!-- 商品详情底部 start -->
+	<view class="goods-footer">
+		<!-- 店铺 -->
+		<BtnWithIcon iconClass="icon-dianpu" content="店铺" bindtap="navToStore"></BtnWithIcon>
+		<!-- 购物车 -->
+		<BtnWithIcon iconClass="icon-gouwuchekong" badge="{{goodsNumInCart}}" content="购物车"></BtnWithIcon>
+		<!-- 加入购物车 、 立即购买 start -->
+		<view class="goods-buy">
+			<!-- 加入购物车 -->
+			<view bindtap="addCart">加入购物车</view>
+			<view>立即购买</view>
+		</view>
+		<!-- 加入购物车 、 立即购买 end -->
+	</view>
+	<!-- 商品详情底部 end -->
+</view>

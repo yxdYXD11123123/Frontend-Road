@@ -1,0 +1,41 @@
+<!-- 主页 -->
+<view class="home">
+	<!-- 顶部搜索栏 start -->
+	<view class="top-search">
+		<!-- 搜索输入框 -->
+		<index-search />
+	</view>
+	<!-- 顶部搜索栏 end -->
+
+	<!-- 轮播图 start -->
+	<view class="banner">
+		<swiper indicator-dots circular autoplay>
+			<swiper-item wx:for="{{swiper.data}}" wx:key="goods_id" data-info="{{item}}" bindtap="chooseSwiper">
+				<image src="{{item.image_src}}" mode="scaleToFill"></image>
+			</swiper-item>
+		</swiper>
+	</view>
+	<!-- 轮播图 end -->
+
+	<!-- 分类选项 start -->
+	<view class="cates">
+		<image wx:for="{{cates}}" src="{{item.image_src}}" wx:key="index" bindtap="clickCates" data-open-type="{{item.open_type}}"></image>
+	</view>
+	<!-- 分类选项 end -->
+
+	<!-- 楼层 start -->
+	<view class="floors">
+		<view wx:for="{{floors}}" wx:key="index">
+			<!-- 楼层标题 -->
+			<view class="floors-title">
+				<image src="{{item.floor_title.image_src}}"></image>
+			</view>
+			<!-- 楼层内容 -->
+			<view class="floors-content">
+				<image wx:for="{{item.product_list}}" wx:for-index="i" wx:for-item="v" src="{{v.image_src}}" wx:key="i" style="width:{{v.image_width}}rpx" data-query="{{v.navigator_url}}" bindtap="chooseFloor"></image>
+			</view>
+		</view>
+	</view>
+	<!-- 楼层 end -->
+
+</view>

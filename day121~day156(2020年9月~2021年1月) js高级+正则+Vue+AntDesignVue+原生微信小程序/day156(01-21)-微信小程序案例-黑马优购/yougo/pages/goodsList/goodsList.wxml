@@ -1,0 +1,35 @@
+<!-- 商品列表页 -->
+<view class="goods">
+	<view class="top-search">
+		<!-- 搜索输入框 -->
+		<index-search />
+	</view>
+	<!-- 商品排序方式tabBar start -->
+	<view class="goods-tabbar" bindtap="chooseOrder">
+		<view class="{{orderKey=='mult'?'active':''}}" data-order="mult">综合</view>
+		<view class="{{orderKey=='sales'?'active':''}}" data-order="sales">销量</view>
+		<view class="{{orderKey=='price'?'active':''}}" data-order="price">价格</view>
+	</view>
+	<!-- 商品排序方式tabBar end -->
+
+	<!-- 商品列表 start -->
+	<scroll-view class="goods-scroll" scroll-y refresher-enabled refresher-triggered="{{refreshing}}" bindrefresherrefresh="refreshGoods" lower-threshold="60" bindscrolltolower="scrollToBottom" enhanced>
+		<view wx:for="{{goodsOrdered}}" wx:key="goods_id" class="goods-li">
+				<!-- 左侧商品图片 -->
+				<view class="goods-pic">
+					<image src="{{item.goods_big_logo}}" mode="aspectFit"></image>
+				</view>
+				<!-- 右侧商品信息 -->
+				<view class="goods-infos">
+					<!-- 商品名 -->
+					<view>{{item.goods_name}}</view>
+					<!-- 商品价格 -->
+					<view>￥{{item.goods_price}}</view>
+				</view>
+			</view>
+			<!-- 加载更多 -->
+			<mp-loading type="circle" ext-class="demo1" show="{{showLoadingMore}}"></mp-loading>
+
+	</scroll-view>
+	<!-- 商品列表 end -->
+</view>

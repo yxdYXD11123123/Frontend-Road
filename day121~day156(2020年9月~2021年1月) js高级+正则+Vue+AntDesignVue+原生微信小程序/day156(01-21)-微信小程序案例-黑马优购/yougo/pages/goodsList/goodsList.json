@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "index-search": "../../components/indexSearch/indexSearch",
+    "mp-loading": "weui-miniprogram/loading/loading"
+  }
+}
