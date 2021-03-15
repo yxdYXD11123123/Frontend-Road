@@ -1,0 +1,5 @@
+/**app.wxss**/
+page {
+  --button-danger-background-color: pink;
+  --button-danger-border-color: rgb(153, 108, 115);
+}

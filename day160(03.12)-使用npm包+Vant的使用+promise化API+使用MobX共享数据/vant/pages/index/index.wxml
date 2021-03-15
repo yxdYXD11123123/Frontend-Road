@@ -1,0 +1,11 @@
+<!-- 首页 -->
+<view>
+  <van-button type="default">默认按钮</van-button>
+  <van-button type="primary" bindtap="addNum">{{numA}}主要按钮</van-button>
+  <van-button type="info">信息按钮</van-button>
+  <van-button type="warning">警告按钮</van-button>
+  <van-button type="danger">危险按钮</van-button>
+</view>
+{{sum}}
+<text class="aaa">使用CSS自定义属性</text>
+<newCom></newCom>

@@ -1,0 +1,7 @@
+<!--components/newCom/newCom.wxml-->
+<view>我是newCom start</view>
+<view>
+  {{numA}}+{{numB}}={{sum}}
+</view>
+<view bindtap="updateNum">我是newCom end</view>
+

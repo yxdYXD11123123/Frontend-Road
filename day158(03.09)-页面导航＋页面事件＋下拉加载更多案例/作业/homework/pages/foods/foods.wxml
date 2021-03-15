@@ -1,0 +1,32 @@
+<!-- 美食页 -->
+
+<!-- 美食列表 start -->
+<view class="foods">
+  <view wx:for="{{foodList}}" wx:key="id">
+    <image src="{{item.images[0]}}"></image>
+    <!-- 美食信息 start -->
+    <view class="foods-infos">
+      <view>{{item.name}}</view>
+      <view>电话：{{tools.justifyPhone(item.phone)}}</view>
+      <view>地址：{{item.address}}</view>
+      <view>营业时间：{{item.businessHours}}</view>
+    </view>
+    <!-- 美食信息 end -->
+  </view>
+</view>
+<!-- 美食列表 end -->
+
+<!-- 没有更多 -->
+<view wx:if="{{showNoMore}}" class="no-more">没有更多了~</view>
+
+<wxs module="tools">
+// 过滤电话号
+module.exports.justifyPhone = function (phone) {
+  if (phone) {
+    return phone.indexOf('-')==-1?phone.substring(0,3)+"-"+phone.substring(3, 7)+"-"+phone.substring(7,11):phone;
+  }
+  else {
+    return '无'
+  }
+}
+</wxs>

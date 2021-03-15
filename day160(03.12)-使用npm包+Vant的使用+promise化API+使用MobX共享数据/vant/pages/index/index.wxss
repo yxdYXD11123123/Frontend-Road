@@ -1,0 +1,8 @@
+/**index.wxss**/
+page {
+  --main--color: blue;
+}
+
+.aaa {
+  color: var(--main--color);
+}

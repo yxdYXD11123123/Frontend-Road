@@ -1,0 +1,24 @@
+<!-- 首页 -->
+<!-- 轮播图carousel栏 start -->
+<swiper class="carousel" indicator-dots circular>
+  <swiper-item wx:for="{{carouselList}}" wx:key="id">
+    <image src="{{item.image}}" mode="scaleToFill"></image>
+  </swiper-item>
+</swiper>
+<!-- 轮播图carousel栏 end -->
+
+<!-- 九宫格菜单menu栏 start -->
+<view class="menu">
+  <navigator wx:for="{{menuList}}" wx:key="id" url="/pages/foods/foods?id={{item.id}}&title={{item.name}}">
+    <image src="{{item.icon}}"></image>
+    <text>{{item.name}}</text>
+  </navigator>
+</view>
+<!-- 九宫格菜单menu栏 end -->
+
+<!-- 更多链接links栏 start -->
+<view class="links">
+  <view style="background-image: url(/images/link-01.png);"></view>
+  <view style="background-image: url(/images/link-02.png);"></view>
+</view>
+<!-- 更多链接links栏 end -->
