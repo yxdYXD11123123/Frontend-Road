@@ -1,0 +1,57 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/one/one",
+    "pages/two/two"
+  ],
+  "subpackages": [
+    {
+      "root": "packageA",
+      "name": "baoA",
+      "pages": [
+        "pages/about/about"
+      ]
+    },
+    {
+      "root": "packageB",
+      "name": "baoB",
+      "pages": [
+        "pages/more/more"
+      ],
+      "independent": true
+    }
+  ],
+  "preloadRule": {
+    "pages/index/index": {
+      "network": "all",
+      "packages": [
+        "baoA"
+      ]
+    }
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Weixin",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "custom": true,
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "主页"
+      },
+      {
+        "pagePath": "pages/one/one",
+        "text": "one"
+      },
+      {
+        "pagePath": "pages/two/two",
+        "text": "two"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,16 @@
+/* custom-tab-bar/index.wxss */
+.tabbar {
+  position: fixed;
+  display: flex;
+  width: 100%;
+  top: 0;
+}
+
+.bar {
+  flex: 1;
+  text-align: center;
+  color: yellowgreen;
+  font-weight: bold;
+  font-size: 48rpx;
+}
+

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    [v-cloak] {
+      display: none;
+    }
+
+    .color-red {
+      color: rebeccapurple;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <h1 v-cloak>{{msg}}</h1>
+    <button v-on:click="changeMsg">修改msg</button>
+    <!-- v-once会让这个整个元素只渲染一次 -->
+    <h2 v-once v-bind:title="msg">{{once}}</h2>
+    <button @click="changeOnce">修改上一行</button>
+    <teleport to="body">
+      <div :class="{'color-red':isRed}">传送</div>
+    </teleport>
+  </div>
+
+  <script src="https://unpkg.com/vue@next"></script>
+  <script>
+    const app = {
+      data() {
+        return {
+          msg: "信息",
+          once: "这里只渲染一次",
+          isRed: true
+        }
+      },
+      methods: {
+        changeOnce() {
+          this.once = '修改';
+        },
+        changeMsg() {
+          this.msg = "新信息"
+        }
+      }
+    };
+    Vue.createApp(app).mount("#app");
+  </script>
+
+</body>
+
+</html>
