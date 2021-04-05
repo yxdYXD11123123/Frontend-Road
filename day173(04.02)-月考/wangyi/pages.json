@@ -1,0 +1,73 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "uni-app"
+			}
+		}
+	    ,{
+            "path" : "pages/search/search",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/my/my",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/video/video",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+    ],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	},
+	"tabBar":{
+		"selectedColor":"#ff0000",
+		"list":[
+			{
+				"text":"首页",
+				"iconPath":"static/icon/home.png",
+				"selectedIconPath":"static/icon/home-check.png",
+				"pagePath":"pages/index/index"
+			},
+			{
+				"text":"搜索",
+				"iconPath":"static/icon/search.png",
+				"selectedIconPath":"static/icon/search-check.png",
+				"pagePath":"pages/search/search"
+			},
+			{
+				"text":"视频",
+				"iconPath":"static/icon/video.png",
+				"selectedIconPath":"static/icon/video-check.png",
+				"pagePath":"pages/video/video"
+				
+			},
+			{
+				"text":"我的",
+				"iconPath":"static/icon/user.png",
+				"selectedIconPath":"static/icon/user-check.png",
+				"pagePath":"pages/my/my"
+			}
+		]
+	}
+}
