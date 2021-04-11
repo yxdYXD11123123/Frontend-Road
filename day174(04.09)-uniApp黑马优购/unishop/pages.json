@@ -1,0 +1,88 @@
+{
+	"pages": [{
+			"path": "pages/home/home",
+			"style": {
+				"navigationBarTitleText": "首页",
+				"enablePullDownRefresh": false
+			}
+		}, //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/cates/cates",
+			"style": {
+				"navigationBarTitleText": "分类",
+				"enablePullDownRefresh": false
+			}
+		}, {
+			"path": "pages/cart/cart",
+			"style": {
+				"navigationBarTitleText": "购物车",
+				"enablePullDownRefresh": false
+			}
+		}, {
+			"path": "pages/my/my",
+			"style": {
+				"navigationBarTitleText": "个人中心",
+				"enablePullDownRefresh": false
+			}
+		}
+	],
+	"tabBar": {
+		"color": "#C0C0C0",
+		"selectedColor": "#c00000",
+		"list": [{
+				"pagePath": "pages/home/home",
+				"text": "首页",
+				"iconPath": "static/tabBar/cart.png",
+				"selectedIconPath": "static/tabBar/cart-active.png"
+			},
+			{
+				"pagePath": "pages/cates/cates",
+				"text": "分类",
+				"iconPath": "static/tabBar/cate.png",
+				"selectedIconPath": "static/tabBar/cate-active.png"
+			},
+			{
+				"pagePath": "pages/cart/cart",
+				"text": "购物车",
+				"iconPath": "static/tabBar/cart.png",
+				"selectedIconPath": "static/tabBar/cart-active.png"
+			},
+			{
+				"pagePath": "pages/my/my",
+				"text": "我的",
+				"iconPath": "static/tabBar/my.png",
+				"selectedIconPath": "static/tabBar/my-active.png"
+			}
+		]
+	},
+	"globalStyle": {
+		"navigationBarTextStyle": "white",
+		"navigationBarTitleText": "黑马优购",
+		"navigationBarBackgroundColor": "#C00000",
+		"backgroundColor": "#FFFFFF"
+	},
+	"subPackages": [{
+		"root": "packageA",
+		"pages": [{
+			"path": "goods_detail/goods_detail",
+			"style": {
+				"navigationBarTitleText": "商品詳情",
+				"enablePullDownRefresh": false
+			}
+		}, {
+			"path": "goods_list/goods_list",
+			"style": {
+				"navigationBarTitleText": "商品列表",
+				"enablePullDownRefresh": true,
+				"backgroundTextStyle": "light",
+				"backgroundColor":"#eeeeee"
+			}
+		}, {
+			"path": "search/search",
+			"style": {
+				"navigationBarTitleText": "搜索页",
+				"enablePullDownRefresh": false
+			}
+		}]
+	}]
+}
