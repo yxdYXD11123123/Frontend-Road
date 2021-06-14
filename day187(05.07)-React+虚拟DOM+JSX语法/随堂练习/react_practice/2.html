@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app"></div>
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <!-- 引入babel -->
+  <script src="./lib//babel.min.js"></script>
+  <!-- 声明type -->
+  <script type="text/babel">
+
+    let btnName = "按钮名";
+
+    function Button() {
+      // JSX语法
+      return <button>{btnName}</button>
+    }
+    // 使用<Button/> 表示 构造函数实例 组件
+    ReactDOM.render(<Button />, document.getElementById("app"))
+  </script>
+</body>
+
+</html>

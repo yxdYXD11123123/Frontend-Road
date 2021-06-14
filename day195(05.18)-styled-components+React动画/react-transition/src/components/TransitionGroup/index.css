@@ -1,0 +1,43 @@
+ul {
+  text-align: center;
+}
+li {
+  width: 300px;
+}
+/* xxx-enter 进入动画执行之前绑定的类名 */
+/* xxx-enter-active 进入动画执行中绑定的类名 */
+/* xxx-enter-done 进入动画执行完绑定的类名 */
+.box-enter {
+  opacity: 0;
+  transform: translate(-100%);
+}
+
+.box-enter-active {
+  opacity: 1;
+  transform: translate(0%);
+  transition: all 3s;
+}
+
+.box-enter-done {
+  opacity: 1;
+  transform: translate(0%);
+}
+
+/* xxx-exit 退出动画执行之前绑定的类名 */
+/* xxx-exit-active 退出动画执行中绑定的类名 */
+/* xxx-exit-done 退出动画执行完绑定的类名 */
+.box-exit {
+  opacity: 1;
+  transform: translate(0%);
+}
+
+.box-exit-active {
+  opacity: 0;
+  transition: all 3s;
+  transform: translate(100%);
+}
+
+.box-exit-done {
+  opacity: 0;
+  transform: translate(100%);
+}

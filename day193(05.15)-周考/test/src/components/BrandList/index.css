@@ -1,0 +1,21 @@
+.shopping-left {
+  width: 200px;
+  border: 1px solid #000;
+  padding: 5px;
+  box-sizing: border-box;
+  float: left;
+}
+input:nth-child(2) {
+  margin: 10px 0;
+}
+table {
+  float: left;
+  width: 600px;
+  margin-left: 50px;
+  border-collapse: collapse;
+  text-align: center;
+}
+thead {
+  color: #fff;
+  background-color: #008000;
+}

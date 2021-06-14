@@ -1,0 +1,92 @@
+.App {
+  display: flex;
+  height: 100%;
+}
+
+a {
+ text-decoration: none;
+}
+
+.aside {
+  width: 10%;
+  height: 100%;
+  padding-left: 30px;
+  background-color: #cccccc;
+}
+
+.right {
+  flex: 1;
+  height: 100%;
+  padding-left: 30px;
+}
+
+.action-button {
+  cursor: pointer;
+  background-color: white;
+  border: 1px solid #cccccc;
+  padding: 5px;
+  padding-right: 30px;
+}
+
+.box {
+  margin-top: 20px;
+  opacity: 0;
+  transform: translateX(100%);
+  width: 200px;
+  height: 200px;
+  background-color: black;
+  border-radius: 10px;
+}
+
+.box-enter {
+  opacity: 0;
+  transform: translateX(100%);
+  width: 200px;
+  height: 200px;
+  background-color: black;
+}
+
+.box-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  width: 200px;
+  height: 200px;
+  background-color: black;
+  transition: all 3s;
+}
+
+.box-enter-done {
+  opacity: 1;
+  transform: translateX(0);
+}
+/* // 出 */
+.box-exit {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.box-exit-active {
+  opacity: 0;
+  transform: translateX(100%);
+  transition: all 3s;
+}
+
+.box-exit-done {
+  opacity: 0;
+  transform: translateX(100%);
+}
+
+/* 侧边栏样式 */
+.aside-nav {
+  color: #397bb7;
+  padding: 0 20px;
+}
+
+.aside-nav-active {
+  color: #0a5b07;
+  text-decoration: underline;
+}
+
+.video-nav-active {
+  color: red;
+}

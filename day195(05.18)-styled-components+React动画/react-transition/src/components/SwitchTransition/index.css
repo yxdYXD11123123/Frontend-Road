@@ -1,0 +1,41 @@
+.switch-div {
+  text-align: center;
+}
+/* xxx-enter 进入动画执行之前绑定的类名 */
+/* xxx-enter-active 进入动画执行中绑定的类名 */
+/* xxx-enter-done 进入动画执行完绑定的类名 */
+.switch-enter {
+  opacity: 0;
+  transform: translate(-100%);
+}
+
+.switch-enter-active {
+  opacity: 1;
+  transform: translate(0%);
+  transition: all 3s;
+}
+
+.switch-enter-done {
+  opacity: 1;
+  transform: translate(0%);
+}
+
+/* xxx-exit 退出动画执行之前绑定的类名 */
+/* xxx-exit-active 退出动画执行中绑定的类名 */
+/* xxx-exit-done 退出动画执行完绑定的类名 */
+.switch-exit {
+  opacity: 1;
+  transform: translate(0%);
+}
+
+.switch-exit-active {
+  opacity: 0;
+  transition: all 3s;
+  transform: translate(100%);
+}
+
+.switch-exit-done {
+  opacity: 0;
+  transform: translate(100%);
+}
+

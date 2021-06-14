@@ -1,0 +1,74 @@
+/* xxx-enter 进入动画执行之前绑定的类名 */
+/* xxx-enter-active 进入动画执行中绑定的类名 */
+/* xxx-enter-done 进入动画执行完绑定的类名 */
+.box-enter {
+  width: 10px;
+  height: 10px;
+  opacity: 0.1;
+  background-color: skyblue;
+}
+
+.box-enter-active {
+  width: 100px;
+  height: 100px;
+  opacity: 1;
+  background-color: skyblue;
+  transition: all 3s;
+}
+
+.box-enter-done {
+  width: 80px;
+  height: 80px;
+  opacity: 0.8;
+  background-color: skyblue;
+}
+
+/* xxx-exit 退出动画执行之前绑定的类名 */
+/* xxx-exit-active 退出动画执行中绑定的类名 */
+/* xxx-exit-done 退出动画执行完绑定的类名 */
+.box-exit {
+  width: 80px;
+  height: 80px;
+  opacity: 0.8;
+  background-color: skyblue;
+}
+
+.box-exit-active {
+  width: 10px;
+  height: 10px;
+  opacity: 0.1;
+  background-color: skyblue;
+  transition: all 3s;
+}
+
+.box-exit-done {
+  width: 10px;
+  height: 10px;
+  opacity: 0.1;
+  background-color: skyblue;
+}
+
+/* xxx-appear 首屏动画执行之前绑定的类名 */
+/* xxx-appear-active 首屏动画执行中绑定的类名 */
+/* xxx-appear-done 首屏动画执行完绑定的类名 */
+.box-appear {
+  width: 80px;
+  height: 80px;
+  opacity: 0.8;
+  background-color: slateblue;
+}
+
+.box-appear-active {
+  width: 10px;
+  height: 10px;
+  opacity: 0.1;
+  background-color: slateblue;
+  transition: all 3s;
+}
+
+.box-appear-done {
+  width: 10px;
+  height: 10px;
+  opacity: 0.1;
+  background-color: slateblue;
+}
