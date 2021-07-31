@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 解决异步回调问题
+
+    // 异步返回promise
+    function waitSeconds() {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve("success")
+        }, 1500);
+      })
+    }
+
+    // 每步都用 yield 返回 promise异步
+    function* getData() {
+      yield waitSeconds();
+
+      yield waitSeconds();
+
+      yield waitSeconds();
+    }
+
+    // 定义一个运行 generator的方法
+    function run(generator) {
+      // 进入下一状态
+      let g = generator.next();
+      // 未完成 继续
+      if (g.done) return;
+      // 使用then获取promise结果
+      g.value.then((res) => {
+        // 使用结果
+        console.log(res);
+        // 继续进入下一状态
+        run(generator);
+      })
+    }
+
+    // 运行
+    run(getData())
+
+    // request()
+    // const g = getData();
+    // g.next().value
+    //   .then(res => {
+    //     console.log(res);
+    //     return g.next().value
+    //   })
+    //   .then((res) => {
+    //     console.log(res);
+    //     return g.next().value
+    //   })
+    //   .then((res) => {
+    //     console.log(res);
+    //     return g.next().value
+    //   });
+  </script>
+</body>
+
+</html>

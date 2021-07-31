@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    function* fn() {
+      yield 1;
+      yield 2;
+      return 3;
+    }
+
+    // const fnGenerator = fn();
+    // console.log(fnGenerator.next());
+    // console.log(fnGenerator.next());
+    // console.log(fnGenerator.next());
+    // console.log(fnGenerator.next());
+
+    // 生成一个自增的id
+    let num = 0;
+    function* add() {
+      while (true) {
+        console.log(11);
+        yield ++num;
+      }
+    }
+
+    const addGenerator = add();
+    console.log(addGenerator.next().value); // 1
+    console.log(addGenerator.next().value); // 2
+    console.log(addGenerator.next().value); // 3
+    console.log(addGenerator.next().value); // 4
+    console.log(addGenerator.next().value); // 5
+    console.log(addGenerator.next().value); // 6
+    console.log(addGenerator.next().value); // 7
+    console.log(addGenerator.next().value); // 8
+
+  </script>
+</body>
+
+</html>

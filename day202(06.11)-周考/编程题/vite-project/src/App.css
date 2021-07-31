@@ -1,0 +1,40 @@
+html,
+body,
+#root {
+  height: 100%;
+}
+
+h1,
+h2,
+h3 {
+  color: black;
+}
+
+.App {
+  background-color: darkgray;
+  height: 100%;
+  display: flex;
+  color: #fff;
+}
+
+.App .container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.App .App-son {
+  background-color: gray;
+  flex: 2;
+  display: flex;
+  justify-content: center;
+}
+
+.App .App-gr-son {
+  background-color: burlywood;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
