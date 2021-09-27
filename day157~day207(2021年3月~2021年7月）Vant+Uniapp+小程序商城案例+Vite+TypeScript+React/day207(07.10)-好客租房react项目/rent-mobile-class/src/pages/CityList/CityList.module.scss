@@ -1,0 +1,63 @@
+// 导航栏
+.am-navbar-light {
+  background-color: #f6f5f6;
+}
+
+.city-list {
+  height: 100%;
+  background-color: #fff;
+}
+
+.city-list-content {
+  position: relative;
+}
+
+.city-block {
+  div {
+    padding: 0 15px;
+    height: 36px;
+    line-height: 36px;
+    font-size: 14px;
+    color: #999;
+  }
+  p {
+    padding: 0 15px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 16px;
+    color: #333;
+    border-bottom: 1px solid #eeeeee;
+    box-sizing: border-box;
+  }
+}
+
+/* 侧边导航 start */
+.key-nav {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 0;
+  right: 3px;
+  height: 100%;
+  padding: 20px 0;
+  div {
+    flex: 1;
+    span {
+      display: block;
+      width: 15px;
+      height: 15px;
+      line-height: 15px;
+      text-align: center;
+      font-size: 14px;
+      border-radius: 50%;
+    }
+    &:nth-child(1) span {
+      font-size: 12px;
+    }
+    &.active span {
+      background-color: #21b97a;
+      color: #fff;
+    }
+  }
+}
+/* 侧边导航 end */

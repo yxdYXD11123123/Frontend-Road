@@ -1,0 +1,1571 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "租房网",
+    "version": "1.0.0",
+    "title": "租房网",
+    "termsOfService": "/"
+  },
+  "tags": [
+    {
+      "name": "home",
+      "description": "主要负责首页",
+      "externalDocs": {
+        "description": "请求内容",
+        "url": "http://127.0.0.1"
+      }
+    },
+    {
+      "name": "area",
+      "description": "区域",
+      "externalDocs": {
+        "description": "请求内容",
+        "url": "http://127.0.0.1"
+      }
+    },
+    {
+      "name": "house",
+      "description": "房屋相关的一些接口",
+      "externalDocs": {
+        "description": "请求房屋相关的一些接口",
+        "url": "http://127.0.0.1"
+      }
+    },
+    {
+      "name": "plugin",
+      "description": "一些功能性的接口",
+      "externalDocs": {
+        "description": "请求主页",
+        "url": "http://127.0.0.1"
+      }
+    },
+    {
+      "name": "user",
+      "description": "主要就是一些用户相关的一下接口",
+      "externalDocs": {
+        "description": "请求主页",
+        "url": "http://127.0.0.1"
+      }
+    },
+    {
+      "name": "admin",
+      "description": "主要负责管理员的相关接口",
+      "externalDocs": {
+        "description": "请求内容",
+        "url": "http://127.0.0.1"
+      }
+    }
+  ],
+  "paths": {
+    "/user/registered": {
+      "post": {
+        "tags": [
+          "user"
+        ],
+        "summary": "用户注册接口",
+        "operationId": "addPet",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "用户注册的时候需要提交的一些数据",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/User/registered"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "创建用户成功"
+          },
+          "400": {
+            "description": "传入内容参数缺失"
+          },
+          "404": {
+            "description": "请求接口不存在"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
+    "/user/login": {
+      "post": {
+        "tags": [
+          "user"
+        ],
+        "summary": "用户登录接口",
+        "operationId": "addUser",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "用户登录的时候需要提交的内容",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/User/login"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "用户登录成功"
+          },
+          "400": {
+            "description": "传入的参数缺失"
+          },
+          "401": {
+            "description": "用户的账号密码错误"
+          },
+          "404": {
+            "description": "接口不存在"
+          }
+        }
+      }
+    },
+    "/user": {
+      "get": {
+        "tags": [
+          "user"
+        ],
+        "summary": "获取用户的信息资料",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "authorization",
+            "description": "用户的token",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJRCI6NiwiaWF0IjoxNTU1OTIyMjU4LCJleHAiOjE1OTE5MTg2NTh9.Z967JTclvj2ldAXDhAX6SHTgY3iB2Z-qCJ1-cYimwJM"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "请求用户的参数成功"
+          },
+          "400": {
+            "description": "用户的token异常 or 过期 or 缺失"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "user"
+        ],
+        "summary": "更新用户的数据",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "authorization",
+            "description": "用户token",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJRCI6NiwiaWF0IjoxNTU1OTIyMjU4LCJleHAiOjE1OTE5MTg2NTh9.Z967JTclvj2ldAXDhAX6SHTgY3iB2Z-qCJ1-cYimwJM"
+            }
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "需要更新的数据",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/User/update"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "用户数据更新成功"
+          },
+          "400": {
+            "description": "用户的token异常 or 过期 or 缺失"
+          }
+        }
+      }
+    },
+    "/user/favorites": {
+      "get": {
+        "tags": [
+          "user"
+        ],
+        "summary": "查看收藏列表",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "authorization",
+            "description": "token",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJRCI6NiwiaWF0IjoxNTU1OTIyMjU4LCJleHAiOjE1OTE5MTg2NTh9.Z967JTclvj2ldAXDhAX6SHTgY3iB2Z-qCJ1-cYimwJM"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "数据请求成功"
+          }
+        }
+      }
+    },
+    "/user/favorites/{id}": {
+      "get": {
+        "tags": [
+          "user"
+        ],
+        "summary": "房屋是否收藏",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "authorization",
+            "description": "token",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJRCI6NiwiaWF0IjoxNTU1OTIyMjU4LCJleHAiOjE1OTE5MTg2NTh9.Z967JTclvj2ldAXDhAX6SHTgY3iB2Z-qCJ1-cYimwJM"
+            }
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "description": "房屋的code值",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "5c9fc2e1665b23039a22e89b"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "收藏成功"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "user"
+        ],
+        "summary": "添加收藏",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "authorization",
+            "description": "token",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJRCI6NiwiaWF0IjoxNTU1OTIyMjU4LCJleHAiOjE1OTE5MTg2NTh9.Z967JTclvj2ldAXDhAX6SHTgY3iB2Z-qCJ1-cYimwJM"
+            }
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "description": "房屋的code值",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "5c9fc2e1665b23039a22e89b"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "收藏成功"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "user"
+        ],
+        "summary": "删除收藏",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "authorization",
+            "description": "token",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJRCI6NiwiaWF0IjoxNTU1OTIyMjU4LCJleHAiOjE1OTE5MTg2NTh9.Z967JTclvj2ldAXDhAX6SHTgY3iB2Z-qCJ1-cYimwJM"
+            }
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "description": "房屋的code值",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "5c9fc2e1665b23039a22e89b"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "删除成功"
+          }
+        }
+      }
+    },
+    "/user/houses": {
+      "post": {
+        "tags": [
+          "user"
+        ],
+        "summary": "发布房源",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "authorization",
+            "description": "用户的token",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJRCI6NiwiaWF0IjoxNTU1OTIyMjU4LCJleHAiOjE1OTE5MTg2NTh9.Z967JTclvj2ldAXDhAX6SHTgY3iB2Z-qCJ1-cYimwJM"
+            }
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "token",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/User/addHouse"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "请求成功"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "user"
+        ],
+        "summary": "查看已发布房源列表",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "authorization",
+            "description": "用户的token",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJRCI6NiwiaWF0IjoxNTU1OTIyMjU4LCJleHAiOjE1OTE5MTg2NTh9.Z967JTclvj2ldAXDhAX6SHTgY3iB2Z-qCJ1-cYimwJM"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "请求成功"
+          }
+        }
+      }
+    },
+    "/user/houses/{id}": {
+      "patch": {
+        "tags": [
+          "user"
+        ],
+        "summary": "上下架房屋",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "authorization",
+            "description": "用户的token",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJRCI6NiwiaWF0IjoxNTU1OTIyMjU4LCJleHAiOjE1OTE5MTg2NTh9.Z967JTclvj2ldAXDhAX6SHTgY3iB2Z-qCJ1-cYimwJM"
+            }
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "description": "用户房屋code",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "5c9f94b52af7a00380f4b290"
+            }
+          },
+          {
+            "in": "body",
+            "name": "shelf",
+            "description": "用户房屋上下架",
+            "required": true,
+            "schema": {
+              "example": {
+                "shelf": false
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "请求成功"
+          }
+        }
+      }
+    },
+    "/user/logout": {
+      "post": {
+        "tags": [
+          "user"
+        ],
+        "summary": "用户登出接口",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "authorization",
+            "description": "token",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJRCI6NiwiaWF0IjoxNTU1OTIyMjU4LCJleHAiOjE1OTE5MTg2NTh9.Z967JTclvj2ldAXDhAX6SHTgY3iB2Z-qCJ1-cYimwJM"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "用户登录成功"
+          },
+          "400": {
+            "description": "用户的token异常 or 过期 or 缺失"
+          }
+        }
+      }
+    },
+    "/houses/image": {
+      "post": {
+        "tags": [
+          "plugin"
+        ],
+        "summary": "房屋图像上传",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Content-Type",
+            "description": "请求头内容类型 multipart/form-data",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "multipart/form-data"
+            }
+          },
+          {
+            "in": "body",
+            "name": "file",
+            "description": "FormData的键名（form.append('file', 图片对象)）",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": " <form action='http://127.0.0.1:3000/houses/image' enctype='multipart/form-data' method='post'><input type='file' name='file' multiple='multiple'><button> ok </button></form>"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功"
+          }
+        }
+      }
+    },
+    "/area/city": {
+      "get": {
+        "tags": [
+          "area"
+        ],
+        "summary": "获取城市列表数据",
+        "description": "获取城市列表数据",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "level",
+            "description": "获取哪一级的城市，1 表示获取所有城市数据 2 表示城市下区的数据",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "1"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "请求成功"
+          }
+        }
+      }
+    },
+    "/area/hot": {
+      "get": {
+        "tags": [
+          "area"
+        ],
+        "summary": "热门城市",
+        "description": "查询热门城市",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "请求成功"
+          }
+        }
+      }
+    },
+    "/area/info": {
+      "get": {
+        "tags": [
+          "area"
+        ],
+        "summary": "根据城市名称查询该城市信息",
+        "description": "根据城市名称查询该城市信息",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "name",
+            "description": "地区的name值",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "北京"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "请求成功"
+          }
+        }
+      }
+    },
+    "/area/community": {
+      "get": {
+        "tags": [
+          "area"
+        ],
+        "summary": "小区关键词查询",
+        "description": "使用关键词查询小区信息",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "name",
+            "description": "关键词",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "北京"
+            }
+          },
+          {
+            "in": "query",
+            "name": "id",
+            "description": "当前定位城市id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "AREA|88cff55c-aaa4-e2e0"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "请求成功"
+          }
+        }
+      }
+    },
+    "/area/map": {
+      "get": {
+        "tags": [
+          "area"
+        ],
+        "summary": "查询房源数据",
+        "description": "根据区域id，查询该区域的房源数据",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "description": "区域的id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "AREA|88cff55c-aaa4-e2e0"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "请求成功"
+          }
+        }
+      }
+    },
+    "/area": {
+      "get": {
+        "tags": [
+          "area"
+        ],
+        "summary": "获取子级城市列表",
+        "description": "获取子级城市列表",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "description": "地区的code",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "AREA|88cff55c-aaa4-e2e0"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "请求成功"
+          }
+        }
+      }
+    },
+    "/houses": {
+      "get": {
+        "tags": [
+          "house"
+        ],
+        "summary": "根据条件查询房屋",
+        "description": "根据条件查询房屋所需要的各种数据",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "cityId",
+            "description": "地区的id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "AREA|88cff55c-aaa4-e2e0"
+            }
+          },
+          {
+            "in": "query",
+            "name": "area",
+            "description": "地区",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "AREA|88cff55c-aaa4-e2e0"
+            }
+          },
+          {
+            "in": "query",
+            "name": "subway",
+            "description": "地铁",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": ""
+            }
+          },
+          {
+            "in": "query",
+            "name": "rentType",
+            "description": "整租",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "true"
+            }
+          },
+          {
+            "in": "query",
+            "name": "price",
+            "description": "价格",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "null"
+            }
+          },
+          {
+            "in": "query",
+            "name": "more",
+            "description": "复合查询",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "CHAR|76eb0532-8099-d1f4,FLOOR|1,AREA|88cff55c-aaa4-e2e0,ORIEN|61e99445-e95e-7f37,true"
+            }
+          },
+          {
+            "in": "query",
+            "name": "roomType",
+            "description": "房屋类型",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "ROOM|d1a00384-5801-d5cd"
+            }
+          },
+          {
+            "in": "query",
+            "name": "oriented",
+            "description": "朝向",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "ORIEN|61e99445-e95e-7f37"
+            }
+          },
+          {
+            "in": "query",
+            "name": "characteristic",
+            "description": "标签",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "CHAR|76eb0532-8099-d1f4"
+            }
+          },
+          {
+            "in": "query",
+            "name": "floor",
+            "description": "楼层",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "FLOOR|1"
+            }
+          },
+          {
+            "in": "query",
+            "name": "start",
+            "description": "开始项",
+            "required": false,
+            "schema": {
+              "type": "number",
+              "example": 1
+            }
+          },
+          {
+            "in": "query",
+            "name": "end",
+            "description": "结束项",
+            "required": false,
+            "schema": {
+              "type": "number",
+              "example": 20
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "请求成功"
+          }
+        }
+      }
+    },
+    "/houses/{id}": {
+      "get": {
+        "tags": [
+          "house"
+        ],
+        "summary": "查询房屋具体信息",
+        "description": "查询房屋具体信息",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "发送房屋的具体code值",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "5cc4494549926d0e2b94c816"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "请求成功"
+          }
+        }
+      }
+    },
+    "/houses/condition": {
+      "get": {
+        "tags": [
+          "house"
+        ],
+        "summary": "获取房屋查询条件",
+        "description": "获取房屋查询条件",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "description": "城市id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "AREA|88cff55c-aaa4-e2e0"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "请求成功"
+          }
+        }
+      }
+    },
+    "/houses/params": {
+      "get": {
+        "tags": [
+          "house"
+        ],
+        "summary": "发布房屋所需的条件",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "authorization",
+            "description": "token",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJRCI6NiwiaWF0IjoxNTU1OTIyMjU4LCJleHAiOjE1OTE5MTg2NTh9.Z967JTclvj2ldAXDhAX6SHTgY3iB2Z-qCJ1-cYimwJM"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "用户登录成功"
+          },
+          "400": {
+            "description": "传入的参数缺失"
+          },
+          "401": {
+            "description": "用户的账号密码错误"
+          },
+          "404": {
+            "description": "接口不存在"
+          }
+        }
+      }
+    },
+    "/home/swiper": {
+      "get": {
+        "tags": [
+          "home"
+        ],
+        "summary": "首页轮播图",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+        ],
+        "responses": {
+          "200": {
+            "description": "请求成功"
+          }
+        }
+      }
+    },
+    "/home/groups": {
+      "get": {
+        "tags": [
+          "home"
+        ],
+        "summary": "租房小组",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "area",
+            "description": "地区的id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "AREA|88cff55c-aaa4-e2e0"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "请求成功"
+          }
+        }
+      }
+    },
+    "/home/news": {
+      "get": {
+        "tags": [
+          "home"
+        ],
+        "summary": "咨询",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "area",
+            "description": "地区的id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "AREA|88cff55c-aaa4-e2e0"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "请求成功"
+          }
+        }
+      }
+    },
+    "/admin/logout": {
+      "post": {
+        "tags": [
+          "admin"
+        ],
+        "summary": "管理员退出",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "authorization",
+            "description": "token",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJRCI6NiwiaWF0IjoxNTU1OTIyMjU4LCJleHAiOjE1OTE5MTg2NTh9.Z967JTclvj2ldAXDhAX6SHTgY3iB2Z-qCJ1-cYimwJM"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "用户登录成功"
+          },
+          "400": {
+            "description": "传入的参数缺失"
+          },
+          "401": {
+            "description": "用户的账号密码错误"
+          },
+          "404": {
+            "description": "接口不存在"
+          }
+        }
+      }
+    },
+    "/admin/registered": {
+      "post": {
+        "tags": [
+          "admin"
+        ],
+        "summary": "管理员注册",
+        "operationId": "addPet",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "用户注册的时候需要提交的一些数据",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/User/registered"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "创建用户成功"
+          },
+          "400": {
+            "description": "传入内容参数缺失"
+          },
+          "404": {
+            "description": "请求接口不存在"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
+    "/admin/login": {
+      "post": {
+        "tags": [
+          "admin"
+        ],
+        "summary": "管理员登录",
+        "operationId": "addUser",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "用户登录的时候需要提交的内容",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/User/login"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "用户登录成功"
+          },
+          "400": {
+            "description": "传入的参数缺失"
+          },
+          "401": {
+            "description": "用户的账号密码错误"
+          },
+          "404": {
+            "description": "接口不存在"
+          }
+        }
+      }
+    },
+    "/admin/users": {
+      "get": {
+        "tags": [
+          "admin"
+        ],
+        "summary": "获取用户列表",
+        "operationId": "allUser",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "authorization",
+            "description": "获取用户的信息资料",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJRCI6NiwiaWF0IjoxNTU1OTIyMjU4LCJleHAiOjE1OTE5MTg2NTh9.Z967JTclvj2ldAXDhAX6SHTgY3iB2Z-qCJ1-cYimwJM"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "用户登录成功"
+          },
+          "400": {
+            "description": "传入的参数缺失"
+          },
+          "401": {
+            "description": "用户的账号密码错误"
+          },
+          "404": {
+            "description": "接口不存在"
+          }
+        }
+      }
+    },
+    "/admin/houses": {
+      "get": {
+        "tags": [
+          "admin"
+        ],
+        "summary": "获取房屋列表",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "authorization",
+            "description": "获取用户的信息资料",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJRCI6NiwiaWF0IjoxNTU1OTIyMjU4LCJleHAiOjE1OTE5MTg2NTh9.Z967JTclvj2ldAXDhAX6SHTgY3iB2Z-qCJ1-cYimwJM"
+            }
+          },
+          {
+            "in": "query",
+            "name": "community",
+            "description": "小区的code",
+            "schema": {
+              "type": "string",
+              "example": ""
+            }
+          },
+          {
+            "in": "query",
+            "name": "start",
+            "description": "开始时间",
+            "schema": {
+              "type": "string",
+              "example": ""
+            }
+          },
+          {
+            "in": "query",
+            "name": "end",
+            "description": "结束时间",
+            "schema": {
+              "type": "string",
+              "example": ""
+            }
+          },
+          {
+            "in": "query",
+            "name": "userName",
+            "description": "用户名",
+            "schema": {
+              "type": "string",
+              "example": ""
+            }
+          },
+          {
+            "in": "query",
+            "name": "disabled",
+            "description": "是否上锁",
+            "schema": {
+              "type": "boolean",
+              "example": ""
+            }
+          },
+          {
+            "in": "query",
+            "name": "cur_page",
+            "description": "开始页",
+            "schema": {
+              "type": "boolean",
+              "example": ""
+            }
+          },
+          {
+            "in": "query",
+            "name": "page_size",
+            "description": "每一页的数量",
+            "schema": {
+              "type": "boolean",
+              "example": ""
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "用户登录成功"
+          },
+          "400": {
+            "description": "传入的参数缺失"
+          },
+          "401": {
+            "description": "用户的账号密码错误"
+          },
+          "404": {
+            "description": "接口不存在"
+          }
+        }
+      }
+    },
+    "/admin/users/{id}": {
+      "patch": {
+        "tags": [
+          "admin"
+        ],
+        "summary": "禁用或启用用户",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "authorization",
+            "description": "token",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJRCI6NiwiaWF0IjoxNTU1OTIyMjU4LCJleHAiOjE1OTE5MTg2NTh9.Z967JTclvj2ldAXDhAX6SHTgY3iB2Z-qCJ1-cYimwJM"
+            }
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "用户要进入的状态",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "disabled": {
+                  "type": "boolean",
+                  "example": "true"
+                }
+              }
+            }
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "description": "用户的code值",
+            "required": true,
+            "schema": {
+              "type": "number",
+              "example": 6
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "用户登录成功"
+          },
+          "400": {
+            "description": "传入的参数缺失"
+          },
+          "401": {
+            "description": "用户的账号密码错误"
+          },
+          "404": {
+            "description": "接口不存在"
+          }
+        }
+      }
+    },
+    "/admin/houses/{id}": {
+      "patch": {
+        "tags": [
+          "admin"
+        ],
+        "summary": "上下架房屋",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "authorization",
+            "description": "token",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJRCI6NiwiaWF0IjoxNTU1OTIyMjU4LCJleHAiOjE1OTE5MTg2NTh9.Z967JTclvj2ldAXDhAX6SHTgY3iB2Z-qCJ1-cYimwJM"
+            }
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "用户要进入的状态",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "disabled": {
+                  "type": "boolean",
+                  "example": "true"
+                }
+              }
+            }
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "description": "房屋的id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "5c9f94b52af7a00380f4b290"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "用户登录成功"
+          },
+          "400": {
+            "description": "传入的参数缺失"
+          },
+          "401": {
+            "description": "用户的账号密码错误"
+          },
+          "404": {
+            "description": "接口不存在"
+          }
+        }
+      }
+    }
+  },
+  "securityDefinitions": {
+    "petstore_auth": {
+      "type": "oauth2",
+      "authorizationUrl": "http://petstore.swagger.io/oauth/dialog",
+      "flow": "implicit",
+      "scopes": {
+        "write:pets": "modify pets in your account",
+        "read:pets": "read your pets"
+      }
+    },
+    "api_key": {
+      "type": "apiKey",
+      "name": "api_key",
+      "in": "header"
+    }
+  },
+  "definitions": {
+    "User": {
+      "registered": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "example": "test2"
+          },
+          "password": {
+            "type": "string",
+            "example": "test2"
+          }
+        }
+      },
+      "login": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "example": "test2"
+          },
+          "password": {
+            "type": "string",
+            "example": "test2"
+          }
+        }
+      },
+      "getUserData": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "example": "admin"
+          }
+        }
+      },
+      "update": {
+        "type": "object",
+        "properties": {
+          "avatar": {
+            "type": "string",
+            "example": "",
+            "description": "用户头像"
+          },
+          "gender": {
+            "type": "string",
+            "example": "",
+            "description": "用户的性别"
+          },
+          "nickname": {
+            "type": "string",
+            "example": "",
+            "description": "用户昵称"
+          },
+          "phone": {
+            "type": "string",
+            "example": "",
+            "description": "用户手机"
+          }
+        }
+      },
+      "collection": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "example": "5c9fc2e1665b23039a22e89b"
+          }
+        }
+      },
+      "addHouse": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "example": "整租 · 豪华小区 精装修出租 小区环境幽静"
+          },
+          "description": {
+            "type": "string",
+            "example": "【装修描述】 装修简洁，家电配齐，通风采光效果良好，格局方正。"
+          },
+          "houseImg": {
+            "type": "string",
+            "example": "img1|im2|img3"
+          },
+          "oriented": {
+            "type": "string",
+            "example": "ORIEN|caa6f80b-b764-c2df"
+          },
+          "supporting": {
+            "type": "array",
+            "example": "空调|洗衣机"
+          },
+          "price": {
+            "type": "string",
+            "example": "1234"
+          },
+          "roomType": {
+            "type": "string",
+            "example": "ROOM|ce2a5daa-811d-2f49"
+          },
+          "size": {
+            "type": "string",
+            "example": "123"
+          },
+          "floor": {
+            "type": "string",
+            "example": "FLOOR|1"
+          },
+          "community": {
+            "type": "string",
+            "example": "AREA|93cbbe43-741d-de54"
+          }
+        }
+      }
+    },
+    "Plugin": {
+      "base64": {
+        "type": "string",
+        "properties": {
+          "base64": {
+            "type": "string",
+            "example": ""
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,50 @@
+.addressbar {
+  display: flex;
+  align-items: center;
+  line-height: 0.68rem;
+  width: 100%;
+}
+
+.search {
+  display: flex;
+  flex: 1;
+  height: 0.68rem;
+  padding: 0.15rem 0;
+  line-height: 0.38rem;
+  background-color: #fff;
+  border-radius: 0.05rem;
+  >i {
+    vertical-align: bottom;
+  }
+  span {
+    // 地址
+    &:nth-child(1) {
+      padding-left: 0.14rem;
+     i {
+      font-size: 0.24rem;
+      color: #7f7f80;
+     }
+    }
+    // 输入框
+    &:nth-last-child(1) {
+      flex: 1;
+      margin-left: 0.1rem;
+      padding-left: 0.2rem;
+      height: 100%;
+      color: #9c9fa1;
+      font-size: 0.26rem;
+      border-left: solid 1px #e5e5e5;
+      i {
+        font-size: 0.26rem;
+        vertical-align: bottom;
+        margin-right: 0.1rem;
+      }
+    }
+  }
+}
+
+.map {
+   margin: 0 0.2rem;
+   font-size: 0.5rem;
+   color: white;
+}

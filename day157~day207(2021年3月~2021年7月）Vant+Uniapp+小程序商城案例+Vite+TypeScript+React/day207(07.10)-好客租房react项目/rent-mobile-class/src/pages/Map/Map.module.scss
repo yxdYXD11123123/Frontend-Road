@@ -1,0 +1,17 @@
+/* 地图找房页面 */
+.map {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+// 导航栏
+.am-navbar-light {
+  background-color: #f6f5f6;
+}
+
+/* 地图 start */
+.container {
+  flex: 1;
+}
+/* 地图 end */
