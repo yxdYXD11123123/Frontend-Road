@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .results {
+      width: 300px;
+      height: 300px;
+      border: 1px burlywood solid;
+    }
+  </style>
+</head>
+
+<body>
+  <input type="text" placeholder="输入你的内容">
+  <button>发送请求</button>
+  <!-- 显示结果 -->
+  <div class="results"></div>
+
+  <script>
+    const input = document.querySelector('input')
+    const button = document.querySelector('button')
+    const div = document.querySelector('div')
+    // websocket在浏览器的使用
+    // 创建 websocket 
+    // 参数：websocket的服务地址
+    const socket = new WebSocket('ws://localhost:8080');
+
+    // 当websocket服务连接成功时触发
+    socket.addEventListener("open", () => {
+      // div.innerHTML = "连接服务成功"
+    })
+
+    // 发送消息
+    button.onclick = () => {
+      let value = input.value;
+      // 向服务端发送消息
+      socket.send(value);
+      // 清空
+      input.value = "";
+    }
+
+    // 监听 接收消息 
+    socket.addEventListener("message", (e) => {
+      // 获取 数据信息
+      const { msg, time, type } = JSON.parse(e.data);
+      // 创建一个div
+      const newMsg = document.createElement('div');
+      // 添加颜色
+      newMsg.style.color = getColorByType(type);
+      // 显示消息
+      newMsg.innerText = msg + " -- " + new Date(time).toTimeString().split(" ")[0];
+      // 添加
+      div.appendChild(newMsg);
+    })
+
+    // 根据类型分配颜色
+    const getColorByType = (type) => {
+      switch (type) {
+        case 0:
+          return 'green';
+        case 1:
+          return "black";
+        case 2:
+          return "red";
+      }
+    }
+
+    // 断开连接（服务器端关闭服务时，会触发）
+    socket.addEventListener("close", (e) => {
+      console.log('服务断开');
+    })
+  </script>
+</body>
+
+</html>

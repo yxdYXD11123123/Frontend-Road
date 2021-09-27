@@ -1,0 +1,27 @@
+{
+  "name": "my-chat-room",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview"
+  },
+  "dependencies": {
+    "ant-design-vue": "^2.2.7",
+    "emoji-mart-vue": "^2.6.6",
+    "emoji-mart-vue-fast": "^10.0.1",
+    "emoji-vue": "^0.2.4",
+    "socket.io-client": "^4.2.0",
+    "vue": "^3.2.6",
+    "vue-router": "^4.0.11",
+    "vue3-discordpicker": "^1.1.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^1.6.0",
+    "@vue/compiler-sfc": "^3.2.6",
+    "node-sass": "^6.0.1",
+    "sass": "^1.41.0",
+    "sass-loader": "^12.1.0",
+    "vite": "^2.5.2"
+  }
+}
