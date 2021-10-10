@@ -1,0 +1,1 @@
+console.log('xxx执行了，客户端', +new Date());
