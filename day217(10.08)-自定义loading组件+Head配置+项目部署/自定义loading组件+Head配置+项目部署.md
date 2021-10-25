@@ -175,7 +175,7 @@ export default {
 
   在服务端，客户端都会运行  
 
-* Vue2 除了 `beforeCreate, created` 都运行在客户端
+* `Vue2` 除了 `beforeCreate, created` 都运行在客户端
 
 #### 总结：
 
@@ -186,7 +186,7 @@ export default {
 
 ## 项目部署
 
-### nginx
+### `nginx`
 
 高效轻量的web服务器
 
@@ -197,7 +197,7 @@ export default {
 #### 命令
 
 * <font color='orange'>`nginx -t` 校验配置是否正确</font>
-* `nginx.exe -s stop` 记录下已经启动的pid文件，kill指定进程
+* `nginx.exe -s stop` 记录下已经启动的 `pid` 文件，kill指定进程
 * `nginx.exe -v` 显示指定信息
 
 每次更新配置，都需要重启 `nginx` 服务，我们可以使用 `.bat` 文件，配置一键更新
@@ -206,13 +206,23 @@ export default {
 
 * <font color='red'>`nginx -c conf/nginx.conf` 配置指定 `nginx`配置文件 并 启动</font>
 
+
+
 ### 项目打包
 
 #### 静态部署
 
-网站静态化：将网站所有页面，调用接口，动态交互等，全部在服务端给你最终渲染成html静态页面，相当于整个网站所有页面全部是静态的 html, css
+网站静态化：将网站所有页面，调用接口，动态交互等，全部在服务端给你最终渲染成`html`静态页面，相当于整个网站所有页面全部是静态的` html`,` css`
 
-* 使用 `yarn generate` 打包
+* 使用<font color='red'> `yarn generate` </font>打包，生成静态站点
+
+#### 生成静态站点
+
+在生成静态站点时渲染应用，意味着你部署应用时不需要服务器，你可以部署到任何静态托管服务站上（`Netlify、GitHub、Vercel`）
+
+`Nuxt` 会给我们每一个 `vue` 文件生成
+
+<font style="color:#000;background-color:#ff0">`Nuxt 2.13` 之后，添加了一个爬虫程序，当我们在使用 `generate`时，会爬取到我们的 ` link ` 标签 ，基于这些 `link` 标签，生成路由。所以使用路径参数的动态路由 可以被生成单独的 `html` 文件</font>，这样被分成多个单独的`html`文件，相较于`请求参数`的路由页面，可以避免让用户一次加载过多资源。（而且，如果我们用编程导航到动态路由，爬虫也是监测不到，不如使用 `nuxt-link`）
 
 ##### 优点：
 
@@ -222,9 +232,45 @@ export default {
 
 * 不能实时更新（股票网站就不可以做静态化）
 
+##### 注意：
+
+* 参数尽可能使用路径参数，因为如果使用查询参数，会把网站所有页面都打包到一个 `Index.html` 中
+* <font style="color:#000;background-color:#ff0">如果使用路径参数，打包后的文件，会自动根据参数进行文件拆分</font>（就是上面爬虫完成的事情）
+
+
+
 #### 动态部署
 
 本质上就是，开启一个 node服务器，帮你的网站通过node启动你的项目
+
+##### 命令
+
+```shell
+# 打包
+nuxt build
+yarn build
+# 启动
+nuxt start
+yarn start
+```
+
+##### 使用 `nginx` 反向代理
+
+```nginx
+http {
+    server {
+        listen       80;
+        server_name  localhost;
+        location / {
+            proxy_pass   http://127.0.0.1:3000;
+            index  index.html index.htm;
+        }
+    }
+}
+
+```
+
+
 
 ##### 优点：
 
@@ -232,4 +278,4 @@ export default {
 
 ##### 缺点：
 
-- 问速度变满，是因为每个页面都是动态渲染，动态调用接口，拿到数据再去渲染
+- 访问速度变满，是因为每个页面都是动态渲染，动态调用接口，拿到数据再去渲染

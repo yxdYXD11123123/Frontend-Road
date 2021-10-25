@@ -45,7 +45,11 @@ Nuxt支持传统的Vue在客户端加载数据的模式，例如在 `mounted` �
 
 ##### 时期：
 
-* `fetch` 是一个在服务端渲染期间，组件实例被<font color='red'>创建之后</font>被调用，在客户端<font color='red'>导航时</font>被调用
+* `fetch` 是一个<font style="color:#000;background-color:#ff0">在服务端渲染期间组件实例被<font color='red'>创建之后</font>被调用</font>，<font style="color:#000;background-color:#ff0">在客户端<font color='red'>导航时</font>被调用</font> 的钩子，有时也在组件挂载后
+
+#### 使用
+
+<font style="color:#000;background-color:#ff0">你可以在 `fetch` 中使用 `this` 获取组件实例</font>，`fetch` 中获取的数据，建议提前在 `data` 中声明，获取后赋值
 
 ##### 返回值：
 
@@ -64,6 +68,97 @@ export default {
   },
 };
 ```
+
+##### 修改 fetch 行为
+
+* `fetchOnServer`: `Boolean`
+
+  <font color='red'>是否在服务端调用</font>，设为false时，`fetch` 只会在客户端调用，并且 `$fetchState.pending`在服务端会返回`true`
+
+* `fetchKey`: `String` or `Function` 
+
+  默认是组件的`scope ID` 或 组件名
+
+  服务端渲染时，被用来 将服务端`fetch` 到的结果映射到客户端组件的数据中
+
+* `fetchDelay`: `Integer` 
+
+  以毫秒为单位设置最小执行时间
+
+  改善闪屏问题
+
+#####  获取 `fetch` 状态
+
+在组件中暴露了 `this.$fetchState` ，有下面三个属性
+
+* `pending` 
+
+  `fetch`是否正在被调用
+
+* `error` 
+
+  null 或者 `fetch hook` 抛出的错误
+
+* `timestamp`
+
+  最近一次的 `fetch`，在使用`keep-alive` 时，可以知道最近一次`fetch`是什么时间
+
+  <font color='red'>要知道，不仅`Nuxt`会自动使用`fetch`，我们也可以手动调用 `this.$fetch()`</font>
+
+  ```html
+  <button @click="$fetch">Refresh</button>
+  ```
+
+#### 监听 `query` 请求参数的变化 自动调用 `fetch()`
+
+```js
+export default {
+  watch: {
+    '$route.query': '$fetch'
+  },
+  async fetch() {
+    // Called also on query changes
+  }
+}
+```
+
+#### 和 `keep-alive` 结合使用，节省fetch次数
+
+通过使用 `activated` 和 `this.$fetch` 以及 `this.$fetchState.timestamp` 来让 fetch 节省次数。 
+
+```vue
+<template> ... </template>
+
+<script>
+  export default {
+    data() {
+      return {
+        posts: []
+      }
+    },
+    activated() {
+      // Call fetch again if last fetch more than 30 sec ago
+      if (this.$fetchState.timestamp <= Date.now() - 30000) {
+        this.$fetch()
+      }
+    },
+    async fetch() {
+      this.posts = await fetch('https://api.nuxtjs.dev/posts').then(res =>
+        res.json()
+      )
+    }
+  }
+</script>
+```
+
+
+
+#### 注意：
+
+* 使用 `fetch()` 时，在 `nuxt 2.12` 之前，有一个<font color='red'>不同的 `fetch()`钩子</font>（只能在页面组件使用，不能获取组件实例`this`），如果你的 `fetch` 接收了一个 `context` 参数，那么它会被视为那个传统的钩子，而不是上述的新`fetch`，建议使用 `asyncData` 或者中间件替代
+* <font color='orange'>我们可以通过 `this.$nuxt.context` 获取 `context`</font>
+* 对于<font color='red'>静态部署，`fetch()` 仅会在页面生成期间被调用</font>，然后把结果缓存到客户端使用。为了避免缓存冲突，我们需要给组件一个`name`，或者提供一个 独一无二的 `fetchKey`
+* 如果 获取数据出现错误，我们不应该在 `fetch()` 中使用`redirect` 或者 `error`，相反，我们应该用 `$fetchState.error` 去处理错误
 
 
 
@@ -232,17 +327,6 @@ export default {
 ```
 
 * `pug` 通过 `yarn add -D pug pug-plain-loader` 来安装
-
-
-
-
-
-
-
-
-
-
-
 
 
 

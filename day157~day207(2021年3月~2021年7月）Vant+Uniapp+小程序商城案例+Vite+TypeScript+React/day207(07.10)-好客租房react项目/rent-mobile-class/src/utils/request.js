@@ -1,3 +1,14 @@
+// 在 api/index.js 中使用request, 封装接口 
+// 例如：登录接口
+// export const login = (data) => {
+//   return request.post("/user/login", data)
+// }
+
+// 组件中使用：
+// const res = await login();
+// ...
+
+
 // 引入axios
 import axios from "axios";
 import { BASE_URL } from "@/utils/url"
@@ -8,7 +19,7 @@ const instance = axios.create({
   baseURL: BASE_URL,
   // 超时
   timeout: 3000,
-  // 鉴权token 不可以加到这里，因为创建实例时，可能在token更新之前
+  // 鉴权token 不可以加到这里，因为创建实例时，可能在token更新之前(加到配置里即可)
   // headers: {
   //   authorization: localStorage.getItem("hkzf_token")
   // }
