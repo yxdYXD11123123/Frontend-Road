@@ -61,7 +61,8 @@ export const mutations = {
 #### 使用场景
 
 * 当我们在<font color='red'>服务端有一些想要直接给客户端的数据</font>时，可以使用
-* <font color='orange'>这个可以与 `session` 结合使用，让 `session` 中的用户信息 按照服务端设置持久化</font>
+* <font color='orange'>这个可以与 `session` 结合使用，让 `session` 中的用户信息 按照服务端设置持久化</font>（这里的前提条件就是前后端不分离的项目）
+* 前后分离的项目，我们如果想要做Vuex数据持久化时，需要使用 `req.headers.cookies`
 
 例如：我们可以通过 `req.session.user` 获取用户信息，直接给客户端
 
