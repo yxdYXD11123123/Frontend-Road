@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    const obj = { name: "frank" }
+    // 给对象进行代理
+    const objProxy = new Proxy(obj, {
+      get(target, property) {
+        return target[property]
+      },
+      set(target, property, value) {
+        target[property] = value;
+      },
+      deleteProperty(target, property) {
+        // 保护name属性不被删除
+        if (property === 'name') {
+          return false
+        };
+        delete target[property]
+        return true;
+      }
+    });
+  </script>
+</body>
+
+</html>
