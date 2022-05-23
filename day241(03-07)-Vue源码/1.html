@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="input" />
+
+    <script>
+      let timer = null; // 1 2
+      const onInput = (e) => {
+        // 防抖
+        //
+        if (timer) clearTimeout(timer);
+
+        timer = setTimeout(() => {
+          console.log(e.target.value);
+        }, 500);
+      };
+
+      document.getElementById("input").oninput = onInput;
+    </script>
+  </body>
+</html>
